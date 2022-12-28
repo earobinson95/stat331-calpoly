@@ -177,7 +177,7 @@ class_cal <- Cal %>%
 class_cal
 
 exam_days <- filter(Cal, category == "Exam") %>%
-  mutate(topic = c("Midterm Exam", "Final Exam", "Final Exam"),
+  mutate(topic = c("Midterm Exam Q&A", "Final Exam Q&A", "Final Exam Q&A"),
          time = c("In Class", "10:10AM-1:00PM", "10:10AM - 1:00PM")) %>%
   rowwise() %>%
   mutate(sem_week = week(date),
@@ -195,16 +195,16 @@ class_days <- filter(Cal, category %in% c("Class Day")) %>%
   # group_by(sem_week) %>%
   summarize(Date = paste(format(date, "%b %e"), sep = ",", collapse = ", ")) %>%
   mutate(topic = c(
-    "Getting Started",
-    "Basic Variable Types & Control Structures",
-    "Data Structures & Programming with Data",
+    "Introduction to R",
+    "Tidy Data + Basics of Graphics",
     "Data Cleaning and Manipulation (dplyr)",
     "Data Transformations (tidyr)",
-    "Data Visualization (ggplot2)",
-    "Strings-Factors-Dates",
-    "Debugging & Version Control",
-    "Simulation & Modeling",
-    "Simulation & Modeling")) %>%
+    "Special Data Types: Strings + Factors + Dates",
+    "Debugging + Version Control",
+    "Reproducibility & Professional Communication",
+    "Functions & Functional Programming",
+    "Simulation",
+    "Statistical Modeling")) %>%
   # bind_rows(project_days) %>%
   bind_rows(exam_days) %>%
   arrange(sem_week) %>%
@@ -274,7 +274,7 @@ This schedule is tentative and subject to change.
 #| fig-width: 8
 #| fig-height: 3.5
 #| fig-pos: 'h'
-#| fig-cap: "Tuesday, January 17th will follow a Monday class schedule."
+#| fig-cap: "Note: Tuesday, January 17th will follow a Monday class schedule."
 class_cal
 ```
 
@@ -294,11 +294,11 @@ Your grade in STAT 331/531 will contain the following components:
 
 | Assignments          | Weight |
 | -------------------- | -------|
-| Flex Points          | 5%     |
+| Check-ins            | 5%     |
 | Practice Activities  | 10%    |
 | Homework Assignments | 15%    |
 | Project I            | 15%    |
-| Midterm              | 15%    |
+| Midterm Exam         | 15%    |
 | Project II           | 15%    |
 | Final Exam           | 25%    |
 
@@ -319,13 +319,43 @@ Interpretation of this table:
 -   A grade of 70 will receive a C-.
 -   Anything below a 60 will receive an F.
 
-#### General Evaluation Criteria
+### General Evaluation Criteria
 
 In every assignment, discussion, and written component of this class, you are expected to demonstrate that you are intellectually engaging with the material. I will evaluate you based on this engagement, which means that technically correct but low effort answers which do not demonstrate engagement or understanding will receive no credit.
 
 When you answer questions in this class, your goal is to show that you either understand the material or are actively engaging with it. If you did not achieve this goal, then your answer is incomplete, regardless of whether or not it is technically correct. This is not to encourage you to add unnecessary complexity to your answer - simple, elegant solutions are always preferable to unwieldly, complex solutions that accomplish the same task.
 
 While this is not an English class, grammar and spelling are important, as is your ability to communicate technical information in writing; both of these criteria will be used in addition to assignment-specific rubrics to evaluate your work.
+
+## Assignment Breakdown
+
+### Check-ins (5%)
+
+### Practice Activities (10%)
+
+### Homeowork Assignments (15%)
+
++ **Lab Assignments**
+
++ **Challenge Activities**
+
+### Projects (30%)
+
+### Exams (40%)
+
+## Attendance & Participation
+
+I do not take formal attendance in this class. However, it is my expectation that you remain in class and on task until you have finished all your activities and assignments. Consistent, repeated failure to attend class or actively participate in the online portions of the course will affect the participation portion of your grade.
+
+If you are feeling ill, please **do not come to class**. Instead, email me, review the material and work on the participation activity and weekly lab assignment, and then schedule an appointment with me to meet virtually.
+
+## Late Policy
+
+Your typical homework assignments will be weekly labs. These labs are due on Fridays at midnight.
+
+There are no extensions on lab assignments. There is a grace period through Sunday at midnight, during which your late lab receives a 10% grade deduction.
+
+Labs turned in later than Sunday will not be reviewed, and instead will be quickly checked for completeness and receive an automatic grade of 50%.
 
 # Course Expectations
 
@@ -360,23 +390,9 @@ Programming is the process of making a series of silly or stupid mistakes, and t
 
 If you manage to produce an error I haven't seen before, then congratulations. You have achieved something special, and that achievement should be celebrated. Each new and bizarre error is an opportunity to learn a bit more about the programming language, the operating system, or the interaction between the two.
 
-# Other Policies
+# University Policies
 
 See [academicprograms.calpoly.edu/content/academicpolicies](https://academicprograms.calpoly.edu/content/academicpolicies/index).
-
-## Participation and Attendance
-
-I do not take formal attendance in this class. However, it is my expectation that you remain in class and on task until you have finished all your activities and assignments. Consistent, repeated failure to attend class or actively participate in the online portions of the course will affect the participation portion of your grade.
-
-If you are feeling ill, please **do not come to class**. Instead, email me, review the material and work on the participation activity and weekly lab assignment, and then schedule an appointment with me to meet virtually.
-
-## Late Policy
-
-Your typical homework assignments will be weekly labs. These labs are due on Fridays at midnight.
-
-There are no extensions on lab assignments. There is a grace period through Sunday at midnight, during which your late lab recieves a 10% grade deduction.
-
-Labs turned in later than Sunday will not be reviewed, and instead will be quickly checked for completeness and recieve an automatic grade of 50%.
 
 ## Diversity and Inclusion
 
