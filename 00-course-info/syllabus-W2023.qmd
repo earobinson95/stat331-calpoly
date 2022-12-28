@@ -1,9 +1,12 @@
 ---
 title: "Stat 331/531: Statistical Computing with R"
 # author: ""
-date: "Winter 2023"
+date: "January 9, 2023"
 
 format: 
+  html:
+    self-contained: true
+    toc: true
   pdf:
     keep-tex: false
     # include-in-header: "in-header.tex"
