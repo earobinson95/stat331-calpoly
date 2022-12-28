@@ -177,7 +177,7 @@ class_cal <- Cal %>%
 class_cal
 
 exam_days <- filter(Cal, category == "Exam") %>%
-  mutate(topic = c("Midterm Exam Q&A", "Final Exam Q&A", "Final Exam Q&A"),
+  mutate(topic = c("Midterm Exam", "Final Exam", "Final Exam"),
          time = c("In Class", "10:10AM-1:00PM", "10:10AM - 1:00PM")) %>%
   rowwise() %>%
   mutate(sem_week = week(date),
@@ -296,10 +296,10 @@ Your grade in STAT 331/531 will contain the following components:
 | -------------------- | -------|
 | Check-ins            | 5%     |
 | Practice Activities  | 10%    |
-| Homework Assignments | 15%    |
-| Project I            | 15%    |
+| Lab Assignments      | 25%    |
+| Challenge Activities | 5%     |
 | Midterm Exam         | 15%    |
-| Project II           | 15%    |
+| Final Project        | 15%    |
 | Final Exam           | 25%    |
 
 Lower bounds for grade cutoffs are shown in the following table. I will not "round up" grades at the end of the quarter beyond strict mathematical rules of rounding.
@@ -329,19 +329,37 @@ While this is not an English class, grammar and spelling are important, as is yo
 
 ## Assignment Breakdown
 
-### Check-ins (5%)
+### Check-ins
 
-### Practice Activities (10%)
+Each week, you will find short Check-In questions throughout the text to make sure you are prepared for class that week. Make sure you submit your answers to these on Canvas to get credit for your efforts. Note that the Canvas Check-In quizzes can be submitted up to five times without a penalty - so you should get 100% on this part of the course!
 
-### Homeowork Assignments (15%)
+All responses to check-ins are due **Mondays at 8:00AM**.
 
-+ **Lab Assignments**
+### Practice Activities
 
-+ **Challenge Activities**
+Most classes, you will be given a Practice Activity to complete, to get the hang of the week’s necessary R skills. These activities will always result in a single, straightforward correct answer, that you will submit via the Canvas site. Therefore, there is no reason you should not get full credit in this category!
 
-### Projects (30%)
+Since these activities are intended to be your first attempt at new skills, they are meant to be done with help from me and your peers. Therefore, you will always be given some time in class to work on them. I strongly suggest that you attempt to start the activities before class, so you can maximize the utility your in-class time.
 
-### Exams (40%)
+Practice Activities are due **before the following class period.**
+
+### Lab Assignments
+
+Your typical homework assignments will be weekly labs. These labs are due on **Fridays at 11:59PM**.
+
+There are no extensions on lab assignments. There is a grace period through Sunday at midnight, during which your late lab receives a 10% grade deduction.
+
+Labs turned in later than Sunday will not be reviewed, and instead will be quickly checked for completeness and receive an automatic grade of 50%.
+
+### Challenge Activities
+
+With each Lab Assignment will come a Challenge, asking you to try skills beyond what is required that week. Challenges are individual submissions, worth 10 points each. Full credit is given for any good faith attempt.
+
+As these are extensions to the lab assignments, they are a great opportunity to discuss your ideas with your team members. However, I do expect that these collaborations are about ideas and no R code is shared between individuals. Each person’s Challenge submission is expected to reflect their own thinking, and thus copying the work of others does not provide me with any information about your learning.
+
+At the end of the quarter, the Challenge points are taken out of 100. However, there are only 8 lab assignments! This means that in order to achieve 100/100, you must submit impressive challenge submissions that earn bonus points.
+
+Extra bonus points beyond 100 earn you extra credit toward your overall course grade.
 
 ## Attendance & Participation
 
