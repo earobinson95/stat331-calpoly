@@ -321,63 +321,119 @@ Interpretation of this table:
 
 ### General Evaluation Criteria
 
-In every assignment, discussion, and written component of this class, you are expected to demonstrate that you are intellectually engaging with the material. I will evaluate you based on this engagement, which means that technically correct but low effort answers which do not demonstrate engagement or understanding will receive no credit.
+In every assignment, discussion, and written component of this class, you are
+expected to demonstrate that you are intellectually engaging with the material.
+I will evaluate you based on this engagement, which means that technically
+correct but low effort answers which do not demonstrate engagement or
+understanding will receive no credit.
 
-When you answer questions in this class, your goal is to show that you either understand the material or are actively engaging with it. If you did not achieve this goal, then your answer is incomplete, regardless of whether or not it is technically correct. This is not to encourage you to add unnecessary complexity to your answer - simple, elegant solutions are always preferable to unwieldly, complex solutions that accomplish the same task.
+When you answer questions in this class, your goal is to show that you either
+understand the material or are actively engaging with it. If you did not achieve
+this goal, then your answer is incomplete, regardless of whether or not it is
+technically correct. This is not to encourage you to add unnecessary complexity
+to your answer - simple, elegant solutions are always preferable to unwieldly,
+complex solutions that accomplish the same task.
 
-While this is not an English class, grammar and spelling are important, as is your ability to communicate technical information in writing; both of these criteria will be used in addition to assignment-specific rubrics to evaluate your work.
+While this is not an English class, grammar and spelling are important, as is
+your ability to communicate technical information in writing; both of these
+criteria will be used in addition to assignment-specific rubrics to evaluate
+your work.
 
 ## Assignment Breakdown
 
 ### Check-ins
 
-Each week, you will find short Check-In questions throughout the text to make sure you are prepared for class that week. Make sure you submit your answers to these on Canvas to get credit for your efforts. Note that the Canvas Check-In quizzes can be submitted up to five times without a penalty - so you should get 100% on this part of the course!
+Each week, you will find short Check-In questions throughout the text to make
+sure you are prepared for class that week. Make sure you submit your answers to
+these on Canvas to get credit for your efforts. Note that the Canvas Check-In
+quizzes can be submitted up to three times without a penalty - so you should get
+100% on this part of the course!
 
-All responses to check-ins are due **Mondays at 8:00AM**.
+All responses to check-ins are due **Mondays at 8:00am**.
 
 ### Practice Activities
 
-Most classes, you will be given a Practice Activity to complete, to get the hang of the week’s necessary R skills. These activities will always result in a single, straightforward correct answer, that you will submit via the Canvas site. Therefore, there is no reason you should not get full credit in this category!
+Most classes, you will be given a Practice Activity to complete, to get the hang
+of the week’s necessary R skills. These activities will always result in a
+single, straightforward correct answer, that you will submit via the Canvas
+site. Therefore, there is no reason you should not get full credit in this
+category!
 
-Since these activities are intended to be your first attempt at new skills, they are meant to be done with help from me and your peers. Therefore, you will always be given some time in class to work on them. I strongly suggest that you attempt to start the activities before class, so you can maximize the utility your in-class time.
+Since these activities are intended to be your first attempt at new skills, they
+are meant to be done with help from me and your peers. Therefore, you will
+always be given some time in class to work on them. I strongly suggest that you
+attempt to start the activities before class, so you can maximize the utility
+your in-class time.
 
-Practice Activities are due **before the following class period.**
+Practice Activities are due **Wednesdays at 8:00am.**
 
 ### Lab Assignments
 
-Your typical homework assignments will be weekly labs. These labs are due on **Fridays at 11:59PM**.
+Your typical homework assignments will be weekly labs. You will follow each
+lab's instructions to complete tasks in `R` and turn in your knitted .html
+Quarto document for to Canvas.
 
-There are no extensions on lab assignments. There is a grace period through Sunday at midnight, during which your late lab receives a 10% grade deduction.
+There will be class time on Wednesdays dedicated to working on completing lab
+assignments.
 
-Labs turned in later than Sunday will not be reviewed, and instead will be quickly checked for completeness and receive an automatic grade of 50%.
+Labs are due on **Fridays at 11:59pm**.
 
 ### Challenge Activities
 
-With each Lab Assignment will come a Challenge, asking you to try skills beyond what is required that week. Challenges are individual submissions, worth 10 points each. Full credit is given for any good faith attempt.
+With each Lab Assignment will come a Challenge, asking you to try skills beyond
+what is required that week. Challenges are individual submissions, worth 10
+points each. Full credit is given for any good faith attempt.
 
-As these are extensions to the lab assignments, they are a great opportunity to discuss your ideas with your team members. However, I do expect that these collaborations are about ideas and no R code is shared between individuals. Each person’s Challenge submission is expected to reflect their own thinking, and thus copying the work of others does not provide me with any information about your learning.
+As these are extensions to the lab assignments, they are a great opportunity to
+discuss your ideas with your team members. However, I do expect that these
+collaborations are about ideas and no R code is shared between individuals. Each
+person’s Challenge submission is expected to reflect their own thinking, and
+thus copying the work of others does not provide me with any information about
+your learning.
 
-At the end of the quarter, the Challenge points are taken out of 100. However, there are only 8 lab assignments! This means that in order to achieve 100/100, you must submit impressive challenge submissions that earn bonus points.
+At the end of the quarter, the Challenge points are taken out of 100. However,
+there are only 8 lab assignments! This means that if you only complete (in good
+faith attempts) the challenges associated with each lab, you will receive 80/100
+(or 80%) in this category. In order to achieve 100/100, you must submit
+impressive challenge submissions that earn bonus points and/or complete optional
+Challenge Point opportunities provided throughout the quarter.
 
-Extra bonus points beyond 100 earn you extra credit toward your overall course grade.
+Extra bonus points beyond 100 earn you extra credit toward your overall course
+grade.
+
+Challenges associated with labs are due at the same time as the lab assignment.
+Watch Canvas for additional Challenge Point opportunities.
 
 ## Attendance & Participation
 
-I do not take formal attendance in this class. However, it is my expectation that you remain in class and on task until you have finished all your activities and assignments. Consistent, repeated failure to attend class or actively participate in the online portions of the course will affect the participation portion of your grade.
+I do not take formal attendance in this class. However, it is my expectation
+that you remain in class and on task until you have finished all your activities
+and assignments. Consistent, repeated failure to attend class or actively
+participate in the online portions of the course will affect the participation
+portion of your grade.
 
-If you are feeling ill, please **do not come to class**. Instead, email me, review the material and work on the participation activity and weekly lab assignment, and then schedule an appointment with me to meet virtually.
+If you are feeling ill, please **do not come to class**. Instead, email me,
+review the material and work on the participation activity and weekly lab
+assignment; then schedule an appointment with me to meet virtually.
 
 ## Late Policy
 
-Your typical homework assignments will be weekly labs. These labs are due on Fridays at midnight.
+There are no extensions on any assignments (this includes Check-ins, Practice
+Activities, Labs, and Challenges).
 
-There are no extensions on lab assignments. There is a grace period through Sunday at midnight, during which your late lab receives a 10% grade deduction.
-
-Labs turned in later than Sunday will not be reviewed, and instead will be quickly checked for completeness and receive an automatic grade of 50%.
++ Canvas will automatically input a 0% for missing assignments as an incentive
+for you to turn the assignment in following the grade deduction penalties below.
++ Canvas will automatically apply a 10% grade deduction for each day past
+the due date with a minimum grade of 50%. 
++ Note that solutions to Practice Activities will be posted. No Practice
+Activities will be accepted after the solution has been posted.
 
 # Course Expectations
 
-You will get out of this course what you put in. The following excerpt was taken from Rob Jenkins’ article “Defining the Relationship” which was published in The Chronicle of Higher Education (August 8, 2016). This accurately summarizes what I expect of you in my classroom (and also what you should expect of me). 
+You will get out of this course what you put in. The following excerpt was taken
+from Rob Jenkins’ article “Defining the Relationship” which was published in The
+Chronicle of Higher Education (August 8, 2016). This accurately summarizes what
+I expect of you in my classroom (and also what you should expect of me).
 
 *“I’d like to be your partner. More than anything, I’d like for us to form a mutually beneficial alliance in this endeavor we call education.*
 
@@ -404,9 +460,22 @@ You will get out of this course what you put in. The following excerpt was taken
 
 ### Make Mistakes!
 
-Programming is the process of making a series of silly or stupid mistakes, and then slowly fixing each mistake (while adding a few more). The only way to know how to fix these mistakes (and avoid them in the future) is to make them. (Sometimes, you have to make the same mistake a few dozen times before you can avoid it in the future). At some point during the class, you will find that you've spent 30 minutes staring at an error caused by a typo, a space, a parenthesis in the wrong place. You may ask for help debugging this weird error, only to have someone immediately point out the problem... it is always easier to see these things in someone else's code. This is part of programming, it is normal, and you shouldn't feel embarrassed or sorry (unless you put no effort into troubleshooting the problem before you asked for help)
+Programming is the process of making a series of silly or stupid mistakes, and
+then slowly fixing each mistake (while adding a few more). The only way to know
+how to fix these mistakes (and avoid them in the future) is to make them.
+(Sometimes, you have to make the same mistake a few dozen times before you can
+avoid it in the future). At some point during the class, you will find that
+you've spent 30 minutes staring at an error caused by a typo, a space, a
+parenthesis in the wrong place. You may ask for help debugging this weird error,
+only to have someone immediately point out the problem... it is always easier to
+see these things in someone else's code. This is part of programming, it is
+normal, and you shouldn't feel embarrassed or sorry (unless you put no effort
+into troubleshooting the problem before you asked for help)
 
-If you manage to produce an error I haven't seen before, then congratulations. You have achieved something special, and that achievement should be celebrated. Each new and bizarre error is an opportunity to learn a bit more about the programming language, the operating system, or the interaction between the two.
+If you manage to produce an error I haven't seen before, then congratulations.
+You have achieved something special, and that achievement should be celebrated.
+Each new and bizarre error is an opportunity to learn a bit more about the
+programming language, the operating system, or the interaction between the two.
 
 # University Policies
 
@@ -414,26 +483,43 @@ See [academicprograms.calpoly.edu/content/academicpolicies](https://academicprog
 
 ## Diversity and Inclusion
 
-It is my goal for everyone to feel safe and comfortable in my classroom. If there is any way I can make the course more welcoming for you, please do not hesitate to ask.
+It is my goal for everyone to feel safe and comfortable in my classroom. If
+there is any way I can make the course more welcoming for you, please do not
+hesitate to ask.
 
-In particular, if you have a disability, I will gladly work with you to make this class accessible.
+In particular, if you have a disability, I will gladly work with you to make
+this class accessible.
 
-I encourage you to also contact the Disability Resource Center (Building 124, Room 119 or at 805-756-1395), who can help you register for extra accomodations such as extended exam time.
+I encourage you to also contact the Disability Resource Center (Building 124,
+Room 119 or at 805-756-1395), who can help you register for extra accommodations
+such as extended exam time.
 
 ## Academic Integrity and Class Conduct
 
 Simply put, I will not tolerate cheating or plagiarism.
 
-Any incident of dishonesty, copying, exam cheating, or plagiarism will be reported to the Office of Student Rights and Responsibilities.
+Any incident of dishonesty, copying, exam cheating, or plagiarism will be
+reported to the Office of Student Rights and Responsibilities.
 
-Cheating will earn you a grade of 0 on the assignment and an overall grade penalty of at least 10%. In circumstances of flagrant cheating, you may be given a grade of F in the course.
+Cheating will earn you a grade of 0 on the assignment and an overall grade
+penalty of at least 10%. In circumstances of flagrant cheating, you may be given
+a grade of F in the course.
 
-Paraphrasing or quoting another’s work without citing the source is a form of academic misconduct. This included the `R` code produced by someone else! Writing code is like writing a paper, it is obvious if you copied-and-pasted a sentence from someone else into your paper because the way each person writes is different.
+Paraphrasing or quoting another’s work without citing the source is a form of
+academic misconduct. This included the `R` code produced by someone else!
+Writing code is like writing a paper, it is obvious if you copied-and-pasted a
+sentence from someone else into your paper because the way each person writes is
+different.
 
-Even inadvertent or unintentional misuse or appropriation of another’s work (such as relying heavily on source material that is not expressly acknowledged) is considered plagiarism. If you are struggling with writing the `R` code for an assignment, please reach out to me. I would prefer that I get to help you rather than you spending hours Googling things and get nowhere!
+Even inadvertent or unintentional misuse or appropriation of another’s work
+(such as relying heavily on source material that is not expressly acknowledged)
+is considered plagiarism. If you are struggling with writing the `R` code for an
+assignment, please reach out to me. I would prefer that I get to help you rather
+than you spending hours Googling things and get nowhere!
 
-If you have any questions about using and citing sources, you are expected to ask for clarification.
+If you have any questions about using and citing sources, you are expected to
+ask for clarification.
 
-For more information about what constitutes cheating and plagiarism, please see 
+For more information about what constitutes cheating and plagiarism, please see
 [academicprograms.calpoly.edu/content/academicpolicies/Cheating](https://academicprograms.calpoly.edu/content/academicpolicies/Cheating).
 
