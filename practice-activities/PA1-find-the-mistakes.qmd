@@ -1,5 +1,6 @@
 ---
-title: "PA1: Find the Mistakes"
+title: "PA 1: Find the Mistakes"
+subtitle: "Working with R Objects"
 author: "YOUR NAME"
 format: html
 self-contained: true
@@ -36,7 +37,7 @@ intended action.
 1. Create vectors containing the upper case letters, lower case letters, and
 some punctuation marks.
 
-```{r}
+```{r, eval = FALSE}
 lower_case <- c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
                 "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z")
 
@@ -76,7 +77,7 @@ my_symbols%Num <- 1:len
 
 6. This chunk will load up the encoded secret message as a vector.
 
-```{r}
+```{r, eval = FALSE}
 #| message: false
 top_secret <- read_csv("https://www.dropbox.com/s/k72h1zewk4gtqep/PA_Secret_Code?dl=1", 
                        col_names = FALSE)$X1

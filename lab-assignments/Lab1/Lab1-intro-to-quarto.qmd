@@ -1,17 +1,14 @@
 ---
 title: "Lab 1: Introduction to Quarto"
-author: ""
-output:
-  prettydoc::html_pretty:
-    theme: tactile
-    highlight: github
-    css: styles.css
-editor_options: 
-  markdown: 
-    wrap: 72
+format: html
+self-contained: true
+
+execute:
+  echo: false
 ---
 
-```{r write-data, include=FALSE}
+```{r, setup}
+#| include: false
 library(tidyverse)
 ```
 
@@ -19,60 +16,62 @@ library(tidyverse)
 
 ### Make a Stat 331 and Lab 1 Folder
 
-1.  If you have not already, create a folder on your computer called
-    "Stat 331" or similar.
+If you have completed *Check-in 1.3*, you have already completed steps 1 & 2.
+
+1.  If you have not already, create a folder on your computer called "Stat 331"
+    or similar.
 
 2.  Create an RStudio Project **inside** of this folder.
 
-3.  Inside your Stat 331 folder, create another folder called either
-    "Week 1" or "Labs".
+3.  Inside your Stat 331 folder, create another folder called either "Week 1" or
+    "Labs".
 
 4.  Inside of this folder, create another folder called "Lab 1".
 
 ### Create your Lab 1 File
 
-To create a Quarto document, you first need to install Quarto on your
-computer. Do do this go to the following link
-<https://quarto.org/docs/get-started/>.
+To create a Quarto document , you first need to install Quarto on your computer.
+To do this go to the following link <https://quarto.org/docs/get-started/>. You may have already installed Quarto during *Check-in 1.3*.
 
 1.  Once you have Quarto installed, open RStudio on your computer.
 
-2.  In RStudio, go to "File" \> "New File" \> "Quarto Document..." and
-    click on "Create" in the dialog box **without changing anything**.
+2.  In RStudio, go to "File" \> "New File" \> "Quarto Document..." and click on
+    "Create" in the dialog box **without changing anything**.
 
-3.  Change the title of your document to be "Lab 1"
+3.  Change the title of your document to be "Lab 1: Introduction to Quarto"
 
-4.  Add an `author` line to your YAML, and include your name
+4.  Add additional lines to your YAML header
+  + add an `author` line, and include your name
+  + add a line with `self-contained: true` to 
+  + (optional) add a line to specify the `editor` as your preference for either source or visual.
 
-5.  Save the Quarto file as "lab1" in your "Week 1" or "Labs" folder.
-    You can change up the name of your document, but the name **cannot**
-    have spaces and it should describe what the document is.
+5.  Save the Quarto file as "lab1" in your "Week 1" or "Labs" folder. You can change up the name of your document, but the name **cannot** have spaces and it should describe what the document is.
 
 ## Lab Instructions
 
 ### Changing the Execution Options
 
-Execution options specify how the R code in your Quarto document should
-be displayed. This guide
-<https://quarto.org/docs/computations/execution-options.html> provides
+Execution options specify how the R code in your Quarto document should be displayed. This guide <https://quarto.org/docs/computations/execution-options.html> provides
 descriptions on the options you can specify in a document's execution.
 
 To start, your YAML should look something like this:
 
-![](images/quarto_yaml.png)
+```{r}
+#| out.width = "50%"
+knitr::include_graphics("images/quarto-yaml.jpg")
+```
 
-Similar to what you did before adding an `author` line, here you will
-need to add an `execution` line to your YAML.
+Similar to how you added an `author`, `self-contained`, (and `editor`) line, you will first need to add an `execute` line to your YAML.
 
 Use the guide above to specify execution options that:
 
--   your source code is always output on the page
--   your document will render even if there are errors
+1.   your source code is always output on the page
+2.   your document will render even if there are errors
 
 ## Running the Provided Code
 
-Next, click on the "Play" button on the right of the first code chunk.
-Alternatively, you can highlight the code you want to run and type
+Next, click on the "Play" button on the right of the first auto-populated code chunk.
+Alternatively, you can highlight (or simply put your curser on the line of) the code you want to run and type
 <kbd>ctrl</kbd> + <kbd>Enter</kbd> or <kbd>⌘</kbd> + <kbd>Enter</kbd>.
 
 You should see the code appear in the console, as well as the result of
@@ -89,7 +88,7 @@ inspect environment tab, the `cars` dataset should not appear!
 
 ### Check the data documentation
 
-In your **console** (*not* in the Quarto document), type `?cars`.
+In your **console** (*not* in the Quarto document), type `?cars` (or alternatively `help(cars)`.
 
 Use the information that pops up in your *Help* pane in RStudio to fill
 in the blanks below. Add the questions and your responses *after* the R
@@ -98,12 +97,19 @@ code chunk. *Before* the code chunk, create a section header (using
 
 <center>
 
-*This dataset contains information about \_\_\_\_. The data was
+*This data set contains information about \_\_\_\_. The data was
 collected in \_\_\_\_.*
 
 *It has \_\_\_ rows and \_\_\_\_ variables.*
 
 </center>
+
+Your cars data set section should look something like this:
+
+```{r}
+#| out.width: "80%"
+knitr::include_graphics("images/cars-dataset-section.jpg")
+```
 
 ## Creating a Plot {#sec-creating-a-plot}
 
@@ -112,16 +118,19 @@ it up! Replace the `2 * 2` code with the following: `plot(pressure)`
 
 Now, run this code chunk! You should see a scatterplot of the
 relationship between temperature and pressure of mercury, contained in
-the `pressure` dataset.
+the `pressure` data set.
 
-Similar to what you did before with the `cars` dataset, look up the help
-file on the `pressure` dataset to determine what units `temperature` and
+Similar to what you did before with the `cars` data set, look up the help
+file on the `pressure` data set to determine what units `temperature` and
 `pressure` were measured in.
 
 Next, look up the help file on the `plot()` function to find the
-arguments you can use to specify the x- and y-axis labels. Change the
-x-axis and y-axis labels to reflect the units of measurement you found
+arguments you can use to specify the $x$- and $y$-axis labels. Change the
+$x$-axis and $y$-axis labels to reflect the units of measurement you found
 in the `pressure` help file.
+
+Note that `#| echo: false` is an output option applied only to this specific
+code-chunk. Remove this line so the code shows in your final knitted document.
 
 Create another section header (like you did before) stating what is
 included in this section.
@@ -131,18 +140,21 @@ included in this section.
 Navigate to the last sentence of the Quarto document, we're going to
 insert a new `R` code chunk at the bottom of the document.
 
-There are three different ways to do this:
+There are four different ways to do this:
 
 1.  type <kbd>ctrl</kbd> + <kbd>alt</kbd> + <kbd>i</kbd> on Windows, or
     <kbd>⌘</kbd> + <kbd>⌥</kbd> + <kbd>i</kbd> on macOS,
 
-2.  Click on the ![](images/insert_code.png) symbol. This should
+2.  Click on the ![](images/add-code-chunk.jpg) symbol. This should
     automatically default to R code, but if you have a Python compiler
     on your computer, you might need to select "R" from the options.
 
-3.  If you are using the Visual editor (isn't it fun?!), then click on
+3.  If you are using the Visual editor, then click on
     the "Insert" button, then select "Code Chunk", and finally select
     "R".
+    
+4. Manually add the code chunk by typing ` ```{r}`. Make sure to close your
+code chunk with ` ``` `.
 
 ### Creating and Discussing Visualizations {#sec-creating-and-discussing-visualizations}
 
@@ -172,7 +184,7 @@ should say "Stopping Distance" with the correct units not just "dist".
 -   Step 4: Create another section header, describing the contents of
     this section.
 
--   Step 5: Create a numbered list of two aspects of the plots you would
+-   Step 5: Create a **numbered list** of two aspects of the plots you would
     like to improve.
 
 ### Knit your document
@@ -187,32 +199,45 @@ surround your code chunks. If you notice that the code chunks are not
 showing a "Play" button, or that they are not highlighted in gray,
 double check your tick marks!
 
+Recall we included `error: true` in our YAML execution options. This means that
+your document will still knit even if there are errors. Make sure you are double
+checking your work!
+
 ### Turn it in!
 
-Upload the knitted document to Canvas!
+Open the .html file on your computer to make sure it looks as you expected. Then
+upload the knitted (.html extension) document to Canvas!
 
-> You'll be doing this same process for all your future Lab Assignments
-> and Challenges. Each of these will involve an R Markdown file.
+> You'll be doing this same process for all your future Lab Assignments and
+Challenges. Each of these will involve a Quarto file. Some weeks, I may have a
+template for you to copy into the Quarto file just as with the first practice
+activity.
 
 ## Challenge:
+
+Either (1) edit your `lab1.qmd` file or (2) copy it and rename to
+`challenge1.qmd` to edit.[^3]
+
+[^3]: I prefer option (2). The more organized you can stay in this class, the
+easier it will be to debug and find resources.
 
 ### Styling Quarto Documents
 
 You can find a list of every option you can use to format an HTML
-document [here](https://quarto.org/docs/output-formats/html-basics.html)
+document [here](https://quarto.org/docs/output-formats/html-basics.html).
 
 [Here](https://quarto.org/docs/output-formats/html-themes.html) are
 lists of different themes you can specify in your YAML which will
-produce different stylings.
+produce different styling outputs.
 
 For this Challenge, there are some specific additions to your document I
 would like you to make, as they will benefit you for the rest of the
 course.
 
-1.  Specify "code folding" in your document options
+1.  Specify "code folding" in your YAML document options
 
 2.  Specify in the code chunk options that your plot of the `pressure`
-    dataset should be center aligned.
+    data set should be center aligned.
 
 3.  Specify a figure caption in the above code chunk (plot of the
     `pressure` data).
