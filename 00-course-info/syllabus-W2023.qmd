@@ -42,14 +42,19 @@ fontsize: 11pt
 
 **Dr. Emily Robinson**
 
--	Email: [erobin17\@calpoly.edu](mailto:erobin17@calpoly.edu?subject=Stat%20331)
+-	Email: [erobin17@calpoly.edu](mailto:erobin17@calpoly.edu?subject=Stat%20331/531)
 -	Office: Building 25 Office 103 (by Statistics Department Office) 
 
 **Course Forum:**
 
-For questions of general interest, such as course clarifications or conceptual questions, please use the class discussion forum. I encourage you to give your post an informative title, so that other people can find it. For example, *“How do I color bars in a barplot with ggplot?”* is a better discussion title than *“help with plotting”*.
+For questions of general interest, such as course clarifications or conceptual
+questions, please use the class discussion forum. I encourage you to give your
+post an informative title, so that other people can find it. For example, *“How
+do I color bars in a barplot with ggplot?”* is a better discussion title than
+*“help with plotting”*.
 
-While your posts are not anonymous, in this case there is no such thing as a bad question!
+While your posts are not anonymous, in this case there is no such thing as a bad
+question!
 
 ## Course Info
 
@@ -71,6 +76,8 @@ Mondays/Wednesdays
 | Fridays   | 1:15pm - 2:15pm, by appt (<https://calendly.com/calpoly-emily-robinson/15min>) |
 
 Office hours by appointment are required to be scheduled at least 1-hour prior to the meeting. You can schedule either Zoom or in-person office hour appointments through Calendly.
+
+I will likely be on Discord throughout the workday when I am in my office. Should you have a question, post in one of the discord channels and either myself or another student is likely to respond.
 
 ```{r}
 #| include: false
@@ -258,9 +265,7 @@ In addition, you may find it useful to reference some of the following resources
 
 Although you may always work on the Studio computers, I strongly recommend that you use your own personal laptop for this course if you have one.
 
-Chromebooks and ipads will **not** be sufficient to use R.
-
-If this requirement is limiting for you, please contact me ASAP.
+Chromebooks and ipads will **not** be sufficient to use `R`. If this requirement is limiting for you, please contact me ASAP.
 
 
 # Class Schedule & Topic Outline
