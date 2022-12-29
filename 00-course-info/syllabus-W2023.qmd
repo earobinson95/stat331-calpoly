@@ -45,20 +45,18 @@ fontsize: 11pt
 -	Email: [erobin17@calpoly.edu](mailto:erobin17@calpoly.edu?subject=Stat%20331/531)
 -	Office: Building 25 Office 103 (by Statistics Department Office) 
 
-**Course Forum:**
+**Course Discord:**
 
 For questions of general interest, such as course clarifications or conceptual
-questions, please use the class discussion forum. I encourage you to give your
-post an informative title, so that other people can find it. For example, *“How
-do I color bars in a barplot with ggplot?”* is a better discussion title than
-*“help with plotting”*.
+questions, please use the course Discord page (you will join this Week 1). I
+encourage you to give your post a concise and informative initial sentence, so that other people can find it. For example, *“How do I color bars in a barplot with ggplot?”* is a better opening sentence than *“help with plotting”*.
 
 While your posts are not anonymous, in this case there is no such thing as a bad
 question!
 
 ## Course Info
 
-**Times:** 
+**Class Meeting Times:** 
 
 Mondays/Wednesdays
 
@@ -72,7 +70,7 @@ Mondays/Wednesdays
 | Day       | Time                                                                           |
 |-----------|--------------------------------------------------------------------------------|
 | Tuesdays  | 10:10am - 11:00am, in-person (25-103)                                          |
-| Thursdays | 10:10am - 11:00pm, in-person (25-103)                                          |
+| Thursdays | 10:10am - 11:00am, in-person (25-103)                                          |
 | Fridays   | 1:15pm - 2:15pm, by appt (<https://calendly.com/calpoly-emily-robinson/15min>) |
 
 Office hours by appointment are required to be scheduled at least 1-hour prior to the meeting. You can schedule either Zoom or in-person office hour appointments through Calendly.
@@ -220,11 +218,11 @@ class_days <- filter(Cal, category %in% c("Class Day")) %>%
 
 # Course Description
 
-Introduction to programming for statistical analysis. Covers basic programming concepts necessary for statistics, good computing practice, and use of built-in functions to complete basic statistical analyses.
+Stat 335/531 provides you with an introduction to programming for data and statistical analysis. The course covers basic programming concepts necessary for statistics, good computing practice, and use of built-in functions to complete basic statistical analyses.
 
 **Prerequisites**
 
-Entrance to STAT 331/531 requires successful completion of a Stat II qualifying course and an introductory computing course.
+Entrance to STAT 331/531 requires successful completion of a Stat II qualifying course and an introductory programming course.
 
 \newpage
 
@@ -234,17 +232,16 @@ This course will teach you the foundations of statistical computing principles i
 
 After taking this course, you will be able to:
 
-+ Work with the RStudio IDE and quarto documents.
++ Work with the RStudio Integrated development environment (IDE) and quarto documents.
 + Import, manage, and clean data from a wide variety of data sources.
 + Visualize and summarize data for informative exploratory data analysis and presentations.
 + Write efficient, well-documented, and tidy `R` code.
-+ Program random experiments and simulations from probability models
-+ Extend your R skills independently through documentation and online resources.
++ Program random experiments and simulations from probability models.
 
 Additionally, it is my hope that you will learn to:
 
-+ Extend your R skills independently through documentation and online resources.
-+ Be thoughtful, deliberate, and ethical in your use of R and similar tools.
++ Extend your `R` skills independently through documentation and online resources.
++ Be thoughtful, deliberate, and ethical in your use of `R` and similar tools.
 + Use R to be playful, creative, and fun!
 + Contribute to and participate in the R Open Source Community.
 
@@ -252,20 +249,19 @@ Additionally, it is my hope that you will learn to:
 
 **Textbook**
 
-The primary textbook for this course modified from material by [Susan VanderPlas](https://github.com/srvanderplas) and other resources listed below. It is available for free at <https://earobinson95.github.io/stat331-calpoly/>. It is under construction/a work in progress, so it may be hard to work more than a couple of weeks ahead in this class using the primary textbook.
+The primary text for this course is modified from material by [Susan VanderPlas](https://github.com/srvanderplas) and other resources listed below. It is available for free at <https://earobinson95.github.io/stat331-calpoly/>. It is under construction/a work in progress, so it may be hard to work more than a couple of weeks ahead in this class using the primary textbook.
 
-In addition, you may find it useful to reference some of the following resources that I have consulted while assembling the textbook. Most are available online for free, though some require an institutional email address.
+In addition, you may find it useful to reference some of the following resources that I have consulted while assembling the text. Most are available online for free, though some require an institutional email address.
 
 + [R for Data Science (2nd edition)](https://r4ds.hadley.nz/)
 + [Modern Dive](https://moderndive.com/1-getting-started.html)
-+ [Posit Primers](https://posit.cloud/learn/primers)
 + [Advanced R](http://adv-r.had.co.nz/)
 
 **Equipment**
 
 Although you may always work on the Studio computers, I strongly recommend that you use your own personal laptop for this course if you have one.
 
-Chromebooks and ipads will **not** be sufficient to use `R`. If this requirement is limiting for you, please contact me ASAP.
+Chromebooks and iPads will **not** be sufficient to use `R`. If this requirement is limiting for you, please contact me ASAP.
 
 
 # Class Schedule & Topic Outline
@@ -302,12 +298,12 @@ Your grade in STAT 331/531 will contain the following components:
 | Check-ins            | 5%     |
 | Practice Activities  | 10%    |
 | Lab Assignments      | 25%    |
-| Challenge Activities | 5%     |
+| Challenge Points     | 5%     |
 | Midterm Exam         | 15%    |
 | Final Project        | 15%    |
 | Final Exam           | 25%    |
 
-Lower bounds for grade cutoffs are shown in the following table. I will not "round up" grades at the end of the quarter beyond strict mathematical rules of rounding.
+Lower bounds for grade cutoffs are shown in the following table. I will not "round up" grades at the end of the quarter. See this [Twitter thread](https://twitter.com/drseanmullen/status/1604212304622518272?s=46&t=II3oNLTSSrljVPqptoe21g) for advice on "Playing the lines. Don't be there"
 
 | Letter grade | X +  | X   | X - |
 |--------------|------|-----|-----|
@@ -348,50 +344,50 @@ your work.
 
 ### Check-ins
 
-Each week, you will find short Check-In questions throughout the text to make
-sure you are prepared for class that week. Make sure you submit your answers to
-these on Canvas to get credit for your efforts. Note that the Canvas Check-In
-quizzes can be submitted up to three times without a penalty - so you should get
-100% on this part of the course!
+Each week, you will find short Check-In questions or tasks throughout the text
+to make sure you are prepared for class that week. Make sure you submit your
+answers to these on Canvas to get credit for your efforts. Note that the Canvas
+Check-in quizzes can be submitted up to three times without a penalty - so you
+should get 100% on this part of the course!
 
-All responses to check-ins are due **Mondays at 8:00am**.
++ All responses to Check-ins are due **Mondays at 8:00am**.
 
 ### Practice Activities
 
-Most classes, you will be given a Practice Activity to complete, to get the hang
-of the week’s necessary R skills. These activities will always result in a
-single, straightforward correct answer, that you will submit via the Canvas
-site. Therefore, there is no reason you should not get full credit in this
+Most Monday's, you will be given a Practice Activity to complete, to get the
+hang of the week’s necessary `R` skills. These activities will always result in
+a single, straightforward correct answer, that you will submit via Canvas (one
+attempt). Therefore, there is no reason you should not get full credit in this
 category!
 
 Since these activities are intended to be your first attempt at new skills, they
 are meant to be done with help from me and your peers. Therefore, you will
 always be given some time in class to work on them. I strongly suggest that you
-attempt to start the activities before class, so you can maximize the utility
+attempt to start the activities before class, so you can maximize the utility of
 your in-class time.
 
-Practice Activities are due **Wednesdays at 8:00am.**
++ Practice Activities are due **Wednesdays at 8:00am.**
 
 ### Lab Assignments
 
 Your typical homework assignments will be weekly labs. You will follow each
-lab's instructions to complete tasks in `R` and turn in your knitted .html
-Quarto document for to Canvas.
+lab's instructions to complete tasks in `R` and submit a knitted .html
+quarto document to Canvas.
 
-There will be class time on Wednesdays dedicated to working on completing lab
+Most weeks, there will be class time on Wednesdays dedicated to working on completing lab
 assignments.
 
-Labs are due on **Fridays at 11:59pm**.
++ Labs are due on **Fridays at 11:59pm**.
 
-### Challenge Activities
+### Challenges
 
 With each Lab Assignment will come a Challenge, asking you to try skills beyond
 what is required that week. Challenges are individual submissions, worth 10
 points each. Full credit is given for any good faith attempt.
 
 As these are extensions to the lab assignments, they are a great opportunity to
-discuss your ideas with your team members. However, I do expect that these
-collaborations are about ideas and no R code is shared between individuals. Each
+discuss your ideas with your classmates. However, I do expect that these
+collaborations are about ideas and no `R` code is shared between individuals. Each
 person’s Challenge submission is expected to reflect their own thinking, and
 thus copying the work of others does not provide me with any information about
 your learning.
@@ -401,21 +397,21 @@ there are only 8 lab assignments! This means that if you only complete (in good
 faith attempts) the challenges associated with each lab, you will receive 80/100
 (or 80%) in this category. In order to achieve 100/100, you must submit
 impressive challenge submissions that earn bonus points and/or complete optional
-Challenge Point opportunities provided throughout the quarter.
+Challenge point opportunities provided throughout the quarter.
 
 Extra bonus points beyond 100 earn you extra credit toward your overall course
 grade.
 
 Challenges associated with labs are due at the same time as the lab assignment.
-Watch Canvas for additional Challenge Point opportunities.
+Watch Canvas for additional/optional Challenge point opportunities and deadlines.
 
 ## Attendance & Participation
 
 I do not take formal attendance in this class. However, it is my expectation
 that you remain in class and on task until you have finished all your activities
 and assignments. Consistent, repeated failure to attend class or actively
-participate in the online portions of the course will affect the participation
-portion of your grade.
+participate in portions of the course will affect the demonstration of your
+engagement with the course.
 
 If you are feeling ill, please **do not come to class**. Instead, email me,
 review the material and work on the participation activity and weekly lab
@@ -427,11 +423,16 @@ There are no extensions on any assignments (this includes Check-ins, Practice
 Activities, Labs, and Challenges).
 
 + Canvas will automatically input a 0% for missing assignments as an incentive
-for you to turn the assignment in following the grade deduction penalties below.
+for you to still turn the assignment in with a penalty described below.
+
 + Canvas will automatically apply a 10% grade deduction for each day past
 the due date with a minimum grade of 50%. 
-+ Note that solutions to Practice Activities will be posted. No Practice
+  + *Take note that Canvas sees 12:01am as a new day. Again, "Don't Play the Lines."*
+  
++ Solutions to Practice Activities will be posted. Therefore, no Practice
 Activities will be accepted after the solution has been posted.
+
+If you find yourself with extenuating circumstances, please email me **prior** to the due date. You will typically have multiple days to complete assignments, make sure to plan ahead for any unforeseen circumstances.
 
 # Course Expectations
 
@@ -486,9 +487,9 @@ programming language, the operating system, or the interaction between the two.
 
 See [academicprograms.calpoly.edu/content/academicpolicies](https://academicprograms.calpoly.edu/content/academicpolicies/index).
 
-## Diversity and Inclusion
+## Learning Environment and Support
 
-It is my goal for everyone to feel safe and comfortable in my classroom. If
+I believe everyone is capable of learning statistics and programming with proper support. It is my goal for everyone to feel safe and comfortable in my classroom. If
 there is any way I can make the course more welcoming for you, please do not
 hesitate to ask.
 
@@ -498,6 +499,8 @@ this class accessible.
 I encourage you to also contact the Disability Resource Center (Building 124,
 Room 119 or at 805-756-1395), who can help you register for extra accommodations
 such as extended exam time.
+
+If you are having difficulty affording groceries, lacking a safe & stable place to live, or needing additional essential supports, please see Canvas for a list of Student Support Services at Cal Poly.
 
 ## Academic Integrity and Class Conduct
 
@@ -511,7 +514,7 @@ penalty of at least 10%. In circumstances of flagrant cheating, you may be given
 a grade of F in the course.
 
 Paraphrasing or quoting another’s work without citing the source is a form of
-academic misconduct. This included the `R` code produced by someone else!
+academic misconduct. This includes the `R` code produced by someone else!
 Writing code is like writing a paper, it is obvious if you copied-and-pasted a
 sentence from someone else into your paper because the way each person writes is
 different.
