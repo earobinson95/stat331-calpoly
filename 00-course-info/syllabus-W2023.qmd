@@ -1,7 +1,7 @@
 ---
 title: "Stat 331/531: Statistical Computing with R"
 # author: ""
-date: "January 9, 2023"
+# date: "January 9, 2023"
 
 format: 
   html:
@@ -224,8 +224,6 @@ Stat 335/531 provides you with an introduction to programming for data and stati
 
 Entrance to STAT 331/531 requires successful completion of a Stat II qualifying course and an introductory programming course.
 
-\newpage
-
 # Learning Objectives
 
 This course will teach you the foundations of statistical computing principles in the language of `R`.
@@ -249,9 +247,11 @@ Additionally, it is my hope that you will learn to:
 
 **Textbook**
 
-The primary text for this course is modified from material by [Susan VanderPlas](https://github.com/srvanderplas) and other resources listed below. It is available for free at <https://earobinson95.github.io/stat331-calpoly/>. It is under construction/a work in progress, so it may be hard to work more than a couple of weeks ahead in this class using the primary textbook.
+There is an abundance of free online resources for learning programming and R. Therefore, the primary text for this course is a compilation of various resources - it is available for free at <https://earobinson95.github.io/stat331-calpoly/>. It is under construction/a work in progress, so it may be hard to work more than a week ahead in this class using the primary textbook.
 
-In addition, you may find it useful to reference some of the following resources that I have consulted while assembling the text. Most are available online for free, though some require an institutional email address.
+This text has been modified from material by [Dr. Susan VanderPlas](https://github.com/srvanderplas). See [UNL Stat 151: Introduction to Statistical Computing](https://srvanderplas.github.io/Stat151/) and [UNL Stat 850: Computing Tools for Statisticians](https://srvanderplas.github.io/unl-stat850/) for her course books with integration of content and videos from [Dr. Allison Theobold](https://github.com/atheobold) and [Dr. Kelly Bodwin](https://github.com/kbodwin).
+
+In addition, you may find it useful to reference some of the following resources that I have consulted while assembling the text. Most are available online for free.
 
 + [R for Data Science (2nd edition)](https://r4ds.hadley.nz/)
 + [Modern Dive](https://moderndive.com/1-getting-started.html)
@@ -262,7 +262,6 @@ In addition, you may find it useful to reference some of the following resources
 Although you may always work on the Studio computers, I strongly recommend that you use your own personal laptop for this course if you have one.
 
 Chromebooks and iPads will **not** be sufficient to use `R`. If this requirement is limiting for you, please contact me ASAP.
-
 
 # Class Schedule & Topic Outline
 
@@ -402,8 +401,8 @@ Challenge point opportunities provided throughout the quarter.
 Extra bonus points beyond 100 earn you extra credit toward your overall course
 grade.
 
-Challenges associated with labs are due at the same time as the lab assignment.
-Watch Canvas for additional/optional Challenge point opportunities and deadlines.
++ Challenges associated with labs are due on **Saturdays at 11:59pm**.
++ Watch Canvas for additional/optional Challenge point opportunities and deadlines.
 
 ## Attendance & Participation
 
