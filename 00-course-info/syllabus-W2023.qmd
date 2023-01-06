@@ -302,7 +302,16 @@ Your grade in STAT 331/531 will contain the following components:
 | Final Project        | 15%    |
 | Final Exam           | 25%    |
 
-Lower bounds for grade cutoffs are shown in the following table. I will not "round up" grades at the end of the quarter. See this [Twitter thread](https://twitter.com/drseanmullen/status/1604212304622518272?s=46&t=II3oNLTSSrljVPqptoe21g) for advice on "Playing the lines. Don't be there"
+Lower bounds for grade cutoffs are shown in the following table. I will not "round up" grades at the end of the quarter. See this `r fontawesome::fa(name = "twitter", fill = "steelblue")` [Twitter thread](https://twitter.com/drseanmullen/status/1604212304622518272?s=46&t=II3oNLTSSrljVPqptoe21g) for advice on *"Playing the lines. Don't be there."*
+
+::: column-margin
+
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
+</script>
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">When my 11yo daughter complains her opponent in tennis is calling calls out..<br><br>I tell her:<br><br>“Don’t play the lines.”<br><br>As a college student, eventually every professor has to draw some lines.<br><br>Don’t play them so close. Don’t be there.</p>&mdash; Dr. Sean Mullen (@drseanmullen) <a href="https://twitter.com/drseanmullen/status/1604212307260645376?ref_src=twsrc%5Etfw">December 17, 2022</a></blockquote> 
+
+:::
 
 | Letter grade | X +  | X   | X - |
 |--------------|------|-----|-----|
