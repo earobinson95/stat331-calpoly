@@ -247,7 +247,7 @@ Additionally, it is my hope that you will learn to:
 
 **Textbook**
 
-There is an abundance of free online resources for learning programming and R. Therefore, the primary text for this course is a compilation of various resources - it is available for free at <https://earobinson95.github.io/stat331-calpoly/>. It is under construction/a work in progress, so it may be hard to work more than a week ahead in this class using the primary textbook.
+There is an abundance of free online resources for learning programming and R. Therefore, the primary text for this course is a compilation of various resources - it is available for free at <https://earobinson95.github.io/stat331-calpoly-text/>. It is under construction/a work in progress, so it may be hard to work more than a week ahead in this class using the primary textbook.
 
 This text has been modified from material by [Dr. Susan VanderPlas](https://github.com/srvanderplas). See [UNL Stat 151: Introduction to Statistical Computing](https://srvanderplas.github.io/Stat151/) and [UNL Stat 850: Computing Tools for Statisticians](https://srvanderplas.github.io/unl-stat850/) for her course books with integration of content and videos from [Dr. Allison Theobold](https://github.com/atheobold) and [Dr. Kelly Bodwin](https://github.com/kbodwin).
 
