@@ -1,0 +1,92 @@
+---
+title: "WEEK 1: INTRODUCTION TO R"
+author: ""
+# format: html
+self-contained: true
+format: pdf
+---
+
+## Due Dates
+
++ Concept Checks 1.1 - 1.4
+  + Due Wednesday (1/11) at 8AM
++ PA 1: Find the Mistakes
+  + Due Wednesday (1/11) at 8AM
++ Lab 1: Introduction to R
+  + Due Friday (1/13) at 11:59pm
++ Challenge 1: Modifying Your Quarto Document
+  + Due Saturday (1/14) at 11:59pm
++ Bonus Challenge 0: FizzBuzz
+  + Due Saturday (1/21) at 11:59pm 
+
+## MONDAY
+
+### Welcome to Stat 331! 
+
++ Introduce myself - PhD University of Nebraska Lincoln, recently moved to SLO, enjoy hiking (so give me recs!)
+
++ Students introduce themselves - role call
+
+### [Syllabus](https://earobinson95.github.io/stat331-calpoly/00-course-info/syllabus-W2023.html)
+
+**What you can expect**
+
+3 unit because R has a variety of uses
+
+- Unit 1: R for Data Science
+- Unit 2: R for Developers
+- Unit 3: Statistical Computing
+
+
+**Coding Classes**
+
+- Everyone is coming from a different background
+- Different aspects of the course will be difficult to different people
+- Use your peers to support your learning
+
+
+**Learning a new language**
+
+- Start with words, memorize common words and meanings
+- Language is more than a set of words
+- Learning a language comes from using it, watching others use it, and reading
+
+**Course Structure**
+
+The text and class sessions will be used to teach you a set of "words" / skills each week.
+- These are the general ideas and the foundational skills (think common words)
+
+Cannot teach you every word / function -- I don't know them all!
+
+It would be a disservice to teach you specifics rather than problem solving.
+
+**What did Google say?**
+
+- Use external resources when you are stuck
+- Develop skills to solve problems
+- Learn by Doing!
+
+**Don't get stuck in a pit**
+
+- If you've been working on the same issue for over 30 minutes, take a break.
+  * Go outside
+  * Send me a message on Discord
+  * Reach out to a classmate
+- Ask questions early
+- Explain your code to someone
+  * Rubber ducky debugging
+
+### Introduction to R + RStudio
+
+### Troubleshooting
+
+### [PA1: Find the Mistakes](https://earobinson95.github.io/stat331-calpoly/practice-activities/PA1-find-the-mistakes.html)
+
+
+## WEDNESDAY
+
+### Review PA1 Solutions
+
+### Scripts + Notebooks
+
+### [Lab 1: Introduction to Quarto + Challenge 1: Modifying Your Quarto Document](https://earobinson95.github.io/stat331-calpoly/lab-assignments/Lab1/Lab1-intro-to-quarto.html)

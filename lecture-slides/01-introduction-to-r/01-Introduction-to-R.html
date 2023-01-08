@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>WEEK 1: INTRODUCTION TO R</title>
+    <meta charset="utf-8" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="my-css.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# WEEK 1: INTRODUCTION TO R
+]
+
+---
+
+
+
+
+
+
+## Monday, January 9th
+
+Today we will...
+
++ Welcome to Stat 331/531: Statistical Computing in R
++ Introduction
+  + Intro to R + RStudio
+  + Directories &amp; File Paths
++ Troubleshooting
++ [PA 1: Find the Mistakes](https://earobinson95.github.io/stat331-calpoly/practice-activities/PA1-find-the-mistakes.html)
+
+---
+class: inverse, center, middle
+
+# Intro to R &amp; RStudio
+
+---
+## What is R?
+
+**R** is a programming language designed originally for *statistical analyses*.
+
+**R** was created by **Ross Ihaka** and **Robert Gentleman** in 1993.
+
+_(Their names are why it's called **R**, which is also a joke about the predecessor
+being called **S**.)_
+
+**R** was formally released by the **R Core Group** in 1997.
+
+[https://www.r-project.org/contributors.html](https://www.r-project.org/contributors.html)
+
+
+This group of 20-ish volunteers are the *only* people who can change the **base** 
+(built-in) functionality of **R**.
+
+---
+## Strengths
+
+
+**R**'s **strengths** are...
+
+... handling data with lots of **different types** of variables.
+
+... making nice and complex data **visualizations**.
+
+... having cutting-edge statistical **methods** available to users.
+
+---
+## Weaknesses
+
+**R**'s **weaknesses** are...
+
+... performing non-analysis programming tasks, like website creation. 
+
+(*python*, *ruby*, ...)
+
+
+... hyper-efficient numerical computation. 
+
+(*matlab*, *C*, ...)
+
+... being a simple tool for all audiences 
+
+(*SPSS*, *STATA*, *JMP*, *minitab*, ...)
+
+---
+class: center, middle, invert
+
+## But wait!
+
+![](images/appforthat.jpg)
+
+---
+## Packages
+
+The heart and soul of **R** is **packages**.
+
+These are "extra" sets of code that add **new functionality** to R when installed.
+
+"Official" **R** packages live on the *Comprehensive R Archive 
+Network*, or **CRAN**
+
+But anyone can write and share new code in "package form" (more later)
+
+---
+## Packages
+
+To install a package use:
+
+
+```r
+install.packages(tibble)
+```
+
+To load a package use:
+
+
+```r
+library(tibble)
+```
+
+---
+
+## Open-Source
+
+Importantly, **R** is *open-source*.
+
+There is no company that owns **R**, like there is for *SAS* or *Matlab*.
+
+(*Python* is also open-source!)
+
+This means nobody can sell their **R** code!
+
+* (but you can sell "helpers" like **RStudio**)
+
+* (and you can keep code **private** within an organization or company)
+
+**Packages are created by users like you and me!**
+
+---
+## Open-Source
+
+Being a good open-source citizen means...
+
+... **sharing** your code publicly when possible. 
+
+(later in this course, we'll learn about *GitHub*!)
+
+... **contributing** to public projects and packages, as you are able.
+
+... creating your own **packages**, if you can.
+
+... using **R** for **ethical and respectful** projects.
+
+
+---
+
+class: center, middle, inverse
+
+# Intro to RStudio
+
+---
+## What is RStudio?
+
+**RStudio** is an IDE (*Integrated Developer Environment*).
+
+This means it is an application that makes it easier for you to interact with **R**.
+
+&lt;img src="https://d33wubrfki0l68.cloudfront.net/0b4d0569b2ddf6147da90b110fbb2a17653c8b08/f06f3/images/shutterstock/r_vs_rstudio_1.png" width="75%" style="display: block; margin: auto;" /&gt;
+
+---
+## History of RStudio
+
+**RStudio** was released in 2011 by J.J. Allaire.
+
+In 2014, RStudio hired *Hadley Wickham* as Chief Data Scientist.  They now employ around 20 full-time developers.
+
+Recall: You can __not__ sell __R__ code; packages created by RStudio's team are freely available.  
+
+They make money off the IDE and other helper software.
+
+In 2020, RStudio became a PBC (*Public Benefit Corp*), meaning they are legally obligated to support education and open-source development.
+
+---
+
+&lt;img src="images/rstudio_session_4pane_layout.png" width="75%" style="display: block; margin: auto;" /&gt;
+
+---
+class: center, middle, inverse
+
+# Directories &amp; Scientific Reproducibility
+
+---
+
+## What is a directory?
+
+- A **directory** is just a fancy name for a folder.
+
+- Your **working directory** is the folder that `R` "thinks" it lives in at the
+moment.
+
+
+```r
+getwd()
+```
+
+- If you save things you have created, they save to your working directory by
+default.
+
+---
+
+## Paths
+
+- A **path** describes where a certain file or directory lives.
+
+
+```r
+getwd()
+```
+
+```
+## [1] "C:/Users/erobin17/OneDrive - Cal Poly/stat-331-calpoly/lecture-slides/01-introduction-to-r"
+```
+
+This file lives in my user files `Users/`, 
+
+on my account `erobin17/` 
+
+in my OneDrive `OneDrive - Cal Poly` 
+
+in a series of organized folders
+
+---
+
+## Manage your Class Directory
+
+Is it in a place you can easily find it?
+
+Does it have an informative name?
+
+Are the files inside it well-organized?
+
+---
+
+## The Beauty of R Projects
+
+.pull-left[ An **R Project** is basically a "flag" planted in a certain
+directory.
+
+When you double click a **.Rproj** file, it does two things:
+
+1. Open RStudio
+
+2. Set the working directory to be wherever the .Rproj file lives.
+
+3. Link to GitHub, if setup (more on that later!)
+
+].pull-right[
+&lt;img src="images/project_flag.jpg" width="70%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+## RStudio Projects &amp; Reproducibility
+
+This is great for reproducibility!
+
+You can send anyone your folder with your .Rproj file and they will
+be able to run your code on their computer.
+
+---
+
+class: center, middle
+
+# [Setting up an RStudio Project](https://earobinson95.github.io/stat331-calpoly-text/01-introduction.html#rprojects)
+
+---
+## Good practice
+
+- Organize your folders carefully, and name them meaningfully:
+  * `/User/erobinson/Stat331/lab1/` rather than `Desktop/stuff/`
+    
+- Use **R Projects** liberally - put one in the "main" folder for each project
+
+    * I have a project for every class I teach.
+    * I have a project for every data analysis I do.
+    * I **never** work in RStudio, except in a project.
+
+---
+
+## Bad practice
+
+If you put something like this at the top of your .qmd file (more on Quarto later), I will set your 
+computer on fire:
+
+
+```r
+setwd("/User/reginageorge/Desktop/R_Class/Lab_1/")
+```
+
+- Setting working directory by hand = BAD!  
+
+- That directory is specific to you!
+
+- R Markdown and Quarto (more on these later) ignore this code when knitting! 
+
+---
+
+## Principles of Reproducibility
+
+The idea:  You should be able to send your project to someone else, and they can
+jump in and start working right away.
+
+1. Files are organized and well-named.
+
+2. References to data and code work for everyone.
+
+3. Package dependency is clear.
+
+4. Code will run the same every time, even if data values change.
+
+5. Analysis process is well-explained and easy to read.
+
+---
+
+class: center, middle, inverse
+
+# Troubleshooting Errors!
+
+---
+
+class: center, middle, inverse
+
+## Syntax Errors
+
+---
+
+## Did you leave off a parenthesis?
+
+seq&lt;span style="background-color:#ffff7f"&gt;(&lt;/span&gt;from = 1, to = 10, by = 1
+
+
+
+
+```
+## Error in flair(., "("): could not find function "flair"
+```
+
+
+```
+## Error: &lt;text&gt;:4:0: unexpected end of input
+## 2: seq(from = 1, to = 10, by = 1
+## 3: 
+##   ^
+```
+
+---
+
+## Did you leave off a comma?
+
+
+```
+## Error in flair(., "by"): could not find function "flair"
+```
+
+seq(from = 1, to = 10 &lt;span style="background-color:#ffff7f"&gt;by&lt;/span&gt; = 1)
+
+
+
+
+```
+## Error: &lt;text&gt;:2:23: unexpected symbol
+## 1: 
+## 2: seq(from = 1, to = 10 by
+##                          ^
+```
+
+---
+
+## Did you make a typo? Are you using the right names?
+
+&lt;span style="background-color:#ffff7f"&gt;sequence&lt;/span&gt;(from = 1, to = 10, by = 1)
+
+
+
+
+```
+## Error in sequence.default(from = 1, to = 10, by = 1): argument "nvec" is missing, with no default
+```
+
+---
+## Object type errors
+
+**Are you using the right _input_ that the function expects?**
+
+sqrt(&lt;span style="background-color:#ffff7f"&gt;'1'&lt;/span&gt;)
+
+
+
+
+```
+## Error in sqrt("1"): non-numeric argument to mathematical function
+```
+
+---
+
+## Object type errors
+
+**Are you expecting the right _output_ of the function?**
+
+
+```r
+my_obj &lt;- seq(from = 1, to = 10, by = 1)
+
+*my_obj(5)
+```
+
+```
+## Error in my_obj(5): could not find function "my_obj"
+```
+
+
+
+---
+
+class: center, middle, inverse
+
+## Errors, warnings, and messages
+
+---
+
+## Messages
+
+Just because you see scary red text, this does **not** mean something went
+wrong! This is just **R** communicating with you.
+
+For example, you often see:
+
+
+```r
+library(lme4)
+```
+
+---
+## Warnings
+
+Often, **R** will give you a **warning**.
+
+This means that your code *did* run... but you probably want to make sure it succeeded.
+
+--
+
+**Does this look right?**
+
+
+
+```r
+my_vec &lt;- c("a", "b", "c")
+
+my_new_vec &lt;- as.integer(my_vec)
+```
+
+```
+## Warning: NAs introduced by coercion
+```
+
+--
+
+
+```r
+my_new_vec
+```
+
+```
+## [1] NA NA NA
+```
+
+---
+## Errors
+
+If the word **Error** appears in your message from **R**, then you have a
+problem.
+
+This means your code **could not run**!
+
+
+```r
+my_vec &lt;- c("a", "b", "c")
+
+my_new_vec &lt;- my_vec + 1
+```
+
+```
+## Error in my_vec + 1: non-numeric argument to binary operator
+```
+
+---
+
+class: center, middle, inverse
+
+## Parlez-vous ERROR?
+
+---
+
+## **R** says...
+
+&gt; Error: Object `some_obj` not found.
+
+--
+
+It *probably* means...
+
+&gt; You haven't run the code to create `some_obj`  OR you have a typo in the name!
+
+
+```r
+some_ojb &lt;- 1:10
+
+mean(some_obj)
+```
+
+```
+## Error in h(simpleError(msg, call)): error in evaluating the argument 'x' in selecting a method for function 'mean': object 'some_obj' not found
+```
+
+*Error in h(simpleError(msg, call)) : error in evaluating the argument 'x' in selecting a method for function 'mean': object 'some_obj' not found*
+
+---
+
+## **R** says...
+
+&gt; Error: Object of type 'closure' is not subsettable.
+
+--
+
+It *probably* means...
+
+&gt; Oops, you tried to use square brackets on a function
+
+
+```r
+mean[1, 2]
+```
+
+```
+## Error in mean[1, 2]: object of type 'closure' is not subsettable
+```
+
+---
+
+## **R** says...
+
+&gt; Error: Non-numeric argument to binary operator
+
+--
+
+It *probably* means...
+
+&gt; You tried to do math on data that isn't numeric.
+
+
+```r
+"a" + 2
+```
+
+```
+## Error in "a" + 2: non-numeric argument to binary operator
+```
+
+---
+
+## What if none of these solved my error?
+
+Look at the help file for the function!
+
+When all else fails, **Google** your error message.
+
+- Leave out the specifics.
+
+- Include the function you are using.
+
+---
+
+## Try it...
+
+**What's wrong here?**
+
+&lt;/br&gt;
+
+
+```r
+matrix(c("a", "b", "c", "d"), num_row = 2)
+```
+
+```
+## Error in matrix(c("a", "b", "c", "d"), num_row = 2): unused argument (num_row = 2)
+```
+---
+
+## [PA 1: Find the Mistakes](https://earobinson95.github.io/stat331-calpoly/practice-activities/PA1-find-the-mistakes.html)
+
+The components of the Practice Activity are described below:
+
+**Part One:**
+
+This file has many mistakes in the code. Some are errors that will prevent the file from knitting; some are mistakes that do NOT result in an error.
+
+Fix all the problems in the code chunks.
+
+**Part Two:**
+
+Follow the instructions in the file to uncover a secret message.
+
+Submit the name of the poem as the answer to the Canvas Quiz question.
+
+
+---
+## To do...
+
+<svg aria-hidden="true" role="img" viewBox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M96 0C43 0 0 43 0 96V416c0 53 43 96 96 96H384h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V384c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H384 96zm0 384H352v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm16 48H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg> **Review Pre-reading + Chapter 1: Introduction**
++ **Concept Checks 1.1 - 1.4**
+  + Due Wednesday (1/11) at 8AM
+  
++ **PA 1: Find the Mistakes**
+  + Due Wednesday (1/11) at 8AM
+  
++ **Bonus Challenge 0: FizzBuzz (+5)**
+  + Due Saturday (1/21) at 11:59pm 
+
+---
+## Wednesday, January 11th
+
+Today we will...
+
++ Review PA 1: Find the Mistakes
++ Scripts + Notebooks
++ Lab 1: Introduction to Quarto
++ Challenge 1: Modifying your Quarto Document
+
+---
+class: inverse, center, middle
+
+## Scripts + Notebooks
+
+---
+class: center, middle
+
+## [Lab 1: Introduction to Quarto + Challenge 1: Modifying your Quarto Document](https://earobinson95.github.io/stat331-calpoly/lab-assignments/Lab1/Lab1-intro-to-quarto.html)
+
+---
+
+## To do...
+  
++ **Lab 1: Introduction to Quarto**
+  + Due Friday (1/13) at 11:59pm 
+  
++ **Challenge 1: Modifying Your Quarto Document (+10)**
+  + Due Saturday (1/14) at 11:59pm 
+  
++ **Read Chapter 2: Importing Data + Basics of Graphics**
+  + **Concept Check 2.1 + 2.2** due **Tuesday** (1/17) at 8AM
+  
++ **Bonus Challenge 0: FizzBuzz (+5)**
+  + Due Saturday (1/21) at 11:59pm 
+
+---
+
+&lt;!-- --- --&gt;
+
+&lt;!-- class: center, middle, inverse --&gt;
+
+&lt;!-- # Intro to Notebooks --&gt;
+
+&lt;!-- --- --&gt;
+
+&lt;!-- # What is Markdown? --&gt;
+
+&lt;!-- **Markdown** (without the "R") is a *markup language*.  This means special symbols and formatting to pretty documents. --&gt;
+
+&lt;!-- -- --&gt;
+
+&lt;!-- Markdown files have the **.md** extension. --&gt;
+
+&lt;!-- --- --&gt;
+
+&lt;!-- ![](https://d33wubrfki0l68.cloudfront.net/59f29676ef5e4d74685e14f801bbc10c2dbd3cef/c0688/lesson-images/markdown-1-markup.png) --&gt;
+
+&lt;!-- --- --&gt;
+&lt;!-- # What is R Markdown? --&gt;
+
+&lt;!-- **R Markdown** (with the "R") uses regular markdown, plus it can run and display **R** code.  (Other languages, too!) --&gt;
+
+&lt;!-- -- --&gt;
+
+&lt;!-- R Markdown files have the **.Rmd** extension. --&gt;
+
+&lt;!-- --- --&gt;
+
+&lt;!-- ![](https://d33wubrfki0l68.cloudfront.net/ece57b678854545e6602a23daede51ad72da2170/21cca/lesson-images/outputs-1-word.png) --&gt;
+
+&lt;!-- --- --&gt;
+&lt;!-- ![](https://miro.medium.com/max/1200/1*jL-whKGBhuUlU7Q2oevz9w.png) --&gt;
+
+&lt;!-- --- --&gt;
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightLines": true,
+"highlightStyle": "github",
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
