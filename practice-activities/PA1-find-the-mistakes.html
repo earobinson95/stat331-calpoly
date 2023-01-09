@@ -2637,6 +2637,23 @@ vertical-align: -.125em;
 <li><p>Google is your friend! If an error is confusing, copy it into Google and see what other people are saying. If you don’t know how to do something, search for it.</p></li>
 <li><p>Just because there is no error message doesn’t mean everything went smoothly. Use the console to check each step and make sure you have accomplished what you wanted to accomplish.</p></li>
 </ul>
+<section id="access" class="level2">
+<h2 class="anchored" data-anchor-id="access">Access</h2>
+<p>You can access PA1: Find the Mistakes one of two ways:</p>
+<ol type="1">
+<li>Click <a href="https://posit.cloud/content/5172799">here</a> to access an <strong>RStudio Cloud</strong> project which we work on in groups on Day 1 of the course</li>
+</ol>
+<ul>
+<li>Note: if you do not have an RStudio (Posit) Cloud account, you will be asked to create one.</li>
+<li>Make sure to save a permanent copy!</li>
+</ul>
+<ol start="2" type="1">
+<li>If you have already <a href="https://earobinson95.github.io/stat331-calpoly-text/01-introduction.html#checkin3-install">installed R, RStudio, and Quarto</a>, you can create a new <a href="https://earobinson95.github.io/stat331-calpoly-text/01-introduction.html#notebooks">Quarto document</a>, and copy the <a href="https://raw.githubusercontent.com/earobinson95/stat331-calpoly/master/practice-activities/PA1-find-the-mistakes.qmd?token=GHSAT0AAAAAABYBOW2KDYAEG2R7JS4OT2HMY54NK7A">practice activity template</a> into the file.</li>
+</ol>
+<ul>
+<li>Make sure your quarto file is on Source mode and not Visual mode (top left) when you copy the template.</li>
+</ul>
+</section>
 <section id="part-one-setup" class="level2">
 <h2 class="anchored" data-anchor-id="part-one-setup">Part One: Setup</h2>
 <p>Each of the following R chunks will cause one or more errors and / or do the desired task incorrectly. Find the mistake, and correct it to complete the intended action.</p>
@@ -2650,42 +2667,61 @@ vertical-align: -.125em;
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>upper_case <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;D&quot;</span>, <span class="st">&quot;E&quot;</span>, <span class="st">&quot;F&quot;</span>, <span class="st">&quot;G&quot;</span>, <span class="st">&quot;H&quot;</span> <span class="st">&quot;I&quot;</span>, <span class="st">&quot;J&quot;</span>, <span class="st">&quot;K&quot;</span>, <span class="st">&quot;L&quot;</span>, <span class="st">&quot;M&quot;</span>,</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>                <span class="st">&quot;N&quot;</span>, <span class="st">&quot;O&quot;</span>, <span class="st">&quot;P&quot;</span>, <span class="st">&quot;Q&quot;</span>, <span class="st">&quot;R&quot;</span>, <span class="st">&quot;S&quot;</span>, <span class="st">&quot;T&quot;</span>, <span class="st">&quot;U&quot;</span>, <span class="st">&quot;V&quot;</span>, <span class="st">&quot;W&quot;</span>, <span class="st">&quot;X&quot;</span>, <span class="st">&quot;Y&quot;</span>, <span class="st">&quot;Z&quot;</span>)</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>punctuation <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;.&quot;</span>, <span class="st">&quot;,&quot;</span>, <span class="st">&quot;!&quot;</span>, <span class="st">&quot;?&quot;</span>, <span class="st">&quot;&#39;&quot;</span>, <span class="st">&quot;&quot;&quot;, &quot;</span>(<span class="st">&quot;, &quot;</span>)<span class="st">&quot;, &quot;</span> <span class="st">&quot;, &quot;</span><span class="sc">-</span><span class="st">&quot;, &quot;</span>;<span class="st">&quot;, &quot;</span><span class="sc">:</span><span class="st">&quot;)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>punctuation <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;.&quot;</span>, <span class="st">&quot;,&quot;</span>, <span class="st">&quot;!&quot;</span>, <span class="st">&quot;?&quot;</span>, <span class="st">&quot;&#39;&quot;</span>, <span class="st">&#39;&quot;&#39;</span>, <span class="st">&quot;(&quot;</span>, <span class="st">&quot;)&quot;</span>, <span class="st">&quot; &quot;</span>, <span class="st">&quot;-&quot;</span>, <span class="st">&quot;;&quot;</span>, <span class="st">&quot;:&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error: &lt;text&gt;:4:56: unexpected string constant
+3: 
+4: upper_case &lt;- c(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;E&quot;, &quot;F&quot;, &quot;G&quot;, &quot;H&quot; &quot;I&quot;
+                                                          ^</code></pre>
+</div>
 </div>
 <ol start="2" type="1">
 <li>Make <strong>one</strong> long <strong>vector</strong> containing all the symbols.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>my_symbols <span class="ot">&lt;-</span> <span class="fu">cbind</span>(lower_case, upper_case, punctuation)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>my_symbols <span class="ot">&lt;-</span> <span class="fu">cbind</span>(lower_case, upper_case, punctuation)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in cbind(lower_case, upper_case, punctuation): object &#39;lower_case&#39; not found</code></pre>
+</div>
 </div>
 <ol start="3" type="1">
 <li>Turn the <code>my_symbols</code> vector into a data frame, with one column named “Symbol”.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>my_symbols <span class="ot">&lt;-</span> <span class="fu">dataframe</span>(<span class="at">Symbol =</span> my_symbols)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>my_symbols <span class="ot">&lt;-</span> <span class="fu">dataframe</span>(<span class="at">Symbol =</span> my_symbols)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in dataframe(Symbol = my_symbols): could not find function &quot;dataframe&quot;</code></pre>
+</div>
 </div>
 <ol start="4" type="1">
 <li>Find the total number of symbols we have in our data frame.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>len <span class="ot">&lt;-</span> <span class="fu">length</span>(my_symbols)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>len <span class="ot">&lt;-</span> <span class="fu">length</span>(my_symbols)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in eval(expr, envir, enclos): object &#39;my_symbols&#39; not found</code></pre>
+</div>
 </div>
 <ol start="5" type="1">
 <li>Create a new variable in your dataframe that assigns a number to each symbol.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>my_symbols%Num <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span>len</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>my_symbols%Num <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span>len</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error: &lt;text&gt;:1:11: unexpected input
+1: my_symbols%Num &lt;- 1:len
+              ^</code></pre>
 </div>
-<ol start="6" type="1">
-<li>This chunk will load up the encoded secret message as a vector.</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>top_secret <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://www.dropbox.com/s/k72h1zewk4gtqep/PA_Secret_Code?dl=1&quot;</span>, </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">col_names =</span> <span class="cn">FALSE</span>)<span class="sc">$</span>X1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="part-two-decoding-the-secret-message." class="level2">
 <h2 class="anchored" data-anchor-id="part-two-decoding-the-secret-message.">Part Two: Decoding the secret message.</h2>
+<p>This chunk will load up the encoded secret message as a vector.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>top_secret <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://www.dropbox.com/s/k72h1zewk4gtqep/PA_Secret_Code?dl=1&quot;</span>, </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">col_names =</span> <span class="cn">FALSE</span>)<span class="sc">$</span>X1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>By altering this top secret set of numbers, you will be able to create a message. Write your own code to complete the steps, <strong>in the order given</strong> below.</p>
 <ol type="1">
 <li><p>Add 14 to every number.</p></li>
@@ -2698,12 +2734,17 @@ vertical-align: -.125em;
 <p>where the original value(s) in <code>x</code> have had 12 added to them, and the resulting values are put back in to the object named <code>x</code>.</p>
 <p><em>Be careful not to</em> <strong>overwrite</strong> <em>more than you intend. If this happens, go back and run (6) and any subsequent code chunks to start fresh with the top_secret vector.</em></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Code to carry out steps 1-4 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Code to carry out steps 1-4 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><strong>Checkpoint:</strong> Headquarters has informed you that at this stage of decoding, there should be 352 numbers in the secret message that are below 17. Write the code to verify that this is true for your <code>top_secret</code> object!</p>
+<p><strong>Checkpoint:</strong> Headquarters has informed you that at this stage of decoding, there should be 352 numbers in the secret message that are below 17. The code below verifies that this is true for your <code>top_secret</code> object!</p>
 <p><em>Hint:</em> This is what is called a “relational” comparison, where you compare an object to a number and R will give you a vector of TRUEs and FALSEs based on whether the comparison is / is not met. You can then use these TRUEs and FALSEs as numbers, since TRUE = 1 and FALSE = 0 in R land.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Write code to verify that there are 352 numbers with values **below** 17</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The code below verifies that there are 352 numbers with values **below** 17</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(top_secret <span class="sc">&lt;</span> <span class="dv">17</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 955</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># should be 352!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Next, carry out the following steps:</p>
 <ol start="5" type="1">
@@ -2715,12 +2756,17 @@ vertical-align: -.125em;
 <li><p>Turn your secret message matrix back into a vector.</p></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Code to carry out steps 5-10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Code to carry out steps 5-10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><strong>Checkpoint:</strong> Headquarters has informed you that at this stage of decoding, all numbers in indices 500 and beyond are below 100. Write the code to verify that this is true for your <code>top_secret</code> object!</p>
+<p><strong>Checkpoint:</strong> Headquarters has informed you that at this stage of decoding, all numbers in indices 500 and beyond are below 100. The code below verifies that this is true for your <code>top_secret</code> object!</p>
 <p><em>Hint:</em> Use a relational comparison similar to what you used in the last checkpoint, but here you will need to subset values from your vector! It may be helpful to think of below 100 as <strong>not</strong> equal to or greater than 100.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Write code to verify that indices 500 and beyond have values **below** 100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The code below verifies that indices 500 and beyond have values **below** 100</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(top_secret[<span class="dv">500</span><span class="sc">:</span><span class="dv">955</span>] <span class="sc">&gt;=</span> <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># should be 0!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="11" type="1">
 <li><p>Take the square root of all numbers in indices 38 to 465.</p></li>
@@ -2729,19 +2775,27 @@ vertical-align: -.125em;
 </ol>
 <p><em>Hint:</em> Step 13 requires another relational comparison, but this time it is equality. Equality in R is checked with a double equal sign rather than a single equal sign!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code for steps 11-13</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code for steps 11-13</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Checkpoint:</strong> Headquarters has informed you that your final message should have 344 even numbers.</p>
 <p><em>Hint:</em> Checking for divisibility is an interesting operation that isn’t done much in R. Modulus is the operation you are interested in, where you are checking for whether the numbers are divisible by 2, with no remainder. See what you can find about modulus in R!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code to verify how many even numbers are in your top_secret vector</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The code below verifies how many even numbers are in your top_secret vector</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(top_secret <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Should be 344!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="part-3-the-secret-message" class="level2">
-<h2 class="anchored" data-anchor-id="part-3-the-secret-message">Part 3: The secret message!</h2>
+<section id="part-three-the-secret-message" class="level2">
+<h2 class="anchored" data-anchor-id="part-three-the-secret-message">Part Three: The secret message!</h2>
 <p>Use your final vector of numbers as indices for my_symbols to discover the final message, by running the following code:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>stringr<span class="sc">::</span><span class="fu">str_c</span>(my_symbols<span class="sc">$</span>Symbol[top_secret], <span class="at">collapse =</span> <span class="st">&quot;&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>stringr<span class="sc">::</span><span class="fu">str_c</span>(my_symbols<span class="sc">$</span>Symbol[top_secret], <span class="at">collapse =</span> <span class="st">&quot;&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in stringr::str_c(my_symbols$Symbol[top_secret], collapse = &quot;&quot;): object &#39;my_symbols&#39; not found</code></pre>
+</div>
 </div>
 <p>Google the first line of this message, if you do not recognize it, to see what poem it is.</p>
 </section>

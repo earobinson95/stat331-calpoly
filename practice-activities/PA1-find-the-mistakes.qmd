@@ -4,8 +4,9 @@ subtitle: "Working with R Objects"
 author: "YOUR NAME"
 format: html
 self-contained: true
-
-echo: true
+execute:
+  echo: true
+  error: true
 ---
 
 ```{r, setup}
@@ -28,6 +29,17 @@ it.
 Use the console to check each step and make sure you have accomplished what you
 wanted to accomplish.
 
+## Access
+
+You can access PA1: Find the Mistakes one of two ways:
+
+1. Click [here](https://posit.cloud/content/5172799) to access an **RStudio Cloud** project which we work on in groups on Day 1 of the course
+  + Note: if you do not have an RStudio (Posit) Cloud account, you will be asked to create one.
+  + Make sure to save a permanent copy!
+
+2. If you have already [installed R, RStudio, and Quarto](https://earobinson95.github.io/stat331-calpoly-text/01-introduction.html#checkin3-install), you can create a new [Quarto document](https://earobinson95.github.io/stat331-calpoly-text/01-introduction.html#notebooks), and copy the [practice activity template](https://raw.githubusercontent.com/earobinson95/stat331-calpoly/master/practice-activities/PA1-find-the-mistakes.qmd?token=GHSAT0AAAAAABYBOW2KDYAEG2R7JS4OT2HMY54NK7A) into the file.
+  + Make sure your quarto file is on Source mode and not Visual mode (top left) when you copy the template.
+
 ## Part One: Setup
 
 Each of the following R chunks will cause one or more errors and / or do the
@@ -37,19 +49,19 @@ intended action.
 1. Create vectors containing the upper case letters, lower case letters, and
 some punctuation marks.
 
-```{r, eval = FALSE}
+```{r}
 lower_case <- c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
                 "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z")
 
 upper_case <- c("A", "B", "C", "D", "E", "F", "G", "H" "I", "J", "K", "L", "M",
                 "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z")
 
-punctuation <- c(".", ",", "!", "?", "'", """, "(", ")", " ", "-", ";", ":")
+punctuation <- c(".", ",", "!", "?", "'", '"', "(", ")", " ", "-", ";", ":")
 ```
 
 2. Make **one** long **vector** containing all the symbols.
 
-```{r, eval = FALSE}
+```{r}
 my_symbols <- cbind(lower_case, upper_case, punctuation)
 ```
 
@@ -57,34 +69,35 @@ my_symbols <- cbind(lower_case, upper_case, punctuation)
 3. Turn the `my_symbols` vector into a data frame, with one column named 
 "Symbol".
 
-```{r, eval = FALSE}
+```{r}
 my_symbols <- dataframe(Symbol = my_symbols)
 ```
 
 
 4. Find the total number of symbols we have in our data frame.  
 
-```{r, eval = FALSE}
+```{r}
 len <- length(my_symbols)
 ```
 
 
 5. Create a new variable in your dataframe that assigns a number to each symbol.
 
-```{r, eval = FALSE}
+```{r}
 my_symbols%Num <- 1:len
-```
-
-6. This chunk will load up the encoded secret message as a vector.
-
-```{r, eval = FALSE}
-#| message: false
-top_secret <- read_csv("https://www.dropbox.com/s/k72h1zewk4gtqep/PA_Secret_Code?dl=1", 
-                       col_names = FALSE)$X1
 ```
 
 
 ## Part Two: Decoding the secret message.
+
+This chunk will load up the encoded secret message as a vector.
+
+```{r}
+#| message: false
+library(readr)
+top_secret <- read_csv("https://www.dropbox.com/s/k72h1zewk4gtqep/PA_Secret_Code?dl=1", 
+                       col_names = FALSE)$X1
+```
 
 By altering this top secret set of numbers, you will be able to create a
 message. Write your own code to complete the steps, **in the order given**
@@ -115,8 +128,8 @@ values are put back in to the object named `x`.
 ```
 
 **Checkpoint:** Headquarters has informed you that at this stage of decoding,
-there should be 352 numbers in the secret message that are below 17. Write the 
-code to verify that this is true for your `top_secret` object! 
+there should be 352 numbers in the secret message that are below 17. The code
+below verifies that this is true for your `top_secret` object!
 
 *Hint:* This is what is called a "relational" comparison, where you compare 
 an object to a number and R will give you a vector of TRUEs and FALSEs based 
@@ -124,9 +137,9 @@ on whether the comparison is / is not met. You can then use these TRUEs and
 FALSEs as numbers, since TRUE = 1 and FALSE = 0 in R land.
 
 ```{r}
-# Write code to verify that there are 352 numbers with values **below** 17
-
-
+# The code below verifies that there are 352 numbers with values **below** 17
+sum(top_secret < 17)
+# should be 352!
 ```
 
 Next, carry out the following steps: 
@@ -155,7 +168,7 @@ by 2.
 ```
 
 **Checkpoint:** Headquarters has informed you that at this stage of decoding,
-all numbers in indices 500 and beyond are below 100. Write the code to verify
+all numbers in indices 500 and beyond are below 100. The code below verifies
 that this is true for your `top_secret` object! 
 
 *Hint:* Use a relational comparison similar to what you used in the last
@@ -164,9 +177,9 @@ helpful to think of below 100 as **not** equal to or greater than 100.
 
 
 ```{r}
-# Write code to verify that indices 500 and beyond have values **below** 100
-
-
+# The code below verifies that indices 500 and beyond have values **below** 100
+sum(top_secret[500:955] >= 100)
+# should be 0!
 ```
 
 
@@ -195,17 +208,18 @@ checking for whether the numbers are divisible by 2, with no remainder. See what
 you can find about modulus in R!
 
 ```{r}
-# Code to verify how many even numbers are in your top_secret vector
-
+# The code below verifies how many even numbers are in your top_secret vector
+sum(top_secret %% 2 == 0)
+# Should be 344!
 ```
 
 
-## Part 3: The secret message!
+## Part Three: The secret message!
 
 Use your final vector of numbers as indices for my_symbols to discover the final
 message, by running the following code:
 
-```{r, eval = FALSE}
+```{r}
 stringr::str_c(my_symbols$Symbol[top_secret], collapse = "")
 ```
 
