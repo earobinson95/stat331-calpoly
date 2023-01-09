@@ -103,14 +103,6 @@ By altering this top secret set of numbers, you will be able to create a
 message. Write your own code to complete the steps, **in the order given**
 below.
 
-1. Add 14 to every number.
-
-2. Multiply every number by 18, then subtract 257.
-
-3. Use the `exp()` function to exponentiate every number.
-
-4. Square every number.
-
 **Hint:** To update a vector after performing an operation, you *overwrite* the 
 existing object with its updated counterpart. This looks something like this:
 
@@ -121,9 +113,31 @@ values are put back in to the object named `x`.
 
 *Be careful not to* **overwrite** *more than you intend. If this happens, go back and run (6) and any subsequent code chunks to start fresh with the top_secret vector.*
 
-```{r}
-## Code to carry out steps 1-4 
++ Add 14 to every number (completed for you!)
 
+```{r}
+## Code completed for you
+top_secret <- top_secret + 14
+```
+
+1. Multiply every number by 18, then subtract 257 (watch your order of operations!)
+
+```{r}
+## Code to carry out step 1
+
+```
+
+2. Use the `exp()` function to exponentiate every number.
+
+```{r}
+## Code to carry out step 2
+
+```
+
+3. Square every number.
+
+```{r}
+## Code to carry out step 3
 
 ```
 
@@ -138,33 +152,58 @@ FALSEs as numbers, since TRUE = 1 and FALSE = 0 in R land.
 
 ```{r}
 # The code below verifies that there are 352 numbers with values **below** 17
-sum(top_secret < 17)
 # should be 352!
+sum(top_secret < 17)
 ```
 
 Next, carry out the following steps: 
 
-5. Turn your vector of numbers into a matrix with 5 columns.
+4. Turn your vector of numbers into a matrix with 5 columns.
 
-6. Separately from your top secret numbers, create a vector of all the even
+```{r}
+## Complete the code to carry out step 4
+top_secret <-  matrix(top_secret, ncol = ____)
+```
+
++ Separately from your top secret numbers, create a vector of all the even
 numbers between 1 and 382. Name it "evens". That is, "evens" should contain
 2, 4, 6, 8 ..., 382.
 
-7. Subtract the "evens" vector from the first column of your secret message
+```{r}
+# Code completed for you
+evens <- (1:191)*2
+# Alternative solution: evens <- seq(from = 2, to = 382, by = 2)
+```
+
++ Subtract the "evens" vector from the first column of your secret message
 matrix.
 
-8. Subtract 100 from all numbers 18-24th rows of the 3rd column of your secret
+```{r}
+# Code completed for you
+top_secret[, 1] <- top_secret[, 1] - evens
+```
+
+5. Subtract 100 from all numbers 18-24th rows of the 3rd column of your secret
 message matrix.
 
-9. Multiply all numbers in the 4th and 5th column of your secret message matrix
+```{r}
+## Complete the code to carry out step 5
+top_secret[18:24, 3] <- top_secret[_____, __] - 100
+```
+
+6. Multiply all numbers in the 4th and 5th column of your secret message matrix
 by 2.
 
-10. Turn your secret message matrix back into a vector.
+```{r}
+## Code to carry out step 6
+
+```
+
+7. Turn your secret message matrix back into a vector.
 
 ```{r}
-## Code to carry out steps 5-10
-
-
+## Complete the code to carry out step 7
+top_secret <- ___(top_secret)
 ```
 
 **Checkpoint:** Headquarters has informed you that at this stage of decoding,
@@ -178,24 +217,31 @@ helpful to think of below 100 as **not** equal to or greater than 100.
 
 ```{r}
 # The code below verifies that indices 500 and beyond have values **below** 100
-sum(top_secret[500:955] >= 100)
 # should be 0!
+sum(top_secret[500:955] >= 100)
 ```
 
+The following operations on our secret message are completed for you: (make sure to run these code chunks yet)
 
-11. Take the square root of all numbers in indices 38 to 465.
++ Take the square root of all numbers in indices 38 to 465.
 
-12. Use the `round()` function to round all numbers to the nearest whole number.
+```{r}
+top_secret[38:465] <- sqrt(top_secret[38:465])
+```
 
-13. Replace all instances of the number 39 with 20.
++ Use the `round()` function to round all numbers to the nearest whole number.
 
-*Hint:* Step 13 requires another relational comparison, but this time it is
+```{r}
+top_secret <- round(top_secret, digits = 0)
+```
+
++ Replace all instances of the number 39 with 20.
+  + This step requires another relational comparison, but this time it is
 equality. Equality in R is checked with a double equal sign rather than a single
 equal sign!
 
 ```{r}
-# Code for steps 11-13
-
+top_secret[top_secret == 39] <- 20
 ```
 
 
@@ -209,8 +255,8 @@ you can find about modulus in R!
 
 ```{r}
 # The code below verifies how many even numbers are in your top_secret vector
-sum(top_secret %% 2 == 0)
 # Should be 344!
+sum(top_secret %% 2 == 0)
 ```
 
 
