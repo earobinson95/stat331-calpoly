@@ -10,7 +10,7 @@ format:
   pdf:
     keep-tex: false
     # include-in-header: "in-header.tex"
-    include-in-header: 
+    include-in-header:
       text: |
         \makeatletter
         \def\@maketitle{%
@@ -30,7 +30,7 @@ format:
         \usepackage{enumitem}
         \setlist{nolistsep}
     latex-engine: xelatex
-    
+
 dev: png
 geometry: margin=1in
 
@@ -309,7 +309,7 @@ Lower bounds for grade cutoffs are shown in the following table. I will not "rou
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
 </script>
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">When my 11yo daughter complains her opponent in tennis is calling calls out..<br><br>I tell her:<br><br>“Don’t play the lines.”<br><br>As a college student, eventually every professor has to draw some lines.<br><br>Don’t play them so close. Don’t be there.</p>&mdash; Dr. Sean Mullen (@drseanmullen) <a href="https://twitter.com/drseanmullen/status/1604212307260645376?ref_src=twsrc%5Etfw">December 17, 2022</a></blockquote> 
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">When my 11yo daughter complains her opponent in tennis is calling calls out..<br><br>I tell her:<br><br>“Don’t play the lines.”<br><br>As a college student, eventually every professor has to draw some lines.<br><br>Don’t play them so close. Don’t be there.</p>&mdash; Dr. Sean Mullen (@drseanmullen) <a href="https://twitter.com/drseanmullen/status/1604212307260645376?ref_src=twsrc%5Etfw">December 17, 2022</a></blockquote>
 
 :::
 
