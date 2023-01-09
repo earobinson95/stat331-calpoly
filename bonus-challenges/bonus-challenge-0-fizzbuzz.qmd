@@ -11,7 +11,9 @@ execute:
   error: true
 ---
 
-Create a new Quarto document (`File > New File > Quarto Document`) and [copy the starter qmd file here](https://raw.githubusercontent.com/earobinson95/stat331-calpoly/master/bonus-challenges/bonus-challenge-0-fizzbuzz.qmd?token=GHSAT0AAAAAABYBOW2KIQXJITYXJTZ2EYV2Y53GJRQ). *Make sure you are on Source editor mode and not Visual editor mode when you copy the starter file.*
+[Download the starter qmd file here](bonus-challenge-0-fizzbuzz.qmd).
+
+<!-- Create a new Quarto document (`File > New File > Quarto Document`) and [copy the starter qmd file here](https://raw.githubusercontent.com/earobinson95/stat331-calpoly/master/bonus-challenges/bonus-challenge-0-fizzbuzz.qmd?token=GHSAT0AAAAAABYBOW2KIQXJITYXJTZ2EYV2Y53GJRQ). *Make sure you are on Source editor mode and not Visual editor mode when you copy the starter file.* -->
 
 
 ## FizzBuzz
