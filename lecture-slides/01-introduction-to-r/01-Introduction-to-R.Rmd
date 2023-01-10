@@ -628,7 +628,10 @@ Submit the name of the poem as the answer to the Canvas Quiz question.
 
 Today we will...
 
-+ Review PA 1: Find the Mistakes
++ Clarifying Questions
+  + Syllabus
+  + Chapter 1 Reading
+  + PA 1: Find the Mistakes
 + Scripts + Notebooks
 + Lab 1: Introduction to Quarto
 + Challenge 1: Modifying your Quarto Document
@@ -639,6 +642,234 @@ class: inverse, center, middle
 ## Scripts + Notebooks
 
 ---
+## Scripts
+
+**Scripts** are files of code that are meant to be run on their own.
+
+`File > New File > R Script`
+
+`#` indicates a comment 
+
+Scripts can be run in Rstudio by clicking the `Run` button at the top of the editor window when the script is open.
+
+You can also run code interactively in a script by: 
++ highlighting lines of code (or even just placing your cursor on a line of code) and hitting run or `cntrl + enter`
+
+---
+## Notebooks
+
+Notebooks are an implementation of literate programming.
+
+Allows you to integrate code, output, text, images, etc. into a single document.
+
+**Reproducibility!**
+
+---
+## What is Markdown?
+
+**Markdown** (without the "R") is a *markup language*.  This means special symbols and formatting to pretty documents.
+
+Markdown files have the **.md** extension.
+
+![](https://d33wubrfki0l68.cloudfront.net/59f29676ef5e4d74685e14f801bbc10c2dbd3cef/c0688/lesson-images/markdown-1-markup.png)
+
+---
+## What is R Markdown?
+
+**R Markdown** (with the "R") uses regular markdown, plus it can run and display **R** code.  (Other languages, too!)
+
+R Markdown files have the **.Rmd** extension.
+
+---
+
+![](https://d33wubrfki0l68.cloudfront.net/ece57b678854545e6602a23daede51ad72da2170/21cca/lesson-images/outputs-1-word.png)
+
+---
+
+![](https://miro.medium.com/max/1200/1*jL-whKGBhuUlU7Q2oevz9w.png)
+
+---
+## [We don't talk about Quarto](https://www.apreshill.com/blog/2022-04-we-dont-talk-about-quarto/)
+
+```{r, echo = F, out.width="80%", fig.align='center'}
+knitr::include_graphics("images/quarto_yaml.png")
+```
+
+---
+## What is Quarto?
+
+Quarto **unifies** and **extends** the RMarkdown ecosystem.
+
+```{r, echo = F, out.width="50%", fig.align='center'}
+knitr::include_graphics("images/rmd_ecosystem.png")
+```
+
+Quarto is the next generation RMarkdown.
+
+???
+It unifies it for people who love R Markdown by reducing little points of friction, so that websites, books, and slides all have a common approach.
+
+And it extends it for people who don't know RMarkdown by being a friendly way to work reproducibly and publish documents that have text and code in the same place
+
+Think of all the packages from the R Markdown universe that you've come to love and rely on over the years. Each package addresses a different need and offers a different output: for example, you can use blogdown or distill for creating websites and blogs, bookdown for writing a book, rticles for writing journal articles, etc.
+
+Quarto unifies the functionality from these packages,
+
+building on Pandoc on the technical side
+
+and on the human side -- over a decade of experience developing, maintaining, and tweaking these packages as well as community feedback R Markdown extension packages.
+
+Such a unification effort presents a fantastic opportunity to identify and address gaps functionality and inefficiencies in user experience, and the process of building Quarto has been no different.
+
+---
+## Quarto highlights
+
++ Consistent implementation of attractive and handy features across outputs: tabsets, code-folding, syntax highlighting, etc.
+
++ More accessible defaults as well as better support for accessibility
+
++ Guardrails, particularly helpful for new learning: YAML completion, informative syntax errors, etc.
+
++ Support for other languages like Python, Julia, Observable, and more via Jupyter engine for executable code chunks.
+
+???
+
+Some highlights of these improvements include
+
+--\> consistent implementation of attractive and handy features across *all* outputs, like tabsets, code-folding, and syntax highlighting,
+
+--\> more accessible defaults as well as better support for creating accessible documents,
+
+--\> guardrails that are particularly helpful for new learners, like YAML completion and informative syntax errors,
+
+--\> and perhaps most excitingly for those who are not coming from the R ecosystem, Quarto offers support for other languages like Python, Julia, Observable, and more via the Jupyter engine for executable code chunks. And it's designed to be expandable to more engines and languages, even those that might not exist today.
+
+\[pause\] So by now I'm assuming many of you have already started playing with Quarto, or you're waiting for me to do that. So, let's dive in and see what all the Quarto fuss is about!
+
+---
+## Rendering in Quarto
+
+Quarto CLI orchestrates each step of rendering
+
+```{r, echo = F, fig.align='center'}
+knitr::include_graphics("images/horst_qmd_render_schema.png")
+```
+
+???
+
+Now that you've all had a chance to see Quarto in action, you might be wondering, "how are R Markdown and Quarto different"?
+
+The main difference is that with R Markdown, the R package rmarkdown does the heavy lifting of going from the source Rmd file to the the output, using knitr for evaluating the code chunks.
+
+--\> With Quarto, on the other hand, the Quarto command line interface, or the Quarto CLI, does the orchestration of processing executable code chunks with either knitr or jupyter and then converting the resulting markdown file to the desired output.
+
+While this is technically impressive, I'll be honest, it's not exactly what sparked my interest in Quarto in the first place.
+
+---
+## Quarto formats
+
+Quarto makes moving between formats straightforward
+
+.pull-left[
+**Document**
+
+``` yaml
+title: "Lesson 1"
+format: html
+```
+
+**Presentation**
+
+``` yaml
+title: "Lesson 1"
+format: revealjs
+```
+
+].pull-right[
+**Website**
+
+``` yaml
+project:
+  type: website
+
+website: 
+  navbar: 
+    left:
+      - lesson-1.qmd
+```
+]
+
+???
+
+What did spark my interest was how how straightforward it is with Quarto to move between output formats.
+
+As an educator, two things are of utmost importance to me about the tools I use to create my materials: reproducibility and ease of transition between output formats, like documents to slides to websites to books.
+
+Over the last year of using Quarto for pretty much everything, I've felt like I've finally found the tool that lets me go from one output type to the other with minimal, if any, futzing around with my source code beyond the yaml. For example, here are common things I produce
+
+--\> a lesson in document form <br> --\> the same content in presentation form <br> --\> the same content on a page in a website,
+
+and you can see that all that needed to change going between these formats is a few lines in the yaml. Nothing in the content part of my document. No slide breaks to remove, no citation style to change, no headings to re-level. This ease of transition has freed up time to focus my time on content, and that, folks, is the dream!
+
+---
+## Quarto preview
+
+**Welcome to Quarto!**
+
+![](images/quarto_overview.png)
+
+---
+## Quarto components
+
+![](images/quarto_sections.jpeg){width="80%"}
+
+---
+## Markdown in Quarto
+
+Formatting the text in your document
+
+**Markdown** is a *markup language*. This means special symbols and formatting to pretty documents.
+
+\*text\* -- makes italics
+
+\*\*text\*\* -- makes bold text
+
+\# -- makes headers
+
+!\[ \]( ) -- includes images or HTML links
+
+\< \> -- embeds URLs
+
+---
+## R code options in Quarto
+
+![](images/quarto_code_options.png)
+
+---
+## Hashpipe
+
+`#|`
+
+---
+## Rendering your Quarto Document
+
+![](images/render.png)
+
+![](images/render_on_save.png)
+
+???
+
+When you click **Render**, here is what happens:
+
+-   Your file is saved.
+-   The R code written in your *.qmd* file gets run.
+    -   Any code you ran already doesn't "count"; we start from scratch.
+    -   The code is run *in order*.
+-   A new file is created.
+    -   If your Quarto file is called "Lab1.qmd", then a file called "Lab1.html" will be created.
+    -   This will save in the same folder as "Lab1.qmd".
+
+---
 class: center, middle
 
 ## [Lab 1: Introduction to Quarto + Challenge 1: Modifying your Quarto Document](https://earobinson95.github.io/stat331-calpoly/lab-assignments/Lab1/Lab1-intro-to-quarto.html)
@@ -646,57 +877,16 @@ class: center, middle
 ---
 
 ## To do...
-  
+
++ **PA 1: Find the Mistakes**
+  + Due **TONIGHT, Wednesday** (1/11) at 11:59PM
 + **Lab 1: Introduction to Quarto**
   + Due Friday (1/13) at 11:59pm 
-  
 + **Challenge 1: Modifying Your Quarto Document (+10)**
   + Due Saturday (1/14) at 11:59pm 
-  
 + **Read Chapter 2: Importing Data + Basics of Graphics**
   + **Concept Check 2.1 + 2.2** due **Tuesday** (1/17) at 8AM
-  
 + **Bonus Challenge 0: FizzBuzz (+5)**
   + Due Saturday (1/21) at 11:59pm 
-
----
-
-<!-- --- -->
-
-<!-- class: center, middle, inverse -->
-
-<!-- # Intro to Notebooks -->
-
-<!-- --- -->
-
-<!-- # What is Markdown? -->
-
-<!-- **Markdown** (without the "R") is a *markup language*.  This means special symbols and formatting to pretty documents. -->
-
-<!-- -- -->
-
-<!-- Markdown files have the **.md** extension. -->
-
-<!-- --- -->
-
-<!-- ![](https://d33wubrfki0l68.cloudfront.net/59f29676ef5e4d74685e14f801bbc10c2dbd3cef/c0688/lesson-images/markdown-1-markup.png) -->
-
-<!-- --- -->
-<!-- # What is R Markdown? -->
-
-<!-- **R Markdown** (with the "R") uses regular markdown, plus it can run and display **R** code.  (Other languages, too!) -->
-
-<!-- -- -->
-
-<!-- R Markdown files have the **.Rmd** extension. -->
-
-<!-- --- -->
-
-<!-- ![](https://d33wubrfki0l68.cloudfront.net/ece57b678854545e6602a23daede51ad72da2170/21cca/lesson-images/outputs-1-word.png) -->
-
-<!-- --- -->
-<!-- ![](https://miro.medium.com/max/1200/1*jL-whKGBhuUlU7Q2oevz9w.png) -->
-
-<!-- --- -->
 
 
