@@ -10,7 +10,7 @@ execute:
 
 <!-- Insert your setup code chunk here. This is just good practice. -->
 
-[Download the .qmd template here.](PA2-ggplot-palmer-penguins.qmd)
+[Download the .qmd template](PA2-ggplot-palmer-penguins.qmd) and save it in a reasonable location.
 
 Today you will be exploring different types of visualizations to uncover which species of penguins reside on different islands.
 
@@ -92,7 +92,7 @@ data(penguins)
 5.  Color deficiencies can make differentiating groups difficult - which aesthetic could you add to your plot to double encode species?
 :::
 
-## If you finish early... take everything you know, and use it for evil
+## If you finish early... take everything you know, and use it for evil (+2 Challenge Points)
 
 The textbook spent lots of time showing you how to create different types of graphics, but I spent a lot less time showing you all of the different ways you could customize graphics in `ggplot2`. I want you to create the ugliest version of the scatterplot you created in (8) above, and then explain why, exactly, you made the decisions you did, and which principles of good graphics you’ve intentionally violated.
 
@@ -103,6 +103,8 @@ Ugliness is subjective, so the goal here is for you to explore the different way
 ```
 
 Once you have created the ugliest graphic you can, [save your plot](https://r4ds.hadley.nz/data-visualize.html#sec-ggsave), and upload it to the [shared google slides](https://docs.google.com/presentation/d/1bChpVMyrhBnOjJLwK1ku9uIcM6I-ZTTMXkY0200CHhw/edit?usp=sharing) along with how you modified the chart - let's share code! - your explanation as to why you made the decisions you did, and which principles of good graphics you’ve intentionally violated.
+
+To receive your challenge points, upload the url link to your slide to the Canvas Assignment by **Wednesday, January 23rd at 10:10am**. We want to be able to look at them during class tomorrow!
 
 ### Useful References
 
