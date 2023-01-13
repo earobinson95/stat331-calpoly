@@ -80,6 +80,7 @@ Make sure to give your plots reader friendly axes labels!
 ```{r}
 
 ```
+
 ## Canvas Quiz
 
 ::: callout-tip
