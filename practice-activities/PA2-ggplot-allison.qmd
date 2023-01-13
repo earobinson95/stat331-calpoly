@@ -4,26 +4,27 @@ format: html
 self-contained: true
 execute: 
   echo: true
-  code-fold: true
   error: true
+  code-fold: true
 ---
 
-```{r}
+```{r setup}
 #| include: false
 library(tidyverse)
+library(openintro)
 ```
 
 Today you will be exploring different types of visualizations to uncover what months have the longest delays at New York City's airports.
 
 Some advice:
 
--   Work with those around you
++ Work with those around you
 
--   If you aren't sure how to make a specific plot or how to customize a plot, look over the *R for Data Science* textbook, all of the plots in this activity are included in the textbook.
++ If you aren't sure how to make a specific plot or how to customize a plot, look over the *R for Data Science* textbook, all of the plots in this activity are included in the textbook.
 
--   Google is your friend! If you aren't sure how to accomplish a certain task, type what you are trying to accomplish into Google and see what other people are saying. Generally, adding `ggplot` to the end of your search will help make your search results more relevant!
++ Google is your friend! If you aren't sure how to accomplish a certain task, type what you are trying to accomplish into Google and see what other people are saying. Generally, adding `ggplot` to the end of your search will help make your search results more relevant!
 
--   Finally, don't forget to use your team members and course Discord as resources.
++ Finally, don't forget to use your peers as resources.
 
 # Getting Started
 
@@ -31,16 +32,22 @@ We will be creating visualizations using the **ggplot2** package. Typically, you
 
 For this activity, we will be exploring the `nycflights` data from the **openintro** package. So, you will need to install the **openintro** package.
 
+`install.packages("openintro")`
+
 ## Creating a Set-up Chunk
 
 1.  Insert a code chunk at the beginning of your document (directly under the YAML).
 2.  Name the code chunk "setup".
 3.  Specify that the messages from loading in the packages should not be included
-4.  Load in the tidyverse package
-5.  Load in the openintro package
+4.  Load in the `tidyverse` package
+5.  Load in the `openintro` package
+
+## Data set: `nycflights`
+
+I like to tangibly see the data set so I am going to pull the `nycflights` data into my R environment. Explore your data set, what are the variables? What does each row represent?
 
 ```{r}
-
+data(nycflights)
 ```
 
 # Part One

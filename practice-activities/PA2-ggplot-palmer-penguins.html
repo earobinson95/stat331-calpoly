@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Practice Activity 2: Using Data Visualization to Find the Group</title>
+<title>PA 2: Using Data Visualization to Find the Penguins</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -2607,7 +2607,7 @@ vertical-align: -.125em;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Practice Activity 2: Using Data Visualization to Find the Group</h1>
+<h1 class="title">PA 2: Using Data Visualization to Find the Penguins</h1>
 </div>
 
 
@@ -2622,71 +2622,121 @@ vertical-align: -.125em;
 
 </header>
 
-<p>Today you will be exploring different types of visualizations to uncover what months have the longest delays at New York City’s airports.</p>
+<!-- Insert your setup code chunk here. This is just good practice. -->
+<p><a href="PA2-ggplot-palmer-penguins.qmd">Download the .qmd template here.</a></p>
+<p>Today you will be exploring different types of visualizations to uncover which species of penguins reside on different islands.</p>
 <p>Some advice:</p>
 <ul>
 <li><p>Work with those around you</p></li>
-<li><p>If you aren’t sure how to make a specific plot or how to customize a plot, look over the <em>R for Data Science</em> textbook, all of the plots in this activity are included in the textbook.</p></li>
+<li><p>If you aren’t sure how to make a specific plot or how to customize a plot, look over the class text for this week and make use of the <a href="https://earobinson95.github.io/stat331-calpoly-text/02-tidy-data-and-basics-of-graphics.html#rgraphics">R graphics cheat sheets</a>.</p></li>
 <li><p>Google is your friend! If you aren’t sure how to accomplish a certain task, type what you are trying to accomplish into Google and see what other people are saying. Generally, adding <code>ggplot</code> to the end of your search will help make your search results more relevant!</p></li>
-<li><p>Finally, don’t forget to use your team members and course Discord as resources.</p></li>
 </ul>
-<section id="getting-started" class="level1">
-<h1>Getting Started</h1>
-<p>We will be creating visualizations using the <strong>ggplot2</strong> package. Typically, you would only need to load in this package at the beginning of your document, however the code I’ve provided you also uses a tool from the <strong>dplyr</strong> package. So, it would be best for you to load in the <strong>tidyverse</strong> package at the beginning of your document.</p>
-<p>For this activity, we will be exploring the <code>nycflights</code> data from the <strong>openintro</strong> package. So, you will need to install the <strong>openintro</strong> package.</p>
-<section id="creating-a-set-up-chunk" class="level2">
-<h2 class="anchored" data-anchor-id="creating-a-set-up-chunk">Creating a Set-up Chunk</h2>
+<section id="getting-started" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started">Getting Started</h2>
+<p>We will be creating visualizations using the <code>ggplot2</code> package.</p>
+<p>For this activity, we will be exploring the <code>penguins</code> data from the <code>palmerpenguins</code> package, which has <a href="https://allisonhorst.github.io/palmerpenguins/">fantastic documentation with really awesome artwork</a>. So, you will need to install the <strong>palmerpenguins</strong> package.</p>
+<p><code>install.packages(&quot;palmerpenguins&quot;)</code></p>
+</section>
+<section id="creating-a-set-up-code-chunk" class="level2">
+<h2 class="anchored" data-anchor-id="creating-a-set-up-code-chunk">Creating a Set-up Code Chunk</h2>
 <ol type="1">
 <li>Insert a code chunk at the beginning of your document (directly under the YAML).</li>
-<li>Name the code chunk “setup”.</li>
-<li>Specify that the messages from loading in the packages should not be included</li>
-<li>Load in the tidyverse package</li>
-<li>Load in the openintro package</li>
+<li>Name the code chunk <em>setup</em>.</li>
+<li>Specify the code chunk option with the hashpipe <code>#|</code> that the messages from loading in the packages should not be included.</li>
+<li>Load in the <code>tidyverse</code> or <code>ggplot2</code> package.</li>
+<li>Load in the <code>palmerpenguins</code> package.</li>
+</ol>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Naming your code chunk “setup” has special properties in .qmd - specifically this code chunk will run automatically when you try to run a subsequent code chunk. This ensures all packages and any other specifications for your document are loaded and will not cause you errors or messages.</p>
+</div>
+</div>
+</section>
+<section id="data-set-penguins" class="level2">
+<h2 class="anchored" data-anchor-id="data-set-penguins">Data set <code>penguins</code></h2>
+<p>I like to tangibly see the data set I will be working with so I am going to pull the <code>penguins</code> data into my R environment.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in data(penguins): data set &#39;penguins&#39; not found</code></pre>
+</div>
+</div>
+<ol start="6" type="1">
+<li>Get to know your data, what are the variables and what units are they measured in? What does each row represent?</li>
+</ol>
+</section>
+<section id="graphics" class="level2">
+<h2 class="anchored" data-anchor-id="graphics">Graphics</h2>
+<ol start="7" type="1">
+<li>Use <code>ggplot2</code> to draw a barchart of <code>species</code>. Map <code>species</code> to the fill color of the barchart.</li>
+</ol>
+<div class="cell">
+
+</div>
+<ol start="8" type="1">
+<li>Create a scatterplot of the relationship between the bill length (<code>bill_length_mm</code>) and bill depth (<code>bill_depth_mm</code>).</li>
+</ol>
+<div class="cell">
+
+</div>
+<ol start="9" type="1">
+<li>Add an aesthetic to differentiate the species by color.</li>
+</ol>
+<div class="cell">
+
+</div>
+<ol start="10" type="1">
+<li>Add the location of the penguins, <code>island</code>, to your visualization. There may be more than one method to address this, however, one method will more easily address the questions below.</li>
 </ol>
 <div class="cell">
 
 </div>
 </section>
-</section>
-<section id="part-one" class="level1">
-<h1>Part One</h1>
-<p>Create a scatterplot of the relationship between the departure time (<code>dep_time</code>) and the month of the departure (<code>month</code>).</p>
-<div class="cell">
-
+<section id="canvas-quiz" class="level2">
+<h2 class="anchored" data-anchor-id="canvas-quiz">Canvas Quiz</h2>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<p><strong>Checkpoint:</strong> This plot should be unsatisfying! Think critically about a better way to visualize this relationship.</p>
-<p><em>Hint:</em> Think about what type of variable <code>month</code> behaves like!</p>
-</section>
-<section id="part-two" class="level1">
-<h1>Part Two</h1>
-<p>In order to create the plot we want, <code>month</code> needs to be a character variable, not a numeric variable. Use the code below to convert <code>month</code> into a character data type.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>nycflights <span class="ot">&lt;-</span> nycflights <span class="sc">|&gt;</span> </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">month =</span> <span class="fu">as.character</span>(month))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout-caption-container flex-fill">
+Use the plots you created to address the following questions on Canvas:
 </div>
+</div>
+<div class="callout-body-container callout-body">
 <ol type="1">
-<li>Create a visualization of the relationship between the departure delay (<code>dep_delay</code>) and the month of the departure (<code>month</code>) that allows for you to discern if there are unusual observations with extremely long delays.</li>
+<li><p>Which species of penguins is represented <strong>least</strong> in the Palmer Penguins data set?</p></li>
+<li><p>Which species of penguins are found on Biscoe Island?</p></li>
+<li><p>Which species of penguins are found on Dream Island?</p></li>
+<li><p>Which species of penguins are found on Torgersen Island?</p></li>
+<li><p>Color deficiencies can make differentiating groups difficult - which aesthetic could you add to your plot to double encode species?</p></li>
 </ol>
-<div class="cell">
-
 </div>
-<ol start="2" type="1">
-<li>Add the origin (airport) of the flight (<code>origin</code>) to your visualization.</li>
-</ol>
-<div class="cell">
-
 </div>
 </section>
-<section id="part-three" class="level1">
-<h1>Part Three</h1>
-<p>There are two options for how to include <code>origin</code> into your visualization. However, one method will more easily address the following questions.</p>
-<p>Use your final plot to address the following questions:</p>
-<ol type="1">
-<li><p>During what month did the <strong>second</strong> longest delay occur at EWR?</p></li>
-<li><p>During what month did the <strong>second</strong> longest delay occur at JFK?</p></li>
-<li><p>During what month did the <strong>second</strong> longest delay occur at LGA?</p></li>
-<li><p>What unit is departure delay measured in?</p></li>
-</ol>
+<section id="if-you-finish-early-take-everything-you-know-and-use-it-for-evil" class="level2">
+<h2 class="anchored" data-anchor-id="if-you-finish-early-take-everything-you-know-and-use-it-for-evil">If you finish early… take everything you know, and use it for evil</h2>
+<p>The textbook spent lots of time showing you how to create different types of graphics, but I spent a lot less time showing you all of the different ways you could customize graphics in <code>ggplot2</code>. I want you to create the ugliest version of the scatterplot you created in (8) above, and then explain why, exactly, you made the decisions you did, and which principles of good graphics you’ve intentionally violated.</p>
+<p>Ugliness is subjective, so the goal here is for you to explore the different ways you can customize the finer details of graphics. Make sure your finished masterpiece has appropriate axis labels and a title (after all, even ugly plots need to be correctly labeled!). You are free to add additional variables and layers, modify the aesthetics used, and leverage other packages. Let’s see your creativity shine through!</p>
+<div class="cell">
+
+</div>
+<p>Once you have created the ugliest graphic you can, <a href="https://r4ds.hadley.nz/data-visualize.html#sec-ggsave">save your plot</a>, and upload it to the <a href="https://docs.google.com/presentation/d/1bChpVMyrhBnOjJLwK1ku9uIcM6I-ZTTMXkY0200CHhw/edit?usp=sharing">shared google slides</a> along with how you modified the chart - let’s share code! - your explanation as to why you made the decisions you did, and which principles of good graphics you’ve intentionally violated.</p>
+<section id="useful-references" class="level3">
+<h3 class="anchored" data-anchor-id="useful-references">Useful References</h3>
+<ul>
+<li><a href="http://r-statistics.co/Complete-Ggplot2-Tutorial-Part2-Customizing-Theme-With-R-Code.html">Customizing ggplot2 graphics</a></li>
+<li><a href="https://docs.google.com/presentation/d/1ixRsGI8BWgT2zA5AbB61eMLUbJgObvBCZt-OnZDzvX4/edit#slide=id.p">A group-created slideshow of awful graphics</a></li>
+</ul>
+</section>
 </section>
 
 </main>
