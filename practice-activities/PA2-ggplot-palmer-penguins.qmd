@@ -54,6 +54,10 @@ data(penguins)
 
 ## Graphics
 
+::: callout-note
+Make sure to give your plots reader friendly axes labels!
+:::
+
 7. Use `ggplot2` to draw a barchart of `species`. Map `species` to the fill color of the barchart.
 
 ```{r}
