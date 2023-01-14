@@ -1,0 +1,160 @@
+---
+title: "Challenge 2: Spicing things up with ggplot2"
+format: html
+self-contained: true
+toc: true
+execute:
+  echo: false
+  message: false
+  warning: false
+  error: true
+---
+
+```{r, setup}
+#| include: false
+
+library(tidyverse)
+library(here)
+
+surveys <- read_csv(here("lab-assignments", "Lab2-graphics", "surveys.csv"))
+```
+
+For this week's Challenge, you will have three different options to explore.
+I've arranged these options in terms of their "spiciness," or the difficulty 
+of completing the task. You are only required to complete one task, but if you 
+are interested in exploring more than one, feel free! 
+
+This is a great place to let your creativity show if you want to add any of your own flairs to these! Remember, submitting impressive challenge submissions could earn you bonus points. Make sure to indicate what additional touches you added and provide any online references you used.
+
+::: callout-tip
+You should create a new quarto document (make sure to specify `self-contained: true`, `echo: true`, and any other formatting specifics you desire in the YAML). 
+
+Then create a setup code chunk to load the packages and read in the surveys.csv file like you did in Lab 2.
+
+Create another code chunk and copy your code from Question 14 or Question 15 in Lab 2 as we will be modifying the box plot of weights by species.
+
+(or you can create a copy of your Lab 2 .qmd file and delete the unnnecessary parts for the challenge)
+:::
+
+</br> 
+
+# `r emo::ji("pepper")` Medium: Ridge Plots
+
+In Lab 2 you use side-by-side **boxplots** to visualize the
+distribution of weight within each species. Boxplots have [substantial flaws](https://www.data-to-viz.com/caveat/boxplot.html), namely that they
+disguise distributions with multiple modes. 
+
+A "superior" alternative is the density plot. However, `ggplot2` does not
+allow for side-by-side density plots using `geom_density()`. Instead, we will
+need to make use of the `ggridges` package to create side-by-side density
+(ridge) plots. 
+
+::: callout-note
+Another great alternative to boxplots are [violin plots](https://blog.bioturing.com/2018/05/16/5-reasons-you-should-use-a-violin-graph/)!
+:::
+
+> **For this challenge you are to change the plot you created in the Boxplot
+section to a ridge plot. You will need to install the `ggridges` package and
+explore the `geom_density_ridges()` function.**
+
+</br>
+
+# `r emo::ji("spicy")` `r emo::ji("pepper")` Spicy: Exploring Color Themes
+
+The built in `ggplot()` color scheme may not be what you were looking for, but 
+don't worry! There are many other color palettes available to use!  
+
+You can change the colors used by `ggplot()` a few different ways.  
+
+### Manual Specification 
+
+Add the `scale_color_manual()` or `scale_fill_manual()` functions to your 
+plot and directly specify the colors you want to use. You can either:  
+
+- define a vector of colors right within the scale functions 
+(e.g. `values = c("blue", "black", "red", "green")`)  
+
+- create a vector of colors using hex numbers and storing it in an object and
+calling it in the `scale_color_manual()` function
+
+```{r}
+#| echo: true
+# A vector of a color deficient friendly palette with gray:
+cdPalette_grey <- c("#999999", "#E69F00", "#56B4E9", "#009E73", "#F0E442", 
+                    "#0072B2", "#D55E00", "#CC79A7")
+
+# A vector of a color deficient friendly palette with black:
+cdPalette_blk <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", 
+                   "#0072B2", "#D55E00", "#CC79A7")
+```
+
+::: callout-note
+If you are interested in using specific hex colors, I like the [image color picker app](https://imagecolorpicker.com/en) to find the colors I want. 
+:::
+                   
+```{r}
+surveys |> 
+  ggplot(aes(x = weight, y = species, color = genus)) +
+  geom_boxplot() +
+  scale_color_manual(values = cdPalette_grey) +
+  labs(x = "Weight (g)", y = "", subtitle = "Species", legend = "Genus")
+```
+
+### Package Specification 
+
+Install a package and use it's available color scales. Popular options 
+include:  
+
+- `RColorBrewer` -- change colors by using `scale_fill_brewer()` or `scale_colour_brewer()` 
+
+- `viridis` -- change colors by using `scale_colour_viridis_d()` for discrete
+data, `scale_colour_viridis_c()` for continuous data
+
+- `ggsci` -- change colors by using `scale_color_<PALNAME>()` or
+`scale_fill_<PALNAME>()`, where you specify the name of the palette you
+wish to use (e.g. `scale_color_aaas()`)
+
+::: callout-note
+[This website](https://github.com/EmilHvitfeldt/r-color-palettes) provides 
+an exhaustive list of color themes available through various packages. 
+:::
+
+> **In this challenge you are expected to use this information to modify the 
+> boxplot you created Lab 2.  
+> First, you are to color the boxplots based on the variable `genus`.  
+> Next, you are to change the colors used for `genus` using either manual 
+> color specification or any of the packages listed here (or others!).** 
+
+</br>
+
+# `r emo::ji("pepper")` `r emo::ji("pepper")` `r emo::ji("pepper")` Hot: Exploring `ggplot2` Annotation
+
+Some data scientists have advocated that we should try to eliminate legends from
+our plots to make them more clear. Instead, we should use annotation. 
+
+We can add an annotation to a `ggplot()` using the `annotate()` function.
+
+```{r}
+ggplot(data = surveys, 
+       mapping = aes(y = species, x = weight, color = genus)) +
+  geom_boxplot() +
+  scale_color_manual(values = cdPalette_grey) + 
+  annotate("text", y = 6, x = 250, label = "Sigmodon") +
+  annotate("text", y = 4, x = 250, label = "Perognathus") +
+  theme(legend.position = "none") +
+  labs(x = "Weight (g)", y = "", subtitle = "Species")
+  
+```
+
+Notice how I've labeled the "Sigmodon" and "Perognathus" genera, so the reader
+can tell that these boxplots are associated with their respective genus. 
+
+</br>
+
+> **In this challenge you are expected to use this information to modify the 
+> boxplot you created in Lab 2.  
+> First, you are to color the boxplots based on the variable `genus`.  
+> Next, you are to add annotations for each genus, next to the boxplot(s) 
+> associated with that genus.   
+> Finally, you are expected to use the `theme()` function to remove the color
+> legend from the plot, since it is no longer needed!**
