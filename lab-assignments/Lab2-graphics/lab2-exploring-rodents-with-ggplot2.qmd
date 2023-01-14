@@ -19,7 +19,7 @@ Part of learning to program is learning from a variety of resources. Thus, I exp
 You are permitted and encouraged to work with your peers as you complete the lab assignment, but you are expected to do your own work. Copying from each other is cheating, and letting people copy from you is also cheating. Don't do either of those things.
 :::
 
-[Download starter .qmd file here.](lab2-exploring-rodents-with-ggplot2)
+[Download starter .qmd file here.](lab2-exploring-rodents-with-ggplot2.qmd)
 
 [Download the data - `surveys.csv` - file here.](surveys.csv)
 
