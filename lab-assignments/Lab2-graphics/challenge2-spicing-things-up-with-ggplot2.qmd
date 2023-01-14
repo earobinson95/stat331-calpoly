@@ -29,7 +29,7 @@ This is a great place to let your creativity show if you want to add any of your
 ::: callout-tip
 You should create a new quarto document (make sure to specify `self-contained: true`, `echo: true`, and any other formatting specifics you desire in the YAML). 
 
-Then create a setup code chunk to load the packages and read in the surveys.csv file like you did in Lab 2.
+Then create a setup code chunk to load the packages and read in the [surveys.csv](surveys.csv) file like you did in Lab 2.
 
 Create another code chunk and copy your code from Question 14 or Question 15 in Lab 2 as we will be modifying the box plot of weights by species.
 
