@@ -2629,8 +2629,9 @@ vertical-align: -.125em;
   <ul class="collapse">
   <li><a href="#scatterplot" id="toc-scatterplot" class="nav-link" data-scroll-target="#scatterplot">Scatterplot</a></li>
   <li><a href="#faceting" id="toc-faceting" class="nav-link" data-scroll-target="#faceting">Faceting</a></li>
-  <li><a href="#boxplots" id="toc-boxplots" class="nav-link" data-scroll-target="#boxplots">Boxplots</a></li>
   <li><a href="#customization" id="toc-customization" class="nav-link" data-scroll-target="#customization">Customization</a></li>
+  <li><a href="#boxplots" id="toc-boxplots" class="nav-link" data-scroll-target="#boxplots">Boxplots</a></li>
+  <li><a href="#customization-1" id="toc-customization-1" class="nav-link" data-scroll-target="#customization-1">Customization</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -2670,10 +2671,12 @@ Seeking Help
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Part of learning to program is learning from a variety of resources. Thus, I expect you will use resources beyond the textbook used for this course. However, there is an important balance between copying someone else’s code and <strong><em>using their code to learn</em></strong>. The <a href="https://docs.google.com/document/d/1-SSRp_mXFNgYiy4uW9tlcpxDpQH4OuMqK-Hh4v5AvZI/edit?usp=sharing">course syllabus</a> defines what is considered plagiarism in this course. Essentially, if you use external resources, I want to know about it. You can “inform” me of any resources you used by pasting the link to the resource in a code comment next to where you used that resource.</p>
-<p>You are permitted and encouraged to work with your teammates as you complete the lab assignment, but you are expected to do your own work. Copying from each other is cheating, and letting people copy from you is also cheating. Don’t do either of those things.</p>
+<p>Part of learning to program is learning from a variety of resources. Thus, I expect you will use resources beyond the textbook used for this course. However, there is an important balance between copying someone else’s code and <em>using their code to learn</em>. The <a href="https://earobinson95.github.io/stat331-calpoly/00-course-info/syllabus-W2023.html#academic-integrity-and-class-conduct">course syllabus</a> defines what is considered plagiarism in this course. Essentially, if you use external resources, I want to know about it. You can “inform” me of any resources you used by pasting the link to the resource in a code comment next to where you used that resource.</p>
+<p>You are permitted and encouraged to work with your peers as you complete the lab assignment, but you are expected to do your own work. Copying from each other is cheating, and letting people copy from you is also cheating. Don’t do either of those things.</p>
 </div>
 </div>
+<p><a href="lab2-exploring-rodents-with-ggplot2">Download starter .qmd file here.</a></p>
+<p><a href="surveys.csv">Download the data - <code>surveys.csv</code> - file here.</a></p>
 <section id="lab-instructions" class="level1">
 <h1>Lab Instructions</h1>
 <p>The questions in this lab are noted with numbers and boldface. Each question will require you produce code, whether it is one line or multiple lines.</p>
@@ -2683,7 +2686,7 @@ Seeking Help
 <h1>Set-up</h1>
 <p>In the code chunk below load in the packages necessary for your analysis. You should only need the <code>tidyverse</code> and <code>here</code> packages for this analysis, unless you decide to use additional resources.</p>
 <div class="cell">
-
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># code for loading packages goes here!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="data-context" class="level1">
@@ -2757,13 +2760,13 @@ Seeking Help
 <h1>Reading the Data into R</h1>
 <p><strong>1. Using the <code>read_csv()</code> function and the <code>here</code> package, write the code necessary to load in the <code>surveys.csv</code> dataset. For simplicity, name the data set <code>surveys</code>.</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code for question 1! </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code for question 1! </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="inspecting-the-data" class="level2">
 <h2 class="anchored" data-anchor-id="inspecting-the-data">Inspecting the Data</h2>
 <p><strong>2. What are the dimensions of these data?</strong></p>
 <!-- You can either write code here or in the code chunk for #1, but I **must** see the code you used to address this question!  -->
-<p><strong>3. What are the data types of the variables in the dataset?</strong></p>
+<p><strong>3. What are the data types of the variables in the data set?</strong></p>
 <!-- You can either write code here or in the code chunk for #1, but I **must** see the code you used to address this question!  -->
 </section>
 </section>
@@ -2777,39 +2780,46 @@ Seeking Help
 <h2 class="anchored" data-anchor-id="scatterplot">Scatterplot</h2>
 <p><strong>4. First, let’s create a scatterplot of the relationship between <code>weight</code> (on the <span class="math inline">\(x\)</span>-axis) and <code>hindfoot_length</code> (on the <span class="math inline">\(y\)</span>-axis).</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code for question 4! </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code for question 4! </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can see there are <strong>a lot</strong> of points plotted on top of each other. Let’s try and modify this plot to extract more information from it.</p>
 <p><strong>5. Let’s add transparency (<code>alpha</code>) to the points, to make the points more transparent and (possibly) easier to see.</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Code for question 5!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Well, that is better, but there are still large clumps of data being plotted on top of each other. Let’s try another tool!</p>
-<p><strong>6. Add some jitter to the points in the scatterplot, using <code>geom_jitter()</code>.</strong></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code for question 6! </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code for question 5!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="faceting" class="level2">
 <h2 class="anchored" data-anchor-id="faceting">Faceting</h2>
-<p>Despite our best efforts there is still a substantial amount of overplotting occurring in our scatterplot. Let’s try splitting the dataset into smaller subsets and see if that allows for us to see the trends a bit better.</p>
-<p><strong>7. Facet your jittered scatterplot by <code>species</code>.</strong></p>
+<p>Despite our best efforts there is still a substantial amount of overplotting occurring in our scatterplot. Let’s try splitting the data set into smaller subsets and see if that allows for us to see the trends a bit better.</p>
+<p><strong>6. Facet your scatterplot by <code>species</code>.</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code for question 7</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code for question 6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="customization" class="level2">
+<h2 class="anchored" data-anchor-id="customization">Customization</h2>
+<p><strong>7. No plot is complete without axes labels and a title. Include reader friendly labels and a title to your plot.</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code for question 6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>It takes a larger cognitive load to read text that is rotated. It is common practice in journals and media to move the <span class="math inline">\(y\)</span>-axis label to the top of the graph under the title.</p>
+<p><strong>8. Specify your <span class="math inline">\(y\)</span>-axis label to be empty and move the <span class="math inline">\(y\)</span>-axis label into the subtitle.</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code for question 6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="boxplots" class="level2">
 <h2 class="anchored" data-anchor-id="boxplots">Boxplots</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code for question 8 - 12)! :) </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code for question 9 - 13)! :) </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><strong>8. Create side-by-side boxplots to visualize the distribution of weight within each species.</strong></p>
+<p><strong>9. Create side-by-side boxplots to visualize the distribution of weight within each species.</strong></p>
 <p>A fundamental complaint of boxplots is that they do not plot the raw data. However, with <strong>ggplot</strong> we can add the raw points on top of the boxplots!</p>
-<p><strong>9. Add another layer to your previous plot (above) that plots each observation.</strong></p>
+<p><strong>10. Add another layer to your previous plot (above) that plots each observation.</strong></p>
 <p>Alright, this should look less than optimal. Your points should appear rather stacked on top of each other. To make them less stacked, we need to jitter them a bit, using <code>geom_jitter()</code>.</p>
-<p><strong>10. Remove the previous layer you had and include a <code>geom_jitter()</code> layer.</strong></p>
+<p><strong>11. Remove the previous layer you had and include a <code>geom_jitter()</code> layer.</strong></p>
 <p>That should look a bit better! But its really hard to see the points when everything is black.</p>
-<p><strong>11. Use the <code>color</code> aesthetic in <code>geom_jitter()</code> to change the color of the points.</strong></p>
+<p><strong>12. Set the <code>color</code> aesthetic in <code>geom_jitter()</code> to change the color of the points and add set the <code>alpha</code> aesthetic to add alpha blending/transparancy.</strong></p>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -2820,24 +2830,25 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>You are welcome to use whatever color you wish, some of my favorites are: tomato, cadetblue, steelblue, and darkseagreen :)</p>
+<p>You are welcome to use whatever color you wish, some of my favorites are: orange3 and steelblue :)</p>
 </div>
 </div>
 <p>Great! Now that you can see the points, you should notice something odd: there are two colors of points still being plotted. Some of the observations are being plotted twice, once from <code>geom_boxplot()</code> as outliers and again from <code>geom_jitter()</code>!</p>
-<p><strong>12. Inspect the help file for <code>geom_boxplot()</code> and see how you can remove the outliers from being plotted by <code>geom_boxplot()</code>. Make this change in the code above!</strong></p>
+<p><strong>13. Inspect the help file for <code>geom_boxplot()</code> and see how you can remove the outliers from being plotted by <code>geom_boxplot()</code>. Make this change in the code above!</strong></p>
 </section>
-<section id="customization" class="level2">
-<h2 class="anchored" data-anchor-id="customization">Customization</h2>
+<section id="customization-1" class="level2">
+<h2 class="anchored" data-anchor-id="customization-1">Customization</h2>
 <p>Some small changes that make <strong>big</strong> differences to plots. One of these changes are better labels for a plot’s axes and legend.</p>
-<p><strong>13. Using the code you created in <a href>Boxplots</a>, modify the <span class="math inline">\(x\)</span>-axis and <span class="math inline">\(y\)</span>-axis labels to describe what is being plotted. Be sure to include any necessary units!</strong></p>
+<p><strong>14. Using the code you created in the <a href="#boxplots">Boxplots</a> section above, modify the <span class="math inline">\(x\)</span>-axis and <span class="math inline">\(y\)</span>-axis labels to describe what is being plotted. Be sure to include any necessary units!</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code for question 13! </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code for question 14! </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Some people (and journals) prefer for boxplots to be stacked with a specific orientation! Let’s practice changing the orientation of our boxplots.</p>
-<p><strong>14. Flip the orientation of your boxplots from question 10. If you created side-by-side boxplots (stacked horizontally), your boxplots should be stacked vertically. If you had vertically stacked boxplots, you should stack your boxplots horizontally!</strong></p>
+<p><strong>15. Flip the orientation of your boxplots from question 10. If you created side-by-side boxplots (stacked horizontally), your boxplots should be stacked vertically. If you had vertically stacked boxplots, you should stack your boxplots horizontally!</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code for question 14!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Code for question 15!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>Notice how vertically stacked boxplots make the species labels more readable than horizontally stacked boxplots. This is good practice!</p>
 </section>
 </section>
 

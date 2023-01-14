@@ -21,6 +21,8 @@ You are permitted and encouraged to work with your peers as you complete the lab
 
 [Download starter .qmd file here.](lab2-exploring-rodents-with-ggplot2)
 
+[Download the data - `surveys.csv` - file here.](surveys.csv)
+
 # Lab Instructions
 
 The questions in this lab are noted with numbers and boldface. Each question will require you produce code, whether it is one line or multiple lines.
@@ -127,7 +129,7 @@ It takes a larger cognitive load to read text that is rotated. It is common prac
 # Code for question 6
 ```
 
-## Boxplots
+## Boxplots {#boxplots}
 
 ```{r boxplot-jitter-points}
 # Code for question 9 - 13)! :) 
@@ -159,7 +161,7 @@ Great! Now that you can see the points, you should notice something odd: there a
 
 Some small changes that make **big** differences to plots. One of these changes are better labels for a plot's axes and legend.
 
-**14. Using the code you created in [Boxplots](), modify the $x$-axis and $y$-axis labels to describe what is being plotted. Be sure to include any necessary units!**
+**14. Using the code you created in the [Boxplots](#boxplots) section above, modify the $x$-axis and $y$-axis labels to describe what is being plotted. Be sure to include any necessary units!**
 
 ```{r}
 # Code for question 14! 
