@@ -4,6 +4,7 @@ author: "Your name here!"
 format: html
 toc: true
 self-contained: true
+code-tools: true
 execute:
   echo: true
   message: false
