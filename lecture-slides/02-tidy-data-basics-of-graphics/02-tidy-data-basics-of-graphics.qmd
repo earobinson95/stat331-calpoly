@@ -837,8 +837,10 @@ You can also take a look at other [ways to find nice color palettes](https://lis
 ## To do...
 
 + **Lab 2: Exploring Rodents with ggplot2**
+  + due Friday, 1/20 at 11:59pm
 
 + **Challenge 2: Spicing things up with ggplot2**
-
+  + due Saturday, 1/21 at 11:59pm
+  
 + **Read Chapter 3: Data Cleaning and Manipulation**
-  + **Concept Check 3.1 + 3.2** due Monday (1/23) at 8AM
+  + **Concept Check 3.1 + 3.2** due Monday (1/23) at 8am
