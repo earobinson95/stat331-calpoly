@@ -1,0 +1,639 @@
+---
+title: "WEEK 2: TIDY DATA + BASICS OF GRAPHICS"
+format: 
+  revealjs:
+    theme: [default, custom.scss]
+editor: visual
+---
+
+```{r setup}
+#| include: false
+#| message: false
+library(tidyverse)
+```
+
+## Tuesday, January 17th
+
+Today we will...
+
++ Review PA 1: Find the Mistake
++ Mini lecture on text material
+  + Tidy Data
+  + Load External Data
+  + Graphics (and ggplot2)
++ [PA 2: Using Data Visualization to Find the Penguins](https://earobinson95.github.io/stat331-calpoly/practice-activities/PA2-ggplot-palmer-penguins.html)
+
+# Tidy Data
+
+## Tidy Data
+
+![Artwork by Allison Horst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/85520b8f-4629-4763-8a2a-9ceff27458bf_rw_1920.jpg?h=21007b20ac00cf37318dca645c215453)
+
+
+## Same Data, Different Formats
+
+Which data follows a tidy data format?
+
+```{r tidy-data}
+#| echo: false
+bb_tidy_data <- tibble(Team     = c("A", "B", "C", "D"),
+                       Points   = c(88, 91, 99, 94),
+                       Assists  = c(12, 17, 24, 28),
+                       Rebounds = c(22, 28, 30, 31)
+                       )
+```
+
+::: panel-tabset
+### Option 1
+
+```{r}
+#| echo: false
+bb_tidy_data |> 
+  knitr::kable()
+```
+
+### Option 2
+
+```{r}
+#| echo: false
+bb_tidy_data |> 
+  pivot_longer(cols      = c(Points, Assists, Rebounds),
+               names_to  = "Variable",
+               values_to = "Value"
+               ) |> 
+  knitr::kable()
+```
+
+:::
+
+## Tidy Data
+
+![Artwork by Allison Horst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/40488240-4609-4dc3-8920-693e078b55ce_rw_1920.jpg?h=2e96a7e21e19c43867546498da026649)
+
+# Working with External Data
+
+## Common Types of Data Files
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+`.csv` :  "Comma-separated"
+```
+Name, Age
+Bob, 49
+Joe, 40
+```
+</br>
+
+`.xls, .xlsx`:  Microsoft Excel Spreadsheet
+  - Common approach: save as `.csv`
+  - Nicer approach:  `readxl` package
+
+:::
+
+::: {.column width="50%"}
+
+`.txt`:  Plain text
+  - Could be just text
+  - Could be comma-separated data
+  - Could be tab-separated, bar-separated, etc.
+  - Need to let R know what to look for
+
+:::
+
+::::
+
+## Loading External Data
+
+The tidyverse has some cleaned-up versions in the `readr` and `readxl` packages: 
+
+- `read_csv()` works like `read.csv`, with some extra stuff
+
+- `read_tsv()` is for tab-separated data
+
+- `read_table()` is for any data with "columns" (white space separating)
+
+- `read_delim()` is for special "delimiters" separating data
+
+- `read_excel()` is specifically for dealing with Excel files
+
+# Grammar of Graphics
+
+## Grammar of Graphics: graphic forms from the ground up
+
+Think of a data visualization or graph as a mapping
+
++ **from variables** in the data set, (or statistics computed from the data)
++ **to visual attributes** (or "aesthetics") of marks (or "geometric elements") on the page/screen
+
+::: {.notes}
+The Grammar of Graphics (GoG) is a way of specifying exactly how to create a particular graph from a given data set. It helps us to see connections between apparently unrelated graphs and to systematically design new graphs.
+:::
+
+## Grammar of Graphics: why both?
+
+It's not just a neat party trick!
+
++ More flexible than "chart zoo" of named graphs
++ Software understands the structure of your graph
+  + easily automate small multiples for data subsets
+  
+::: callout-note
+"[The grammar] makes it easier for you to iteratively update a plot, changing a single feature at a time. The grammar is also useful because it suggests the high-level aspects of a plot that *can* be changed, giving you a framework to think about graphics, and hopefully shortening the distance from mind to paper. It also encourages the use of graphics customised to a particular problem, rather than relying on generic named graphics.
+:::
+
+## Grammar of Graphics: components
+
+GoG components, as specified in R's `ggplot2`
+
++ `data`
++ `aes` : aesthetic mappings (position, length, color, symbol, ...)
++ `geom` : geometric element (point, line, bar, ...)
++ `stat` : statistical variable transformation (identity, count, linear model, quantile, ...)
++ `scale` : scale transformation (log scale, color mapping, axes tick breaks, ...)
++ `coord` : Cartesian, polar, map projection, ...
++ `facet` : divide into subplots / small multiples using a categorical variable
+
+Of course, we can also control axes, legends, titles ... (`guides`)
+
+# Using `ggplot2`
+
+## How to build a graph
+
+![](https://unl-statistics.github.io/R-workshops/02-r-graphics/knitr/images/ggplot2-notation.png)
+
+## How to build a graph
+
+::: panel-tabset
+
+### Data
+
+This will begin a plot that you can finish by adding layers to.
+
+```{r}
+#| echo: true
+#| code-line-numbers: "1"
+ggplot(data = mpg)
+```
+
+### Add aesthetics
+
+```{r}
+#| echo: true
+#| code-line-numbers: "2"
+ggplot(data = mpg, 
+       aes(x = class, y = hwy) #<<
+       )
+```
+
+### You can add one geom per layer
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| code-line-numbers: "4"
+ggplot(data = mpg, 
+       aes(x = class, y = hwy)
+       ) +
+  geom_jitter()
+```
+:::
+
+::: {.column width="50%"}
+
+```{r}
+#| echo: true
+#| code-line-numbers: "5"
+ggplot(data = mpg, 
+       aes(x = class, y = hwy)
+       ) +
+  geom_jitter() +
+  geom_boxplot()
+```
+
+:::
+
+How would you change the code to have the points on top of the boxplots?
+
+::::
+:::
+
+## Aesthetics
+
+In ggplot2, we map **variables** from the data set to **aesthetics** on the chart
+
+::: panel-tabset
+
+### sketch
+
+![](https://earobinson95.github.io/stat331-calpoly-text/images/grammar-graphics-dataset-mapping-color.png)
+
+### ggplot
+
+```{r}
+#| echo: true
+#| code-fold: true
+#| code-line-numbers: "6"
+ggplot(data = txhousing, aes(x = date, y = median, color = city)) + 
+  geom_point() + 
+  geom_smooth(method = "loess") + 
+  xlab("Date") + ylab("Median Home Price") + 
+  ggtitle("Texas Housing Prices")
+```
+
+### `aes()`
+
+*Not an exhaustive list -- see [ggplot2 cheat sheet](https://github.com/rstudio/cheatsheets/blob/main/data-visualization-2.1.pdf)*
+
++ x, y
++ color and fill
++ linetype
++ lineend
++ linejoin
++ size
++ shape
+
+### Special Properties
+
+:::: {.columns}
+::: {.column width="50%"}
+
+**Global Aesthetics**
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "2-3"
+ggplot(data = housingsub, 
+       mapping = aes(x = date, 
+                     y = median)
+       ) +
+  geom_point()
+```
+
+**Local Aesthetics**
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "2-3"
+ggplot(data = housingsub) +
+  geom_point(mapping = aes(x = date, 
+                           y = median)
+             )
+```
+
+:::
+::: {.column width="50%"}
+**Mapping Aesthetics**
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "4"
+ggplot(data = housingsub) +
+  geom_point(mapping = aes(x = date, 
+                           y = median,
+                           color = city)
+             )
+```
+
+**Setting Aesthetics**
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "5"
+ggplot(data = housingsub) +
+  geom_point(mapping = aes(x = date, 
+                           y = median, 
+                           color = city), 
+             color = "blue"
+               )
+```
+
+:::
+::::
+
+:::
+
+## Geometric objects
+
+In ggplot2, we use a geom function to represent data points, and use the geom's aesthetic properties to represent variables.
+
+::: panel-tabset
+
+### geom_point()
+
+```{r}
+#| echo: true
+#| code-fold: true
+#| code-line-numbers: "6"
+#| fig-height: 4
+#| fig-width: 6
+#| fig-align: center
+ggplot(data = mpg,
+       aes(x = cty,
+           y = hwy,
+           color = class)
+       ) +
+  geom_point() +
+  labs(xlab = "City (mpg)", y = "Highway (mpg)")
+```
+
+### geom_text()
+
+```{r}
+#| echo: true
+#| code-fold: true
+#| code-line-numbers: "6"
+#| fig-height: 4
+#| fig-width: 6
+#| fig-align: center
+ggplot(data = mpg,
+       aes(x = cty,
+           y = hwy,
+           color = class)
+       ) +
+  geom_text(aes(label = class)) +
+  labs(xlab = "City (mpg)", y = "Highway (mpg)")
+```
+
+### `geom_xxx()`
+
+:::: {.columns}
+
+*Not an exhaustive list -- see [ggplot2 cheat sheet](https://github.com/rstudio/cheatsheets/blob/main/data-visualization-2.1.pdf)*
+
+::: {.column width="33%"}
+**one variable**
+
++ `geom_density()`
++ `geom_dotplot()`
++ `geom_histogram()`
++ `geom_boxplot()`
+
+:::
+::: {.column width="33%"}
+
+**two variable**
+
++ `geom_point()`
++ `geom_line()`
++ `geom_density_2d()`
+
+:::
+::: {.column width="33%"}
+
+**three variable**
+
++ `geom_contour()`
++ `geom_raster()`
+
+:::
+::::
+
+Once our data is formatted and we know what type of variables we are working with, we can select the correct geom for our visualization.
+
+:::
+
+## Alternative method of building layers: Stats
+
+A stat builds a new variable to plot (e.g., count and proportion)
+
+![](https://unl-statistics.github.io/R-workshops/02-r-graphics/knitr/images/stat1.png)
+
+## Faceting
+
+A way to extract subsets of data and place them side-by-side in graphics
+
+::: callout-note
+sometimes called small multiples
+:::
+
+::: panel-tabset
+
+### `facet_grid()`
+```{r}
+#| echo: true
+#| fig-height: 2
+#| fig-width: 12
+#| code-line-numbers: "3"
+ggplot(data = mpg, aes(x = cty, y = hwy, color = class)) + 
+  geom_point() +
+  facet_grid(~class)
+```
+
+### faceting options
+
++ `facet_grid(. ~ b)`: facet into columns based on b
++ `facet_grid(a ~ .)`: facet into columns based on a
++ `facet_grid(a ~ b)`: facet into both rows and columns
++ `facet_wrap( ~ fl)`: wrap facets into a rectangular layout
+
+### faceting scales
+You can set scales to let axis limits vary across facets:
+
++ `facet_grid(y ~ x, scales = "free")`: x and y axis limits adjust to individual facets
+  + "free_x" - x axis limits adjust
+  + "free_y" - y axis limits adjust
+
+### facet labels
+You can also set a labeller to adjust facet labels:
+
++ `facet_grid(. ~ fl, labeller = label_both)`
++ `facet_grid(. ~ fl, labeller = label_bquote(alpha ^ .(x)))`
++ `facet_grid(. ~ fl, labeller = label_parsed)`
+:::
+
+## Position Adjustements
+
+Position adjustments determine how to arrange geoms that would otherwise occupy the same space
+
++ `position = 'dodge'`: Arrange elements side by side
++ `position = 'fill'`: Stack elements on top of one another, normalize height
++ `position = 'stack'`: Stack elements on top of one another
++ `position = 'jitter"`: Add random noise to X & Y position of each element to avoid overplotting (see `geom_jitter()`)
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "2"
+ggplot(mpg, aes(fl, fill = drv)) + 
+  geom_bar(position = "")`
+```
+
+![](https://unl-statistics.github.io/R-workshops/02-r-graphics/knitr/3-Layers_files/figure-html/unnamed-chunk-8-1.png)
+
+## Plot Customizations
+
+::: panel-tabset
+
+### Labels
+
+Clearer labels with `labs()`
+
+```{r}
+#| echo: true
+#| code-line-numbers: "3-6"
+#| fig-height: 4
+#| fig-width: 6
+#| fig-align: center
+ggplot(data = mpg) + 
+  geom_jitter(mapping = aes(x = displ, y = hwy, color = cyl)) + 
+  labs(x = "Engine Displacement (liters)", 
+       y = "Highway MPG", 
+       color = "Number of \nCylinders",
+       title = "Car Efficiency")
+```
+
+### Themes
+```{r}
+#| echo: true
+#| code-line-numbers: "7-8"
+#| fig-height: 4
+#| fig-width: 6
+#| fig-align: center
+ggplot(data = mpg) + 
+  geom_jitter(mapping = aes(x = displ, y = hwy, color = cyl)) + 
+  labs(xlab = "Engine Displacement (liters)", 
+       ylab = "Highway MPG", 
+       color = "Number of \nCylinders",
+       title = "Car Efficiency") +
+  theme_bw() +
+  theme(legend.position = "bottom")
+```
+
+### Scales: Axes Ticks
+```{r}
+#| echo: true
+#| code-line-numbers: "6-9"
+#| fig-height: 4
+#| fig-width: 6
+#| fig-align: center
+ggplot(data = mpg) + 
+  geom_jitter(mapping = aes(x = displ, y = hwy, color = cyl)) + 
+  labs(xlab = "Engine Displacement (liters)",
+       color = "Number of \nCylinders",
+       title = "Car Efficiency") +
+  scale_y_continuous("Highway MPG", 
+                     limits = c(0,50),
+                     breaks = seq(0,50,5)
+                     )
+```
+
+### Scales: Color
+```{r}
+#| echo: true
+#| code-line-numbers: "7"
+#| fig-height: 4
+#| fig-width: 6
+#| fig-align: center
+ggplot(data = mpg) + 
+  geom_jitter(mapping = aes(x = displ, y = hwy, color = cyl)) + 
+  labs(xlab = "Engine Displacement (liters)",
+       ylab = "Highway MPG",
+       color = "Number of \nCylinders",
+       title = "Car Efficiency") +
+  scale_color_gradient(low = "white", high = "green4")
+```
+:::
+
+## Formatting your Plot Code
+
+::: callout-tip
+Notice how there is a lot of nesting that happens within `ggplot2` code (e.g., parentheses within parentheses). It is good practice to put each geom and aesthetic on a new line. This makes code easier to read! 
+
+The general guideline is that each line of your code should not be over 80 characters long.
+:::
+
+::: panel-tabset
+### Bad Practice
+
+```{r}
+#| echo: true
+#| eval: false
+ggplot(data = mpg, mapping = aes(x = cty, y = hwy, color = class)) + geom_point() + theme_bw() + labs(xlab = "City (mpg)", ylab = "Highway (mpg)")
+```
+
+### Good Practice
+
+```{r}
+#| echo: true
+#| eval: false
+ggplot(data = mpg, 
+       mapping = aes(x = cty, 
+                     y = hwy, 
+                     color = class)
+       ) + 
+  geom_point() + 
+  theme_bw() + 
+  labs(xlab = "City (mpg)", 
+       ylab = "Highway (mpg)"
+       )
+```
+
+### or somewhere in between
+
+```{r}
+#| echo: true
+#| eval: false
+ggplot(data = mpg, 
+       mapping = aes(x = cty, y = hwy, color = class)
+       ) + 
+  geom_point() + 
+  theme_bw() + 
+  labs(xlab = "City (mpg)", ylab = "Highway (mpg)")
+```
+
+:::
+
+## [PA 2: Using Data Visualization to Find the Penguins](https://earobinson95.github.io/stat331-calpoly/practice-activities/PA2-ggplot-palmer-penguins.html)
+
+![Artwork by Allison Horst](https://allisonhorst.github.io/palmerpenguins/reference/figures/lter_penguins.png)
+
+::: callout-tip
+I encourage you to use your neighbors for support!
+:::
+
+## To do...
+
++ **PA 2: Using Data Visualization to Find the Penguins**
+  + Due **TOMORROW, Wednesday** (1/18) at 8:00AM
+
++ **Bonus Challenge: Ugly Graphics of Penguins (+2)**
+  + Due **TOMORROW, Wednesday** (1/18) at 10:10AM
+
+::: callout-note  
+I have office hours TODAY, Tuesday (1/17) from 2:40pm - 3pm in 25-103
+:::
+
+## Wednesday, January 18th
+
+Today we will...
+
++ Review PA 2: Using Data Visualization to Find the Penguins
++ [Ugly Graphics of Penguins](https://docs.google.com/presentation/d/1bChpVMyrhBnOjJLwK1ku9uIcM6I-ZTTMXkY0200CHhw/edit#slide=id.p)
++ Mini lecture on text material
+  + What makes a good graphic?
++ Lab 2: Exploring Rodents with ggplot2
++ Challenge 2: Spicing things up with ggplot2
+
+## What makes a good graphic?
+
+
+## Gestalt Principles
+
+
+## To do...
+
++ **Lab 2: Exploring Rodents with ggplot2**
+
++ **Challenge 2: Spicing things up with ggplot2**
+
++ **Read Chapter 3: Data Cleaning and Manipulation**
+  + **Concept Check 3.1 + 3.2** due Monday (1/23) at 8AM
