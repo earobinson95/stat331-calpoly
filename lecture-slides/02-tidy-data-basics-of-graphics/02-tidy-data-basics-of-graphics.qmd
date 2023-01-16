@@ -624,11 +624,215 @@ Today we will...
 + Lab 2: Exploring Rodents with ggplot2
 + Challenge 2: Spicing things up with ggplot2
 
-## What makes a good graphic?
+## Why are some plots easier to read than others?
 
+**What makes bad figures bad?**
+
+::: panel-tabset
+
+### aesthetic
+
+Edward R. Tufte is a better known critic of this style of visualization:
+
++ Graphical excellence is the well-designed presentation of interesting data and consists of:
+  + complex ideas communicated with clarity, precision, and efficiency
+  + maximizes the “data-to-ink” ratio.
+  + nearly always multivariate
+  + requires telling the truth about the data.
+
++ defines "chartjunk" as superfluous details
+
+### substantive
+
+bad data.
+
+### perceptual
+
+Looking at pictures of data means looking at lines, shapes, and colors
+
+Our visual system works in a way that makes some things easier for us to see than others
+
++ “Preattentive” features
++ Gestalt Principles
++ color and contrast
+
+:::
+
+## Good Graphics
+
+Graphics consist of:
+
++ **Structure:** boxplot, scatterplot, etc.
+
++ **Aesthetics:** features such as color, shape, and size that map other characteristics to structural features
+
+Both the structure and aesthetics should help viewers interpret the information.
+
+# Gestalt Principles
 
 ## Gestalt Principles
 
+What sorts of relationships are inferred, and under what circumstances?
+
+::: panel-tabset
+### Graphic
+
+```{r}
+#| fig-align: center
+knitr::include_graphics("https://unl-statistics.github.io/R-workshops/02-r-graphics/knitr/images/gestalt3.jpg")
+```
+
+### Features
+
++ **Proximity:** Things that are spatially near to one another are related.
++ **Similarity:** Things that look alike are related.
++ **Enlosure:** A group of related elements are surrounded with a visual element
++ **Symmetry:** If an object is asymmetrical, the viewer will waste time trying to find the problem instead of concentrating on the instruction.
++ **Closure:** Incomplete shapes are perceived as complete.
++ **Continuity:** Partially hidden objects are completed into familiar shapes.
++ **Connection:** Things that are visually tied to one another are related.
++ **Figure/Ground:** Visual elements are either in the foreground or the background.
+:::
+
+## Gestalt Principles
+
+Gestalt Hierarchy	| Graphs
+------------------| ------
+Enclosure	        | Facets
+Connection        |	Lines
+Proximitiy	      | White Space
+Similarity	      | Color/Shape
+
+Implications for practice
+
++ Know how we perceive groups
++ Know that we perceive some groups before others
++ Design to facilitate and emphasize the most important comparisons
+
+# Pre-attentive Features
+
+## Pre-attentive Features
+
+```{r}
+#| fig-align: center
+knitr::include_graphics("https://unl-statistics.github.io/R-workshops/02-r-graphics/knitr/4-Perception_files/figure-html/unnamed-chunk-3-1.png")
+```
+
+## Pre-attentive Features
+
+```{r}
+#| fig-align: center
+knitr::include_graphics("https://unl-statistics.github.io/R-workshops/02-r-graphics/knitr/4-Perception_files/figure-html/unnamed-chunk-4-1.png")
+```
+
+## Pre-attentive Features
+
+Pre-Attentive Features are things that "jump out" in less than 250 ms
+
++ Color, form, movement, spatial localization
+
+There is a hierarchy of features
++ Color is stronger than shape
++ Combinations of pre-attentive features are usually not pre-attentive due to interference
+
+## Pre-attentive Features: Double Encoding
+```{r}
+#| fig-align: center
+knitr::include_graphics("https://unl-statistics.github.io/R-workshops/02-r-graphics/knitr/4-Perception_files/figure-html/unnamed-chunk-5-1.png")
+```
+
+## Pre-attentive Features: Double Encoding
+```{r}
+#| fig-align: center
+knitr::include_graphics("https://unl-statistics.github.io/R-workshops/02-r-graphics/knitr/4-Perception_files/figure-html/unnamed-chunk-6-1.png")
+```
+
+# Color
+
+# Color
+
++ Hue: shade of color (red, orange, yellow...)
+
++ Intensity: amount of color
+
++ Both color and hue are pre-attentive. Bigger contrast corresponds to faster detection.
+
++ Use color to your advantage
+
++ When choosing color schemes, we will want mappings from data to color that are not just numerically but also perceptually uniform
+
++ Distinguish between sequential scales and categorical scales
+
+## Color: Implications and Guidelines
+
++ Do not use rainbow color gradient schemes.
++ Avoid any scheme that uses green-yellow-red signaling if you have a target audience that may include colorblind people.
++ To “colorblind-proof” a graphic, you can use a couple of strategies:
+  + double encoding - where you use color, use another aesthetic (line type, shape)
+  + If you can print your chart out in black and white and still read it, it will be safe for colorblind users. This is the only foolproof way to do it!
+  + If you are using a color gradient, use a monochromatic color scheme where possible.
+  + If you have a bidirectional scale (e.g. showing positive and negative values), the safest scheme to use is purple - white - orange. In any color scale that is multi-hue, it is important to transition through white, instead of from one color to another directly.
++ Be conscious of what certain colors “mean”
+
+## Gradients
+
+::: panel-tabset
+
+### Qualitative schemes
+
+No more than 7 colors
+
+```{r}
+#| fig-align: center
+knitr::include_graphics("https://unl-statistics.github.io/R-workshops/02-r-graphics/knitr/4-Perception_files/figure-html/unnamed-chunk-8-1.png")
+```
+
+Can use `colorRampPalette()` from the `RColorBrewer` package to produce larger palettes by interpolating existing ones
+
+```{r}
+#| fig-align: center
+knitr::include_graphics("https://unl-statistics.github.io/R-workshops/02-r-graphics/knitr/4-Perception_files/figure-html/unnamed-chunk-9-1.png")
+```
+
+
+### Quantitative schemes
+
+Use color gradient with only one hue for positive values
+
+```{r}
+#| fig-align: center
+knitr::include_graphics("https://unl-statistics.github.io/R-workshops/02-r-graphics/knitr/4-Perception_files/figure-html/unnamed-chunk-10-1.png")
+```
+
+Use color gradient with two hues for positive and negative values. Gradient should go through a light, neutral color (white)
+
+```{r}
+#| fig-align: center
+knitr::include_graphics("https://unl-statistics.github.io/R-workshops/02-r-graphics/knitr/4-Perception_files/figure-html/unnamed-chunk-11-1.png")
+```
+
+:::
+
+## Color in ggplot2
+
+There are packages available for use that have color scheme options.
+
+Some Examples:
+
++ Rcolorbrewer
++ ggsci
++ viridis
++ wes anderson
+
+There are packages such as RColorBrewer and dichromat that have color palettes which are aesthetically pleasing, and, in many cases, colorblind friendly.
+
+You can also take a look at other [ways to find nice color palettes](https://lisacharlottemuth.com/2016/04/22/Colors-for-DataVis/).
+
+## Week 2 Assignments
+
+[Lab 2: Exploring Rodents with ggplot2](https://earobinson95.github.io/stat331-calpoly/lab-assignments/Lab2-graphics/lab2-exploring-rodents-with-ggplot2.html)
+
+[Challenge 2: Spicing things up with ggplot2](https://earobinson95.github.io/stat331-calpoly/lab-assignments/Lab2-graphics/challenge2-spicing-things-up-with-ggplot2.html)
 
 ## To do...
 
