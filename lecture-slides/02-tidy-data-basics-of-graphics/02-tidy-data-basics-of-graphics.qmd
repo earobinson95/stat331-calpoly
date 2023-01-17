@@ -308,11 +308,10 @@ ggplot(data = housingsub) +
 ```{r}
 #| eval: false
 #| echo: true
-#| code-line-numbers: "5"
+#| code-line-numbers: "4"
 ggplot(data = housingsub) +
   geom_point(mapping = aes(x = date, 
-                           y = median, 
-                           color = city), 
+                           y = median), 
              color = "blue"
                )
 ```
@@ -324,7 +323,7 @@ ggplot(data = housingsub) +
 
 ## Geometric objects
 
-In ggplot2, we use a geom function to represent data points, and use the geom's aesthetic properties to represent variables.
+In `ggplot2`, we use a geom function to represent data points, and use the geom's aesthetic properties to represent variables.
 
 ::: panel-tabset
 
@@ -432,7 +431,7 @@ ggplot(data = mpg, aes(x = cty, y = hwy, color = class)) +
 ### faceting options
 
 + `facet_grid(. ~ b)`: facet into columns based on b
-+ `facet_grid(a ~ .)`: facet into columns based on a
++ `facet_grid(a ~ .)`: facet into rows based on a
 + `facet_grid(a ~ b)`: facet into both rows and columns
 + `facet_wrap( ~ fl)`: wrap facets into a rectangular layout
 
@@ -518,7 +517,7 @@ ggplot(data = mpg) +
 #| fig-align: center
 ggplot(data = mpg) + 
   geom_jitter(mapping = aes(x = displ, y = hwy, color = cyl)) + 
-  labs(xlab = "Engine Displacement (liters)",
+  labs(x     = "Engine Displacement (liters)",
        color = "Number of \nCylinders",
        title = "Car Efficiency") +
   scale_y_continuous("Highway MPG", 
@@ -536,8 +535,8 @@ ggplot(data = mpg) +
 #| fig-align: center
 ggplot(data = mpg) + 
   geom_jitter(mapping = aes(x = displ, y = hwy, color = cyl)) + 
-  labs(xlab = "Engine Displacement (liters)",
-       ylab = "Highway MPG",
+  labs(x    = "Engine Displacement (liters)",
+       y    = "Highway MPG",
        color = "Number of \nCylinders",
        title = "Car Efficiency") +
   scale_color_gradient(low = "white", high = "green4")
@@ -558,7 +557,7 @@ The general guideline is that each line of your code should not be over 80 chara
 ```{r}
 #| echo: true
 #| eval: false
-ggplot(data = mpg, mapping = aes(x = cty, y = hwy, color = class)) + geom_point() + theme_bw() + labs(xlab = "City (mpg)", ylab = "Highway (mpg)")
+ggplot(data = mpg, mapping = aes(x = cty, y = hwy, color = class)) + geom_point() + theme_bw() + labs(x = "City (mpg)", y = "Highway (mpg)")
 ```
 
 ### Good Practice
@@ -573,8 +572,8 @@ ggplot(data = mpg,
        ) + 
   geom_point() + 
   theme_bw() + 
-  labs(xlab = "City (mpg)", 
-       ylab = "Highway (mpg)"
+  labs(x = "City (mpg)", 
+       y = "Highway (mpg)"
        )
 ```
 
@@ -588,7 +587,7 @@ ggplot(data = mpg,
        ) + 
   geom_point() + 
   theme_bw() + 
-  labs(xlab = "City (mpg)", ylab = "Highway (mpg)")
+  labs(x = "City (mpg)", y = "Highway (mpg)")
 ```
 
 :::
@@ -610,7 +609,7 @@ I encourage you to use your neighbors for support!
   + Due **TOMORROW, Wednesday** (1/18) at 10:10AM
 
 ::: callout-note  
-I have office hours TODAY, Tuesday (1/17) from 2:40pm - 3pm in 25-103
+I have office hours TODAY, Tuesday (1/17) from 2:40pm - 3:30pm in 25-103
 :::
 
 ## Wednesday, January 18th
