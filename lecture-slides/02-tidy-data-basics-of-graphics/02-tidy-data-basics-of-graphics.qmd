@@ -185,7 +185,7 @@ ggplot(data = mpg)
 #| echo: true
 #| code-line-numbers: "2"
 ggplot(data = mpg, 
-       aes(x = class, y = hwy) #<<
+       aes(x = class, y = hwy)
        )
 ```
 
