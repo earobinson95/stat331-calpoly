@@ -731,6 +731,7 @@ Pre-Attentive Features are things that "jump out" in less than 250 ms
 + Color, form, movement, spatial localization
 
 There is a hierarchy of features
+
 + Color is stronger than shape
 + Combinations of pre-attentive features are usually not pre-attentive due to interference
 
