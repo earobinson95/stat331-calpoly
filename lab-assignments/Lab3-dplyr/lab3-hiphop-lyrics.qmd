@@ -76,7 +76,7 @@ It is not one person per row!
 
 ```
 
-**5. Clean the data set in whichever ways you see fit. This might mean adjusting *variable type*, for example from `character` or `numeric` to `factor`, or dealing with missing data. Assign your cleaned data set to a new data set named `hiphop_clean` -- use this data set going forward.**
+**5. Clean the data set in whichever ways you see fit. This might mean adjusting *variable type*, for example from `character` to `factor`, or dealing with missing data. Assign your cleaned data set to a new data set named `hiphop_clean` -- use this data set going forward.**
 
 ::: callout-tip
 Helpful functions: `mutate()`, `as.factor()`
