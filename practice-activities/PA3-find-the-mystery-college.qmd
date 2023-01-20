@@ -1,5 +1,5 @@
 ---
-title: "PA 3: Find the Mystery College 🏫"
+title: "PA 3: Identify the Mystery College 🏫"
 subtitle: "Data Wrangling with dplyr"
 format: 
   html:
@@ -16,7 +16,7 @@ execute:
 
 Today you will be using the dplyr package to clean a data set and then using that cleaned dataset to figure out what college Ephelia has been accepted to.
 
-[Download starter .qmd file](PA3-find-the-mystery-college)
+[Download starter .qmd file](PA3-find-the-mystery-college.qmd)
 
 ::: {.callout-tip collapse="true"}
 
@@ -208,3 +208,5 @@ Wow! Your best friend Ephelia has been accepted to her top choice college! Unfor
 # Code to solve for the mystery college using the 8 clues above.
 
 ```
+
+Submit the college Ephelia will attend to the Canvas Quiz.
