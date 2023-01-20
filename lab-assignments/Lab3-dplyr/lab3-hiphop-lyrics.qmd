@@ -50,7 +50,7 @@ The data set `hiphop` contains results from a study conducted by a linguist at t
 **2. Provide a brief overview (2-4 sentences) of the data set.**
 
 ::: callout-note
-It is always good practice to start an analysis by getting a feel for the data and providing a quick summary for readers.) You do not need to show any source code for this question, although you probably want to use code to get some information about the data set.
+It is always good practice to start an analysis by getting a feel for the data and providing a quick summary for readers. You do not need to show any source code for this question, although you probably want to use code to get some information about the data set.
 :::
 
 ```{r}
