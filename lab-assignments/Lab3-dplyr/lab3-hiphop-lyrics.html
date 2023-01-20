@@ -2832,6 +2832,7 @@ Tip
 </div>
 <div class="callout-body-container callout-body">
 <p>Helpful functions: <code>filter()</code>, <code>group_by()</code>, <code>summarize()</code>, <code>slice_max()</code>, <code>slice_min()</code></p>
+<p>Useful variables: <code>word</code>, <code>familiarity</code>, <code>sex</code>, <code>age</code>, <code>ethnic</code></p>
 </div>
 </div>
 <p><strong>10. People below the age of 20.</strong></p>
@@ -2909,7 +2910,7 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>You might find it helpful to first create a new data set with only the variables you are interested in!*</p>
+<p>You might find it helpful to first create a new data set with only the variables you are interested in! Look at the Music Variables in the data set description along with the demographics of interest.</p>
 <p>Helpful functions: <code>select()</code>, <code>group_by()</code>, <code>summarize()</code>, <code>across()</code></p>
 </div>
 </div>
@@ -3252,85 +3253,87 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb14-157"><a href="#cb14-157" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-158"><a href="#cb14-158" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
 <span id="cb14-159"><a href="#cb14-159" aria-hidden="true" tabindex="-1"></a>Helpful functions: <span class="in">`filter()`</span>, <span class="in">`group_by()`</span>, <span class="in">`summarize()`</span>, <span class="in">`slice_max()`</span>, <span class="in">`slice_min()`</span></span>
-<span id="cb14-160"><a href="#cb14-160" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb14-161"><a href="#cb14-161" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-162"><a href="#cb14-162" aria-hidden="true" tabindex="-1"></a>**10. People below the age of 20.**</span>
+<span id="cb14-160"><a href="#cb14-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-161"><a href="#cb14-161" aria-hidden="true" tabindex="-1"></a>Useful variables: <span class="in">`word`</span>, <span class="in">`familiarity`</span>, <span class="in">`sex`</span>, <span class="in">`age`</span>, <span class="in">`ethnic`</span></span>
+<span id="cb14-162"><a href="#cb14-162" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb14-163"><a href="#cb14-163" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-166"><a href="#cb14-166" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb14-167"><a href="#cb14-167" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q10</span></span>
-<span id="cb14-168"><a href="#cb14-168" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-169"><a href="#cb14-169" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-164"><a href="#cb14-164" aria-hidden="true" tabindex="-1"></a>**10. People below the age of 20.**</span>
+<span id="cb14-165"><a href="#cb14-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-168"><a href="#cb14-168" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb14-169"><a href="#cb14-169" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q10</span></span>
 <span id="cb14-170"><a href="#cb14-170" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-171"><a href="#cb14-171" aria-hidden="true" tabindex="-1"></a>**11. Non-white women.**</span>
+<span id="cb14-171"><a href="#cb14-171" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb14-172"><a href="#cb14-172" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-175"><a href="#cb14-175" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb14-176"><a href="#cb14-176" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q11</span></span>
-<span id="cb14-177"><a href="#cb14-177" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-178"><a href="#cb14-178" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-173"><a href="#cb14-173" aria-hidden="true" tabindex="-1"></a>**11. Non-white women.**</span>
+<span id="cb14-174"><a href="#cb14-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-177"><a href="#cb14-177" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb14-178"><a href="#cb14-178" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q11</span></span>
 <span id="cb14-179"><a href="#cb14-179" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-180"><a href="#cb14-180" aria-hidden="true" tabindex="-1"></a>**12. White men above the age of 30.**</span>
+<span id="cb14-180"><a href="#cb14-180" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb14-181"><a href="#cb14-181" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-184"><a href="#cb14-184" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb14-185"><a href="#cb14-185" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q12</span></span>
-<span id="cb14-186"><a href="#cb14-186" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-187"><a href="#cb14-187" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-182"><a href="#cb14-182" aria-hidden="true" tabindex="-1"></a>**12. White men above the age of 30.**</span>
+<span id="cb14-183"><a href="#cb14-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-186"><a href="#cb14-186" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb14-187"><a href="#cb14-187" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q12</span></span>
 <span id="cb14-188"><a href="#cb14-188" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-189"><a href="#cb14-189" aria-hidden="true" tabindex="-1"></a><span class="fu">### Study Subjects</span></span>
+<span id="cb14-189"><a href="#cb14-189" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb14-190"><a href="#cb14-190" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-191"><a href="#cb14-191" aria-hidden="true" tabindex="-1"></a>A joke among the <span class="co">[</span><span class="ot">Tidy Tuesday</span><span class="co">](https://www.tidytuesday.com/)</span> community is that Justin Bieber was one of the subjects in this study. Bieber, a white male, from a relatively small town (10,000-60,000 people) in Ontario would have been 17-23 at the time of the study.</span>
+<span id="cb14-191"><a href="#cb14-191" aria-hidden="true" tabindex="-1"></a><span class="fu">### Study Subjects</span></span>
 <span id="cb14-192"><a href="#cb14-192" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-193"><a href="#cb14-193" aria-hidden="true" tabindex="-1"></a>**13. Determine which subject you believe is secretly Bieber, justify your answer.**</span>
+<span id="cb14-193"><a href="#cb14-193" aria-hidden="true" tabindex="-1"></a>A joke among the <span class="co">[</span><span class="ot">Tidy Tuesday</span><span class="co">](https://www.tidytuesday.com/)</span> community is that Justin Bieber was one of the subjects in this study. Bieber, a white male, from a relatively small town (10,000-60,000 people) in Ontario would have been 17-23 at the time of the study.</span>
 <span id="cb14-194"><a href="#cb14-194" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-195"><a href="#cb14-195" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
-<span id="cb14-196"><a href="#cb14-196" aria-hidden="true" tabindex="-1"></a>Refer again to the data set description. There is another clue about Bieber&#39;s identity.</span>
-<span id="cb14-197"><a href="#cb14-197" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb14-198"><a href="#cb14-198" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-201"><a href="#cb14-201" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb14-202"><a href="#cb14-202" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q13</span></span>
-<span id="cb14-203"><a href="#cb14-203" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-204"><a href="#cb14-204" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb14-195"><a href="#cb14-195" aria-hidden="true" tabindex="-1"></a>**13. Determine which subject you believe is secretly Bieber, justify your answer.**</span>
+<span id="cb14-196"><a href="#cb14-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-197"><a href="#cb14-197" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
+<span id="cb14-198"><a href="#cb14-198" aria-hidden="true" tabindex="-1"></a>Refer again to the data set description. There is another clue about Bieber&#39;s identity.</span>
+<span id="cb14-199"><a href="#cb14-199" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb14-200"><a href="#cb14-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-203"><a href="#cb14-203" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb14-204"><a href="#cb14-204" aria-hidden="true" tabindex="-1"></a><span class="co"># code chunk for Q13</span></span>
 <span id="cb14-205"><a href="#cb14-205" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-206"><a href="#cb14-206" aria-hidden="true" tabindex="-1"></a><span class="fu">## Challenge 3: Article Comparisons &amp; Critique (+10)</span></span>
+<span id="cb14-206"><a href="#cb14-206" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb14-207"><a href="#cb14-207" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-208"><a href="#cb14-208" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
-<span id="cb14-209"><a href="#cb14-209" aria-hidden="true" tabindex="-1"></a>Your challenge should be submitted as a separate file, not included at the bottom of your Lab 3 file. Please submit your rendered HTML file.</span>
-<span id="cb14-210"><a href="#cb14-210" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-211"><a href="#cb14-211" aria-hidden="true" tabindex="-1"></a>Make sure to include the following Quarto options in the YAML for your <span class="in">`challeng3.qmd`</span> file:</span>
+<span id="cb14-208"><a href="#cb14-208" aria-hidden="true" tabindex="-1"></a><span class="fu">## Challenge 3: Article Comparisons &amp; Critique (+10)</span></span>
+<span id="cb14-209"><a href="#cb14-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-210"><a href="#cb14-210" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
+<span id="cb14-211"><a href="#cb14-211" aria-hidden="true" tabindex="-1"></a>Your challenge should be submitted as a separate file, not included at the bottom of your Lab 3 file. Please submit your rendered HTML file.</span>
 <span id="cb14-212"><a href="#cb14-212" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-213"><a href="#cb14-213" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`self-contained: true`</span></span>
-<span id="cb14-214"><a href="#cb14-214" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`echo: true`</span></span>
-<span id="cb14-215"><a href="#cb14-215" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`code-tools: true`</span></span>
-<span id="cb14-216"><a href="#cb14-216" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-217"><a href="#cb14-217" aria-hidden="true" tabindex="-1"></a>You might just want to copy the YAML from this lab, or create a copy of this lab and delete the unnecessary parts. You may still need some of your data cleaning steps from the lab.</span>
-<span id="cb14-218"><a href="#cb14-218" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb14-219"><a href="#cb14-219" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-220"><a href="#cb14-220" aria-hidden="true" tabindex="-1"></a><span class="fu">### Published Comparisons</span></span>
+<span id="cb14-213"><a href="#cb14-213" aria-hidden="true" tabindex="-1"></a>Make sure to include the following Quarto options in the YAML for your <span class="in">`challeng3.qmd`</span> file:</span>
+<span id="cb14-214"><a href="#cb14-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-215"><a href="#cb14-215" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`self-contained: true`</span></span>
+<span id="cb14-216"><a href="#cb14-216" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`echo: true`</span></span>
+<span id="cb14-217"><a href="#cb14-217" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`code-tools: true`</span></span>
+<span id="cb14-218"><a href="#cb14-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-219"><a href="#cb14-219" aria-hidden="true" tabindex="-1"></a>You might just want to copy the YAML from this lab, or create a copy of this lab and delete the unnecessary parts. You may still need some of your data cleaning steps from the lab.</span>
+<span id="cb14-220"><a href="#cb14-220" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb14-221"><a href="#cb14-221" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-222"><a href="#cb14-222" aria-hidden="true" tabindex="-1"></a>In the published article (<span class="co">[</span><span class="ot">You Know What It Is: Learning Words through Listening to Hip-Hop</span><span class="co">](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0028248)</span>), the author presents a series of comparisons about the variables which most explain an individual&#39;s familiarity with African American English (AAE).</span>
+<span id="cb14-222"><a href="#cb14-222" aria-hidden="true" tabindex="-1"></a><span class="fu">### Published Comparisons</span></span>
 <span id="cb14-223"><a href="#cb14-223" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-224"><a href="#cb14-224" aria-hidden="true" tabindex="-1"></a>Let us instead compare the number of artists participants reported liking for each genre. Specifically, you will determine which music genre most differentiates each of the demographic groups provided.</span>
+<span id="cb14-224"><a href="#cb14-224" aria-hidden="true" tabindex="-1"></a>In the published article (<span class="co">[</span><span class="ot">You Know What It Is: Learning Words through Listening to Hip-Hop</span><span class="co">](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0028248)</span>), the author presents a series of comparisons about the variables which most explain an individual&#39;s familiarity with African American English (AAE).</span>
 <span id="cb14-225"><a href="#cb14-225" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-226"><a href="#cb14-226" aria-hidden="true" tabindex="-1"></a>**A. Which genre had much higher average (mean or median) reported artists in one group than the other.**</span>
+<span id="cb14-226"><a href="#cb14-226" aria-hidden="true" tabindex="-1"></a>Let us instead compare the number of artists participants reported liking for each genre. Specifically, you will determine which music genre most differentiates each of the demographic groups provided.</span>
 <span id="cb14-227"><a href="#cb14-227" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-228"><a href="#cb14-228" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Male versus Female**</span>
+<span id="cb14-228"><a href="#cb14-228" aria-hidden="true" tabindex="-1"></a>**A. Which genre had much higher average (mean or median) reported artists in one group than the other.**</span>
 <span id="cb14-229"><a href="#cb14-229" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-230"><a href="#cb14-230" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**White versus Non-White**</span>
+<span id="cb14-230"><a href="#cb14-230" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Male versus Female**</span>
 <span id="cb14-231"><a href="#cb14-231" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-232"><a href="#cb14-232" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
-<span id="cb14-233"><a href="#cb14-233" aria-hidden="true" tabindex="-1"></a>You might find it helpful to first create a new data set with only the variables you are interested in!<span class="sc">\*</span></span>
-<span id="cb14-234"><a href="#cb14-234" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-235"><a href="#cb14-235" aria-hidden="true" tabindex="-1"></a>Helpful functions: <span class="in">`select()`</span>, <span class="in">`group_by()`</span>, <span class="in">`summarize()`</span>, <span class="in">`across()`</span></span>
-<span id="cb14-236"><a href="#cb14-236" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb14-237"><a href="#cb14-237" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-238"><a href="#cb14-238" aria-hidden="true" tabindex="-1"></a><span class="fu">### Study Design Critique</span></span>
+<span id="cb14-232"><a href="#cb14-232" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**White versus Non-White**</span>
+<span id="cb14-233"><a href="#cb14-233" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-234"><a href="#cb14-234" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
+<span id="cb14-235"><a href="#cb14-235" aria-hidden="true" tabindex="-1"></a>You might find it helpful to first create a new data set with only the variables you are interested in! Look at the Music Variables in the data set description along with the demographics of interest.</span>
+<span id="cb14-236"><a href="#cb14-236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-237"><a href="#cb14-237" aria-hidden="true" tabindex="-1"></a>Helpful functions: <span class="in">`select()`</span>, <span class="in">`group_by()`</span>, <span class="in">`summarize()`</span>, <span class="in">`across()`</span></span>
+<span id="cb14-238"><a href="#cb14-238" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb14-239"><a href="#cb14-239" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-240"><a href="#cb14-240" aria-hidden="true" tabindex="-1"></a>Myself, members of the Tidy Tuesday community, and previous 331 students have voiced concerns regarding the design and social context of this study.</span>
+<span id="cb14-240"><a href="#cb14-240" aria-hidden="true" tabindex="-1"></a><span class="fu">### Study Design Critique</span></span>
 <span id="cb14-241"><a href="#cb14-241" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-242"><a href="#cb14-242" aria-hidden="true" tabindex="-1"></a>Re-read the <span class="co">[</span><span class="ot">data description (link)</span><span class="co">](http://conservancy.umn.edu/bitstream/handle/11299/116327/5/explanationAAEHiphopChesley.txt)</span> to see how participants were recruited for participation in this study.</span>
+<span id="cb14-242"><a href="#cb14-242" aria-hidden="true" tabindex="-1"></a>Myself, members of the Tidy Tuesday community, and previous 331 students have voiced concerns regarding the design and social context of this study.</span>
 <span id="cb14-243"><a href="#cb14-243" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-244"><a href="#cb14-244" aria-hidden="true" tabindex="-1"></a>You are welcome to read additional details regarding aspects of the study in the published paper: <span class="co">[</span><span class="ot">You Know What It Is: Learning Words through Listening to Hip-Hop</span><span class="co">](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0028248)</span></span>
+<span id="cb14-244"><a href="#cb14-244" aria-hidden="true" tabindex="-1"></a>Re-read the <span class="co">[</span><span class="ot">data description (link)</span><span class="co">](http://conservancy.umn.edu/bitstream/handle/11299/116327/5/explanationAAEHiphopChesley.txt)</span> to see how participants were recruited for participation in this study.</span>
 <span id="cb14-245"><a href="#cb14-245" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-246"><a href="#cb14-246" aria-hidden="true" tabindex="-1"></a>**B. Based on the design of this study and its context (African American English), what are at least two concerns you have?**</span>
+<span id="cb14-246"><a href="#cb14-246" aria-hidden="true" tabindex="-1"></a>You are welcome to read additional details regarding aspects of the study in the published paper: <span class="co">[</span><span class="ot">You Know What It Is: Learning Words through Listening to Hip-Hop</span><span class="co">](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0028248)</span></span>
+<span id="cb14-247"><a href="#cb14-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-248"><a href="#cb14-248" aria-hidden="true" tabindex="-1"></a>**B. Based on the design of this study and its context (African American English), what are at least two concerns you have?**</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
