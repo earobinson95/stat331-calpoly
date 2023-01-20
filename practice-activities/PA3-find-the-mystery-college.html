@@ -2638,8 +2638,21 @@ vertical-align: -.125em;
 
 <p>Today you will be using the dplyr package to clean a data set and then using that cleaned dataset to figure out what college Ephelia has been accepted to.</p>
 <p><a href="PA3-find-the-mystery-college.qmd">Download starter .qmd file</a></p>
+<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Danger
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Make sure you move your .qmd file from your downloads into your Stat 331 directory – you should be working in your R project! <strong>DO NOT</strong> open it straight from download.</p>
+</div>
+</div>
 <div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2648,7 +2661,7 @@ Dealing with errors
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>As you work through this PA, you will encounter some code that does not work as you want it to. Don’t despair! Errors (when R is unable to run your code) and bugs (when the code doesn’t do what you hoped) are a natural part of coding. Even the best of the best deal with these problems regularly - learning to track down the issue is a skill that you can learn and practice.</p>
 <p><strong>Errors can be sneaky - check results <em>often</em></strong></p>
@@ -2664,7 +2677,7 @@ Dealing with errors
 <p>Work with those around you - if something goes wrong, ask a friend or team member to take a peek at your code and see if any glaring errors (like <em>syntax error</em>) pop out.</p>
 <p><strong>Explain your code out loud</strong></p>
 <p>The best way to troubleshoot a sneaky but is to explain out loud each step of your code, and what you hoped to accomplish.</p>
-<p>Schedule a meeting with your team to have everyone talk through their code.</p>
+<p>Meet up with classmates to have everyone talk through their code.</p>
 <p>If you are alone, try <a href="https://en.wikipedia.org/wiki/Rubber_duck_debugging">Rubber Duck Debugging</a>!</p>
 <p><strong>Google is your friend</strong></p>
 <p>The whole of the internet is at your disposal! Use it early, use it often.</p>
@@ -3084,198 +3097,202 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download starter .qmd file</span><span class="co">](PA3-find-the-mystery-college.qmd)</span></span>
 <span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse=&quot;true&quot;}</span>
-<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a><span class="fu">## Dealing with errors</span></span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>::: callout-caution</span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>Make sure you move your .qmd file from your downloads into your Stat 331 directory -- you should be working in your R project! **DO NOT** open it straight from download.</span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>As you work through this PA, you will encounter some code that does not work as you want it to. Don&#39;t despair! Errors (when R is unable to run your code) and bugs (when the code doesn&#39;t do what you hoped) are a natural part of coding. Even the best of the best deal with these problems regularly - learning to track down the issue is a skill that you can learn and practice.</span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip collapse=&quot;true&quot;}</span>
 <span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>**Errors can be sneaky - check results *often***</span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a><span class="fu">## Dealing with errors</span></span>
 <span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a>If a chunk of code runs smoothly without giving you any error or warnings this **does not** necessarily mean it accomplished the desired task.</span>
+<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a>As you work through this PA, you will encounter some code that does not work as you want it to. Don&#39;t despair! Errors (when R is unable to run your code) and bugs (when the code doesn&#39;t do what you hoped) are a natural part of coding. Even the best of the best deal with these problems regularly - learning to track down the issue is a skill that you can learn and practice.</span>
 <span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a>It is a good habit to check the results of your code **every time** you finish a task. In general, I would recommend completing the following tasks **every time** you write a code chunk.</span>
+<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a>**Errors can be sneaky - check results *often***</span>
 <span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Include a comment at the beginning of the code chunk that briefly states what the purpose of the chunk is. Comments in the code chunks come after <span class="in">`#`</span> signs. These comments will remind later readers---which might be your future self!---what the desired output of the code chunk is.</span>
+<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a>If a chunk of code runs smoothly without giving you any error or warnings this **does not** necessarily mean it accomplished the desired task.</span>
 <span id="cb18-34"><a href="#cb18-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-35"><a href="#cb18-35" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>If you created a new object, take a look at it! You can inspect the object by either clicking its name in your *Environment* tab or by typing its name into the console. Make sure it looks about how you expect. **Do not** type code to inspect the object in your Quarto file, as that **is not** code that needs to be saved!</span>
+<span id="cb18-35"><a href="#cb18-35" aria-hidden="true" tabindex="-1"></a>It is a good habit to check the results of your code **every time** you finish a task. In general, I would recommend completing the following tasks **every time** you write a code chunk.</span>
 <span id="cb18-36"><a href="#cb18-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-37"><a href="#cb18-37" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>If you created or updated a data frame, make sure your edits did what you hoped. Use the *Environment* or the <span class="in">`head()`</span> function to investigate your changes.</span>
+<span id="cb18-37"><a href="#cb18-37" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Include a comment at the beginning of the code chunk that briefly states what the purpose of the chunk is. Comments in the code chunks come after <span class="in">`#`</span> signs. These comments will remind later readers---which might be your future self!---what the desired output of the code chunk is.</span>
 <span id="cb18-38"><a href="#cb18-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-39"><a href="#cb18-39" aria-hidden="true" tabindex="-1"></a>**Two heads are better than one**</span>
+<span id="cb18-39"><a href="#cb18-39" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>If you created a new object, take a look at it! You can inspect the object by either clicking its name in your *Environment* tab or by typing its name into the console. Make sure it looks about how you expect. **Do not** type code to inspect the object in your Quarto file, as that **is not** code that needs to be saved!</span>
 <span id="cb18-40"><a href="#cb18-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-41"><a href="#cb18-41" aria-hidden="true" tabindex="-1"></a>It can be hard to spot bugs in code that you wrote.</span>
+<span id="cb18-41"><a href="#cb18-41" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>If you created or updated a data frame, make sure your edits did what you hoped. Use the *Environment* or the <span class="in">`head()`</span> function to investigate your changes.</span>
 <span id="cb18-42"><a href="#cb18-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-43"><a href="#cb18-43" aria-hidden="true" tabindex="-1"></a>Work with those around you - if something goes wrong, ask a friend or team member to take a peek at your code and see if any glaring errors (like *syntax error*) pop out.</span>
+<span id="cb18-43"><a href="#cb18-43" aria-hidden="true" tabindex="-1"></a>**Two heads are better than one**</span>
 <span id="cb18-44"><a href="#cb18-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-45"><a href="#cb18-45" aria-hidden="true" tabindex="-1"></a>**Explain your code out loud**</span>
+<span id="cb18-45"><a href="#cb18-45" aria-hidden="true" tabindex="-1"></a>It can be hard to spot bugs in code that you wrote.</span>
 <span id="cb18-46"><a href="#cb18-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-47"><a href="#cb18-47" aria-hidden="true" tabindex="-1"></a>The best way to troubleshoot a sneaky but is to explain out loud each step of your code, and what you hoped to accomplish.</span>
+<span id="cb18-47"><a href="#cb18-47" aria-hidden="true" tabindex="-1"></a>Work with those around you - if something goes wrong, ask a friend or team member to take a peek at your code and see if any glaring errors (like *syntax error*) pop out.</span>
 <span id="cb18-48"><a href="#cb18-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-49"><a href="#cb18-49" aria-hidden="true" tabindex="-1"></a>Schedule a meeting with your team to have everyone talk through their code.</span>
+<span id="cb18-49"><a href="#cb18-49" aria-hidden="true" tabindex="-1"></a>**Explain your code out loud**</span>
 <span id="cb18-50"><a href="#cb18-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-51"><a href="#cb18-51" aria-hidden="true" tabindex="-1"></a>If you are alone, try <span class="co">[</span><span class="ot">Rubber Duck Debugging</span><span class="co">](https://en.wikipedia.org/wiki/Rubber_duck_debugging)</span>!</span>
+<span id="cb18-51"><a href="#cb18-51" aria-hidden="true" tabindex="-1"></a>The best way to troubleshoot a sneaky but is to explain out loud each step of your code, and what you hoped to accomplish.</span>
 <span id="cb18-52"><a href="#cb18-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-53"><a href="#cb18-53" aria-hidden="true" tabindex="-1"></a>**Google is your friend**</span>
+<span id="cb18-53"><a href="#cb18-53" aria-hidden="true" tabindex="-1"></a>Meet up with classmates to have everyone talk through their code.</span>
 <span id="cb18-54"><a href="#cb18-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-55"><a href="#cb18-55" aria-hidden="true" tabindex="-1"></a>The whole of the internet is at your disposal! Use it early, use it often.</span>
+<span id="cb18-55"><a href="#cb18-55" aria-hidden="true" tabindex="-1"></a>If you are alone, try <span class="co">[</span><span class="ot">Rubber Duck Debugging</span><span class="co">](https://en.wikipedia.org/wiki/Rubber_duck_debugging)</span>!</span>
 <span id="cb18-56"><a href="#cb18-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-57"><a href="#cb18-57" aria-hidden="true" tabindex="-1"></a>Some tricks:</span>
+<span id="cb18-57"><a href="#cb18-57" aria-hidden="true" tabindex="-1"></a>**Google is your friend**</span>
 <span id="cb18-58"><a href="#cb18-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-59"><a href="#cb18-59" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Copy-paste the exact error message into Google. Chances are, somebody else had a similar problem and got a similar message.</span>
+<span id="cb18-59"><a href="#cb18-59" aria-hidden="true" tabindex="-1"></a>The whole of the internet is at your disposal! Use it early, use it often.</span>
 <span id="cb18-60"><a href="#cb18-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-61"><a href="#cb18-61" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Include package names in your search terms. For example, &quot;bar plot in ggplot&quot; is a better search than &quot;bar plot in R&quot;.</span>
+<span id="cb18-61"><a href="#cb18-61" aria-hidden="true" tabindex="-1"></a>Some tricks:</span>
 <span id="cb18-62"><a href="#cb18-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-63"><a href="#cb18-63" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb18-63"><a href="#cb18-63" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Copy-paste the exact error message into Google. Chances are, somebody else had a similar problem and got a similar message.</span>
 <span id="cb18-64"><a href="#cb18-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-65"><a href="#cb18-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-66"><a href="#cb18-66" aria-hidden="true" tabindex="-1"></a><span class="fu"># Part One: Data import and cleaning</span></span>
-<span id="cb18-67"><a href="#cb18-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-68"><a href="#cb18-68" aria-hidden="true" tabindex="-1"></a>This section will clean today&#39;s dataset, so that you can use it more easily in Part Two.</span>
+<span id="cb18-65"><a href="#cb18-65" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Include package names in your search terms. For example, &quot;bar plot in ggplot&quot; is a better search than &quot;bar plot in R&quot;.</span>
+<span id="cb18-66"><a href="#cb18-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-67"><a href="#cb18-67" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb18-68"><a href="#cb18-68" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-69"><a href="#cb18-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-70"><a href="#cb18-70" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data download &amp; packages</span></span>
+<span id="cb18-70"><a href="#cb18-70" aria-hidden="true" tabindex="-1"></a><span class="fu"># Part One: Data import and cleaning</span></span>
 <span id="cb18-71"><a href="#cb18-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-72"><a href="#cb18-72" aria-hidden="true" tabindex="-1"></a>First, we declare our package dependencies and load the data.</span>
+<span id="cb18-72"><a href="#cb18-72" aria-hidden="true" tabindex="-1"></a>This section will clean today&#39;s dataset, so that you can use it more easily in Part Two.</span>
 <span id="cb18-73"><a href="#cb18-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-74"><a href="#cb18-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-75"><a href="#cb18-75" aria-hidden="true" tabindex="-1"></a>::: callout-warning</span>
-<span id="cb18-76"><a href="#cb18-76" aria-hidden="true" tabindex="-1"></a>The data loading function <span class="in">`read_csv()`</span> will give you an outpouring of helpful information about the data set. If you do not see the word &quot;error&quot;, there is nothing to be concerned about.</span>
-<span id="cb18-77"><a href="#cb18-77" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb18-74"><a href="#cb18-74" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data download &amp; packages</span></span>
+<span id="cb18-75"><a href="#cb18-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-76"><a href="#cb18-76" aria-hidden="true" tabindex="-1"></a>First, we declare our package dependencies and load the data.</span>
+<span id="cb18-77"><a href="#cb18-77" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-78"><a href="#cb18-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-79"><a href="#cb18-79" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup}</span></span>
-<span id="cb18-80"><a href="#cb18-80" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb18-81"><a href="#cb18-81" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb18-79"><a href="#cb18-79" aria-hidden="true" tabindex="-1"></a>::: callout-warning</span>
+<span id="cb18-80"><a href="#cb18-80" aria-hidden="true" tabindex="-1"></a>The data loading function <span class="in">`read_csv()`</span> will give you an outpouring of helpful information about the data set. If you do not see the word &quot;error&quot;, there is nothing to be concerned about.</span>
+<span id="cb18-81"><a href="#cb18-81" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb18-82"><a href="#cb18-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-83"><a href="#cb18-83" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb18-84"><a href="#cb18-84" aria-hidden="true" tabindex="-1"></a>colleges <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://www.dropbox.com/s/bt5hvctdevhbq6j/colleges.csv?dl=1&quot;</span>)</span>
-<span id="cb18-85"><a href="#cb18-85" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(colleges, <span class="at">give.attr =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb18-86"><a href="#cb18-86" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb18-87"><a href="#cb18-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-88"><a href="#cb18-88" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data cleaning</span></span>
-<span id="cb18-89"><a href="#cb18-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-90"><a href="#cb18-90" aria-hidden="true" tabindex="-1"></a>Now we will clean the data. Alas, each of the R chunks in this section will cause an error and / or do the desired task incorrectly. Even the chunks that run without error **are not** correct! You will need to find the mistake and correct it to complete the intended action.</span>
+<span id="cb18-83"><a href="#cb18-83" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup}</span></span>
+<span id="cb18-84"><a href="#cb18-84" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb18-85"><a href="#cb18-85" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb18-86"><a href="#cb18-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-87"><a href="#cb18-87" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb18-88"><a href="#cb18-88" aria-hidden="true" tabindex="-1"></a>colleges <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://www.dropbox.com/s/bt5hvctdevhbq6j/colleges.csv?dl=1&quot;</span>)</span>
+<span id="cb18-89"><a href="#cb18-89" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(colleges, <span class="at">give.attr =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb18-90"><a href="#cb18-90" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb18-91"><a href="#cb18-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-92"><a href="#cb18-92" aria-hidden="true" tabindex="-1"></a>**Step 1:** There are too many variables in this data set. We don&#39;t need all of them. Narrow your data set down to only:</span>
+<span id="cb18-92"><a href="#cb18-92" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data cleaning</span></span>
 <span id="cb18-93"><a href="#cb18-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-94"><a href="#cb18-94" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`INSTNM`</span> Name of the institution</span>
-<span id="cb18-95"><a href="#cb18-95" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`CITY`</span> City, <span class="in">`STABBR`</span> State, and <span class="in">`ZIP`</span> ZIP code of the institution</span>
-<span id="cb18-96"><a href="#cb18-96" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`ADM_RATE`</span> The Admissions Rate</span>
-<span id="cb18-97"><a href="#cb18-97" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`SAT_AVG`</span> The average SAT score</span>
-<span id="cb18-98"><a href="#cb18-98" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`UGDS`</span> The number of undergraduate students</span>
-<span id="cb18-99"><a href="#cb18-99" aria-hidden="true" tabindex="-1"></a><span class="ss">-    </span>The <span class="in">`TUITIONFEE_IN`</span> in and <span class="in">`TUITIONFEE_OUT`</span> out of state tuition</span>
-<span id="cb18-100"><a href="#cb18-100" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`CONTROL`</span> Whether the school is public or private</span>
-<span id="cb18-101"><a href="#cb18-101" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`REGION`</span> The region of the school.</span>
-<span id="cb18-102"><a href="#cb18-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-103"><a href="#cb18-103" aria-hidden="true" tabindex="-1"></a><span class="in">```{r select-vars}</span></span>
-<span id="cb18-104"><a href="#cb18-104" aria-hidden="true" tabindex="-1"></a>colleges_clean <span class="ot">&lt;-</span> colleges <span class="sc">|</span> <span class="er">&gt;</span>  </span>
-<span id="cb18-105"><a href="#cb18-105" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(INSTNM, CITY, STABBR, ZIP,</span>
-<span id="cb18-106"><a href="#cb18-106" aria-hidden="true" tabindex="-1"></a>         ADM_RATE, SAT_AVG, UGDS,</span>
-<span id="cb18-107"><a href="#cb18-107" aria-hidden="true" tabindex="-1"></a>         TUITIONFEE_IN, TUITIONFEE_OUT,</span>
-<span id="cb18-108"><a href="#cb18-108" aria-hidden="true" tabindex="-1"></a>         CONTROL, REGION) </span>
-<span id="cb18-109"><a href="#cb18-109" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb18-110"><a href="#cb18-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-111"><a href="#cb18-111" aria-hidden="true" tabindex="-1"></a>**Step 2:** Remove the schools that are private (category 2) and for-profit (category 3), keeping only public schools (category 1).</span>
-<span id="cb18-112"><a href="#cb18-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-113"><a href="#cb18-113" aria-hidden="true" tabindex="-1"></a><span class="in">```{r filter-private-profit}</span></span>
-<span id="cb18-114"><a href="#cb18-114" aria-hidden="true" tabindex="-1"></a>colleges_clean <span class="ot">&lt;-</span> colleges_clean <span class="sc">|&gt;</span> </span>
-<span id="cb18-115"><a href="#cb18-115" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(CONTROL <span class="sc">==</span> <span class="dv">1</span>, CONTROL <span class="sc">==</span> <span class="dv">2</span>) </span>
-<span id="cb18-116"><a href="#cb18-116" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb18-117"><a href="#cb18-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-118"><a href="#cb18-118" aria-hidden="true" tabindex="-1"></a>**Step 4:** Adjust the appropriate variables to be numeric -- <span class="in">`as.numeric()`</span>.</span>
-<span id="cb18-119"><a href="#cb18-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-120"><a href="#cb18-120" aria-hidden="true" tabindex="-1"></a><span class="in">```{r mutate-numeric}</span></span>
-<span id="cb18-121"><a href="#cb18-121" aria-hidden="true" tabindex="-1"></a>colleges_clean <span class="ot">&lt;-</span> colleges_clean <span class="sc">|&gt;</span> </span>
-<span id="cb18-122"><a href="#cb18-122" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb18-123"><a href="#cb18-123" aria-hidden="true" tabindex="-1"></a>    <span class="at">TUITIONFEE_IN  =</span> <span class="fu">numeric</span>(TUITIONFEE_IN),</span>
-<span id="cb18-124"><a href="#cb18-124" aria-hidden="true" tabindex="-1"></a>    <span class="at">TUITIONFEE_OUT =</span> <span class="fu">numeric</span>(TUITIONFEE_OUT),</span>
-<span id="cb18-125"><a href="#cb18-125" aria-hidden="true" tabindex="-1"></a>    <span class="at">SAT_AVG        =</span> <span class="fu">numeric</span>(SAT_AVG),</span>
-<span id="cb18-126"><a href="#cb18-126" aria-hidden="true" tabindex="-1"></a>    <span class="at">UGDS           =</span> <span class="fu">numeric</span>(UGDS),</span>
-<span id="cb18-127"><a href="#cb18-127" aria-hidden="true" tabindex="-1"></a>    <span class="at">ADM_RATE       =</span> <span class="fu">numeric</span>(ADM_RATE)</span>
-<span id="cb18-128"><a href="#cb18-128" aria-hidden="true" tabindex="-1"></a>    ) </span>
-<span id="cb18-129"><a href="#cb18-129" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb18-130"><a href="#cb18-130" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-131"><a href="#cb18-131" aria-hidden="true" tabindex="-1"></a>**Step 5:** Adjust the appropriate variables to be factors -- <span class="in">`as.factor()`</span>.</span>
-<span id="cb18-132"><a href="#cb18-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-133"><a href="#cb18-133" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
-<span id="cb18-134"><a href="#cb18-134" aria-hidden="true" tabindex="-1"></a>We will talk more about special data types (including factors) in a few weeks. </span>
-<span id="cb18-135"><a href="#cb18-135" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb18-94"><a href="#cb18-94" aria-hidden="true" tabindex="-1"></a>Now we will clean the data. Alas, each of the R chunks in this section will cause an error and / or do the desired task incorrectly. Even the chunks that run without error **are not** correct! You will need to find the mistake and correct it to complete the intended action.</span>
+<span id="cb18-95"><a href="#cb18-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-96"><a href="#cb18-96" aria-hidden="true" tabindex="-1"></a>**Step 1:** There are too many variables in this data set. We don&#39;t need all of them. Narrow your data set down to only:</span>
+<span id="cb18-97"><a href="#cb18-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-98"><a href="#cb18-98" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`INSTNM`</span> Name of the institution</span>
+<span id="cb18-99"><a href="#cb18-99" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`CITY`</span> City, <span class="in">`STABBR`</span> State, and <span class="in">`ZIP`</span> ZIP code of the institution</span>
+<span id="cb18-100"><a href="#cb18-100" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`ADM_RATE`</span> The Admissions Rate</span>
+<span id="cb18-101"><a href="#cb18-101" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`SAT_AVG`</span> The average SAT score</span>
+<span id="cb18-102"><a href="#cb18-102" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`UGDS`</span> The number of undergraduate students</span>
+<span id="cb18-103"><a href="#cb18-103" aria-hidden="true" tabindex="-1"></a><span class="ss">-    </span>The <span class="in">`TUITIONFEE_IN`</span> in and <span class="in">`TUITIONFEE_OUT`</span> out of state tuition</span>
+<span id="cb18-104"><a href="#cb18-104" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`CONTROL`</span> Whether the school is public or private</span>
+<span id="cb18-105"><a href="#cb18-105" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="in">`REGION`</span> The region of the school.</span>
+<span id="cb18-106"><a href="#cb18-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-107"><a href="#cb18-107" aria-hidden="true" tabindex="-1"></a><span class="in">```{r select-vars}</span></span>
+<span id="cb18-108"><a href="#cb18-108" aria-hidden="true" tabindex="-1"></a>colleges_clean <span class="ot">&lt;-</span> colleges <span class="sc">|</span> <span class="er">&gt;</span>  </span>
+<span id="cb18-109"><a href="#cb18-109" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(INSTNM, CITY, STABBR, ZIP,</span>
+<span id="cb18-110"><a href="#cb18-110" aria-hidden="true" tabindex="-1"></a>         ADM_RATE, SAT_AVG, UGDS,</span>
+<span id="cb18-111"><a href="#cb18-111" aria-hidden="true" tabindex="-1"></a>         TUITIONFEE_IN, TUITIONFEE_OUT,</span>
+<span id="cb18-112"><a href="#cb18-112" aria-hidden="true" tabindex="-1"></a>         CONTROL, REGION) </span>
+<span id="cb18-113"><a href="#cb18-113" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb18-114"><a href="#cb18-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-115"><a href="#cb18-115" aria-hidden="true" tabindex="-1"></a>**Step 2:** Remove the schools that are private (category 2) and for-profit (category 3), keeping only public schools (category 1).</span>
+<span id="cb18-116"><a href="#cb18-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-117"><a href="#cb18-117" aria-hidden="true" tabindex="-1"></a><span class="in">```{r filter-private-profit}</span></span>
+<span id="cb18-118"><a href="#cb18-118" aria-hidden="true" tabindex="-1"></a>colleges_clean <span class="ot">&lt;-</span> colleges_clean <span class="sc">|&gt;</span> </span>
+<span id="cb18-119"><a href="#cb18-119" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(CONTROL <span class="sc">==</span> <span class="dv">1</span>, CONTROL <span class="sc">==</span> <span class="dv">2</span>) </span>
+<span id="cb18-120"><a href="#cb18-120" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb18-121"><a href="#cb18-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-122"><a href="#cb18-122" aria-hidden="true" tabindex="-1"></a>**Step 4:** Adjust the appropriate variables to be numeric -- <span class="in">`as.numeric()`</span>.</span>
+<span id="cb18-123"><a href="#cb18-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-124"><a href="#cb18-124" aria-hidden="true" tabindex="-1"></a><span class="in">```{r mutate-numeric}</span></span>
+<span id="cb18-125"><a href="#cb18-125" aria-hidden="true" tabindex="-1"></a>colleges_clean <span class="ot">&lt;-</span> colleges_clean <span class="sc">|&gt;</span> </span>
+<span id="cb18-126"><a href="#cb18-126" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb18-127"><a href="#cb18-127" aria-hidden="true" tabindex="-1"></a>    <span class="at">TUITIONFEE_IN  =</span> <span class="fu">numeric</span>(TUITIONFEE_IN),</span>
+<span id="cb18-128"><a href="#cb18-128" aria-hidden="true" tabindex="-1"></a>    <span class="at">TUITIONFEE_OUT =</span> <span class="fu">numeric</span>(TUITIONFEE_OUT),</span>
+<span id="cb18-129"><a href="#cb18-129" aria-hidden="true" tabindex="-1"></a>    <span class="at">SAT_AVG        =</span> <span class="fu">numeric</span>(SAT_AVG),</span>
+<span id="cb18-130"><a href="#cb18-130" aria-hidden="true" tabindex="-1"></a>    <span class="at">UGDS           =</span> <span class="fu">numeric</span>(UGDS),</span>
+<span id="cb18-131"><a href="#cb18-131" aria-hidden="true" tabindex="-1"></a>    <span class="at">ADM_RATE       =</span> <span class="fu">numeric</span>(ADM_RATE)</span>
+<span id="cb18-132"><a href="#cb18-132" aria-hidden="true" tabindex="-1"></a>    ) </span>
+<span id="cb18-133"><a href="#cb18-133" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb18-134"><a href="#cb18-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-135"><a href="#cb18-135" aria-hidden="true" tabindex="-1"></a>**Step 5:** Adjust the appropriate variables to be factors -- <span class="in">`as.factor()`</span>.</span>
 <span id="cb18-136"><a href="#cb18-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-137"><a href="#cb18-137" aria-hidden="true" tabindex="-1"></a><span class="in">```{r mutate-factor}</span></span>
-<span id="cb18-138"><a href="#cb18-138" aria-hidden="true" tabindex="-1"></a>colleges_clean <span class="sc">|&gt;</span></span>
-<span id="cb18-139"><a href="#cb18-139" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb18-140"><a href="#cb18-140" aria-hidden="true" tabindex="-1"></a>    <span class="at">CONTROL =</span> <span class="fu">as.character</span>(CONTROL),</span>
-<span id="cb18-141"><a href="#cb18-141" aria-hidden="true" tabindex="-1"></a>    <span class="at">REGION  =</span> <span class="fu">as.character</span>(REGION)</span>
-<span id="cb18-142"><a href="#cb18-142" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb18-143"><a href="#cb18-143" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb18-144"><a href="#cb18-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-145"><a href="#cb18-145" aria-hidden="true" tabindex="-1"></a>**Step 6:** Create a new variable called <span class="in">`TUITION_DIFF`</span> which contains the difference between out of state and in state costs.</span>
-<span id="cb18-146"><a href="#cb18-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-147"><a href="#cb18-147" aria-hidden="true" tabindex="-1"></a><span class="in">```{r mutate-differences}</span></span>
-<span id="cb18-148"><a href="#cb18-148" aria-hidden="true" tabindex="-1"></a>colleges_clean <span class="ot">&lt;-</span> colleges_clean <span class="sc">|&gt;</span> </span>
-<span id="cb18-149"><a href="#cb18-149" aria-hidden="true" tabindex="-1"></a>    TUITION_DIFF <span class="ot">=</span> TUITIONFEE_OUT <span class="sc">-</span> TUITIONFEE_IN</span>
-<span id="cb18-150"><a href="#cb18-150" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb18-151"><a href="#cb18-151" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-152"><a href="#cb18-152" aria-hidden="true" tabindex="-1"></a>**Step 7:** Remove every row with missing data.</span>
-<span id="cb18-153"><a href="#cb18-153" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-154"><a href="#cb18-154" aria-hidden="true" tabindex="-1"></a>::: callout-warning</span>
-<span id="cb18-155"><a href="#cb18-155" aria-hidden="true" tabindex="-1"></a>This is not always a great idea! Usually, even if *some* of the information is missing, we don&#39;t want to throw out the entire row. This time, however, we&#39;ll be lazy.</span>
-<span id="cb18-156"><a href="#cb18-156" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb18-137"><a href="#cb18-137" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
+<span id="cb18-138"><a href="#cb18-138" aria-hidden="true" tabindex="-1"></a>We will talk more about special data types (including factors) in a few weeks. </span>
+<span id="cb18-139"><a href="#cb18-139" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb18-140"><a href="#cb18-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-141"><a href="#cb18-141" aria-hidden="true" tabindex="-1"></a><span class="in">```{r mutate-factor}</span></span>
+<span id="cb18-142"><a href="#cb18-142" aria-hidden="true" tabindex="-1"></a>colleges_clean <span class="sc">|&gt;</span></span>
+<span id="cb18-143"><a href="#cb18-143" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb18-144"><a href="#cb18-144" aria-hidden="true" tabindex="-1"></a>    <span class="at">CONTROL =</span> <span class="fu">as.character</span>(CONTROL),</span>
+<span id="cb18-145"><a href="#cb18-145" aria-hidden="true" tabindex="-1"></a>    <span class="at">REGION  =</span> <span class="fu">as.character</span>(REGION)</span>
+<span id="cb18-146"><a href="#cb18-146" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb18-147"><a href="#cb18-147" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb18-148"><a href="#cb18-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-149"><a href="#cb18-149" aria-hidden="true" tabindex="-1"></a>**Step 6:** Create a new variable called <span class="in">`TUITION_DIFF`</span> which contains the difference between out of state and in state costs.</span>
+<span id="cb18-150"><a href="#cb18-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-151"><a href="#cb18-151" aria-hidden="true" tabindex="-1"></a><span class="in">```{r mutate-differences}</span></span>
+<span id="cb18-152"><a href="#cb18-152" aria-hidden="true" tabindex="-1"></a>colleges_clean <span class="ot">&lt;-</span> colleges_clean <span class="sc">|&gt;</span> </span>
+<span id="cb18-153"><a href="#cb18-153" aria-hidden="true" tabindex="-1"></a>    TUITION_DIFF <span class="ot">=</span> TUITIONFEE_OUT <span class="sc">-</span> TUITIONFEE_IN</span>
+<span id="cb18-154"><a href="#cb18-154" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb18-155"><a href="#cb18-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-156"><a href="#cb18-156" aria-hidden="true" tabindex="-1"></a>**Step 7:** Remove every row with missing data.</span>
 <span id="cb18-157"><a href="#cb18-157" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-158"><a href="#cb18-158" aria-hidden="true" tabindex="-1"></a><span class="in">```{r drop-na}</span></span>
-<span id="cb18-159"><a href="#cb18-159" aria-hidden="true" tabindex="-1"></a>colleges_clean <span class="ot">&lt;-</span> colleges_clean <span class="sc">|&gt;</span> </span>
-<span id="cb18-160"><a href="#cb18-160" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop.na</span>()</span>
-<span id="cb18-161"><a href="#cb18-161" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb18-162"><a href="#cb18-162" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-163"><a href="#cb18-163" aria-hidden="true" tabindex="-1"></a>Lastly, notice that each of these steps started with</span>
-<span id="cb18-164"><a href="#cb18-164" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-165"><a href="#cb18-165" aria-hidden="true" tabindex="-1"></a><span class="in">```{r all-together}</span></span>
-<span id="cb18-166"><a href="#cb18-166" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
-<span id="cb18-167"><a href="#cb18-167" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-168"><a href="#cb18-168" aria-hidden="true" tabindex="-1"></a>colleges_clean <span class="ot">&lt;-</span> colleges_clean <span class="sc">|&gt;</span> ...</span>
-<span id="cb18-169"><a href="#cb18-169" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb18-170"><a href="#cb18-170" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-171"><a href="#cb18-171" aria-hidden="true" tabindex="-1"></a>That is pretty redundant! Instead, we could perform all these tasks as one long &quot;pipeline.&quot;</span>
-<span id="cb18-172"><a href="#cb18-172" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-173"><a href="#cb18-173" aria-hidden="true" tabindex="-1"></a>**Step 8:** Combine your (fixed) code chunks into a **single** code chunk that carries out all of the steps necessary to clean the data.</span>
+<span id="cb18-158"><a href="#cb18-158" aria-hidden="true" tabindex="-1"></a>::: callout-warning</span>
+<span id="cb18-159"><a href="#cb18-159" aria-hidden="true" tabindex="-1"></a>This is not always a great idea! Usually, even if *some* of the information is missing, we don&#39;t want to throw out the entire row. This time, however, we&#39;ll be lazy.</span>
+<span id="cb18-160"><a href="#cb18-160" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb18-161"><a href="#cb18-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-162"><a href="#cb18-162" aria-hidden="true" tabindex="-1"></a><span class="in">```{r drop-na}</span></span>
+<span id="cb18-163"><a href="#cb18-163" aria-hidden="true" tabindex="-1"></a>colleges_clean <span class="ot">&lt;-</span> colleges_clean <span class="sc">|&gt;</span> </span>
+<span id="cb18-164"><a href="#cb18-164" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop.na</span>()</span>
+<span id="cb18-165"><a href="#cb18-165" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb18-166"><a href="#cb18-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-167"><a href="#cb18-167" aria-hidden="true" tabindex="-1"></a>Lastly, notice that each of these steps started with</span>
+<span id="cb18-168"><a href="#cb18-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-169"><a href="#cb18-169" aria-hidden="true" tabindex="-1"></a><span class="in">```{r all-together}</span></span>
+<span id="cb18-170"><a href="#cb18-170" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb18-171"><a href="#cb18-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-172"><a href="#cb18-172" aria-hidden="true" tabindex="-1"></a>colleges_clean <span class="ot">&lt;-</span> colleges_clean <span class="sc">|&gt;</span> ...</span>
+<span id="cb18-173"><a href="#cb18-173" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb18-174"><a href="#cb18-174" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-175"><a href="#cb18-175" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
-<span id="cb18-176"><a href="#cb18-176" aria-hidden="true" tabindex="-1"></a>Think about coding efficiency -- you **should not** have multiple calls to the **same** function!</span>
-<span id="cb18-177"><a href="#cb18-177" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb18-175"><a href="#cb18-175" aria-hidden="true" tabindex="-1"></a>That is pretty redundant! Instead, we could perform all these tasks as one long &quot;pipeline.&quot;</span>
+<span id="cb18-176"><a href="#cb18-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-177"><a href="#cb18-177" aria-hidden="true" tabindex="-1"></a>**Step 8:** Combine your (fixed) code chunks into a **single** code chunk that carries out all of the steps necessary to clean the data.</span>
 <span id="cb18-178"><a href="#cb18-178" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-179"><a href="#cb18-179" aria-hidden="true" tabindex="-1"></a><span class="in">```{r combine}</span></span>
-<span id="cb18-180"><a href="#cb18-180" aria-hidden="true" tabindex="-1"></a><span class="co"># Code combining ALL of your previous steps into ONE pipeline</span></span>
-<span id="cb18-181"><a href="#cb18-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-179"><a href="#cb18-179" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
+<span id="cb18-180"><a href="#cb18-180" aria-hidden="true" tabindex="-1"></a>Think about coding efficiency -- you **should not** have multiple calls to the **same** function!</span>
+<span id="cb18-181"><a href="#cb18-181" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb18-182"><a href="#cb18-182" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-183"><a href="#cb18-183" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb18-184"><a href="#cb18-184" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-185"><a href="#cb18-185" aria-hidden="true" tabindex="-1"></a><span class="fu"># Part Two: Identify the mystery college</span></span>
+<span id="cb18-183"><a href="#cb18-183" aria-hidden="true" tabindex="-1"></a><span class="in">```{r combine}</span></span>
+<span id="cb18-184"><a href="#cb18-184" aria-hidden="true" tabindex="-1"></a><span class="co"># Code combining ALL of your previous steps into ONE pipeline</span></span>
+<span id="cb18-185"><a href="#cb18-185" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-186"><a href="#cb18-186" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-187"><a href="#cb18-187" aria-hidden="true" tabindex="-1"></a>Wow! Your best friend Ephelia has been accepted to her top choice college! Unfortunately, Ephelia is a very mysterious person, and she won&#39;t tell you directly which college this is. You&#39;ll have to use her clues to figure out which school is her dream school.</span>
+<span id="cb18-187"><a href="#cb18-187" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb18-188"><a href="#cb18-188" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-189"><a href="#cb18-189" aria-hidden="true" tabindex="-1"></a>**Clues:**</span>
+<span id="cb18-189"><a href="#cb18-189" aria-hidden="true" tabindex="-1"></a><span class="fu"># Part Two: Identify the mystery college</span></span>
 <span id="cb18-190"><a href="#cb18-190" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-191"><a href="#cb18-191" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>This college is located in Region 4.</span>
+<span id="cb18-191"><a href="#cb18-191" aria-hidden="true" tabindex="-1"></a>Wow! Your best friend Ephelia has been accepted to her top choice college! Unfortunately, Ephelia is a very mysterious person, and she won&#39;t tell you directly which college this is. You&#39;ll have to use her clues to figure out which school is her dream school.</span>
 <span id="cb18-192"><a href="#cb18-192" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-193"><a href="#cb18-193" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>This college&#39;s admission rate is below the median rate for the region.</span>
+<span id="cb18-193"><a href="#cb18-193" aria-hidden="true" tabindex="-1"></a>**Clues:**</span>
 <span id="cb18-194"><a href="#cb18-194" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-195"><a href="#cb18-195" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>This college **does not** charge the same for in- and out-of-state tuition.</span>
+<span id="cb18-195"><a href="#cb18-195" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>This college is located in Region 4.</span>
 <span id="cb18-196"><a href="#cb18-196" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-197"><a href="#cb18-197" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>The average SAT score of this college is an odd number.</span>
+<span id="cb18-197"><a href="#cb18-197" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>This college&#39;s admission rate is below the median rate for the region.</span>
 <span id="cb18-198"><a href="#cb18-198" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-199"><a href="#cb18-199" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>This college is in the state where hot-dish, &quot;you betcha&quot;, and hockey are a thing.</span>
+<span id="cb18-199"><a href="#cb18-199" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>This college **does not** charge the same for in- and out-of-state tuition.</span>
 <span id="cb18-200"><a href="#cb18-200" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-201"><a href="#cb18-201" aria-hidden="true" tabindex="-1"></a><span class="ss">6.  </span>Less than 10,000 undergraduates attend this college.</span>
+<span id="cb18-201"><a href="#cb18-201" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>The average SAT score of this college is an odd number.</span>
 <span id="cb18-202"><a href="#cb18-202" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-203"><a href="#cb18-203" aria-hidden="true" tabindex="-1"></a><span class="ss">7.  </span>The in state tuition cost to attend this college is **not more** than $10,000.</span>
+<span id="cb18-203"><a href="#cb18-203" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>This college is in the state where hot-dish, &quot;you betcha&quot;, and hockey are a thing.</span>
 <span id="cb18-204"><a href="#cb18-204" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-205"><a href="#cb18-205" aria-hidden="true" tabindex="-1"></a><span class="ss">8.  </span>Of the two options remaining at this step, Ephelia will attend the college that has the higher admission rate.</span>
+<span id="cb18-205"><a href="#cb18-205" aria-hidden="true" tabindex="-1"></a><span class="ss">6.  </span>Less than 10,000 undergraduates attend this college.</span>
 <span id="cb18-206"><a href="#cb18-206" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-207"><a href="#cb18-207" aria-hidden="true" tabindex="-1"></a><span class="in">```{r identify-college}</span></span>
-<span id="cb18-208"><a href="#cb18-208" aria-hidden="true" tabindex="-1"></a><span class="co"># Code to solve for the mystery college using the 8 clues above.</span></span>
-<span id="cb18-209"><a href="#cb18-209" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-210"><a href="#cb18-210" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb18-211"><a href="#cb18-211" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-212"><a href="#cb18-212" aria-hidden="true" tabindex="-1"></a>Submit the college Ephelia will attend to the Canvas Quiz.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-207"><a href="#cb18-207" aria-hidden="true" tabindex="-1"></a><span class="ss">7.  </span>The in state tuition cost to attend this college is **not more** than $10,000.</span>
+<span id="cb18-208"><a href="#cb18-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-209"><a href="#cb18-209" aria-hidden="true" tabindex="-1"></a><span class="ss">8.  </span>Of the two options remaining at this step, Ephelia will attend the college that has the higher admission rate.</span>
+<span id="cb18-210"><a href="#cb18-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-211"><a href="#cb18-211" aria-hidden="true" tabindex="-1"></a><span class="in">```{r identify-college}</span></span>
+<span id="cb18-212"><a href="#cb18-212" aria-hidden="true" tabindex="-1"></a><span class="co"># Code to solve for the mystery college using the 8 clues above.</span></span>
+<span id="cb18-213"><a href="#cb18-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-214"><a href="#cb18-214" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb18-215"><a href="#cb18-215" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-216"><a href="#cb18-216" aria-hidden="true" tabindex="-1"></a>Submit the college Ephelia will attend to the Canvas Quiz.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

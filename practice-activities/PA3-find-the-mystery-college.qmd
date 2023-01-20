@@ -18,6 +18,10 @@ Today you will be using the dplyr package to clean a data set and then using tha
 
 [Download starter .qmd file](PA3-find-the-mystery-college.qmd)
 
+::: callout-caution
+Make sure you move your .qmd file from your downloads into your Stat 331 directory -- you should be working in your R project! **DO NOT** open it straight from download.
+:::
+
 ::: {.callout-tip collapse="true"}
 
 ## Dealing with errors
@@ -46,7 +50,7 @@ Work with those around you - if something goes wrong, ask a friend or team membe
 
 The best way to troubleshoot a sneaky but is to explain out loud each step of your code, and what you hoped to accomplish.
 
-Schedule a meeting with your team to have everyone talk through their code.
+Meet up with classmates to have everyone talk through their code.
 
 If you are alone, try [Rubber Duck Debugging](https://en.wikipedia.org/wiki/Rubber_duck_debugging)!
 
