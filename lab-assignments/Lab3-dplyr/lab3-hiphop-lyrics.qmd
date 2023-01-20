@@ -199,7 +199,7 @@ You might just want to copy the YAML from this lab, or create a copy of this lab
 
 ### Published Comparisons
 
-In the published article ([You Know What It Is: Learning Words through Listening to Hip-Hop](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0028248)), the author presents a series of comparisons about the variables which most explain an individual's familiarity with African American English (AAE).
+In the published article ([You Know What It Is: Learning Words through Listening to Hip-Hop](https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0028248&type=printable)), the author presents a series of comparisons about the variables which most explain an individual's familiarity with African American English (AAE).
 
 Let us instead compare the number of artists participants reported liking for each genre. Specifically, you will determine which music genre most differentiates each of the demographic groups provided.
 
@@ -221,6 +221,6 @@ Myself, members of the Tidy Tuesday community, and previous 331 students have vo
 
 Re-read the [data description (link)](http://conservancy.umn.edu/bitstream/handle/11299/116327/5/explanationAAEHiphopChesley.txt) to see how participants were recruited for participation in this study.
 
-You are welcome to read additional details regarding aspects of the study in the published paper: [You Know What It Is: Learning Words through Listening to Hip-Hop](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0028248)
+You are welcome to read additional details regarding aspects of the study in the published paper: [You Know What It Is: Learning Words through Listening to Hip-Hop](https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0028248&type=printable)
 
 **B. Based on the design of this study and its context (African American English), what are at least two concerns you have?**
