@@ -1,0 +1,58 @@
+---
+title: "WEEK 3: DATA CLEANING & MANIPULATION"
+format: 
+  revealjs:
+    theme: [default, custom.scss]
+editor: source
+self-contained: true
+---
+
+```{r setup}
+#| include: false
+#| message: false
+library(tidyverse)
+```
+
+## Tuesday, January 17th
+
+Today we will...
+
++ Review File Paths + R Projects
++ Review Lab 2
++ Mini lecture on text material
+  + Tibbles + Data types
+  + Using `dplyr` verbs to manipulate data
++ [PA 3: Identify the Mystery College](https://earobinson95.github.io/stat331-calpoly/practice-activities/PA3-find-the-mystery-college)
+
+## Directories, File Paths, & Projects
+
+
+
+## Tibbles
+
+## Data Types
+
+# `dplyr`
+
+## `dplyr` verbs
+
+## Pipe Operators
+
+## Palmer Penguins
+
+## `filter()`
+
+## `select()`
+
+## `mutate()`
+
+## `group_by()`
+
+## [PA 3: Identify the Mystery College](https://earobinson95.github.io/stat331-calpoly/practice-activities/PA3-find-the-mystery-college)
+
+
+
+## To do...
+
++ **PA 3: Identify the Mystery College**
+`+ Due Wednesday 1/25 at 8:00am
