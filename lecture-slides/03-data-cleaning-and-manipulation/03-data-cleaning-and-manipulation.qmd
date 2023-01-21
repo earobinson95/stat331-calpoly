@@ -13,7 +13,7 @@ self-contained: true
 library(tidyverse)
 ```
 
-## Tuesday, January 17th
+## Monday, January 23rd
 
 Today we will...
 
@@ -26,11 +26,10 @@ Today we will...
 
 ## Directories, File Paths, & Projects
 
-
+## Object Types + Data Types
 
 ## Tibbles
 
-## Data Types
 
 # `dplyr`
 
@@ -50,9 +49,12 @@ Today we will...
 
 ## [PA 3: Identify the Mystery College](https://earobinson95.github.io/stat331-calpoly/practice-activities/PA3-find-the-mystery-college)
 
-
+```{r}
+#| fig-align: center
+knitr::include_graphics("https://news.winona.edu/wp-content/uploads/2019/01/45201097362_49075670b8_k.jpg")
+```
 
 ## To do...
 
 + **PA 3: Identify the Mystery College**
-`+ Due Wednesday 1/25 at 8:00am
+  + Due Wednesday 1/25 at 8:00am

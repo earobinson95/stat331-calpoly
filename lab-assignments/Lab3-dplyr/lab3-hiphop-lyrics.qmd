@@ -115,10 +115,6 @@ Helpful functions: `mutate()`, `if_else()`
 
 **8. It is fairly common for researchers to collapse ethnic or racial categories similar to what you just did. What are some issues with representing the data in this way?**
 
-
-
-
-
 **9. What are the demographics of the people in this study? Investigate the variables `sex`, `age`, and `ethnic` and summarize your findings in 1-3 complete sentences.**
 
 ::: callout-tip
@@ -189,7 +185,7 @@ Refer again to the data set description. There is another clue about Bieber's id
 
 ```
 
-## Challenge 3: Group Comparisons & Data Ethics (+10)
+## Challenge 3: Published Comparisons & Data Ethics (+10)
 
 ::: callout-note
 Your challenge should be submitted as a separate file, not included at the bottom of your Lab 3 file. Please submit your rendered HTML file.
@@ -211,8 +207,8 @@ Let us instead compare the number of artists participants reported liking for ea
 
 > Which genre had much higher average (mean or median) reported artists in one group than the other.
 >
-> + Male versus Female
-> + White versus Non-White
+> -   Male versus Female
+> -   White versus Non-White
 
 ::: callout-tip
 You might find it helpful to first create a new data set with only the variables you are interested in! Look at the Music Variables in the data set description along with the demographics of interest.
@@ -222,14 +218,14 @@ Helpful functions: `select()`, `group_by()`, `summarize()`, `across()`
 Other useful operations in R: `mean`, `diff`, `abs`, `which.max()`
 :::
 
-
 ### Study Design Critique -- Data Ethics
- 
+
 Myself, members of the Tidy Tuesday community, and previous 331 students have voiced concerns regarding the design and social context of this study.
- 
-You've already read the [data description (link)](http://conservancy.umn.edu/bitstream/handle/11299/116327/5/explanationAAEHiphopChesley.txt) regarding how participants were recruited for participation in this study. **Now**, you need to read additional details regarding aspects of the study in the published paper: [You Know What It Is: Learning Words through Listening to Hip-Hop](https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0028248&type=printable). 
- 
-> Based on the design of this study and its context (African American English), 
-> what are **at least two** concerns you have?
-> Keep in mind this critique aligns with conversations regarding data ethics.
-> Thus, your concerns need to address the racial aspects of the design of this study.  
+
+You've already read the [data description (link)](http://conservancy.umn.edu/bitstream/handle/11299/116327/5/explanationAAEHiphopChesley.txt) regarding how participants were recruited for participation in this study. **Now**, you need to read additional details regarding aspects of the study in the published paper: [You Know What It Is: Learning Words through Listening to Hip-Hop](https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0028248&type=printable).
+
+> Based on the design of this study and its context (African American English), what are **at least two** concerns you have? 
+>
+> Keep in mind this critique aligns with conversations regarding data ethics. 
+>
+> Thus, your concerns need to address the racial aspects of the design of this study.
