@@ -1,0 +1,133 @@
+---
+title: "Lab 1 & Challenge 1: Grading Guide"
+format: html
+self-contained: true
+toc: true
+code-tools: true
+---
+
+# Lab 1: Introduction to Quarto (32 pts)
+
+## 1. Load in data (4pts)
+
+1. use `here()`
+2. use `read_csv()`
+
+|  4  |  3  |  2  |  1  |  0  |
+| ----| --- | --- | --- | --- |
+| `read_csv` + `here` |  |  |  |  |
+
+`useherefunc` Make sure you understand how the here() function assists in organizing your workflow!
+
+`useread_csv` The read_csv() function from the readr package (part of the tidyverse).
+
+
+## 2. Data Description (4pts)
+
+1. dimensions: 30463 x 15
+
+|  4  |  3  |  2  |  1  |  0  |
+| ----| --- | --- | --- | --- |
+| 4/4 | missing code for one | missing code for both | 1/4 | 0/4 |
+
+`dimfunc` Using dim() will output the dimensions of the data set (rows x columns) -- e.g., dim(surveys)
+
+`strfunc` The str() function will output a compact display of the structure of an R object, use give.attr = FALSE to remove the attributes -- e.g., str(survyes, give.attr = F)
+
+
+## 3. Scatterplot (4pts)
+
+x = weight
+
+y = hindfoot_length
+
+geom_point()
+
+`betterggplotformat` Be aware of your code formatting! Putting every layer and aesthetic on a new line will help you follow your parentheses and make the code easier to read!
+
+
+
+# 4. Scatterplot: Alpha Blending + Faceting (4pts)
+
+`setalpha` since you are setting the alpha aesthetic, this goes outside of the aes() function and within the geom_xxx() function you want to apply the transparancy to -- e.g. geom_point(alpha = 0.1).
+
+`smalleralpha` The smaller the alpha (between 0 and 1), the more transparency the points or geometric object will have!
+  
+`usefacetwrap` Using facet_wrap() instead of facet_grid() will help "wrap" the small multiples for each species into multiple rows.
+
+# 4. Scatterplot: Axes Labels (4pts)
+
+`betteraxeslabel`
+
+`missingaxeslabel`
+
+`niceaxeslabel`
+
+`missingaxesunits`
+
+`yasisinsubtitle` To move the y-axes label to the subtitle use labs(subtitle = "Y Axes Label") and either (1) set labs(y = "") empty or (2) theme(axis.title.y = element_blank()).
+
+## 5. Boxplot (4pts)
+
+x = species, y = weight
+
+geom_boxplot()
+
+`sidebysidenotfacet` A side by side box plot is not the same as small multiples; this was clarified in class and posted on the course discord page. We want species on the x-axis and weight on the y-axis with a geom_boxplot().
+
+## 6. Boxplot: geom_jitter() + color + remove outliers (4pts)
+
+geom_boxplot(outlier.shape = NA)
+
+geom_jitter(alpha = 0.1, color = "steelblue")
+
+`setalpha`
+
+`smalleralpha`
+
+`setcolor` Recall the difference between setting an aesthetic and assigning/mapping an aesthetic. We want to SET the color -- therefore, color = should be outside of the aes() statement witht the specific color in quotes -- e.g., geom_jitter(color = "blue").
+
+`removeoutlierbxplt` Look up the R documentation with ?geom_boxplot. See what it says about outlier.shape -- this should be outside of any aes() statements and specifically applyied locally to the boxplot geometric object.
+
+## 7. Boxplot: axes labels + orientation
+
+`betteraxeslabel`
+
+`missingaxeslabel`
+
+`niceaxeslabel`
+
+`missingaxesunits`
+
+`doublecheckaxeslabels` When you flipped your axes, make sure you double check your labels align with the correct axes!
+
+`habityasisinsubtitle` It is good to get in the habit of putting your y-axis label into the subtitle of your plot!
+
+`usecoordflip` Another way to flip your axes is to use coord_flip(), but be cautious about what this does with your axes labels!
+
+
+# Challenge 2: Modifying your Quarto Document (+10 Challenge Points)
+
+## Code Folding
+
+`nocodefold` Add a new line to your YAML header containing *code-fold: true*. Render your .qmd file to see the changes it makes!
+
+## Center Aligned -- pressure
+
+`usehashpipefigalign` There will be slightly different syntax between Rmarkdown (.Rmd) and Quarto (.qmd) files. In Rmarkdown, *{r, fig.align = 'center'}* is included in defining the code chunk. In Quarto however, we want to use that fancy hashpipe *#| fig-align: center* ! This will have an auto-fill feature making code chunk options simple to use. Make sure you are getting in the habit of using the hashpipe code chunk options (disclaimer: you may be already using the hashpipe -- I just can't tell from the output since this part is not shown in the rendered document)
+
+## Figure Caption -- pressure
+
+`c1figcap` It is good practice to give your figures informative captions about what is being displayed. Quarto documents specify this with a hashpipe: *#| fig-cap: "Put your figure caption here."*
+
+## Side-by-side plots -- cars histogram + cars scatterplot
+
+`carsnotsidebyside` Apparently there is a blogpost that says you should be able to place figures side-by-side with 'hold' and fig.width = "50%". This might be a difference between RMarkdown and Quarto code chunk options. When using base R for plotting, *use par(mfrow = c(1,2))* to change the output window layout to have 1 row and 2 columns. You can then change this back using *par(mfrow = c(1,1))*.
+
+## Additional modification
+
+`specifyquartomod` What additional quarto modification did you make? There are a lot of really cool tips and creative features you can modify in quarto documents!
+
+```{r}
+#| fig-alt: 
+```

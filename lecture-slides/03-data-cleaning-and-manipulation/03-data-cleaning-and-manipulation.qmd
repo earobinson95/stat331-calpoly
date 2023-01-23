@@ -11,6 +11,7 @@ self-contained: true
 #| include: false
 #| message: false
 library(tidyverse)
+library(palmerpenguins)
 ```
 
 ## Monday, January 23rd
@@ -19,9 +20,107 @@ Today we will...
 
 + Review File Paths + R Projects
 + Review Lab 2
++ A note on font accessibility in graphics
 + Mini lecture on text material
   + Using `dplyr` verbs to manipulate data
 + [PA 3: Identify the Mystery College](https://earobinson95.github.io/stat331-calpoly/practice-activities/PA3-find-the-mystery-college)
+
+# Font Accessibility in Graphics
+
+## 
+
+![](images/nyt.png)
+
+::: columns
+::: {.column width="60%"}
+::: {style="font-size: 0.75em;"}
+> Serif fonts "have an extra flourish that makes it look pretty for many people, but can clutter what is on the page and that's what makes it harder to distinguish for people with visual disabilities than just having a very clean font with no extra bits and pieces around it."
+:::
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="35%"}
+![](images/times_vs_calibri.png)
+:::
+:::
+
+## Changing Font in `ggplot2`
+
+**Option 1:** Using your system's fonts
+
+::: columns
+::: {.column width="25%"}
+```{r}
+#| echo: true
+#| code-line-numbers: false
+windowsFonts()
+```
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="70%"}
+```{r}
+#| output-location: slide
+#| echo: true
+#| code-line-numbers: false
+#| warning: false
+ggplot(data = penguins, 
+       mapping = aes(x = bill_length_mm, 
+                     y = bill_depth_mm)) +
+  geom_point() +
+  labs(title = "Penguins from the Palmer Archipelago",
+       x = "Bill Length (mm)",
+       y = "Bill Depth (mm)") + 
+  theme(plot.title    = element_text(family = "sans", size = 28),,
+        axis.title.x  = element_text(family = "serif", size = 28), 
+        axis.title.y = element_text(family = "mono", size = 28)
+        )
+```
+:::
+:::
+
+## 
+
+**Option 2:** [**showtext** R package](https://r-graph-gallery.com/custom-fonts-in-R-and-ggplot2.html)
+
+```{r}
+#| echo: false
+#| eval: false
+## Need to run showtext_auto() before start plotting!
+library(showtext)
+showtext_auto()
+font_add_google("Gochi Hand", "gochi")
+font_add_google("Montserrat", "montserrat")
+```
+
+```{r}
+#| echo: true
+#| output-location: slide
+#| code-line-numbers: false
+library(showtext)
+showtext_auto()
+
+font_add_google("Gochi Hand", "gochi")
+font_add_google("Montserrat", "montserrat")
+
+ggplot(data = penguins, 
+       mapping = aes(x = bill_length_mm, 
+                     y = bill_depth_mm)) +
+  geom_point() +
+  labs(title = "Penguins from the Palmer Archipelago",
+       x = "Bill Length (mm)",
+       y = "Bill Depth (mm)") + 
+  theme(plot.title = element_text(family = "montserrat", size = 40),
+        axis.title.y = element_text(family = "gochi", size = 40),
+        axis.title.x = element_text(family = "gochi", size = 40)
+  )
+
+```
+
 
 # `dplyr`
 
@@ -184,8 +283,17 @@ We filter to the rows (observations) we would like to keep in the data set.
 ```{r}
 #| echo: true
 #| eval: false
-cereals |> 
+cereal |> 
   filter(calories < 100)
+```
+
+```{r}
+#| echo: false
+#| eval: true
+cereal |> 
+  filter(calories < 100) |> 
+  knitr::kable() |> 
+  kableExtra::scroll_box(height = "400px")
 ```
 
 We can add multiple filters to our data, to get a more specific subset!
@@ -193,7 +301,7 @@ We can add multiple filters to our data, to get a more specific subset!
 ```{r}
 #| echo: true
 #| eval: false
-cereals |> 
+cereal |> 
   filter(calories < 100,
          type == "H")
 ```
@@ -258,8 +366,18 @@ We can arrange by **multiple** variables.
 
 ```{r}
 #| echo: true
+#| eval: false
 cereal |> 
   arrange(calories, sugars)
+```
+
+```{r}
+#| echo: false
+#| eval: true
+cereal |> 
+  arrange(calories, sugars) |> 
+  knitr::kable() |> 
+  kableExtra::scroll_box(height = "400px")
 ```
 
 
@@ -314,17 +432,36 @@ It is good practice to specify the function arguments!
 We **select** which variables we would like to remain in the dataset.
 
 ```{r}
+#| eval: false
 #| echo: true
 cereal |> 
   select(name, manuf, calories, cups)
+```
+
+```{r}
+#| echo: false
+cereal |> 
+  select(name, manuf, calories, cups)  |> 
+  knitr::kable() |> 
+  kableExtra::scroll_box(height = "250px")
 ```
 
 You can use the `:` to select a sequence of columns! 
 
 ```{r}
 #| echo: true
+#| eval: false
 cereal |> 
   select(name:calories)
+```
+
+```{r}
+#| echo: false
+#| eval: true
+cereal |> 
+  select(name:calories)  |> 
+  knitr::kable() |> 
+  kableExtra::scroll_box(height = "250px")
 ```
 
 ## `select()`: Omitting Columns
@@ -344,9 +481,19 @@ You can reorder the columns in the dataset inside of `select()`!
 
 ```{r}
 #| echo: true
+#| eval: false
 cereal |> 
   select(name, rating, manuf, type, calories, cups, weight, 
          everything())
+```
+
+```{r}
+#| echo: false
+cereal |> 
+  select(name, rating, manuf, type, calories, cups, weight, 
+         everything()) |> 
+  knitr::kable() |> 
+  kableExtra::scroll_box(height = "400px")
 ```
 
 
@@ -380,7 +527,8 @@ knitr::include_graphics("https://github.com/allisonhorst/stats-illustrations/raw
 
 The data set gets *mutated* to either
 
-include a new variable
++ include a new variable
+
 ```{r}
 #| eval: false
 #| echo: true
@@ -388,7 +536,18 @@ cereal |>
   mutate(cal_per_cup = calories / cups)
 ```
 
-revise an existing variable
+```{r}
+#| eval: true
+#| echo: false
+cereal |> 
+  mutate(cal_per_cup = calories / cups)  |> 
+  knitr::kable() |> 
+  kableExtra::scroll_box(height = "400px")
+```
+
+<br>
+
++ revise an existing variable
 
 ```{r}
 #| eval: false
@@ -541,11 +700,12 @@ Today we will...
 + Extending `dplyr` verbs
   + `across()`
   + `if_else()`
+  + `case_when()`
 + Implication of Data Ethics
 + Lab 3: Hip Hop Lyrics
 + Challenge 3: Published Comparisons & Data Ethics
 
-## `across()`
+## Summarize or mutate multiple columns with `across()`
 
 ```{r}
 #| echo: true
@@ -577,6 +737,8 @@ cereal |>
                            )
   )
 ```
+
+## Data Ethics
 
 
 ## To do...
