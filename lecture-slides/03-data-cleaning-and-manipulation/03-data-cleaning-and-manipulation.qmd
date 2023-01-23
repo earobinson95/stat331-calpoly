@@ -542,7 +542,7 @@ cereal |>
 cereal |> 
   mutate(cal_per_cup = calories / cups)  |> 
   knitr::kable() |> 
-  kableExtra::scroll_box(height = "400px")
+  kableExtra::scroll_box(height = "200px")
 ```
 
 <br>
@@ -630,7 +630,7 @@ cereal |>
 ```{r}
 #| echo: true
 cereal |> 
-  filter(type == type) |> 
+  filter(type == "cold") |> 
   mutate(cal_per_cup = calories / cups) |> 
   group_by(manuf) |> 
   summarise(mean_cal_per_cup = mean(cal_per_cup))
