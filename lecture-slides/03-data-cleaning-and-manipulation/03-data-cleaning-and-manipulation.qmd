@@ -773,6 +773,24 @@ cereal |>
   )
 ```
 
+
+## `group_by()` + `slice()`
+
+```{r}
+#| echo: true
+cereal |> 
+  group_by(manuf) |> 
+  slice_max(order_by = calories)
+```
+## Multiple Variables in `slice()`
+
+```{r}
+#| echo: true
+cereal |> 
+  arrange(calories, sugars) |> 
+  slice(n = 1:3)
+```
+
 ## Piping into `ggplot()`
 
 ```{r}
