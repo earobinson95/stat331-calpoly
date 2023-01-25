@@ -1,5 +1,5 @@
 ---
-title: "PA 4.1: Governement Spending"
+title: "PA 4: Governement Spending"
 subtitle: "Tidy Data with tidyr"
 format: 
   html:

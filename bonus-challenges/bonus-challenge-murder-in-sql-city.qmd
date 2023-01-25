@@ -1,5 +1,5 @@
 ---
-title: "Bonus Challenge 4: Murder in SQL City (+5)"
+title: "Bonus Challenge: Murder in SQL City (+5)"
 subtitle: "Joins and Summaries"
 format: 
   html:
