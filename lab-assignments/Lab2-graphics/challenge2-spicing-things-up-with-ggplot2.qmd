@@ -49,10 +49,6 @@ allow for side-by-side density plots using `geom_density()`. Instead, we will
 need to make use of the `ggridges` package to create side-by-side density
 (ridge) plots. 
 
-::: callout-note
-Another great alternative to boxplots are [violin plots](https://blog.bioturing.com/2018/05/16/5-reasons-you-should-use-a-violin-graph/)!
-:::
-
 > **For this challenge you are to change the plot you created in the Boxplot
 section to a ridge plot. You will need to install the `ggridges` package and
 explore the `geom_density_ridges()` function.**
