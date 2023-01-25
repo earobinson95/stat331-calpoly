@@ -645,7 +645,7 @@ When you make these changes, make sure you are assigning them to a data set!
 #| echo: true
 #| eval: false
 cereal_summary <- cereal |> 
-  filter(type == type) |> 
+  filter(type == "cold") |> 
   mutate(cal_per_cup = calories / cups) |> 
   group_by(manuf) |> 
   summarise(mean_cal_per_cup = mean(cal_per_cup))
@@ -705,6 +705,41 @@ Today we will...
 + Lab 3: Hip Hop Lyrics
 + Challenge 3: Published Comparisons & Data Ethics
 
+# Extending `dplyr` verbs
+
+## Example Data set --  [Cereal](https://search.r-project.org/CRAN/refmans/liver/html/cereal.html)
+
+```{r}
+#| echo: true
+library(liver)
+data(cereal)
+```
+
+::: panel-tabset
+
+### Data Structure
+
+```{r}
+#| echo: true
+str(cereal, give.attr = FALSE)
+```
+
+### Data Head
+
+```{r}
+#| echo: true
+head(cereal)
+```
+
+### Data Summary
+
+```{r}
+#| echo: true
+summary(cereal)
+```
+
+:::
+
 ## Summarize or mutate multiple columns with `across()`
 
 ```{r}
@@ -738,7 +773,77 @@ cereal |>
   )
 ```
 
-## Data Ethics
+## Piping into `ggplot()`
+
+```{r}
+#| output-location: slide
+#| echo: true
+#| code-line-numbers: false
+#| fig-align: center
+cereal |> 
+  mutate(manuf = case_when(manuf == "A" ~ "American Home Food Products", 
+                           manuf == "G" ~ "General Mills", 
+                           manuf == "K" ~ "Kelloggs", 
+                           manuf == "N" ~ "Nabisco", 
+                           manuf == "P" ~ "Post", 
+                           manuf == "Q" ~ "Quaker Oats", 
+                           manuf == "R" ~ "Ralston Purina"
+                           )
+  ) |> 
+  filter(type == "cold") |> 
+  mutate(cal_per_cup = calories / cups) |> 
+  group_by(manuf) |> 
+  summarise(mean_cal_per_cup = mean(cal_per_cup)) |> 
+  ggplot(aes(x = manuf, 
+             y = mean_cal_per_cup, 
+             shape = manuf)) +
+  geom_point(show.legend = FALSE,
+             size = 3) +
+  labs(x = "Manufacturer",
+       subtitle = "Calories per cup (mean)") +
+  theme_bw() +
+  theme(axis.title.y = element_blank(),
+        axis.title.x  = element_text(size = 32),
+        plot.subtitle = element_text(size = 32),
+        axis.text = element_text(size = 28)
+        )
+```
+
+# Implication of Data Ethics
+
+## Data Science Oath
+
+> I will not be ashamed to say, “I know not,” nor will I fail to call in my colleagues when the skills of another are needed for solving a problem.​
+
+> I will respect the privacy of my data subjects, for their data are not disclosed to me that the world may know, so I will tread with care in matters of privacy and security.
+
+> I will remember that my data are not just numbers without meaning or context, but represent real people and situations, and that my work may lead to unintended societal consequences, such as inequality, poverty, and disparities due to algorithmic bias.
+
+::: callout-note
++ [National Academy of Sciences](https://en.wikipedia.org/wiki/National_Academy_of_Sciences)
++ [Data Values and Principles](https://datapractices.org/manifesto/)
+:::
+
+## ASA Ethical Guidelines
+
+The American Statistical Association’s Ethical Guidelines for Statistical Practice are intended to help statistics practitioners make decisions ethically. Additionally, the ethical guidelines aim to promote accountability by informing those who rely on statistical analysis of the standards they should expect.
+
+>Visit [Ethical Guidelines for Statistical Practice](https://www.amstat.org/your-career/ethical-guidelines-for-statistical-practice) and discuss one of the guidelines with your partner. 
+>
+> + What surprises you? What did you learn? 
+> + What scenario might this come into play?
+
+## Institutional Review Board
+
+IRB reviews help to ensure that research participants are protected from research-related risks and treated ethically, a necessary prerequisite for maintaining the public’s trust in the research enterprise and allowing science to advance for the common good.
+
+::: callout-note
+[Watch a video about IRB](https://www.youtube.com/watch?v=U8fme1boEbE&ab_channel=U.S.DepartmentofHealthandHumanServices) to learn more.
+:::
+
+## [Weekly Lab + Challenge](https://earobinson95.github.io/stat331-calpoly/lab-assignments/Lab3-dplyr/lab3-hiphop-lyrics.html)
+
+![](../../lab-assignments/Lab3-dplyr/published-article.jpg)
 
 
 ## To do...
@@ -749,5 +854,6 @@ cereal |>
 + **Challenge 3: Published Comparisons & Data Ethics**
   + Due Saturday, 1/28 at 11:59pm
   
-+ **Read Chapter 4: Joins and Data Transformations**
++ **Read Chapter 4: Data Joins and Transformations**
   + **Concept Check 4.1 + 4.2** due Monday (1/30) at 8:00am
+  
