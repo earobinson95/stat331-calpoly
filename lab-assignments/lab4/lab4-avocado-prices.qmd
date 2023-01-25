@@ -1,0 +1,102 @@
+---
+title: "Lab 4: Avocado Prices"
+author: "Your name"
+format: 
+  html:
+    self-contained: true
+    code-tools: true
+    toc: true
+editor: source
+execute: 
+  error: true
+  echo: true
+  message: false
+  warning: false
+---
+
+```{r data}
+#| include: false
+
+library(tidyverse)
+avocado <- read_csv(here::here("lab-assignments", "lab4", "avocado.csv"))
+```
+
+::: callout-tip
+I advise you to focus particularly on:
+
+-   Setting chunk options carefully.
+
+-   Making sure you don't print out more output than you need to.
+
+-   Making your code readable and nicely formatted.
+
+-   Thinking through your desired result **before** writing any code.
+:::
+
+
+# Introduction & Set-up
+
+In this lab we're going to be looking at avocado prices.
+
+The dataset comes to us from Kaggle and represents weekly retail scan data. It is available to download from Canvas under the name `avocado.csv`. A description of the data can be found [here.](https://www.kaggle.com/neuromusic/avocado-prices)
+
+**0.** Create a Quarto file, load the data, and declare your package dependencies.
+
+**1.** Briefly describe the dataset. What information does it contain?
+
+**2.** Clean the data in any way you see fit. In particular, look carefully at the `region` variable. Notice that the category `"LosAngeles"` is contained in `"California"`, which is contained in `"West"`, which is contained in `"TotalUS"`. Think about how you want to handle this issue in your analysis.
+
+------------------------------------------------------------------------
+
+# Exercises
+
+**3.** Which major region sold the most organic, small Hass avocados in 2017?
+
+**4.** Use the `separate()` function to split the `Date` variable into year, month, and day. In which month is the highest volume of avocado sales?
+
+**5.** Which metro area regions sold the most total avocados? Plot side-by-side boxplots of total volume for only the five regions with the highest averages for the `Total Volume` variable.
+
+------------------------------------------------------------------------
+
+# Reshaping
+
+The following four California regions are in this dataset: `"LosAngeles"`, `"SanDiego"`, `"Sacramento"`, and `"SanFrancisco"`. Answer the following questions about these California regions **only**.
+
+**6.** In which regions is the price of organic versus conventional avocados most different? Support your answer with a few summary statistics and a visualization.
+
+**7.** The following plot shows, for all four California regions, the proportion of the mean Hass avocado sales that are small, large, or extra large; conventional vs. organic. Recreate the plot.
+
+*Hint: This will require restructuring of your data!*
+
+```{r, echo = FALSE}
+#| echo: false
+
+cali_avo |> 
+  group_by(region, type) |>
+  summarize(across(.cols = Size_Small:Size_XL, .fns = mean)) |>
+  pivot_longer(Size_Small:Size_XL, 
+               names_to = "Size", 
+               values_to = "Mean_Sold") |>
+  mutate(
+    Size = factor(Size, 
+                  levels = c("Size_Small", "Size_Large", "Size_XL"),
+                  labels = c("Small", "Large", "Extra Large"))
+  ) |>
+  ggplot(aes(x = region, y = Mean_Sold, fill = Size)) +
+  geom_col(position = "fill") + 
+  facet_wrap(~type) + 
+  scale_x_discrete(guide = guide_axis(n.dodge = 2)) + 
+  labs(x = "Region of CA", 
+       y = "Proportion of Mean Avocados Sold", 
+       fill = "Avocado Size")
+
+
+```
+
+------------------------------------------------------------------------
+
+# Challenge
+
+A joke in the media is that Millennials can't afford houses, because they spend all their money buying avocado toast. Let's use this data set to address that claim.
+
+Find or make a data set with house prices for these four California regions. Join this data set with your California avocado data set. Use your new joined data set to make an argument about the relationship between house prices and avocado prices/sales. Support your argument with a plot.

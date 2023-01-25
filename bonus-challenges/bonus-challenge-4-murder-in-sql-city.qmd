@@ -1,0 +1,52 @@
+---
+title: "Bonus Challenge 4: Murder in SQL City (+5)"
+subtitle: "Joins and Summaries"
+format: 
+  html:
+    self-contained: true
+    code-tools: true
+    toc: true
+editor: source
+execute: 
+  error: true
+  echo: true
+  message: false
+  warning: false
+---
+
+[Download starter .qmd file](bonus-challenge-4-murder-in-sql-city.qmd)
+
+For this challenge, you will be using table joins to solve a murder mystery.
+
+Guilty Party(ies): 
+
+## Instructions
+
+Northwestern University's Knight lab created a SQL murder mystery to help users sharpen their database skills by solving the crime that happened at SQL city. There are tables with different pieces of information - social media checkins, people, drivers licenses, crime scene reports, police interviews, and more. 
+
+![Database schema](https://mystery.knightlab.com/schema.png)
+
+Solve the murder mystery, showing **all of your work in this document**. For full credit, your document must be well organized and easy to follow. Use headers, good code formatting practices, and document your code. You MUST include any references you use to solve this mystery. 
+
+Your solution must be **reproducible** -- that is, you should use `dplyr` verbs, table joins, etc. to solve the mystery, rather than just looking through the tables yourselves. Your code must execute properly and stand alone.
+
+When you are finished solving the mystery: 
+
+1. Write the name of the guilty party or parties at the top of the assignment.
+2. Turn your rendered HTML document in to Canvas.
+
+## Get Started
+
+This code chunk will read in all of the tables for you.
+
+```{r, message = F, warning = F}
+if (!"purrr" %in% installed.packages()) install.packages("purrr")
+source("https://raw.githubusercontent.com/earobinson95/stat331-calpoly/master/practice-activities/data/sql-murder-setup.R")
+```
+
+To get you started, I'll set you up in the right place. 
+
+> A crime has taken place and the detective needs your help. The detective gave you the crime scene report, but you somehow lost it. You vaguely remember that the crime was a murder that occurred sometime on Jan.15, 2018 and that it took place in SQL City. Start by retrieving the corresponding crime scene report from the police department’s database.
+
+
+
