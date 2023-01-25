@@ -5,7 +5,7 @@ format:
     self-contained: true
     code-tools: true
     toc: true
-editor: visual
+editor: source
 execute: 
   echo: true
   warning: false
@@ -80,8 +80,6 @@ It is not one person per row!
 
 ::: callout-tip
 Helpful functions: `mutate()`, `as.factor()`
-
-Likert scales (1-5) will be read by R as numeric values and MUST be converted to factors.
 
 It would be most efficient to use `across()` in combination with `mutate()` to complete this task.
 :::
@@ -224,8 +222,8 @@ Myself, members of the Tidy Tuesday community, and previous 331 students have vo
 
 You've already read the [data description (link)](http://conservancy.umn.edu/bitstream/handle/11299/116327/5/explanationAAEHiphopChesley.txt) regarding how participants were recruited for participation in this study. **Now**, you need to read additional details regarding aspects of the study in the published paper: [You Know What It Is: Learning Words through Listening to Hip-Hop](https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0028248&type=printable).
 
-> Based on the design of this study and its context (African American English), what are **at least two** concerns you have? 
+> Based on the design of this study and its context (African American English), what are **at least two** concerns you have?
 >
-> Keep in mind this critique aligns with conversations regarding data ethics. 
+> Keep in mind this critique aligns with conversations regarding data ethics.
 >
 > Thus, your concerns need to address the racial aspects of the design of this study.
