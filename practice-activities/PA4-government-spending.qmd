@@ -142,9 +142,7 @@ To join by different variables on `datasetX` and `datasetY`, use a named vector.
 ::: callout-note
 ### Canvas Q1
 
-**5. What regions were not removed from the `military_clean` data set?** 
-
-*Use their correct capitalization and punctuation!*
+**5. What four regions were NOT removed from the `military_clean` data set?** 
 
 :::
 
