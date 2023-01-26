@@ -22,9 +22,9 @@ library(tidyverse)
 
 Today you will be tidying untidy data to explore the relationship between countries of the world and military spending.
 
-[Download starter .qmd file](PA4-a-government-spending.qmd)
+[Download starter .qmd file](PA4-government-spending.qmd)
 
-[Download data -- `gov_spending_per_capita.xlsx`](gov_spending_per_capita.xlsx)
+[Download data -- `gov_spending_per_capita.xlsx`](data/gov_spending_per_capita.xlsx)
 
 ## Data Description
 
