@@ -754,7 +754,7 @@ cereal |>
 ```{r}
 #| echo: true
 cereal |> 
-  mutate(low_cal = if_else(calories < 100, "low", "high"))
+  mutate(cal_cateory = if_else(calories < 100, "low", "high"), .after = calories)
 ```
 
 ## Re-leveling with `case_when()`

@@ -1,6 +1,7 @@
 ---
-title: "Bonus Challenge: Murder in SQL City (+5)"
+title: "Bonus Challenge: Murder in SQL City"
 subtitle: "Joins and Summaries"
+author: "Your Name"
 format: 
   html:
     self-contained: true
@@ -35,7 +36,7 @@ When you are finished solving the mystery:
 1. Write the name of the guilty party or parties at the top of the assignment.
 2. Turn your rendered HTML document in to Canvas.
 
-## Get Started
+## Solve the Crime (+5)
 
 This code chunk will read in all of the tables for you.
 
@@ -44,9 +45,16 @@ if (!"purrr" %in% installed.packages()) install.packages("purrr")
 source("https://raw.githubusercontent.com/earobinson95/stat331-calpoly/master/practice-activities/data/sql-murder-setup.R")
 ```
 
+::: callout-tip
+In my solution, I used `str_detect()` a couple of times. This function is from the `stringr` package (part of the `tidyverse`!) which we will cover in week 5 of the course.
+:::
+
 To get you started, I'll set you up in the right place. 
 
 > A crime has taken place and the detective needs your help. The detective gave you the crime scene report, but you somehow lost it. You vaguely remember that the crime was a murder that occurred sometime on Jan.15, 2018 and that it took place in SQL City. Start by retrieving the corresponding crime scene report from the police department’s database.
 
+## Cancel `filter()` (+5)
 
+Redo the investigation and see how often you can avoid using the `filter()` dplyr verb and instead replace these steps instead with filtering joins -- `semi_join()` and `anti_join()`.
 
+For each `filter()` you use, an extra challenge point will be subtracted from the +5. You answer must be complete and easy to follow.
