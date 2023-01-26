@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Your name">
+<meta name="author" content="Dr. Robinson">
 
-<title>Lab 4: Avocado Prices</title>
+<title>Lab 4: Avocado Prices (Solution)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -2608,10 +2608,10 @@ vertical-align: -.125em;
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#introduction-set-up" id="toc-introduction-set-up" class="nav-link active" data-scroll-target="#introduction-set-up">Introduction &amp; Set-up</a></li>
+  <li><a href="#data-set-up" id="toc-data-set-up" class="nav-link active" data-scroll-target="#data-set-up">Data Set-up</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
-  <li><a href="#reshaping" id="toc-reshaping" class="nav-link" data-scroll-target="#reshaping">Reshaping</a></li>
-  <li><a href="#challenge" id="toc-challenge" class="nav-link" data-scroll-target="#challenge">Challenge</a></li>
+  <li><a href="#pivoting" id="toc-pivoting" class="nav-link" data-scroll-target="#pivoting">Pivoting</a></li>
+  <li><a href="#challenge-avocado-toast-ate-my-morgage" id="toc-challenge-avocado-toast-ate-my-morgage" class="nav-link" data-scroll-target="#challenge-avocado-toast-ate-my-morgage">Challenge: Avocado toast ate my morgage</a></li>
   </ul>
 </nav>
 </div>
@@ -2619,7 +2619,7 @@ vertical-align: -.125em;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Lab 4: Avocado Prices</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title">Lab 4: Avocado Prices (Solution)</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -2629,7 +2629,7 @@ vertical-align: -.125em;
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Your name </p>
+             <p>Dr. Robinson </p>
           </div>
   </div>
     
@@ -2659,39 +2659,127 @@ Tip
 </ul>
 </div>
 </div>
-<section id="introduction-set-up" class="level1">
-<h1>Introduction &amp; Set-up</h1>
+<p><a href="lab4-avocado-prices.qmd">Download starter .qmd file</a></p>
+<p><a href="avocado-updated-2020.csv">Download data – <code>avocado-updated-2020.csv</code></a></p>
+<section id="data-set-up" class="level2">
+<h2 class="anchored" data-anchor-id="data-set-up">Data Set-up</h2>
 <p>In this lab we’re going to be looking at avocado prices.</p>
-<p>The dataset comes to us from Kaggle and represents weekly retail scan data. It is available to download from Canvas under the name <code>avocado.csv</code>. A description of the data can be found <a href="https://www.kaggle.com/neuromusic/avocado-prices">here.</a></p>
-<p><strong>0.</strong> Create a Quarto file, load the data, and declare your package dependencies.</p>
-<p><strong>1.</strong> Briefly describe the dataset. What information does it contain?</p>
-<p><strong>2.</strong> Clean the data in any way you see fit. In particular, look carefully at the <code>region</code> variable. Notice that the category <code>&quot;LosAngeles&quot;</code> is contained in <code>&quot;California&quot;</code>, which is contained in <code>&quot;West&quot;</code>, which is contained in <code>&quot;TotalUS&quot;</code>. Think about how you want to handle this issue in your analysis.</p>
+<p>The data set comes to us from Kaggle and represents weekly retail scan data. It is available to download from Canvas under the name <code>avocado.csv</code>. A description of the data can be found <a href="https://www.kaggle.com/datasets/timmate/avocado-prices-2020">here.</a>.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Description of columns
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The data set website is an updated data set from the original published in 2018. Please refer to the <a href="https://www.kaggle.com/datasets/neuromusic/avocado-prices">main page</a> of the original data set for a description of the columns.</p>
+</div>
+</div>
+<p><strong>0. Import the data and declare your package dependencies.</strong></p>
+<p><strong>1. Briefly describe the data set. What information does it contain?</strong></p>
+<p><strong>2. Clean the data in any way you see fit.</strong></p>
+<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In particular, look carefully at the <code>region</code> variable. Notice that the category <code>&quot;Los Angeles&quot;</code> is contained in <code>&quot;California&quot;</code>, which is contained in <code>&quot;West&quot;</code>, which is contained in <code>&quot;Total U.S.&quot;</code>. Think about how you want to handle this issue in your analysis.</p>
+<p>How many distinct geographical regions are there? Can you categorize them into different types of geographical regions (e.g. major regions, metro regions, etc.)? Will you create a new variable for this? A new data set for each?</p>
+<p>You may also want to consider renaming variables so they make sense intuitively. For example, what does <code>4046</code> mean in terms of the size of avocados?</p>
+</div>
+</div>
 <hr>
 </section>
 <section id="exercises" class="level1">
 <h1>Exercises</h1>
-<p><strong>3.</strong> Which major region sold the most organic, small Hass avocados in 2017?</p>
-<p><strong>4.</strong> Use the <code>separate()</code> function to split the <code>Date</code> variable into year, month, and day. In which month is the highest volume of avocado sales?</p>
-<p><strong>5.</strong> Which metro area regions sold the most total avocados? Plot side-by-side boxplots of total volume for only the five regions with the highest averages for the <code>Total Volume</code> variable.</p>
-<hr>
-</section>
-<section id="reshaping" class="level1">
-<h1>Reshaping</h1>
-<p>The following four California regions are in this dataset: <code>&quot;LosAngeles&quot;</code>, <code>&quot;SanDiego&quot;</code>, <code>&quot;Sacramento&quot;</code>, and <code>&quot;SanFrancisco&quot;</code>. Answer the following questions about these California regions <strong>only</strong>.</p>
-<p><strong>6.</strong> In which regions is the price of organic versus conventional avocados most different? Support your answer with a few summary statistics and a visualization.</p>
-<p><strong>7.</strong> The following plot shows, for all four California regions, the proportion of the mean Hass avocado sales that are small, large, or extra large; conventional vs. organic. Recreate the plot.</p>
-<p><em>Hint: This will require restructuring of your data!</em></p>
-<div class="cell">
-<div class="cell-output cell-output-error">
-<pre><code>Error in group_by(cali_avo, region, type): object &#39;cali_avo&#39; not found</code></pre>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Use your cleaned data set to answer these next three questions. In other words, <code>avocado_clean</code> is your starting “main subject” for each of question.</p>
+</div>
+</div>
+<p><strong>3. Which major geographical region sold the most total organic, small Hass avocados in 2017?</strong></p>
+<p><strong>4. Use the <code>separate()</code> function to split the <code>date</code> variable into month, day, and year. In which month is the highest average volume of avocado sales?</strong></p>
+<p><strong>5. Which metro area geographical regions sold the most total avocados? Plot side-by-side box-plots of the total volume for only the five metro geographical regions with the highest averages for the <code>total_volume</code> variable.</strong></p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You still want each individual observations in your plot, but you will need to somehow identify the average for each metro geographical region.</p>
+<p><em>Hint:</em> One way you might approach this is by creating a new summarized data set and using filtering joins – <code>semi_join()</code>.</p>
 </div>
 </div>
 <hr>
 </section>
-<section id="challenge" class="level1">
-<h1>Challenge</h1>
+<section id="pivoting" class="level1">
+<h1>Pivoting</h1>
+<p>The following four California geographical regions are in this data set: <code>&quot;Los Angeles&quot;</code>, <code>&quot;San Diego&quot;</code>, <code>&quot;Sacramento&quot;</code>, and <code>&quot;San Francisco&quot;</code>.</p>
+<p><strong>6. From your cleaned data set, create a data set with only these California regions and answer the following questions about these California regions only.</strong></p>
+<p><strong>7. In which California regions is the price of organic versus conventional avocados most different? Support your answer with a few summary statistics AND a visualization.</strong></p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You do not have to, but you may want to transform your data. Sketch out what you want the data set to look like before you begin to code! Come up with a game plan to answer this question.</p>
+</div>
+</div>
+<p><strong>8. The following plot shows, for all four California regions, the proportion of the average Hass avocado sales that are small, large, or extra large; conventional vs. organic. Recreate the plot; you do not have to replicate the exact finishing touches - e.g., color, theme - but your plot should resemble the content of this plot.</strong></p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This will require transforming of your data! Sketch out what you want the data set to look like before you begin to code! I recommend starting with your California data set you create in Q6.</p>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="data:image/png;base64,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" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Plot to recreate</figcaption><p></p>
+</figure>
+</div>
+<hr>
+</section>
+<section id="challenge-avocado-toast-ate-my-morgage" class="level1">
+<h1>Challenge: Avocado toast ate my morgage</h1>
 <p>A joke in the media is that Millennials can’t afford houses, because they spend all their money buying avocado toast. Let’s use this data set to address that claim.</p>
-<p>Find or make a data set with house prices for these four California regions. Join this data set with your California avocado data set. Use your new joined data set to make an argument about the relationship between house prices and avocado prices/sales. Support your argument with a plot.</p>
+<blockquote class="blockquote">
+<p>Find or make a data set with house prices for these four California regions. Join this data set with your California avocado data set.</p>
+<p>Use your new joined data set to make an argument about the relationship between house prices and avocado prices/sales.</p>
+<p>Support your argument with a plot.</p>
+</blockquote>
 <!-- -->
 
 </section>
@@ -2882,108 +2970,118 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class>
-<div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> &quot;Lab 4: Avocado Prices&quot;</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> &quot;Your name&quot;</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> </span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">    self-contained: true</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="an">editor:</span><span class="co"> source</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span><span class="co"> </span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">  error: true</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">  echo: true</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">  message: false</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="in">```{r data}</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>avocado <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;lab-assignments&quot;</span>, <span class="st">&quot;lab4&quot;</span>, <span class="st">&quot;avocado.csv&quot;</span>))</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>I advise you to focus particularly on:</span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Setting chunk options carefully.</span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Making sure you don&#39;t print out more output than you need to.</span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Making your code readable and nicely formatted.</span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Thinking through your desired result **before** writing any code.</span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="fu"># Introduction &amp; Set-up</span></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>In this lab we&#39;re going to be looking at avocado prices.</span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>The dataset comes to us from Kaggle and represents weekly retail scan data. It is available to download from Canvas under the name <span class="in">`avocado.csv`</span>. A description of the data can be found <span class="co">[</span><span class="ot">here.</span><span class="co">](https://www.kaggle.com/neuromusic/avocado-prices)</span></span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>**0.** Create a Quarto file, load the data, and declare your package dependencies.</span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>**1.** Briefly describe the dataset. What information does it contain?</span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>**2.** Clean the data in any way you see fit. In particular, look carefully at the <span class="in">`region`</span> variable. Notice that the category <span class="in">`&quot;LosAngeles&quot;`</span> is contained in <span class="in">`&quot;California&quot;`</span>, which is contained in <span class="in">`&quot;West&quot;`</span>, which is contained in <span class="in">`&quot;TotalUS&quot;`</span>. Think about how you want to handle this issue in your analysis.</span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a><span class="fu"># Exercises</span></span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>**3.** Which major region sold the most organic, small Hass avocados in 2017?</span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>**4.** Use the <span class="in">`separate()`</span> function to split the <span class="in">`Date`</span> variable into year, month, and day. In which month is the highest volume of avocado sales?</span>
-<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>**5.** Which metro area regions sold the most total avocados? Plot side-by-side boxplots of total volume for only the five regions with the highest averages for the <span class="in">`Total Volume`</span> variable.</span>
-<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
-<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a><span class="fu"># Reshaping</span></span>
-<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>The following four California regions are in this dataset: <span class="in">`&quot;LosAngeles&quot;`</span>, <span class="in">`&quot;SanDiego&quot;`</span>, <span class="in">`&quot;Sacramento&quot;`</span>, and <span class="in">`&quot;SanFrancisco&quot;`</span>. Answer the following questions about these California regions **only**.</span>
-<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>**6.** In which regions is the price of organic versus conventional avocados most different? Support your answer with a few summary statistics and a visualization.</span>
-<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>**7.** The following plot shows, for all four California regions, the proportion of the mean Hass avocado sales that are small, large, or extra large; conventional vs. organic. Recreate the plot.</span>
-<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>*Hint: This will require restructuring of your data!*</span>
-<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE}</span></span>
-<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>cali_avo <span class="sc">|&gt;</span> </span>
-<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(region, type) <span class="sc">|&gt;</span></span>
-<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">across</span>(<span class="at">.cols =</span> Size_Small<span class="sc">:</span>Size_XL, <span class="at">.fns =</span> mean)) <span class="sc">|&gt;</span></span>
-<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(Size_Small<span class="sc">:</span>Size_XL, </span>
-<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">&quot;Size&quot;</span>, </span>
-<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">&quot;Mean_Sold&quot;</span>) <span class="sc">|&gt;</span></span>
-<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>    <span class="at">Size =</span> <span class="fu">factor</span>(Size, </span>
-<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>                  <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;Size_Small&quot;</span>, <span class="st">&quot;Size_Large&quot;</span>, <span class="st">&quot;Size_XL&quot;</span>),</span>
-<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a>                  <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Small&quot;</span>, <span class="st">&quot;Large&quot;</span>, <span class="st">&quot;Extra Large&quot;</span>))</span>
-<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> region, <span class="at">y =</span> Mean_Sold, <span class="at">fill =</span> Size)) <span class="sc">+</span></span>
-<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">&quot;fill&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>type) <span class="sc">+</span> </span>
-<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">guide =</span> <span class="fu">guide_axis</span>(<span class="at">n.dodge =</span> <span class="dv">2</span>)) <span class="sc">+</span> </span>
-<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Region of CA&quot;</span>, </span>
-<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Proportion of Mean Avocados Sold&quot;</span>, </span>
-<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">&quot;Avocado Size&quot;</span>)</span>
-<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
-<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a><span class="fu"># Challenge</span></span>
-<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a>A joke in the media is that Millennials can&#39;t afford houses, because they spend all their money buying avocado toast. Let&#39;s use this data set to address that claim.</span>
-<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a>Find or make a data set with house prices for these four California regions. Join this data set with your California avocado data set. Use your new joined data set to make an argument about the relationship between house prices and avocado prices/sales. Support your argument with a plot.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> &quot;Lab 4: Avocado Prices (Solution)&quot;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> &quot;Dr. Robinson&quot;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> </span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">    self-contained: true</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="an">editor:</span><span class="co"> source</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span><span class="co"> </span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">  error: true</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">  echo: fenced</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">  message: false</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>I advise you to focus particularly on:</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Setting chunk options carefully.</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Making sure you don&#39;t print out more output than you need to.</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Making your code readable and nicely formatted.</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Thinking through your desired result **before** writing any code.</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download starter .qmd file</span><span class="co">](lab4-avocado-prices.qmd)</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download data -- `avocado-updated-2020.csv`</span><span class="co">](avocado-updated-2020.csv)</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Set-up</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>In this lab we&#39;re going to be looking at avocado prices.</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>The data set comes to us from Kaggle and represents weekly retail scan data. It is available to download from Canvas under the name <span class="in">`avocado.csv`</span>. A description of the data can be found <span class="co">[</span><span class="ot">here.</span><span class="co">](https://www.kaggle.com/datasets/timmate/avocado-prices-2020)</span>.</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="fu">### Description of columns</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>The data set website is an updated data set from the original published in 2018. Please refer to the <span class="co">[</span><span class="ot">main page</span><span class="co">](https://www.kaggle.com/datasets/neuromusic/avocado-prices)</span> of the original data set for a description of the columns.</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>**0. Import the data and declare your package dependencies.**</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>**1. Briefly describe the data set. What information does it contain?**</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>**2. Clean the data in any way you see fit.**</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>::: callout-warning</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>In particular, look carefully at the <span class="in">`region`</span> variable. Notice that the category <span class="in">`&quot;Los Angeles&quot;`</span> is contained in <span class="in">`&quot;California&quot;`</span>, which is contained in <span class="in">`&quot;West&quot;`</span>, which is contained in <span class="in">`&quot;Total U.S.&quot;`</span>. Think about how you want to handle this issue in your analysis.</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>How many distinct geographical regions are there? Can you categorize them into different types of geographical regions (e.g. major regions, metro regions, etc.)? Will you create a new variable for this? A new data set for each?</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>You may also want to consider renaming variables so they make sense intuitively. For example, what does <span class="in">`4046`</span> mean in terms of the size of avocados?</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="fu"># Exercises</span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>Use your cleaned data set to answer these next three questions. In other words, <span class="in">`avocado_clean`</span> is your starting &quot;main subject&quot; for each of question.</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>**3. Which major geographical region sold the most total organic, small Hass avocados in 2017?**</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>**4. Use the `separate()` function to split the `date` variable into month, day, and year. In which month is the highest average volume of avocado sales?**</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>**5. Which metro area geographical regions sold the most total avocados? Plot side-by-side box-plots of the total volume for only the five metro geographical regions with the highest averages for the `total_volume` variable.**</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>You still want each individual observations in your plot, but you will need to somehow identify the average for each metro geographical region.</span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>*Hint:* One way you might approach this is by creating a new summarized data set and using filtering joins -- <span class="in">`semi_join()`</span>.</span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a><span class="fu"># Pivoting</span></span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>The following four California geographical regions are in this data set: <span class="in">`&quot;Los Angeles&quot;`</span>, <span class="in">`&quot;San Diego&quot;`</span>, <span class="in">`&quot;Sacramento&quot;`</span>, and <span class="in">`&quot;San Francisco&quot;`</span>. </span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>**6. From your cleaned data set, create a data set with only these California regions and answer the following questions about these California regions only.**</span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>**7. In which California regions is the price of organic versus conventional avocados most different? Support your answer with a few summary statistics AND a visualization.**</span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>You do not have to, but you may want to transform your data. Sketch out what you want the data set to look like before you begin to code! Come up with a game plan to answer this question.</span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>**8. The following plot shows, for all four California regions, the proportion of the average Hass avocado sales that are small, large, or extra large; conventional vs. organic. Recreate the plot; you do not have to replicate the exact finishing touches - e.g., color, theme - but your plot should resemble the content of this plot.**</span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>This will require transforming of your data! Sketch out what you want the data set to look like before you begin to code! I recommend starting with your California data set you create in Q6. </span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a><span class="al">![Plot to recreate](https://github.com/earobinson95/stat331-calpoly/blob/master/lab-assignments/lab4/ca-avocado-size-proportions.png?raw=true)</span></span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a><span class="fu"># Challenge: Avocado toast ate my morgage</span></span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>A joke in the media is that Millennials can&#39;t afford houses, because they spend all their money buying avocado toast. Let&#39;s use this data set to address that claim.</span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Find or make a data set with house prices for these four California regions. Join this data set with your California avocado data set. </span></span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a><span class="at">&gt;</span></span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Use your new joined data set to make an argument about the relationship between house prices and avocado prices/sales.</span></span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a><span class="at">&gt;</span></span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Support your argument with a plot.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

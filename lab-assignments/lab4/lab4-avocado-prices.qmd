@@ -1,6 +1,6 @@
 ---
-title: "Lab 4: Avocado Prices"
-author: "Your name"
+title: "Lab 4: Avocado Prices (Solution)"
+author: "Dr. Robinson"
 format: 
   html:
     self-contained: true
@@ -9,17 +9,10 @@ format:
 editor: source
 execute: 
   error: true
-  echo: true
+  echo: fenced
   message: false
   warning: false
 ---
-
-```{r data}
-#| include: false
-
-library(tidyverse)
-avocado <- read_csv(here::here("lab-assignments", "lab4", "avocado.csv"))
-```
 
 ::: callout-tip
 I advise you to focus particularly on:
@@ -33,70 +26,87 @@ I advise you to focus particularly on:
 -   Thinking through your desired result **before** writing any code.
 :::
 
+[Download starter .qmd file](lab4-avocado-prices.qmd)
 
-# Introduction & Set-up
+[Download data -- `avocado-updated-2020.csv`](avocado-updated-2020.csv)
+
+## Data Set-up
 
 In this lab we're going to be looking at avocado prices.
 
-The dataset comes to us from Kaggle and represents weekly retail scan data. It is available to download from Canvas under the name `avocado.csv`. A description of the data can be found [here.](https://www.kaggle.com/neuromusic/avocado-prices)
+The data set comes to us from Kaggle and represents weekly retail scan data. It is available to download from Canvas under the name `avocado.csv`. A description of the data can be found [here.](https://www.kaggle.com/datasets/timmate/avocado-prices-2020).
 
-**0.** Create a Quarto file, load the data, and declare your package dependencies.
+::: callout-note
+### Description of columns
+The data set website is an updated data set from the original published in 2018. Please refer to the [main page](https://www.kaggle.com/datasets/neuromusic/avocado-prices) of the original data set for a description of the columns.
+:::
 
-**1.** Briefly describe the dataset. What information does it contain?
+**0. Import the data and declare your package dependencies.**
 
-**2.** Clean the data in any way you see fit. In particular, look carefully at the `region` variable. Notice that the category `"LosAngeles"` is contained in `"California"`, which is contained in `"West"`, which is contained in `"TotalUS"`. Think about how you want to handle this issue in your analysis.
+**1. Briefly describe the data set. What information does it contain?**
+
+
+**2. Clean the data in any way you see fit.**
+
+::: callout-warning
+In particular, look carefully at the `region` variable. Notice that the category `"Los Angeles"` is contained in `"California"`, which is contained in `"West"`, which is contained in `"Total U.S."`. Think about how you want to handle this issue in your analysis.
+
+How many distinct geographical regions are there? Can you categorize them into different types of geographical regions (e.g. major regions, metro regions, etc.)? Will you create a new variable for this? A new data set for each?
+
+You may also want to consider renaming variables so they make sense intuitively. For example, what does `4046` mean in terms of the size of avocados?
+:::
 
 ------------------------------------------------------------------------
 
 # Exercises
 
-**3.** Which major region sold the most organic, small Hass avocados in 2017?
+::: callout-note
+Use your cleaned data set to answer these next three questions. In other words, `avocado_clean` is your starting "main subject" for each of question.
+:::
 
-**4.** Use the `separate()` function to split the `Date` variable into year, month, and day. In which month is the highest volume of avocado sales?
+**3. Which major geographical region sold the most total organic, small Hass avocados in 2017?**
 
-**5.** Which metro area regions sold the most total avocados? Plot side-by-side boxplots of total volume for only the five regions with the highest averages for the `Total Volume` variable.
+**4. Use the `separate()` function to split the `date` variable into month, day, and year. In which month is the highest average volume of avocado sales?**
 
-------------------------------------------------------------------------
+**5. Which metro area geographical regions sold the most total avocados? Plot side-by-side box-plots of the total volume for only the five metro geographical regions with the highest averages for the `total_volume` variable.**
 
-# Reshaping
+::: callout-tip
+You still want each individual observations in your plot, but you will need to somehow identify the average for each metro geographical region.
 
-The following four California regions are in this dataset: `"LosAngeles"`, `"SanDiego"`, `"Sacramento"`, and `"SanFrancisco"`. Answer the following questions about these California regions **only**.
-
-**6.** In which regions is the price of organic versus conventional avocados most different? Support your answer with a few summary statistics and a visualization.
-
-**7.** The following plot shows, for all four California regions, the proportion of the mean Hass avocado sales that are small, large, or extra large; conventional vs. organic. Recreate the plot.
-
-*Hint: This will require restructuring of your data!*
-
-```{r, echo = FALSE}
-#| echo: false
-
-cali_avo |> 
-  group_by(region, type) |>
-  summarize(across(.cols = Size_Small:Size_XL, .fns = mean)) |>
-  pivot_longer(Size_Small:Size_XL, 
-               names_to = "Size", 
-               values_to = "Mean_Sold") |>
-  mutate(
-    Size = factor(Size, 
-                  levels = c("Size_Small", "Size_Large", "Size_XL"),
-                  labels = c("Small", "Large", "Extra Large"))
-  ) |>
-  ggplot(aes(x = region, y = Mean_Sold, fill = Size)) +
-  geom_col(position = "fill") + 
-  facet_wrap(~type) + 
-  scale_x_discrete(guide = guide_axis(n.dodge = 2)) + 
-  labs(x = "Region of CA", 
-       y = "Proportion of Mean Avocados Sold", 
-       fill = "Avocado Size")
-
-
-```
+*Hint:* One way you might approach this is by creating a new summarized data set and using filtering joins -- `semi_join()`.
+:::
 
 ------------------------------------------------------------------------
 
-# Challenge
+# Pivoting
+
+The following four California geographical regions are in this data set: `"Los Angeles"`, `"San Diego"`, `"Sacramento"`, and `"San Francisco"`. 
+
+**6. From your cleaned data set, create a data set with only these California regions and answer the following questions about these California regions only.**
+
+**7. In which California regions is the price of organic versus conventional avocados most different? Support your answer with a few summary statistics AND a visualization.**
+
+::: callout-tip
+You do not have to, but you may want to transform your data. Sketch out what you want the data set to look like before you begin to code! Come up with a game plan to answer this question.
+:::
+
+
+**8. The following plot shows, for all four California regions, the proportion of the average Hass avocado sales that are small, large, or extra large; conventional vs. organic. Recreate the plot; you do not have to replicate the exact finishing touches - e.g., color, theme - but your plot should resemble the content of this plot.**
+
+::: callout-tip
+This will require transforming of your data! Sketch out what you want the data set to look like before you begin to code! I recommend starting with your California data set you create in Q6. 
+:::
+
+![Plot to recreate](https://github.com/earobinson95/stat331-calpoly/blob/master/lab-assignments/lab4/ca-avocado-size-proportions.png?raw=true)
+
+------------------------------------------------------------------------
+
+# Challenge: Avocado toast ate my morgage
 
 A joke in the media is that Millennials can't afford houses, because they spend all their money buying avocado toast. Let's use this data set to address that claim.
 
-Find or make a data set with house prices for these four California regions. Join this data set with your California avocado data set. Use your new joined data set to make an argument about the relationship between house prices and avocado prices/sales. Support your argument with a plot.
+> Find or make a data set with house prices for these four California regions. Join this data set with your California avocado data set. 
+>
+> Use your new joined data set to make an argument about the relationship between house prices and avocado prices/sales.
+>
+> Support your argument with a plot.
