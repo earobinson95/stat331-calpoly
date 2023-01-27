@@ -1,6 +1,6 @@
 ---
-title: "Lab 4: Avocado Prices (Solution)"
-author: "Dr. Robinson"
+title: "Lab 4: Avocado Prices"
+author: "Your Name"
 format: 
   html:
     self-contained: true
