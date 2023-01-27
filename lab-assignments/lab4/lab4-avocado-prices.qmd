@@ -101,7 +101,7 @@ This will require transforming of your data! Sketch out what you want the data s
 
 ------------------------------------------------------------------------
 
-# Challenge: Avocado toast ate my morgage
+# Challenge: Avocado Toast Ate My Mortgage
 
 A joke in the media is that Millennials can't afford houses, because they spend all their money buying avocado toast. Let's use this data set to address that claim.
 
