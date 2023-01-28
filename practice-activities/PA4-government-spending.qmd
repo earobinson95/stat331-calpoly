@@ -76,18 +76,12 @@ In addition to `NA`s, missing or unavailable values were coded two ways.
 ::: callout-tip
 The information in the top 6 rows of the excel sheet will help you answer this question.
 
-Helpful functions: `mutate()`, `across()`, `replaceNAs` -- function provided by Dr. Robinson
+Helpful functions: `mutate()`, `across()` -- you will need two of these, `na_if()`
 
 **Note:** When referring to one of the year variable names, you must put tick marks (above the tab key) around the name because starting the name of a variable with a number is not commonly read as a variable name -- e.g., ``` `1988`:`2019` ```.
 :::
 
 ```{r}
-# Useful function written by Dr. Robinson
-# Think of replaceNAs() in the same way you would mean(), as.factor(), etc.
-replaceNAs <- function(x){
-  ifelse(x %in% c(". .", "xxx"), NA, x)
-}
-
 # Code for completing Q2
 
 ```

@@ -1,0 +1,57 @@
+---
+title: "WEEK 4: DATA JOINS AND TRANSFORMATIONS"
+format: 
+  revealjs:
+    theme: [default, custom.scss]
+editor: source
+self-contained: true
+---
+
+```{r setup}
+#| include: false
+#| message: false
+library(tidyverse)
+library(palmerpenguins)
+```
+
+## Monday, January 30th
+
+Today we will...
+
++ Review Lab 3
++ Mini lecture on text material
+  + pivoting with `tidyr`
+  + joining with `dplyr`
++ [PA 4: Military Spending](https://earobinson95.github.io/stat331-calpoly/practice-activities/PA4-military-spending)
++ [Bonus Challenge: Murdery Mystery in SQL City](https://earobinson95.github.io/stat331-calpoly/bonus-challenges/bonus-challenge-murder-sql-city)
+
+
+## [PA 4: Military Spending](https://earobinson95.github.io/stat331-calpoly/practice-activities/PA4-military-spending)
+
+
+## To do...
+
++ **PA 4: Military Spending**
+  + Due Wednesday 2/1 at 8:00am
+
+## Wednesday, January 25th
+
+Today we will...
+
++ Review PA 4: Military Spending
++ ...
++ Lab 4: Avocado Prices
++ Challenge 3: Avocado Toast Ate My Mortgage
+
+
+## To do...
+
++ **Lab 4: Avocado Prices**
+  + Due Friday, 2/3 at 11:59pm
+  
++ **Challenge 4: Avocado Toast Ate My Mortgage**
+  + Due Saturday, 2/4 at 11:59pm
+  
++ **Read Chapter 5: Special Data Types**
+  + **Concept Check 5.1 + 5.2 + 5.3** due Monday (2/6) at 8:00am
+  
