@@ -15,7 +15,7 @@ execute:
   warning: false
 ---
 
-[Download starter .qmd file](bonus-challenge-4-murder-in-sql-city.qmd)
+[Download starter .qmd file](bonus-challenge-murder-in-sql-city.qmd)
 
 For this challenge, you will be using table joins to solve a murder mystery.
 
