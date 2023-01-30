@@ -19,12 +19,19 @@ library(palmerpenguins)
 Today we will...
 
 + Review Lab 3
++ [Tidyverse style guide -- on Canvas!](https://style.tidyverse.org/index.html)
 + Mini lecture on text material
   + "Messy" data
   + Pivoting with `tidyr`
   + Joining with `dplyr`
 + [PA 4: Military Spending](https://earobinson95.github.io/stat331-calpoly/practice-activities/PA4-military-spending)
 + [Bonus Challenge: Murdery Mystery in SQL City](https://earobinson95.github.io/stat331-calpoly/bonus-challenges/bonus-challenge-murder-sql-city)
+
+## Lab 3: Familiar Words -- Sketch it out!
+
+For each demographic group listed below, determine which word(s) in this study was(were) the most **and** least familiar on average.
+
+![](https://github.com/earobinson95/stat331-calpoly/blob/master/lab-assignments/Lab3-dplyr/q11-q13-sketch.png?raw=true)
 
 # Data Layouts
 
@@ -354,6 +361,8 @@ directors_genres
 ```{r}
 directors_genres_subset
 ```
+
+Directors: 429, **2931**, ~~**9247**~~, 11652, 14927, 15092
 :::
 ::: {.column width="24%"}
 ```{r}
@@ -365,6 +374,8 @@ movies_directors
 ```{r}
 movies_directors_subset
 ```
+
+Directors: 429, ~~**2931**~~, **9247**, 11652, 14927, 15092
 :::
 
 ::: {.column width="47%"}
@@ -377,6 +388,8 @@ inner_join(directors_genres, movies_directors)
 ```{r}
 inner_join(directors_genres_subset, movies_directors_subset)
 ```
+
+Directors: 429, ~~**2931**~~, ~~**9247**~~, 11652, 14927, 15092
 :::
 ::::
 
@@ -396,7 +409,6 @@ directors_genres
 directors_genres_subset
 ```
 
-Directors: 429, **2931**, ~~**9247**~~, 11652, 14927, 15092
 :::
 ::: {.column width="27%"}
 ```{r}
@@ -408,7 +420,6 @@ directors
 ```{r}
 directors_subset
 ```
-Directors: 429, ~~**2931**~~, **9247**, 11652, 14927, 15092
 :::
 
 ::: {.column width="44%"}
@@ -425,7 +436,6 @@ inner_join(directors,
 ```{r}
 inner_join(directors_subset, directors_genres_subset, by = c("id" = "director_id"))
 ```
-Directors: 429, ~~**2931**~~, ~~**9247**~~, 11652, 14927, 15092
 :::
 ::::
 
