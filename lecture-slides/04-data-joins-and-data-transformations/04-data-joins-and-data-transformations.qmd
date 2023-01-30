@@ -20,13 +20,574 @@ Today we will...
 
 + Review Lab 3
 + Mini lecture on text material
-  + pivoting with `tidyr`
-  + joining with `dplyr`
+  + "Messy" data
+  + Pivoting with `tidyr`
+  + Joining with `dplyr`
 + [PA 4: Military Spending](https://earobinson95.github.io/stat331-calpoly/practice-activities/PA4-military-spending)
 + [Bonus Challenge: Murdery Mystery in SQL City](https://earobinson95.github.io/stat331-calpoly/bonus-challenges/bonus-challenge-murder-sql-city)
 
+# Data Layouts
+
+## Tidy Data
+
+![Image source: R4DS](https://r4ds.hadley.nz/images/tidy-1.png)
+
+## Untidy "Messy" Data
+
+![Illustration by Allison Horst](https://www.openscapes.org/img/blog/tidydata/tidydata_2.jpg)
+
+## Our tools!
+
+![Illustration by Allison Horst](https://www.openscapes.org/img/blog/tidydata/tidydata_3.jpg)
+
+## Collaboration with tidy data.
+
+![Illustration by Allison Horst](https://www.openscapes.org/img/blog/tidydata/tidydata_4.jpg)
+
+# Pivoting Data
+
+:::: columns
+
+::: column
+![](https://github.com/gadenbuie/tidyexplain/raw/main/images/static/png/original-dfs-tidy.png)
+:::
+::: column
+![Tidyexpalin animation by Kelsey Gonzalez](https://github.com/gadenbuie/tidyexplain/raw/main/images/tidyr-pivoting.gif)
+:::
+::::
+
+## Manual Method
+
+We can do the wide-to-long transition manually.
+
+Consider the table of daily rainfall observed in SLO in January 2023. This data is recorded in human-friendly form, in the approximate shape of a calendar. Each week has its own row, and each day has its own column.
+
+![](images/slo-rainfall.jpg)
+
+Talk to a neighbor about how you would convert this to long format. You may want to open up the [spreadsheet](2023-rainfall-slo.xlsx) containing this table on your computer.
+
+[Data source](cesanluisobispo.ucanr.edu)
+
+## Manual Method: Steps
+
+::: {.incremental}
+1. Create a new column: `Day_of_Week`.
+
+2. Create a `Rainfall` column to hold the daily rainfall values.
+
+3. Now we have three columns setup (`Week`, `Day_of_Week`, and `Rainfall`) -- start moving data over.
+
+4. Duplicate repeated data (`Week` 1-5) and copy Monday over.
+
+5. Duplicate repeated data (`Week` 1-5) and copy Tuesday over.
+
+6. Continue for the rest of the days of the week.
+
+7. You may want to `arrange()` the data by week to get chronological order of the rainfall values.
+:::
+
+## Computational Approach
+
+![](images/slo-rainfall-sketch.png)
+
+## `pivot_longer()`
+
+```{r}
+#| echo: true
+#| code-line-numbers: 8-10
+library(readxl)
+slo_rainfall <- read_xlsx("2023-rainfall-slo.xlsx")
+
+slo_rainfall_long <- slo_rainfall |> 
+  mutate(across(Sunday:Saturday, na_if, y = "NA"),
+         across(Sunday:Saturday, as.numeric)
+         ) |> 
+  pivot_longer(cols      = Sunday:Saturday,
+               names_to  = "Day_of_Week",
+               values_to = "Daily_Rainfall")
+slo_rainfall_long
+```
+
+## Why tidy data?
+
+::: panel-tabset
+## Cereal
+```{r}
+#| echo: true
+library(liver)
+data(cereal)
+str(cereal, hide.attr = TRUE)
+```
+
+## Summary: Original
+
+```{r}
+#| echo: true
+#| code-line-numbers: 2-3
+cereal_summary1 <- cereal |> 
+  group_by(shelf) |> 
+  summarise(across(calories:vitamins, mean))
+cereal_summary1
+```
+
+## Plot: Original
+
+```{r}
+
+#| echo: true
+#| code-line-numbers: 5-8
+#| fig-height: 4
+my_colors <- c("calories_col" = "steelblue", "sugars_col" = "orange3")
+
+cereal_summary1 |> 
+  ggplot() +
+  geom_point(aes(x = shelf, y = calories, color = "calories_col")) +
+  geom_line(aes(x = shelf, y = calories, color = "calories_col")) + 
+  geom_point(aes(x = shelf, y = sugars, color = "sugars_col")) +
+  geom_line(aes(x = shelf, y = sugars, color = "sugars_col")) +
+  scale_color_manual(values = my_colors, labels = names(my_colors)) +
+  labs(x = "Shelf", y = "", subtitle = "Mean Amount", color = "Nutrient")
+```
+
+## Summary: Long
+
+```{r}
+#| echo: true
+
+cereal_summary2<- cereal |> 
+  pivot_longer(cols = calories:vitamins,
+               names_to = "Nutrient",
+               values_to = "Amount") |> 
+  group_by(shelf, Nutrient) |> 
+  summarise(mean_amount = mean(Amount))
+cereal_summary2
+```
+
+## Plot: Long
+
+```{r}
+#| echo: true
+#| code-line-numbers: 2-4
+#| fig-height: 4
+cereal_summary2 |> 
+  ggplot(aes(x = shelf, 
+             y = mean_amount, 
+             color = Nutrient)) +
+  geom_point() +
+  geom_line() +
+  labs(x = "Shelf", y = "", subtitle = "Mean Amount")
+```
+
+:::
+
+## `pivot_wider()`
+
+:::: columns
+::: column
+```{r}
+#| echo = T
+mean_protein <- cereal %>% 
+  group_by(manuf, shelf) %>% 
+  summarize(mean_protein = mean(protein))
+mean_protein
+```
+:::
+
+::: column
+```{r}
+#| eval: false
+#| echo: true
+protein_wide <- mean_protein |> 
+  pivot_wider(id_cols = manuf,
+              names_from = shelf,
+              values_from = mean_protein)
+protein_wide
+```
+
+```{r}
+#| eval: true
+#| echo: false
+mean_protein |> 
+  arrange(shelf) |> 
+  pivot_wider(id_cols = manuf,
+              names_from = shelf,
+              values_from = mean_protein)
+```
+:::
+::::
+
+## Better names in `pivot_wider()`
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: 5
+protein_wide <- mean_protein |> 
+  pivot_wider(id_cols = manuf,
+              names_from = shelf,
+              values_from = mean_protein,
+              names_prefix = "Shelf ")
+protein_wide
+```
+
+```{r}
+#| eval: true
+#| echo: false
+#| code-line-numbers: 5
+protein_wide <- mean_protein |> 
+  arrange(shelf) |> 
+  pivot_wider(id_cols = manuf,
+              names_from = shelf,
+              values_from = mean_protein,
+              names_prefix = "Shelf ")
+protein_wide
+```
+
+# Data Joins
+
+## Relational Data
+
+Multiple tables of data are called **relational data** because it is the *relations*, not just the individual data sets, that are important.
+
+![IMDb movie relational data](https://relational.fit.cvut.cz/assets/img/datasets-generated/imdb_ijs.svg)
+```{r imdb-data}
+#| include: false
+#| message: false
+#| warning: false
+library(RMariaDB)
+library(dm)
+
+# IMDb
+con <- dbConnect(
+  drv = RMariaDB::MariaDB(), 
+  username = "guest",
+  password = "relational", 
+  host = "relational.fit.cvut.cz", 
+  port = 3306,
+  dbname = "imdb_small"
+)
+dbListTables(con)
+
+my_dm <- dm_from_src(con)
+
+actors <- my_dm$actors |> 
+  as.data.frame()
+
+directors <- my_dm$directors |> 
+  as.data.frame()
+
+directors_genres <- my_dm$directors_genres |> 
+  as.data.frame()
+
+movies <- my_dm$movies |> 
+  as.data.frame()
+
+movies_directors <- my_dm$movies_directors |> 
+  as.data.frame()
+
+movies_genres <- my_dm$movies_genres |> 
+  as.data.frame()
+
+roles <- my_dm$roles |> 
+  as.data.frame()
+
+dbDisconnect(con)
+rm(con, my_dm)
+```
+
+## Data Joins
+
+:::: columns
+::: column
+**Mutating joins**
+
+Adds *information* from a new dataframe to observations in an existing dataframe
+
+`full_join()`, `left_join()`, `right_join()`, `inner_join()`, `outer_join()`
+:::
+::: column
+**Filtering Joins**
+
+Filters *observations* based on values in new dataframe
+
+`semi_join()`, `anti_join()`
+:::
+::::
+
+## Keys
+
+Uniquely identifies an observation in a data set
+
+Relate data sets to each other
+
+![](images/imdb-keys.png)
+
+## `inner_join()`
+
+Matches pairs of observations when "keys" are equal
+
+![](images/inner_join.png)
+
+## Inner Join: IMDb Example
+
+```{r}
+directors_genres_subset <- directors_genres |>
+  filter(director_id %in% c(429, 2931, 11652, 14927, 15092)) |> 
+  group_by(director_id) |> 
+  slice_max(order_by = prob, n = 2, with_ties = F)
+
+movies_directors_subset <- movies_directors |> 
+  filter(director_id %in% c(429, 9247, 11652, 14927, 15092))
+
+directors_subset <- directors |> 
+  filter(id %in% c(429, 9247, 11652, 14927, 15092))
+```
+
+:::: {.columns}
+::: {.column width="29%"}
+```{r}
+#| eval: false
+#| echo: true
+directors_genres
+```
+
+```{r}
+directors_genres_subset
+```
+:::
+::: {.column width="24%"}
+```{r}
+#| eval: false
+#| echo: true
+movies_directors
+```
+
+```{r}
+movies_directors_subset
+```
+:::
+
+::: {.column width="47%"}
+```{r}
+#| eval: false
+#| echo: true
+inner_join(directors_genres, movies_directors)
+```
+
+```{r}
+inner_join(directors_genres_subset, movies_directors_subset)
+```
+:::
+::::
+
+## Inner Join: IMDb Example
+
+What if our *key* variable is not named the same?
+
+:::: {.columns}
+::: {.column width="29%"}
+```{r}
+#| eval: false
+#| echo: true
+directors_genres
+```
+
+```{r}
+directors_genres_subset
+```
+
+Directors: 429, **2931**, ~~**9247**~~, 11652, 14927, 15092
+:::
+::: {.column width="27%"}
+```{r}
+#| eval: false
+#| echo: true
+directors
+```
+
+```{r}
+directors_subset
+```
+Directors: 429, ~~**2931**~~, **9247**, 11652, 14927, 15092
+:::
+
+::: {.column width="44%"}
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: 3
+inner_join(directors, 
+           directors_genres, 
+           by = c("id" = "director_id")
+           )
+```
+
+```{r}
+inner_join(directors_subset, directors_genres_subset, by = c("id" = "director_id"))
+```
+Directors: 429, ~~**2931**~~, ~~**9247**~~, 11652, 14927, 15092
+:::
+::::
+
+## Mutating Joins
+
+:::: columns
+::: column
++ `left_join()` Everything is kept in the data set on the left
+
++ `right_join()` Everything is kept in the data set on the right
+
++ `full_join()` Everything is kept in both data sets
+:::
+::: column
+![](images/joins.JPG)
+:::
+::::
+
+## Mutating Joins
+
+Discuss with a neighbor.
+
+Which of the following directors would be kept in for each of:
+
++ `left_join(directors_genres, movies_directors)`
++ `right_join(directors_genres, movies_directors)`
++ `full_join(directors_genres, movies_directors)`
+
+:::: columns
+::: column
+```{r}
+#| eval: false
+#| echo: true
+directors_genres |> 
+  distinct(director_id)
+```
+
+```{r}
+directors_genres_subset |> 
+  distinct(director_id)
+```
+:::
+:::column
+```{r}
+#| eval: false
+#| echo: true
+movies_directors |> 
+  distinct(director_id)
+```
+
+```{r}
+movies_directors_subset |> 
+  distinct(director_id)
+```
+:::
+::::
+
+
+## Filtering Joins: `semi_join()`
+
+`semi_join()` Keeping observations
+
+::: panel-tabset
+### Sketch
+
+```{r}
+#| fig-align: center
+#| out-width: "400%"
+knitr::include_graphics("images/semi_join.png")
+```
+
+### `semi_join()`
+
+```{r}
+#| echo: true
+#| eval: false
+semi_join(directors_genres, movies_directors)
+```
+
+```{r}
+semi_join(directors_genres_subset, movies_directors_subset)
+```
+
+Movie Directors: 429, ~~**2931**~~, 11652, 14927, 15092
+
+### Connection to Data Cleaning `%in%`
+
+Including observations with `%in%`
+
+```{r}
+#| echo: true
+#| eval: false
+directors_genres |>
+  filter(director_id %in% c(429, 9247, 11652, 14927, 15092))
+```
+
+```{r}
+directors_genres_subset |>
+  filter(director_id %in% c(429, 9247, 11652, 14927, 15092))
+```
+
+similar to `semi_join()`!
+:::
+
+## Filtering Joins: `anti_join()`
+
+`anti_join()` Removing Observations
+
+::: panel-tabset
+### Sketch
+```{r}
+#| fig-align: center
+#| out-width: "400%"
+knitr::include_graphics("images/anti_join.png")
+```
+
+### `anti_join()`
+
+```{r}
+#| echo: true
+#| eval: false
+anti_join(directors_genres, movies_directors)
+```
+
+```{r}
+anti_join(directors_genres_subset, movies_directors_subset)
+```
+
+Movie Directors: ~~429~~, **2931**, ~~11652~~, ~~14927~~, ~~15092~~
+
+### Connection to Data Cleaning `!%in%`
+
+Excluding observations with `!%in%`
+
+```{r}
+#| echo: true
+#| eval: false
+directors_genres |>
+  filter(!director_id %in% c(429, 9247, 11652, 14927, 15092))
+```
+
+```{r}
+directors_genres_subset |>
+  filter(!director_id %in% c(429, 9247, 11652, 14927, 15092))
+```
+
+similar to `anti_join()`!
+:::
 
 ## [PA 4: Military Spending](https://earobinson95.github.io/stat331-calpoly/practice-activities/PA4-military-spending)
+
+Today you will be tidying untidy data to explore the relationship between countries of the world and military spending.
+
+**Due Wednesday, 2/1 at 8:00am**
+
+## [Bonus Challenge: Murder Mystery in SQL City](https://earobinson95.github.io/stat331-calpoly/bonus-challenges/bonus-challenge-murder-in-sql-city.html)
+
+For this challenge, you will be using table joins to solve a murder mystery.
+
+**Due Sunday, 2/12 at 11:59pm**
+
+![](images/sql-murder-relational-data.png)
 
 
 ## To do...
@@ -34,15 +595,36 @@ Today we will...
 + **PA 4: Military Spending**
   + Due Wednesday 2/1 at 8:00am
 
++ **Bonus Challenge: Murder Mystery in SQL City**
+  + Due Sunday 2/12 at 11:59pm
+
 ## Wednesday, January 25th
 
 Today we will...
 
 + Review PA 4: Military Spending
-+ ...
++ Practice with Relational Data
 + Lab 4: Avocado Prices
 + Challenge 3: Avocado Toast Ate My Mortgage
 
+
+## Lab + Challenge
+
+[Lab 4: Avocado Prices + Challenge 4: Avocado Toast Ate My Mortgage]()
+
+<br>
+**Handy Helpers**
+
+`rename()` -- Change names of columns
+
+`separate()` -- Separate values of a variable
+
+<br>
+**Filtering Joins**
+
+`semi_join()`: Keeps values found in another data set
+
+`anti_join()`: Keeps values not found in another data set
 
 ## To do...
 
