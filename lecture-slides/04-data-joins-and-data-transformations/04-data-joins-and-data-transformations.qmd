@@ -419,8 +419,6 @@ inner_join(directors_genres, movies_directors)
 
 ```{r}
 inner_join(directors_genres_subset, movies_directors_subset)
-
-directors_genres_subset
 ```
 
 Directors: 429, ~~**2931**~~, ~~**9247**~~, 11652, 14927, 15092
@@ -461,9 +459,9 @@ directors_subset
 #| eval: false
 #| echo: true
 #| code-line-numbers: 3
-inner_join(directors, 
-           directors_genres, 
-           by = c("id" = "director_id")
+inner_join(directors_genres, 
+           directors, 
+           by = c("director_id" = "id")
            )
 ```
 
