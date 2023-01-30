@@ -140,10 +140,11 @@ cereal_summary1
 ## Plot: Original
 
 ```{r}
-
 #| echo: true
 #| code-line-numbers: 5-8
-#| fig-height: 4
+#| fig-height: 3
+#| fig-width: 6
+#| fig-align: center
 my_colors <- c("calories_col" = "steelblue", "sugars_col" = "orange3")
 
 cereal_summary1 |> 
@@ -176,6 +177,8 @@ cereal_summary2
 #| echo: true
 #| code-line-numbers: 2-4
 #| fig-height: 4
+#| fig-width: 6
+#| fig-align: center
 cereal_summary2 |> 
   ggplot(aes(x = shelf, 
              y = mean_amount, 
@@ -258,6 +261,7 @@ Multiple tables of data are called **relational data** because it is the *relati
 
 ![IMDb movie relational data](https://relational.fit.cvut.cz/assets/img/datasets-generated/imdb_ijs.svg)
 ```{r imdb-data}
+#| eval: false
 #| include: false
 #| message: false
 #| warning: false
@@ -279,27 +283,55 @@ my_dm <- dm_from_src(con)
 
 actors <- my_dm$actors |> 
   as.data.frame()
+write_csv(actors, "data/actors.csv", na = "")
 
 directors <- my_dm$directors |> 
   as.data.frame()
+write_csv(directors, "data/directors.csv", na = "")
 
 directors_genres <- my_dm$directors_genres |> 
   as.data.frame()
+write_csv(directors_genres, "data/directors_genres.csv", na = "")
 
 movies <- my_dm$movies |> 
   as.data.frame()
+write_csv(movies, "data/movies.csv", na = "")
 
 movies_directors <- my_dm$movies_directors |> 
   as.data.frame()
+write_csv(movies_directors, "data/movies_directors.csv", na = "")
 
 movies_genres <- my_dm$movies_genres |> 
   as.data.frame()
+write_csv(movies_genres, "data/movies_genres.csv", na = "")
 
 roles <- my_dm$roles |> 
   as.data.frame()
+write_csv(roles, "data/roles.csv", na = "")
 
 dbDisconnect(con)
 rm(con, my_dm)
+```
+
+```{r imdb-data2}
+#| eval: true
+#| include: false
+#| message: false
+#| warning: false
+
+actors <- read_csv("data/actors.csv")
+
+directors <- read_csv("data/directors.csv")
+
+directors_genres <- read_csv("data/directors_genres.csv")
+
+movies <- read_csv("data/movies.csv")
+
+movies_directors <- read_csv("data/movies_directors.csv")
+
+movies_genres <- read_csv("data/movies_genres.csv")
+
+roles <- read_csv("data/roles.csv")
 ```
 
 ## Data Joins
