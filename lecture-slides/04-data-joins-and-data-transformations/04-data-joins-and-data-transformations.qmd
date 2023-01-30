@@ -196,8 +196,8 @@ cereal_summary2 |>
 ::: column
 ```{r}
 #| echo = T
-mean_protein <- cereal %>% 
-  group_by(manuf, shelf) %>% 
+mean_protein <- cereal |> 
+  group_by(manuf, shelf) |> 
   summarize(mean_protein = mean(protein))
 mean_protein
 ```
