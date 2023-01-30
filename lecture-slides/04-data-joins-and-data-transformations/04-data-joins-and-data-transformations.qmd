@@ -419,6 +419,8 @@ inner_join(directors_genres, movies_directors)
 
 ```{r}
 inner_join(directors_genres_subset, movies_directors_subset)
+
+directors_genres_subset
 ```
 
 Directors: 429, ~~**2931**~~, ~~**9247**~~, 11652, 14927, 15092
@@ -616,6 +618,17 @@ directors_genres_subset |>
 
 similar to `anti_join()`!
 :::
+
+## A note about piping joins
+
+```{r}
+#| eval: false
+#| echo: true
+inner_join(directors_genres, movies_directors)
+
+directors_genres |> 
+  inner_join(movies_directors)
+```
 
 ## [PA 4: Military Spending](https://earobinson95.github.io/stat331-calpoly/practice-activities/PA4-military-spending)
 
