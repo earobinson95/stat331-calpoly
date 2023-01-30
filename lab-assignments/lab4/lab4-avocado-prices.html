@@ -2664,7 +2664,7 @@ Tip
 <section id="data-set-up" class="level2">
 <h2 class="anchored" data-anchor-id="data-set-up">Data Set-up</h2>
 <p>In this lab we’re going to be looking at avocado prices.</p>
-<p>The data set comes to us from Kaggle and represents weekly retail scan data. It is available to download from Canvas under the name <code>avocado.csv</code>. A description of the data can be found <a href="https://www.kaggle.com/datasets/timmate/avocado-prices-2020">here.</a>.</p>
+<p>The data set comes to us from Kaggle and represents weekly retail scan data. A description of the data can be found <a href="https://www.kaggle.com/datasets/timmate/avocado-prices-2020">here.</a>.</p>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -2691,7 +2691,7 @@ Warning
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>In particular, look carefully at the <code>region</code> variable. Notice that the category <code>&quot;Los Angeles&quot;</code> is contained in <code>&quot;California&quot;</code>, which is contained in <code>&quot;West&quot;</code>, which is contained in <code>&quot;Total U.S.&quot;</code>. Think about how you want to handle this issue in your analysis.</p>
+<p>In particular, look carefully at the <code>geography</code> variable. Notice that the category <code>&quot;Los Angeles&quot;</code> is contained in <code>&quot;California&quot;</code>, which is contained in <code>&quot;West&quot;</code>, which is contained in <code>&quot;Total U.S.&quot;</code>. Think about how you want to handle this issue in your analysis.</p>
 <p>How many distinct geographical regions are there? Can you categorize them into different types of geographical regions (e.g. major regions, metro regions, etc.)? Will you create a new variable for this? A new data set for each?</p>
 <p>You may also want to consider renaming variables so they make sense intuitively. For example, what does <code>4046</code> mean in terms of the size of avocados?</p>
 </div>
@@ -3006,7 +3006,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>In this lab we&#39;re going to be looking at avocado prices.</span>
 <span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>The data set comes to us from Kaggle and represents weekly retail scan data. It is available to download from Canvas under the name <span class="in">`avocado.csv`</span>. A description of the data can be found <span class="co">[</span><span class="ot">here.</span><span class="co">](https://www.kaggle.com/datasets/timmate/avocado-prices-2020)</span>.</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>The data set comes to us from Kaggle and represents weekly retail scan data. A description of the data can be found <span class="co">[</span><span class="ot">here.</span><span class="co">](https://www.kaggle.com/datasets/timmate/avocado-prices-2020)</span>.</span>
 <span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>::: callout-note</span>
 <span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="fu">### Description of columns</span></span>
@@ -3021,7 +3021,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>**2. Clean the data in any way you see fit.**</span>
 <span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>::: callout-warning</span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>In particular, look carefully at the <span class="in">`region`</span> variable. Notice that the category <span class="in">`&quot;Los Angeles&quot;`</span> is contained in <span class="in">`&quot;California&quot;`</span>, which is contained in <span class="in">`&quot;West&quot;`</span>, which is contained in <span class="in">`&quot;Total U.S.&quot;`</span>. Think about how you want to handle this issue in your analysis.</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>In particular, look carefully at the <span class="in">`geography`</span> variable. Notice that the category <span class="in">`&quot;Los Angeles&quot;`</span> is contained in <span class="in">`&quot;California&quot;`</span>, which is contained in <span class="in">`&quot;West&quot;`</span>, which is contained in <span class="in">`&quot;Total U.S.&quot;`</span>. Think about how you want to handle this issue in your analysis.</span>
 <span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>How many distinct geographical regions are there? Can you categorize them into different types of geographical regions (e.g. major regions, metro regions, etc.)? Will you create a new variable for this? A new data set for each?</span>
 <span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>

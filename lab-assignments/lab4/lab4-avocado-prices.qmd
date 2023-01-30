@@ -34,7 +34,7 @@ I advise you to focus particularly on:
 
 In this lab we're going to be looking at avocado prices.
 
-The data set comes to us from Kaggle and represents weekly retail scan data. It is available to download from Canvas under the name `avocado.csv`. A description of the data can be found [here.](https://www.kaggle.com/datasets/timmate/avocado-prices-2020).
+The data set comes to us from Kaggle and represents weekly retail scan data. A description of the data can be found [here.](https://www.kaggle.com/datasets/timmate/avocado-prices-2020).
 
 ::: callout-note
 ### Description of columns
@@ -49,7 +49,7 @@ The data set website is an updated data set from the original published in 2018.
 **2. Clean the data in any way you see fit.**
 
 ::: callout-warning
-In particular, look carefully at the `region` variable. Notice that the category `"Los Angeles"` is contained in `"California"`, which is contained in `"West"`, which is contained in `"Total U.S."`. Think about how you want to handle this issue in your analysis.
+In particular, look carefully at the `geography` variable. Notice that the category `"Los Angeles"` is contained in `"California"`, which is contained in `"West"`, which is contained in `"Total U.S."`. Think about how you want to handle this issue in your analysis.
 
 How many distinct geographical regions are there? Can you categorize them into different types of geographical regions (e.g. major regions, metro regions, etc.)? Will you create a new variable for this? A new data set for each?
 
