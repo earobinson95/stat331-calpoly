@@ -792,13 +792,13 @@ knitr::include_graphics("https://deanattali.com/assets/img/blog/cranalerts/autom
 :::
 ::::
 
-## Depreciated Functions: Military Spending Example
+## Deprecated Functions: Military Spending Example
 
 ```{r}
 #| warning: true
 #| message: true
 #| echo: true
-#| code-lines: 3
+#| code-line-numbers: 2
 military_clean |> 
   filter(across(Notes:`2019`, is.na)) |> 
   slice_head(n = 3)
@@ -806,7 +806,7 @@ military_clean |>
 
 ```{r}
 #| echo: true
-#| code-lines: 3
+#| code-line-numbers: 2
 military_clean |>
   filter(if_all(Notes:`2019`, ~ is.na(.x))) |> 
   slice_head(n = 3)
@@ -895,7 +895,11 @@ movies
 ```
 ### sketch
 
-![](images/imdb-multiple-joins.png)
+```{r}
+#| out-width: "70%"
+#| fig-align: center
+knitr::include_graphics("images/imdb-multiple-joins.png")
+```
 
 ### 1st + 2nd
 
