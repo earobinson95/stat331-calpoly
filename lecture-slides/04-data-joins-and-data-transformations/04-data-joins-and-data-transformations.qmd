@@ -656,14 +656,352 @@ For this challenge, you will be using table joins to solve a murder mystery.
 Today we will...
 
 + Review PA 4: Military Spending
-+ Practice with Relational Data
++ Housekeeping items...
+  + Providing References in Labs + Challenges
+  + Clean variable names
+  + Lifecycle stages
+  + `dplyr` package updates
+  + Saving & Piping Data Joins
++ Extensions to Relational Data
 + Lab 4: Avocado Prices
 + Challenge 3: Avocado Toast Ate My Mortgage
+
+## Getting Help and using Chat GPT
+
+:::: columns
+::: column
+![](images/stack_overflow.PNG)
+<br>
+![](images/help.PNG)
+:::
+::: column
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
+</script>
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">My cheating policy this quarter for #ChatGPT: Treat AI like a human tutor. <br><br>Asking a tutor to help explain a homework concept to you or help debug your code? <br>Totally fine! <br><br>Having a tutor do your homework for you? Talking to a tutor during an exam?<br> Not acceptable. <br><br>🤷‍♀️</p>&mdash; Kelly Bodwin (@KellyBodwin) <a href="https://twitter.com/KellyBodwin/status/1613112086925824000?ref_src=twsrc%5Etfw">January 11, 2023</a>
+</blockquote>
+:::
+::::
+
+## Lab 3: Distinct number of words
+
+<br>
+
+:::: columns
+::: column
+```{r}
+#| eval: false
+#| echo: true
+count(distinct(hiphop_clean, word))
+```
+
+<br>
+
+```{r}
+#| eval: false
+#| echo: true
+hiphop_clean |> 
+  distinct(word) |> 
+  count()
+```
+
+<br>
+
+$f(g(h(x)))$ 
+
+in piping syntax is 
+
+`x |> h() |> g() |> f()`
+:::
+::: column
+```{r}
+#| eval: false
+#| echo: true
+n_distinct(hiphop_clean$word)
+```
+
+<br>
+
+```{r}
+#| eval: false
+#| echo: true
+hiphop_clean |> 
+  pull(word) |> 
+  n_distinct()
+```
+:::
+::::
+
+
+## Clean variable names with [`library(janitor)`](https://sfirke.github.io/janitor/)
+
+```{r}
+#| include: false
+library(readxl)
+library(tidyverse)
+military <- read_xlsx(here::here("practice-activities",
+                                 "data", 
+                                 "gov_spending_per_capita.xlsx"), 
+                      sheet = "Share of Govt. spending", 
+                      skip  = 7, 
+                      n_max  = 191)
+
+military_clean <- military |> 
+  mutate(across(`1988`:`2019`, ~ na_if(.x, y = ". .")),
+         across(`1988`:`2019`, ~ na_if(.x, y = "xxx"))
+         )
+```
+
+Converts all names of variables in a data set to *snake_case*.
+
+```{r}
+#| eval: true
+#| echo: true
+#| code-line-numbers: 3-5
+names(military)
+
+library(janitor)
+military_clean_names <- military |> 
+  clean_names()
+
+names(military_clean_names)
+```
+
+## Lifceycle stages
+
+[Learn more about lifecycle stages](https://lifecycle.r-lib.org/articles/stages.html) of packages, functions, function arguments in R.
+
+:::: columns
+
+::: column
+```{r}
+#| fig-align: center
+#| out-width: 80%
+knitr::include_graphics("images/depreciated.PNG")
+knitr::include_graphics("images/superseded.png")
+```
+:::
+
+::: column
+```{r}
+#| fig-align: center
+#| fig-cap: "Image source: deanattali.com/blog/cranalerts/"
+#| out-width: "100%"
+knitr::include_graphics("https://deanattali.com/assets/img/blog/cranalerts/automation.png")
+```
+:::
+::::
+
+## Depreciated Functions: Military Spending Example
+
+```{r}
+#| warning: true
+#| message: true
+#| echo: true
+#| code-lines: 3
+military_clean |> 
+  filter(across(Notes:`2019`, is.na)) |> 
+  slice_head(n = 3)
+```
+
+```{r}
+#| echo: true
+#| code-lines: 3
+military_clean |>
+  filter(if_all(Notes:`2019`, ~ is.na(.x))) |> 
+  slice_head(n = 3)
+```
+
+## `dplyr` updates
+
+There was an update to the `dplyr` package to Version 1.1.0 on Sunday 1/29/2023.
+
+[See changelog for updates](https://dplyr.tidyverse.org/news/index.html)
+
+![](images/dplyr-update.jpg)
+
+## `group_by()` vs `.by = ` argument
+
+![](images/groupby-dplyr-update.jpg)
+
+## `across()`
+
+![](images/across-dplyr-update.jpg)
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: 6-7
+
+military |> 
+  mutate(across(`1988`:`2019`, na_if, y = ". ."))
+
+
+military |> 
+  mutate(across(`1988`:`2019`, ~ na_if(.x, y = ". .")))
+```
+
+## `join_by()`
+
+![](images/joins-dplyr-update.jpg)
+
+## Saving & Piping data joins
+
+```{r}
+#| eval: false
+#| echo: true
+genres_movies_joined <- inner_join(directors_genres, movies_directors)
+
+genres_movies_joined <- directors_genres |> 
+  inner_join(movies_directors)
+```
+
+# Extensions to Relational Data
+
+## IMDb Movies Data
+
+Multiple tables of data are called **relational data** because it is the *relations*, not just the individual data sets, that are important.
+
+**Keys:** 
+
++ Uniquely identifies an observation in a data set
++ Relate data sets to each other
+
+![](images/imdb-keys.png)
+
+## Joining Multiple Data Sets
+
+::: panel-tabset
+
+### movies_directors
+
+```{r}
+#| echo: true
+movies_directors
+```
+
+### directors
+
+```{r}
+#| echo: true
+directors
+```
+
+### movies
+
+```{r}
+#| echo: true
+movies
+```
+### sketch
+
+![](images/imdb-multiple-joins.png)
+
+### 1st + 2nd
+
+```{r}
+#| echo: true
+join_one_data <- movies_directors |> 
+  inner_join(directors, 
+             by = c("director_id" = "id")
+             )
+join_one_data
+```
+
+If you update `dplyr`...
+
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: 3
+directors_movie_ids <- movies_directors |> 
+  inner_join(directors, 
+             by = join_by(id == director_id)
+             )
+```
+
+### + 3rd
+
+```{r}
+#| echo: true
+join_two_data <- movies_directors |> 
+  inner_join(directors, 
+             by = c("director_id" = "id")
+             ) |> 
+  inner_join(movies,
+             by = c("movie_id" = "id")
+             ) |> 
+  rename(movie_name = name)
+join_two_data
+```
+
+:::
+
+## Joining on Multiple Variables
+
+Using the hiphop data from Lab 3...
+
+```{r}
+hiphop <- read_csv(here::here("lab-assignments", "Lab3-dplyr", "hiphop.csv"))
+music <- hiphop |> 
+  select(word, subj, folk:pop)
+
+familiarity <- hiphop |> 
+  select(word, subj, familiarity) |> 
+  rename(participant = subj)
+```
+
+::: panel-tabset
+
+## Music Taste
+
+```{r}
+#| echo: true
+music
+```
+
+## Word Familiarity
+
+```{r}
+#| echo: true
+familiarity
+```
+
+## Join by word + subj
+:::: {.columns}
+:::{.column  width="55%"}
+```{r}
+#| echo: true
+#| code-line-numbers: 3-4
+music_wordfam <- music |> 
+  full_join(familiarity,
+            by = c("word" = "word", 
+                   "subj" = "participant")
+            )
+music_wordfam 
+```
+:::
+:::{.column  width="45%"}
+if `dplyr` updated...
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: 3-4
+music_wordfam <- music |> 
+  full_join(familiarity,
+            by = join_by(word == word, 
+                         subj == participant)
+            )
+music_wordfam 
+```
+:::
+::::
+:::
 
 
 ## Lab + Challenge
 
-[Lab 4: Avocado Prices + Challenge 4: Avocado Toast Ate My Mortgage]()
+[Lab 4: Avocado Prices + Challenge 4: Avocado Toast Ate My Mortgage](https://earobinson95.github.io/stat331-calpoly/lab-assignments/lab4/lab4-avocado-prices.html)
 
 <br>
 **Handy Helpers**
@@ -689,4 +1027,7 @@ Today we will...
   
 + **Read Chapter 5: Special Data Types**
   + **Concept Check 5.1 + 5.2 + 5.3** due Monday (2/6) at 8:00am
+  
++ [**Bonus Challenge: Murder Mystery in SQL City**](https://earobinson95.github.io/stat331-calpoly/bonus-challenges/bonus-challenge-murder-in-sql-city.html)
+  + Due Sunday 2/12 at 11:59pm
   
