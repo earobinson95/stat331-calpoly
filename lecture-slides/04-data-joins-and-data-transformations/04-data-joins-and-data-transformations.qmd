@@ -732,7 +732,6 @@ hiphop_clean |>
 :::
 ::::
 
-
 ## Clean variable names with [`library(janitor)`](https://sfirke.github.io/janitor/)
 
 ```{r}
@@ -1020,6 +1019,38 @@ music_wordfam
 `semi_join()`: Keeps values found in another data set
 
 `anti_join()`: Keeps values not found in another data set
+
+## Workflow
+
+1. Load packages + read in original data
+
+```{r}
+#| echo: true
+#| eval: false
+library(tidyverse)
+data_original <- read_csv(file = "path/to/datal.csv")
+```
+
+2. Clean data -- save your changes! This is now your new "master" data set
+
+```{r}
+#| echo: true
+#| eval: false
+data_clean <- data_original |> 
+  mutate(across(x1:x5, ~ as.factor(.x))) |> 
+  mutate(new_var <- if_else(...))
+```
+
+3. If you need subsets, create those from your new "master" data for the specific tasks.
+
+```{r}
+#| echo: true
+#| eval: false
+demographics_subj <- data_clean |> 
+  distinct(subj, keep_all = TRUE)
+```
+
+4. Output **only** the the information you want to include in your assignment.
 
 ## To do...
 
