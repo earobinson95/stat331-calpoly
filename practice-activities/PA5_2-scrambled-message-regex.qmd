@@ -1,5 +1,5 @@
 ---
-title: "PA 5.3. Scrambled Message"
+title: "PA 5.3. Scrambled Message (Solution)"
 subtitle: "Regular Expressions"
 format: 
   html:
@@ -8,7 +8,7 @@ format:
 editor: source
 execute: 
   error: true
-  echo: true
+  echo: fenced
   message: false
   warning: false
 ---
