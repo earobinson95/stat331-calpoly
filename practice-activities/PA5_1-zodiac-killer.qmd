@@ -5,7 +5,6 @@ format:
   html:
     self-contained: true
     code-tools: true
-    toc: true
 editor: source
 execute: 
   error: true
@@ -14,15 +13,15 @@ execute:
   warning: false
 ---
 
-```{r setup}
-#| include: false
-library(tidyverse)
-library(lubridate)
-```
-
 [Download starter qmd file](PA5_1-zodiac-killer.qmd)
 
-[Download `suspects_time.csv` data](data/suspects_times.csv)
+```{r setup}
+library(tidyverse)
+```
+
+::: callout-note
+Note that the `lubridate` package is included in the `tidyverse` package so we do not need to load it separately.
+:::
 
 ## Solve the mystery
 
@@ -34,10 +33,7 @@ Unfortunately, the date and time of the murder is not known. You have been hired
 
 ```{r}
 # 214 total suspects
-suspects <- read_csv(here::here("practice-activities",
-                                "data",
-                                "suspect_times.csv")
-                     )
+suspects <- read_csv("https://github.com/earobinson95/stat331-calpoly/raw/master/practice-activities/data/suspect_times.csv")
 ```
 
 1.  Based on the sunburn patterns on the body, the murder was not committed in the morning.

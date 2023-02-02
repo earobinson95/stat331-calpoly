@@ -5,7 +5,6 @@ format:
   html:
     self-contained: true
     code-tools: true
-    toc: true
 editor: source
 execute: 
   error: true
@@ -14,22 +13,19 @@ execute:
   warning: false
 ---
 
-## Setup
+[Download starter qmd file](PA5_2-scrambled-message-regex.qmd)
 
-Run the code below to load the scrambled message:
 
-```{r package}
+```{r setup}
 library(tidyverse)
-```
 
-```{r data}
-#| include: true
-#| message: false
-message <- read_csv("https://www.dropbox.com/s/lgpn3vmksk3ssdo/scrambled_message.txt?dl=1") %>% 
+message <- read_csv("https://github.com/earobinson95/stat331-calpoly/raw/master/practice-activities/data/scrambled_message.txt") |> 
   pull(Word)
 ```
 
+::: callout-note
 In this activity, a "word" is a set of characters with no white space. That is, even though many of elements of the scrambled mess vector are nonsense, and some have punctuation, you can consider each element to be a "word".
+:::
 
 ## Warm-up exercises
 
@@ -45,7 +41,6 @@ In this activity, a "word" is a set of characters with no white space. That is, 
 
 6.  Print out the longest word in the scrambled message.
 
-------------------------------------------------------------------------
 
 ## Decode a message
 
@@ -68,3 +63,9 @@ Complete the following steps to decode the message.
 8.  Use `str_c()` to recombine all your words into a message.
 
 9.  Find the movie this quote is from.
+
+
+::: callout-note
+### Canvas Quiz Submission
+What is the name of the movie the quote is from?
+:::
