@@ -555,6 +555,8 @@ Movie Directors: 429, ~~**2931**~~, 11652, 14927, 15092
 
 ### Connection to Data Cleaning `%in%`
 
+<!-- Next time you teach this, use movie_directors$id instead of manually listing these out -->
+
 Including observations with `%in%`
 
 ```{r}
@@ -599,6 +601,8 @@ anti_join(directors_genres_subset, movies_directors_subset)
 Movie Directors: ~~429~~, **2931**, ~~11652~~, ~~14927~~, ~~15092~~
 
 ### Connection to Data Cleaning `!%in%`
+
+<!-- Next time you teach this, use movie_directors$id instead of manually listing these out -->
 
 Excluding observations with `!%in%`
 
