@@ -17,10 +17,13 @@ execute:
 
 ```{r setup}
 library(tidyverse)
+library(lubridate)
 ```
 
 ::: callout-note
-Note that the `lubridate` package is included in the `tidyverse` package so we do not need to load it separately.
+Note that the `lubridate` package is a dependency that is installed as part of the `tidyverse` package, but it is not automatically loaded.
+
+In other words, you have already accomplished `install.packages("lubridate")` by default of installing the `tidyverse`, but you will always need to call `library(lubridate)`.
 :::
 
 ## Solve the mystery
@@ -44,7 +47,7 @@ suspects <- read_csv("https://github.com/earobinson95/stat331-calpoly/raw/master
 
 4.  It was discovered that just before being murdered, the victim tried to send a text to their sister in Iceland, saying "Goodnight over there!"
 
-5.  The Killer left behind a birthday card at the scene of the crime. The date is smudged, but the number of the month is shown to be 22. It is thought that perhaps this murder took place less than two days after the Killer's birthday.
+5.  The Killer left behind a birthday card at the scene of the crime. The date is smudged, but the day of the month is shown to be 22. It is thought that perhaps this murder took place less than two days after the Killer's birthday.
 
 6.  The Killer is amused by our efforts, and he has sent us a cryptic clue:
 
