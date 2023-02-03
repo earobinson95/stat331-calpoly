@@ -8,23 +8,40 @@ format:
 editor: source
 execute: 
   error: true
-  echo: fenced
+  echo: true
   message: false
   warning: false
 ---
 
 [Download starter qmd file](PA5_2-scrambled-message-regex.qmd)
 
-
 ```{r setup}
 library(tidyverse)
-
-message <- read_csv("https://github.com/earobinson95/stat331-calpoly/raw/master/practice-activities/data/scrambled_message.txt") |> 
-  pull(Word)
 ```
 
-::: callout-note
+## Pick your poison!
+
+You may choose to work through Q1 - Q6 using a data.frame `message_data` and follow the `dplyr` pipeline syntax.
+
+```{r}
+message_data <- read_csv("https://github.com/earobinson95/stat331-calpoly/raw/master/practice-activities/data/scrambled_message.txt")
+
+class(message_data)
+```
+
+or you might prefer to work with the character vector `message` and use indexing -- e.g. message[1] gives you the first element.
+
+```{r}
+message <- message_data |> 
+  pull(Word)
+
+class(message)
+```
+
+::: callout-tip
 In this activity, a "word" is a set of characters with no white space. That is, even though many of elements of the scrambled mess vector are nonsense, and some have punctuation, you can consider each element to be a "word".
+
+You may find the [R Regex Tester](https://spannbaueradam.shinyapps.io/r_regex_tester/) useful in this activity.
 :::
 
 ## Warm-up exercises
@@ -43,6 +60,10 @@ In this activity, a "word" is a set of characters with no white space. That is, 
 
 
 ## Decode a message
+
+::: callout-caution
+You likely want to work with the `message` character vector for decoding.
+:::
 
 Complete the following steps to decode the message.
 
