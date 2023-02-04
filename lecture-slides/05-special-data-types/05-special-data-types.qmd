@@ -174,7 +174,7 @@ levels(x)
 
 ::: 
 
-## Lab 5 + Challenge 5
+## Lab 5: Factors in Data Visualizations
 
 # Date + Time Variables
 
@@ -349,11 +349,8 @@ Unfortunately, the date and time of the murder is not known. You have been hired
 + **PA 5.1: Zodiac Killer**
   + Due Wednesday, 2/8 at 8:00am
 
-+ **Lab 5: XXX**
++ **Lab 5: Factors in Data Visualization**
   + Due Friday, 2/10 at 11:59pm
-  
-+ **Challenge 5: XXX**
-  + Due Saturday, 2/11 at 11:59pm
   
 ## Wednesday, February 8th
 
@@ -594,11 +591,8 @@ Selects all variables with a name that matches the supplied pattern
 + **PA 5.2: Scrambled Message**
   + Due Friday, 2/10 at 8:00am
 
-+ **Lab 5: XXX**
++ **Lab 5: Factors in Data Visualization**
   + Due Friday, 2/10 at 11:59pm
-  
-+ **Challenge 5: XXX**
-  + Due Saturday, 2/11 at 11:59pm
 
 + [**Bonus Challenge: Murder Mystery in SQL City**](https://earobinson95.github.io/stat331-calpoly/bonus-challenges/bonus-challenge-murder-in-sql-city.html)
   + Due Sunday 2/12 at 11:59pm
