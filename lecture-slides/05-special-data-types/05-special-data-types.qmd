@@ -1,0 +1,609 @@
+---
+title: "WEEK 5: SPECIAL DATA TYPES"
+format: 
+  revealjs:
+    theme: [default, ../../slide_custom.scss]
+    auto-stretch: false
+editor: source
+self-contained: true
+---
+
+```{r setup}
+#| include: false
+#| message: false
+library(tidyverse)
+library(palmerpenguins)
+```
+
+## Monday, February 6th
+
+Today we will...
+
++ Review Lab 4
++ Final Project Timeline
++ Mini lecture on text material
+  + Reordering Factor Variables
+  + Working with Date & Time Variables
++ [PA 5.1: Zodiac Killer](https://earobinson95.github.io/stat331-calpoly/practice-activities/PA5_1-zodiac-killer.html)
+
+## Lab 4: Better alternatives to bar plots
+
+*Bar plots are typically reserved for displaying frequencies*
+
+::: panel-tabset
+### Bar plots
+
+### Dotchart
+
+### Segment
+:::
+
+# Factor Variables
+
+`as.factor()`
+
+## `library(forcats)`
+
+:::: columns
+::: column
+**Common tasks**
+
++ Turn a `character` or `numeric` variable into a factor
+
++ Make a factor by discritizing / "binning" a numeric variable
+
++ Rename or reorder the `levels` of an existing `factor`
+:::
+::: column
+```{r}
+#| out-width: 50%
+#| fig-align: center
+knitr::include_graphics("https://github.com/rstudio/hex-stickers/blob/main/thumbs/forcats.png?raw=true")
+```
+:::
+::::
+
+::: callout-note
+The packages `forcats` ("for categoricals") gives nice shortcuts for
+wrangling categorical variables.
+
+  + `forcats` loads with the `tidyverse`!
+:::
+
+## Create a `factor`
+
+```{r}
+#| echo: true
+x <- c("apple", "dog", "banana", "cat", "banana", "Queen Elizabeth", "dog")
+x
+```
+
+<br>
+
+```{r}
+#| echo: true
+x <- factor(x)
+x
+```
+
+## What happened?
+
+```{r}
+#| fig-align: center
+knitr::include_graphics("images/factor_mapping.jpg")
+```
+
+<!-- :::: columns -->
+<!-- ::: column -->
+<!-- ```{r} -->
+<!-- #| echo: false -->
+<!-- x <- c(1,4,2,3,2,5,4) -->
+<!-- ``` -->
+
+<!-- ```{r} -->
+<!-- #| echo: true -->
+<!-- x -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- ::: column -->
+<!-- ```{r} -->
+<!-- x <- factor(c("apple", "dog", "banana", "cat", "banana", "Queen Elizabeth", "dog")) -->
+<!-- ``` -->
+
+<!-- ```{r} -->
+<!-- #| echo: true -->
+<!-- #| eval: false -->
+<!-- levels(x) -->
+<!-- ``` -->
+
+<!-- ```{r} -->
+<!-- #| echo: false -->
+<!-- levels(x) |>  -->
+<!--   knitr::kable() -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- :::: -->
+
+## `factor_recode()`
+
+new level = old level
+
+```{r}
+#| echo: true
+x <- fct_recode(x,
+                fruit = "apple",
+                fruit = "banana",
+                pet   = "cat",
+                pet   = "dog"
+                )
+x
+```
+
+::: callout-note
+Notice Queen Elizabeth is a "remaining" level that was never recoded.
+:::
+
+## `factor_relevel()`
+
+```{r}
+#| echo: true
+x <- fct_relevel(x, 
+                 levels = c("Queen Elizabeth", 
+                            "pet", 
+                            "fruit")
+)
+levels(x)
+```
+
+
+## Factors in the `tidyverse`
+
+```{r}
+#| echo: true
+
+```
+
+## Factors in `ggplot2`
+
+::: panel-tabset
+### `labels`
+
+### `fct_reorder()`
+
+### `fct_reorder2()`
+
+::: 
+
+## Lab 5 + Challenge 5
+
+# Date + Time Variables
+
+# `library(lubridate)`
+
+:::: columns
+::: column
+**Common Tasks**
+
++ Convert a date-like variable ("May 8, 1995") to a special DateTime Object.
+
++ Find the weekday, month, year, etc from a DateTime object
+
++ Convert between timezones
+
+:::
+::: column
+```{r}
+#| fig-align: center
+#| out-width: 50%
+knitr::include_graphics("https://github.com/rstudio/hex-stickers/blob/main/thumbs/lubridate.png?raw=true")
+```
+:::
+::::
+
+::: callout-note
+The package `lubridate` is AMAZING for this. 
+
++ `lubridate` does not **load** with the `tidyverse` but it does **install**
+  with it.
+  
+```{r}
+#| echo: true
+library(lubridate)
+```
+:::
+
+## `datetime` Objects
+
+There are actually three data types (classes) in R for dates and datetimes.
+
++ Date (duh)
+
++ POSIXlt (???)
+
++ and POSIXct (???)
+
+## History of `POSIXlt` and `POSIXct`
+
+:::: columns
+::: column
+- `POSIXct` -- stores date/time values as the number of seconds since
+January 1, 1970 ("Unix Epoch")
+
+- `POSIXlt` -- stores date/time values as a list with elements for second,
+minute, hour, day, month, and year, among others. 
+:::
+::: column
+In the "old days", to make a Date or Datetime object, you'd have to get the
+format *just right*.
+
+```{r}
+#| echo: true
+as.Date("1995-05-08") |>  str()
+as_datetime("1995-05-08") |>  str()
+```
+:::
+::::
+
+## Enter `lubridate`!
+
+:::: columns
+::: column
+```{r}
+#| echo: true
+make_date(year = 1995, month = 05, day = 08)
+mdy("May 8, 1995")
+dmy("8-May-1995", tz = "America/Chicago")
+```
+:::
+::: column
+```{r}
+#| echo: true
+parse_datetime("05/8/1995", format = "mdy")
+
+parse_datetime("5/8/1995", format = "%m/%d/%Y")
+
+```
+:::
+::::
+
+## Common mistake with dates
+
+*What is wrong with these two code chunks?*
+
+```{r}
+#| echo: true
+as_datetime(2023-03-6)
+```
+
+<br>
+
+```{r}
+#| echo: true
+my_date <- 2023-03-6
+my_date
+```
+
+## Components of dates
+
+
+```{r}
+#| echo: true
+bday <- ymd_hms("1995-05-8 6:32:12", tz = "America/Chicago")
+bday
+```
+
+<br>
+
+:::: columns
+::: column
+```{r}
+#| echo: true
+year(bday)
+month(bday)
+day(bday)
+```
+:::
+::: column
+```{r}
+#| echo: true
+wday(bday)
+
+wday(bday, label = TRUE)
+
+wday(bday, label = TRUE)
+```
+:::
+::::
+
+## When is my ______ birthday?
+
+<br>
+
+next birthday...
+
+```{r}
+#| echo: true
+(bday + years(28)) |>  
+  wday(label = TRUE, abbr = FALSE)
+```
+
+<br>
+
+hundredth...
+
+```{r}
+#| echo: true
+bday + years(100)
+```
+
+## [PA 5.1: Zodiac Killer](https://earobinson95.github.io/stat331-calpoly/practice-activities/PA5_1-zodiac-killer.html)
+
+One of the most famous mysteries in California history is the identity of the so-called “Zodiac Killer”, who murdered 7 people in Northern California between 1968 and 1969. A new murder was committed last year in California, suspected to be the work of a new Zodiac Killer on the loose.
+
+Unfortunately, the date and time of the murder is not known. You have been hired to crack the case. Use the clues below to discover the murderer’s identity.
+
+> Submit the name of the killer to the Canvas Quiz.
+
+## To do...
+
++ **PA 5.1: Zodiac Killer**
+  + Due Wednesday, 2/8 at 8:00am
+
++ **Lab 5: XXX**
+  + Due Friday, 2/10 at 11:59pm
+  
++ **Challenge 5: XXX**
+  + Due Saturday, 2/11 at 11:59pm
+  
+## Wednesday, February 8th
+
+Today we will...
+
++ Review PA 5.1: Zodiac Killer
++ Midterm Exam 2/15: What to Expect
++ Mini lecture on text material
+  + Strings
+  + Regular Expressions
++ [PA 5.2: Scrambled Message](https://earobinson95.github.io/stat331-calpoly/practice-activities/PA5_2-scrambled-message-regex.html)
+
+## Midterm Exam -- In-class Wednesday 2/15
+
+# `stringr`
+
+```{r}
+#| echo: true
+library(stringr)
+```
+
+## strings
+
+**raw strings**
+
+```{r}
+str_view(r"{This is a raw string! :)}")
+```
+
+## `separate_xxx_delim()`
+
+`separate_longer_delim()`
+
+`separate_wider_delim()`
+
+## Combine Strings
+
+::: panel-tabset
+### `str_c()`
+
+### `str_glue()`
+
+### `str_flatten()`
+:::
+
+# regex
+
+```{r}
+#| fig-align: center
+#| out-width: 70%
+knitr::include_graphics("images/regular_expressions.png")
+```
+
+## `pattern = `
+
+[Web app to test R regular expressions](https://spannbaueradam.shinyapps.io/r_regex_tester/)
+
+The **pattern argument** in all of the `stringr` functions ...
+
+
+## Meta Characters
+
+
+| Character | What it does                          |
+| --------- | ------------------------------------- |
+| `.`       | wild card; matches any character      |
+|           |                                       |
+| `+`       | pattern repeats at least once (matches 1 to infinity) |
+| `?`       | pattern is optional (matches 0 or 1)  |
+| `*`       | pattern is optional or repeats (matches 0 to infinity)        |
+|           |                                       |
+|           |                                       |
+| `|`       | alteration (or)                       |
+
+## Character Classes `[]`
+
+`^` except
+
+`-` range
+
+# Key `stringr` Functions
+
+`str_detect()`
+
+`str_count()`
+
+`str_replace()`, `str_replace_all()`
+
+## `str_detect()` Detect Matches
+Returns logical boolean `TRUE/FALSE` if pattern matches
+
++ Pairs well with `filter()`
++ Could be used with `summarise()` and `sum` or `mean`
+
+::: {.callout-note collapse="true"}
+### Related functions 
+`str_subset()` returns just the strings that contain the match
+
+`str_which()` returns the indexes of strings that have a match
+:::
+
+## `str_count()` Count Matches
+
+Tells you how many matches of the pattern in each string
+
++ Pairs well with `mutate()`
+
+::: {.callout-note collapse="true"}
+### Related functions 
+`str_to_lower()` converts all letters in the strings to lowercase
+
+`str_to_upper()` converts the first letter of the strings to uppercase
+:::
+
+## `str_replace()`, `str_replace_all()`
+
+`str_replace(x, pattern = "", replace = "")`
+
+`str_replace_all()`
+
+
+::: {.callout-note collapse="true"}
+### Related functions 
+`str_remove(x, pattern, "")`
+
+`str_remove_all()`
+:::
+
+## Escape: Get `\` happy! `\\\\`
+
+In order to match a special character you need to "escape" first
+
+::: callout-note
+Could also use `[]` character class
+
+Full set of metacharacters `.` `^`  `$` `\`  `|` `*` `+` `?` `{` `}` `[` `]` `(` `)`
+:::
+
+::: callout-warning
+In general, look at punctuation characters with suspicion.
+:::
+
+## When in Doubt
+<br>
+<br>
+```{r}
+#| fig-align: center
+#| out-width: 80%
+knitr::include_graphics("images/backslashes.png")
+```
+
+## Anchoring
+
+::: panel-tabset
+### `^` anchor to start
+
+### `$` anchor to end
+
+### `\b` boundaries
+:::
+
+## More on Character Classes
+
+::: panel-tabset
+
+### Digits
+`\d` matches any digit
+
+`\D` matches anything that isn’t a digit
+
+```{r}
+# example goes here
+```
+
+### Whitespace
+`\s` matches any whitespace (e.g. space, tab, newline)
+
+`\S` matches anything that isn’t whitespace.
+
+```{r}
+
+# example goes here
+```
+
+::: callout-note
+`str_trim()`
+:::
+
+### "Words"
+`\w` matches any “word” character, i.e. letters and numbers
+
+`\W` matches any “non-word” character
+
+```{r}
+# example goes here
+```
+
+:::
+
+## More on Quantifiers
+
+::: panel-tabset
+
+### `{n}` Exactly
+
+`{n}` matches exactly n times.
+
+### `{n,}` At Least
+
+`{n,}` matches at least n times.
+
+### `{n,m}` Between
+
+`{n,m}` matches between n and m times.
+:::
+
+# strings in the `tidyverse`
+
+## `matches(pattern)`
+
+Selects all variables with a name that matches the supplied pattern
+
++ pairs well with `select()`, `rename_with()`, and `across()`
+
+## `pivot_longer()`
+
+`name_pattern = `
+
+`delim = regex()`
+
+
+## [PA 5.2: Scrambled Message](https://earobinson95.github.io/stat331-calpoly/practice-activities/PA5_2-scrambled-message-regex.html)
+
+**Reminder about Indexing Vectors**
+
+## To do...
+
++ **PA 5.2: Scrambled Message**
+  + Due Friday, 2/10 at 8:00am
+
++ **Lab 5: XXX**
+  + Due Friday, 2/10 at 11:59pm
+  
++ **Challenge 5: XXX**
+  + Due Saturday, 2/11 at 11:59pm
+
++ [**Bonus Challenge: Murder Mystery in SQL City**](https://earobinson95.github.io/stat331-calpoly/bonus-challenges/bonus-challenge-murder-in-sql-city.html)
+  + Due Sunday 2/12 at 11:59pm
+  
++ **Read Chapter 6: Version Control**
+  + **Concept Check 6.1 + 6.2** due Monday (2/13) at 8:00am
+
+  
