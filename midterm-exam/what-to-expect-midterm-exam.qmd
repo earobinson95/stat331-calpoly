@@ -1,0 +1,118 @@
+---
+title: "What to Expect"
+subtitle: "Stat 331/531 Midterm Exam"
+format: 
+  html:
+    self-contained: true
+    code-tools: true
+    toc: true
+    number-sections: true
+editor: source
+execute: 
+  error: true
+  echo: true
+  message: false
+  warning: false
+---
+
+```{r setup}
+#| include: false
+library(tidyverse)
+library(lubridate)
+```
+
+## Exam Details {-}
+
++ You will have one hour and 50 minutes to complete the exam on your own computer.
++ The exam is worth a total of 100 points and consists of 3 sections: General Questions, Short Answer, and Open-Ended Analysis.
+
+::: callout-caution
+While this is an open resource exam, you will likely get caught running out of time if you have to look everything up. Know what functions you might need to approach the problem and where to find documentation for implementing these functions.
+:::
+
+## Policies {-}
+
++ You may use: any online resources, including anything posted on Canvas, in the text, or in your past assignments.
++ You may **NOT** contact anyone, inside or outside this class, during the course of the exam.  This includes email, chat/messenger services, and posting on online forums and message boards.
++ You may **NOT** use exam materials from previous years.
++ Violations of academic honesty include accessing and using any illegal materials, and giving or receiving help on this exam including looking at other student's exams, allowing other students to look at your own exam, and/or revealing any information about this exam or future exams to someone who has not yet taken it.
++ Students who exhibit academic misconduct will be reported to the Office of Student Rights
+and Responsibilities; academic dishonesty may be punishable by a grade of F in this course.
++ You may **NOT** discuss the exam with any other students until after the exams have been returned to all students.
++ If you witness others exhibiting academic misconduct, you have a duty to report them to your professor.
+
+## Basic Instructions {-}
+
++ Please note that you will probably need to use the data documentation in order to successfully complete this exam.
++ The problems on this exam do not necessarily need to be completed sequentially, e.g., if you cannot accomplish problem 1, you may still be able to accomplish problem 2.
++ Some parts to problems may need to be completed sequentially.  If you cannot complete part (a), please outline code or your thought process for completing part (b).
++ All questions should be answered **using R code**.  Make sure your code prints out only the information that directly answers the question.  **Penalties will be given if your .html file has extra output beyond that which answers the question.**
++ If your code has errors that you cannot fix in time, you may also include in the comments explanations of your thought process, to potentially receive partial credit.
++ For parts two and three, submit both your `.qmd` and `.html` files on Canvas by the end of the allotted time. However, only your `.html` file will be graded - make sure the knitted output contains all your answers.
++ Late uploads will be automatically deducted by -5 points per minute!
+  
+## The Data {-}
+
+Your data set for the exam, `minimum-wage-data.csv` can be downloaded [here](mininimum-wage-data.csv).
+
+The data set contains information about the minimum wage for each state across years. Documentation for this data set can be found [here](https://github.com/Lislejoem/Minimum-Wage-by-State-1968-to-2020).
+
+You may bring to the exam any pre-analysis you have done of this data.
+  
+## General Questions  [20 points]
+
+You will be asked a series of five questions about R, RStudio, and performing operations with the `tidyverse`, etc. These will be multiple choice, fill in the blank, and select all that apply style -- similar to the Check-ins.
+
+You will fill out your answers in a Canvas Quiz.
+
+## Short Answer [30 points]
+
+You will be given a `.qmd` template similar to lab assignments and asked a series of short questions about the minimum wage data set, such as "Which word was most and least familiar to participants under 20 years old?"
+
+There will be at least one "sketch your game plan" question and at least one "create a plot" question. You may want to play around and get comfortable with [excalidraw.com](https://excalidraw.com/) -- *you will be required to use this in your Lab 5 Assignment for practice.*
+
+You will turn in your `.html` and `.qmd` files. You will be graded on the correct output, as well as your code style and design. Each of these questions should be answered using functions from the `tidyverse`.
+
+<!-- You will enter your answers into a "quiz" on Canvas.   -->
+
+<!-- You will also turn in your `.html` and `.qmd` files.  These do not need to be formatted or styled nicely, and they will not be graded; they will only be used to confirm that you used code, not Google, to answer the questions. -->
+
+<!-- After submitting your Canvas quiz, you will be able to see your score.  You may choose to correct your wrong answers and resubmit again, and your scores will be averaged. -->
+
+## Open-Ended Analysis [50 points]
+
+You will create your own `.qmd` file for this part. Make sure you know how to do this!
+
+::: callout-caution
+Make sure the following quarto options are included in your YAML.
+
+`self-contained: true`
+
+`echo: true`
+
+`code-tools: true`
+
+You may want to copy a YAML from a previous lab assignment.
+:::
+
+You will be asked one open-ended question about the minimum wage data set, such
+as "Make an argument about the price of avocados and housing prices". You will
+create a write-up of approximately 1 page (including all plots, echoed code, and
+tables) that tells a clear story. Your write-up must include at least one plot
+and at least one summary statistic.
+
+You will turn in your `.html` and `.qmd` file; only your `.html` file will be
+graded. Make sure your output only answers the question asked (e.g. I don't want
+to scroll through 2 pages of `summary(data)` or 50 pages of the data set printed
+out).
+
+Code format and design **is** part of your grade. You should be using the
+`tidyverse` package and style guide to address the question, but you can use
+outside supporting code (e.g. indexing from base R is not prohibited, but you
+should use `ggplot2` to create your plot instead of base R `plot`).
+
+::: callout-tip
+While this is not an English class, I will be looking for clear and concise
+communication. Make sure to frame your insight with a data description paragraph
+and explain your argument.
+:::
