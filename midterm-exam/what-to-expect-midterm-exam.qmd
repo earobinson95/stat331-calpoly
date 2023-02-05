@@ -67,11 +67,11 @@ You will fill out your answers in a Canvas Quiz.
 
 ## Short Answer [30 points]
 
-You will be given a `.qmd` template similar to lab assignments and asked a series of short questions about the minimum wage data set, such as "Which word was most and least familiar to participants under 20 years old?"
+You will be given a `.qmd` template similar to lab assignments and asked a series of short questions about the minimum wage data set, such as "Which word was most and least familiar to participants under 20 years old?" Each of these questions should be answered using functions from the `tidyverse`.
 
 There will be at least one "sketch your game plan" question and at least one "create a plot" question. You may want to play around and get comfortable with [excalidraw.com](https://excalidraw.com/) -- *you will be required to use this in your Lab 5 Assignment for practice.*
 
-You will turn in your `.html` and `.qmd` files. You will be graded on the correct output, as well as your code style and design. Each of these questions should be answered using functions from the `tidyverse`.
+You will turn in your `.html` and `.qmd` files only your `.html` file will be graded. You will be graded on the correct output, as well as your code style and design.
 
 <!-- You will enter your answers into a "quiz" on Canvas.   -->
 
@@ -98,13 +98,17 @@ You may want to copy a YAML from a previous lab assignment.
 You will be asked one open-ended question about the minimum wage data set, such
 as "Make an argument about the price of avocados and housing prices". You will
 create a write-up of approximately 1 page (including all plots, echoed code, and
-tables) that tells a clear story. Your write-up must include at least one plot
-and at least one summary statistic.
+tables) that tells a clear story. Your write-up must include **at least** one plot
+and **at least** one table of summary statistics.
 
-You will turn in your `.html` and `.qmd` file; only your `.html` file will be
-graded. Make sure your output only answers the question asked (e.g. I don't want
+You will turn in your `.html` and `.qmd` files; only your `.html` file will be
+graded. 
+
+::: callout-warning
+Make sure your output only answers the question asked (e.g. I don't want
 to scroll through 2 pages of `summary(data)` or 50 pages of the data set printed
 out).
+:::
 
 Code format and design **is** part of your grade. You should be using the
 `tidyverse` package and style guide to address the question, but you can use
