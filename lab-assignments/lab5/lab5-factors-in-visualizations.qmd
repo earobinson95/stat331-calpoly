@@ -97,11 +97,17 @@ You are required to use functions from `forcats` to complete this task.
 
 For our final exploration, we will consider the number of rodents captured throughout the week -- transitioning to visualizations of categorical variables.
 
-**1. Create a visualization of the number of rodents captured each day of the week.**
+**1. Sketch out a "game plan" for visualizing the number of rodents captured each day of the week.**
+
+::: callout-note
+Sketch out and explain your "game plan" using [excalidraw.com](https://excalidraw.com/). Export your image and upload it to [imgur.com](https://imgur.com/). Then copy the link to your image and use Markdown syntax `![](LinkToURL)` to insert the image in your assignment below.
+:::
+
+**2. Implement your game plan and create a visualization of the number of rodents captured each day of the week.**
 
 As you might have expected, the ordering of the days of the week is not what we would like.
 
-**2. Change the order of the day of the week to go Monday through Sunday.**
+**3. Change the order of the day of the week to go Monday through Sunday.**
 
 ::: callout-note
 You can choose to keep the days named as they are (e.g., Mon, Sun), or you can choose to rename the days to their full names (e.g., Monday, Sunday).
@@ -114,7 +120,7 @@ Your plot **should not** make people tilt their heads to read it! Be mindful in 
 
 It should be very clear that there are more rodents captured on the weekend than during the week. But, let's explore if this is still the case if we use a "Weekday" / "Weekend" classification system instead.
 
-**3. Collapse Monday through Friday into a `"Weekday"` level, and collapse Saturday and Sunday into a `"Weekend"` level. Plot the number of rodents captured between the two groups.**
+**4. Collapse Monday through Friday into a `"Weekday"` level, and collapse Saturday and Sunday into a `"Weekend"` level. Plot the number of rodents captured between the two groups.**
 
 ::: callout-warning
 Your plot **should not** make people tilt their heads to read it! Be mindful in choosing which variable goes on which axis and if / how you use axis labels.
