@@ -403,6 +403,7 @@ summary(cereal_recode$manuf)
 
 Disclaimer: fix your axes and legend labels!
 
+::: panel-tabset
 ### `fct_recode()`
 
 ```{r}
@@ -448,6 +449,8 @@ cereal_recode |>
   theme(legend.position = "none") +
   labs()
 ```
+:::
+
 ## Factors in `ggplot2`
 
 Disclaimer: fix your axes and legend labels!
