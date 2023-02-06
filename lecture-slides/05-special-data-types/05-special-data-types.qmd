@@ -386,6 +386,7 @@ cereal_recode <- cereal |>
 
 summary(cereal_recode$manuf)
 ```
+:::
 
 <!-- cereal_relabel <- cereal |> -->
 <!--   mutate(manuf = fct_relabel(manuf, -->
@@ -455,6 +456,7 @@ cereal_recode |>
 
 Disclaimer: fix your axes and legend labels!
 
+::: panel-tabset
 ### Original
 
 ```{r}

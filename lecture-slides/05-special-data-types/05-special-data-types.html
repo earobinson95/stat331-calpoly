@@ -1530,9 +1530,9 @@ Levels: fruit pet Queen Elizabeth</code></pre>
 <section id="factors-in-the-tidyverse" class="slide level2">
 <h2>Factors in the <code>tidyverse</code></h2>
 <div class="panel-tabset">
-<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default href="#tabset-4-1">cereal</a></li><li><a href="#tabset-4-2">previously <code>case_when()</code></a></li><li><a href="#tabset-4-3">now <code>fct_recode</code></a></li><li><a href="#tabset-4-4">Original</a></li><li><a href="#tabset-4-5"><code>fct_reorder2()</code></a></li></ul>
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default href="#tabset-3-1">cereal</a></li><li><a href="#tabset-3-2">previously <code>case_when()</code></a></li><li><a href="#tabset-3-3">now <code>fct_recode</code></a></li></ul>
 <div class="tab-content">
-<div id="tabset-4-1">
+<div id="tabset-3-1">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">library</span>(liver)</span>
 <span id="cb12-2"><a href="#cb12-2"></a><span class="fu">data</span>(cereal)</span>
@@ -1558,7 +1558,7 @@ Levels: fruit pet Queen Elizabeth</code></pre>
 </div>
 </div>
 </div>
-<div id="tabset-4-2">
+<div id="tabset-3-2">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>cereal_casewhen <span class="ot">&lt;-</span> cereal <span class="sc">|&gt;</span> </span>
 <span id="cb14-2"><a href="#cb14-2"></a>  <span class="fu">mutate</span>(<span class="at">manuf =</span> <span class="fu">case_when</span>(manuf <span class="sc">==</span> <span class="st">&quot;A&quot;</span> <span class="sc">~</span> <span class="st">&quot;American Home Food Products&quot;</span>, </span>
@@ -1584,7 +1584,7 @@ Levels: fruit pet Queen Elizabeth</code></pre>
 </div>
 </div>
 </div>
-<div id="tabset-4-3">
+<div id="tabset-3-3">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>cereal_recode <span class="ot">&lt;-</span> cereal <span class="sc">|&gt;</span> </span>
 <span id="cb16-2"><a href="#cb16-2"></a>  <span class="fu">mutate</span>(<span class="at">manuf =</span> <span class="fu">fct_recode</span>(manuf, </span>
@@ -1610,6 +1610,9 @@ Levels: fruit pet Queen Elizabeth</code></pre>
                           8 </code></pre>
 </div>
 </div>
+</div>
+</div>
+</div>
 <!-- cereal_relabel <- cereal |> -->
 <!--   mutate(manuf = fct_relabel(manuf, -->
 <!--                              A ~ "American Home Food Products", -->
@@ -1621,13 +1624,14 @@ Levels: fruit pet Queen Elizabeth</code></pre>
 <!--                              R ~ "Ralston Purina" -->
 <!--                            ) -->
 <!--   ) -->
+</section>
 <section id="factors-in-ggplot2" class="slide level2">
 <h2>Factors in <code>ggplot2</code></h2>
 <p>Disclaimer: fix your axes and legend labels!</p>
 <div class="panel-tabset">
-<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default href="#tabset-3-1"><code>fct_recode()</code></a></li><li><a href="#tabset-3-2"><code>fct_reorder()</code></a></li></ul>
+<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default href="#tabset-4-1"><code>fct_recode()</code></a></li><li><a href="#tabset-4-2"><code>fct_reorder()</code></a></li></ul>
 <div class="tab-content">
-<div id="tabset-3-1">
+<div id="tabset-4-1">
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -1656,7 +1660,7 @@ Levels: fruit pet Queen Elizabeth</code></pre>
 </div>
 </div>
 </div>
-<div id="tabset-3-2">
+<div id="tabset-4-2">
 <p>Default reorders by the median value</p>
 <div class="cell">
 <details>
@@ -1682,9 +1686,10 @@ Levels: fruit pet Queen Elizabeth</code></pre>
 <section id="factors-in-ggplot2-1" class="slide level2">
 <h2>Factors in <code>ggplot2</code></h2>
 <p>Disclaimer: fix your axes and legend labels!</p>
-</section>
-</div>
-<div id="tabset-4-4">
+<div class="panel-tabset">
+<ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default href="#tabset-5-1">Original</a></li><li><a href="#tabset-5-2"><code>fct_reorder2()</code></a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1">
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -1704,7 +1709,7 @@ Levels: fruit pet Queen Elizabeth</code></pre>
 </div>
 </div>
 </div>
-<div id="tabset-4-5">
+<div id="tabset-5-2">
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -1993,15 +1998,15 @@ Levels: Sun &lt; Mon &lt; Tue &lt; Wed &lt; Thu &lt; Fri &lt; Sat</code></pre>
 <section id="lab-4-game-plans-1" class="slide level2">
 <h2>Lab 4: Game Plans!</h2>
 <div class="panel-tabset">
-<ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default href="#tabset-5-1">Q5</a></li><li><a href="#tabset-5-2">Q7</a></li><li><a href="#tabset-5-3">Q8</a></li></ul>
+<ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default href="#tabset-6-1">Q5</a></li><li><a href="#tabset-6-2">Q7</a></li><li><a href="#tabset-6-3">Q8</a></li></ul>
 <div class="tab-content">
-<div id="tabset-5-1">
+<div id="tabset-6-1">
 
 </div>
-<div id="tabset-5-2">
+<div id="tabset-6-2">
 
 </div>
-<div id="tabset-5-3">
+<div id="tabset-6-3">
 
 </div>
 </div>
@@ -2031,15 +2036,15 @@ Levels: Sun &lt; Mon &lt; Tue &lt; Wed &lt; Thu &lt; Fri &lt; Sat</code></pre>
 <section id="combine-strings" class="slide level2">
 <h2>Combine Strings</h2>
 <div class="panel-tabset">
-<ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default href="#tabset-6-1"><code>str_c()</code></a></li><li><a href="#tabset-6-2"><code>str_glue()</code></a></li><li><a href="#tabset-6-3"><code>str_flatten()</code></a></li></ul>
+<ul id="tabset-7" class="panel-tabset-tabby"><li><a data-tabby-default href="#tabset-7-1"><code>str_c()</code></a></li><li><a href="#tabset-7-2"><code>str_glue()</code></a></li><li><a href="#tabset-7-3"><code>str_flatten()</code></a></li></ul>
 <div class="tab-content">
-<div id="tabset-6-1">
+<div id="tabset-7-1">
 
 </div>
-<div id="tabset-6-2">
+<div id="tabset-7-2">
 
 </div>
-<div id="tabset-6-3">
+<div id="tabset-7-3">
 
 </div>
 </div>
@@ -2233,15 +2238,15 @@ Levels: Sun &lt; Mon &lt; Tue &lt; Wed &lt; Thu &lt; Fri &lt; Sat</code></pre>
 <section id="anchoring" class="slide level2">
 <h2>Anchoring</h2>
 <div class="panel-tabset">
-<ul id="tabset-7" class="panel-tabset-tabby"><li><a data-tabby-default href="#tabset-7-1"><code>^</code> anchor to start</a></li><li><a href="#tabset-7-2"><code>$</code> anchor to end</a></li><li><a href="#tabset-7-3"><code>\b</code> boundaries</a></li></ul>
+<ul id="tabset-8" class="panel-tabset-tabby"><li><a data-tabby-default href="#tabset-8-1"><code>^</code> anchor to start</a></li><li><a href="#tabset-8-2"><code>$</code> anchor to end</a></li><li><a href="#tabset-8-3"><code>\b</code> boundaries</a></li></ul>
 <div class="tab-content">
-<div id="tabset-7-1">
+<div id="tabset-8-1">
 
 </div>
-<div id="tabset-7-2">
+<div id="tabset-8-2">
 
 </div>
-<div id="tabset-7-3">
+<div id="tabset-8-3">
 
 </div>
 </div>
@@ -2250,16 +2255,16 @@ Levels: Sun &lt; Mon &lt; Tue &lt; Wed &lt; Thu &lt; Fri &lt; Sat</code></pre>
 <section id="more-on-character-classes" class="slide level2">
 <h2>More on Character Classes</h2>
 <div class="panel-tabset">
-<ul id="tabset-8" class="panel-tabset-tabby"><li><a data-tabby-default href="#tabset-8-1">Digits</a></li><li><a href="#tabset-8-2">Whitespace</a></li><li><a href="#tabset-8-3">“Words”</a></li></ul>
+<ul id="tabset-9" class="panel-tabset-tabby"><li><a data-tabby-default href="#tabset-9-1">Digits</a></li><li><a href="#tabset-9-2">Whitespace</a></li><li><a href="#tabset-9-3">“Words”</a></li></ul>
 <div class="tab-content">
-<div id="tabset-8-1">
+<div id="tabset-9-1">
 <p><code>\d</code> matches any digit</p>
 <p><code>\D</code> matches anything that isn’t a digit</p>
 <div class="cell">
 
 </div>
 </div>
-<div id="tabset-8-2">
+<div id="tabset-9-2">
 <p><code>\s</code> matches any whitespace (e.g. space, tab, newline)</p>
 <p><code>\S</code> matches anything that isn’t whitespace.</p>
 <div class="cell">
@@ -2279,7 +2284,7 @@ Levels: Sun &lt; Mon &lt; Tue &lt; Wed &lt; Thu &lt; Fri &lt; Sat</code></pre>
 </div>
 </div>
 </div>
-<div id="tabset-8-3">
+<div id="tabset-9-3">
 <p><code>\w</code> matches any “word” character, i.e. letters and numbers</p>
 <p><code>\W</code> matches any “non-word” character</p>
 <div class="cell">
@@ -2292,15 +2297,15 @@ Levels: Sun &lt; Mon &lt; Tue &lt; Wed &lt; Thu &lt; Fri &lt; Sat</code></pre>
 <section id="more-on-quantifiers" class="slide level2">
 <h2>More on Quantifiers</h2>
 <div class="panel-tabset">
-<ul id="tabset-9" class="panel-tabset-tabby"><li><a data-tabby-default href="#tabset-9-1"><code>{n}</code> Exactly</a></li><li><a href="#tabset-9-2"><code>{n,}</code> At Least</a></li><li><a href="#tabset-9-3"><code>{n,m}</code> Between</a></li></ul>
+<ul id="tabset-10" class="panel-tabset-tabby"><li><a data-tabby-default href="#tabset-10-1"><code>{n}</code> Exactly</a></li><li><a href="#tabset-10-2"><code>{n,}</code> At Least</a></li><li><a href="#tabset-10-3"><code>{n,m}</code> Between</a></li></ul>
 <div class="tab-content">
-<div id="tabset-9-1">
+<div id="tabset-10-1">
 <p><code>{n}</code> matches exactly n times.</p>
 </div>
-<div id="tabset-9-2">
+<div id="tabset-10-2">
 <p><code>{n,}</code> matches at least n times.</p>
 </div>
-<div id="tabset-9-3">
+<div id="tabset-10-3">
 <p><code>{n,m}</code> matches between n and m times.</p>
 </div>
 </div>
