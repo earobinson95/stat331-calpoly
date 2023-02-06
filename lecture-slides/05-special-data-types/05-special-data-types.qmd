@@ -405,24 +405,14 @@ summary(cereal_recode$manuf)
 Disclaimer: fix your axes and legend labels!
 
 ::: panel-tabset
-### `fct_recode()`
+### original
 
 ```{r}
 #| echo: true
 #| code-fold: true
 #| code-line-numbers: 14
 library(ggridges)
-cereal |> 
-  mutate(manuf = fct_recode(manuf, 
-                             "American Home Food Products" = "A", 
-                             "General Mills" = "G", 
-                             "Kelloggs" = "K", 
-                             "Nabisco" = "N", 
-                             "Post" = "P", 
-                             "Quaker Oats" = "Q", 
-                             "Ralston Purina" = "R"
-                           )
-  ) |> 
+cereal_recode |> 
   ggplot(aes(x = sugars, 
              y = manuf, 
              fill = manuf)) +
