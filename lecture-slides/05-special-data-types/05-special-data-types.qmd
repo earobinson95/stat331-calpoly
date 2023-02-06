@@ -28,6 +28,18 @@ Today we will...
 
 ## Final Project Group Formation
 
+You will be completing a final project in Stat 331/531 in teams of four. More details to come soon!
+
+In general, coming up submissions to be aware of:
+
++ **Group Formation Survey** due **Friday, 2/10 at 11:59pm**
+  + Meant to help me gather information about your preferences and work style in order to facilitate the team formation process.
++ Group Contracts
+  + Let's have an open conversation with our team to make things go smooth
++ Project Proposal -- I will provide details on this!
++ Final Project Deliverable
+  + Might be broken up into two steps since I know we like to procrastinate!
+
 ## Lab 4: Tips
 
 **Don't include pages of output**
@@ -38,45 +50,179 @@ Use the code chunk option
 
 `#| results: false`
 
+<br>
+
 **Data Description Components**
+
+Make sure to include context when describing the data set as well as the data characteristics. 
+
++ Where did the data come from? What years? Location? Source?
++ What is the data being used for? 
++ What are the variables (in context) and observations (in context)?
 
 ## `mutate()` vs `summarise()`
 
+::: panel-tabset
+### `mutate()` preserve observations
 
+![](images/mutate-sketch.JPG)
+
+### `summarise()` collapse observations
+
+![](images/summarise-sketch.JPG)
+:::
 
 ## Lab 4: Game Plans!
 
-::: panel-tabset
+:::: columns
+::: column
 
-Read **Average** and **Total** -- Think `summarize(avg_var = mean())` and `summarize(total = sum())`
+**Read**
 
-Read **which** or **for each** -- Think `group_by()`
+Average
 
-### Q5
+Total
 
-### Q7
+Which or For Each
 
-### Q8
+Minimum
+
+Maximum
+
+Minimum and Maximum
 
 :::
+::: column
+
+**Think**
+
+`summarize(avg_var = mean())`
+
+`summarize(total = sum())`
+
+`group_by()`
+
+`slice_min()`
+
+`slice_max()`
+
+`arrange() |> slice(1,n())`
+
+:::
+::::
 
 ## Lab 4: Better alternatives to bar plots
+
+```{r}
+library(tidyverse)
+avocado <- read_csv(here::here("lab-assignments", "lab4", "avocado-updated-2020.csv"))
+
+major_region <- c("California", "West", "South Central", "Great Lakes", "Midsouth", "Southeast", "Northeast", "Plains", "Total U.S.")
+
+avocado_clean <- avocado |> 
+  #rename PLU codes and tidy up data
+  rename(small_hass = "4046", 
+         large_hass = "4225", 
+         xlarge_hass = "4770") |> 
+  mutate(geography_type = if_else(geography %in% major_region, "Major", "Metro"),
+         across(c(type:geography_type), as.factor)
+         )
+
+avocado_california <- avocado_clean |> 
+  filter(geography %in% c("Los Angeles", "San Diego", "Sacramento", "San Francisco"))
+
+organic_price_diff <- avocado_california |> 
+  pivot_wider(id_cols = c(date, year, geography, geography_type),
+              names_from = type,
+              values_from = average_price
+              ) |> 
+  mutate(price_diff = organic - conventional) 
+
+# organic_price_diff |> 
+#   ggplot(aes(x = price_diff, 
+#              y = geography, 
+#              color = geography, 
+#              fill = geography,
+#              shape = geography)) +
+#   geom_jitter(alpha = 0.3, show.legend = F) +
+#   geom_boxplot(alpha = 0.5, show.legend = F) +
+#   geom_vline(xintercept = 0, linetype = "dashed") +
+#   theme_bw() +
+#   theme(legend.position = "none",
+#         axis.title.y = element_blank()) +
+#   labs(subtitle = "Year",
+#        x = "Difference in Price ($)\nOrganic - Conventional")
+```
 
 *Bar plots are typically reserved for displaying frequencies*
 
 ::: panel-tabset
+
+### Summary Data
+```{r}
+diff_summary <- organic_price_diff |> 
+  group_by(geography) |> 
+  summarise(mean_price_diff = mean(price_diff),
+            sd_price_diff = sd(price_diff)
+            ) |> 
+  arrange(desc(mean_price_diff))
+diff_summary 
+```
+
 ### Bar plots
 
-### Dotchart
+```{r}
+#| echo: true
+#| code-fold: true
+#| fig-height: 4
+#| fig-width: 6
+#| fig-align: center
+diff_summary  |> 
+  ggplot(aes(x = mean_price_diff, 
+             y = geography,
+             fill = geography)
+         ) +
+  geom_bar(stat = "identity") +
+  labs(subtitle = "Geography",
+       x = "Difference in Price ($)\nOrganic - Conventional",
+       y = "") +
+  theme_minimal() +
+  theme(legend.position = "none") +
+  scale_fill_brewer(palette = "Dark2")
+```
 
-### Segment
+### Cleveland Dot Plots
+
+Read more about [Cleveland Dot Plots](https://uc-r.github.io/cleveland-dot-plots)
+
+```{r}
+#| echo: true
+#| code-fold: true
+#| fig-height: 4
+#| fig-width: 6
+#| fig-align: center
+diff_summary |> 
+  arrange(desc(mean_price_diff)) |> 
+  ggplot(aes(x = mean_price_diff, 
+             y = geography,
+             fill = geography)
+         ) +
+  geom_segment(aes(xend = 0,
+                   yend = geography)
+  ) +
+  geom_point() +
+  labs(subtitle = "Geography",
+       x = "Difference in Price ($)\nOrganic - Conventional",
+       y = "") +
+  theme_minimal() +
+  theme(legend.position = "none") +
+  scale_fill_brewer(palette = "Dark2")
+```
 :::
 
 # Factor Variables
 
-`as.factor()`
-
-## `library(forcats)`
+## `library(forcats)` [cheatsheet](https://posit.co/wp-content/uploads/2022/10/factors-1.pdf)
 
 :::: columns
 ::: column
@@ -103,6 +249,7 @@ wrangling categorical variables.
 
   + `forcats` loads with the `tidyverse`!
 :::
+
 
 ## Create a `factor`
 
@@ -165,10 +312,10 @@ new level = old level
 ```{r}
 #| echo: true
 x <- fct_recode(x,
-                fruit = "apple",
-                fruit = "banana",
-                pet   = "cat",
-                pet   = "dog"
+                "fruit" = "apple",
+                "fruit" = "banana",
+                "pet"   = "cat",
+                "pet"   = "dog"
                 )
 x
 ```
@@ -192,23 +339,170 @@ levels(x)
 
 ## Factors in the `tidyverse`
 
+::: panel-tabset
+### cereal
+
+```{r}
+#| echo: true
+library(liver)
+data(cereal)
+str(cereal)
+```
+
+### previously `case_when()`
+```{r}
+#| echo: true
+cereal_casewhen <- cereal |> 
+  mutate(manuf = case_when(manuf == "A" ~ "American Home Food Products", 
+                           manuf == "G" ~ "General Mills", 
+                           manuf == "K" ~ "Kelloggs", 
+                           manuf == "N" ~ "Nabisco", 
+                           manuf == "P" ~ "Post", 
+                           manuf == "Q" ~ "Quaker Oats", 
+                           manuf == "R" ~ "Ralston Purina"
+                           ),
+         manuf = as.factor(manuf)
+  )
+summary(cereal_casewhen$manuf)
+```
+
+### now `fct_recode`
+
 ```{r}
 #| echo: true
 
+cereal_recode <- cereal |> 
+  mutate(manuf = fct_recode(manuf, 
+                             "American Home Food Products" = "A", 
+                             "General Mills" = "G", 
+                             "Kelloggs" = "K", 
+                             "Nabisco" = "N", 
+                             "Post" = "P", 
+                             "Quaker Oats" = "Q", 
+                             "Ralston Purina" = "R"
+                           )
+  )
+
+summary(cereal_recode$manuf)
 ```
+
+<!-- cereal_relabel <- cereal |> -->
+<!--   mutate(manuf = fct_relabel(manuf, -->
+<!--                              A ~ "American Home Food Products", -->
+<!--                              G ~ "General Mills", -->
+<!--                              K ~ "Kelloggs", -->
+<!--                              N ~ "Nabisco", -->
+<!--                              P ~ "Post", -->
+<!--                              Q ~ "Quaker Oats", -->
+<!--                              R ~ "Ralston Purina" -->
+<!--                            ) -->
+<!--   ) -->
 
 ## Factors in `ggplot2`
 
-::: panel-tabset
-### `labels`
+Disclaimer: fix your axes and legend labels!
+
+### `fct_recode()`
+
+```{r}
+#| echo: true
+#| code-fold: true
+#| code-line-numbers: 14
+library(ggridges)
+cereal |> 
+  mutate(manuf = fct_recode(manuf, 
+                             "American Home Food Products" = "A", 
+                             "General Mills" = "G", 
+                             "Kelloggs" = "K", 
+                             "Nabisco" = "N", 
+                             "Post" = "P", 
+                             "Quaker Oats" = "Q", 
+                             "Ralston Purina" = "R"
+                           )
+  ) |> 
+  ggplot(aes(x = sugars, 
+             y = manuf, 
+             fill = manuf)) +
+  geom_density_ridges() +
+  theme_minimal() +
+  theme(legend.position = "none") +
+  labs()
+```
 
 ### `fct_reorder()`
 
+Default reorders by the median value
+
+```{r}
+#| echo: true
+#| code-fold: true
+#| code-line-numbers: 3
+cereal_recode |> 
+  ggplot(aes(x = sugars, 
+             y = fct_reorder(manuf, sugars), 
+             fill = manuf)
+         ) +
+  geom_density_ridges() +
+  theme_minimal() +
+  theme(legend.position = "none") +
+  labs()
+```
+## Factors in `ggplot2`
+
+Disclaimer: fix your axes and legend labels!
+
+### Original
+
+```{r}
+#| echo: true
+#| code-fold: true
+#| code-line-numbers: 6
+cereal_recode |> 
+  group_by(manuf, shelf) |> 
+  summarise(avg_sugar = mean(sugars, na.rm = TRUE)) |> 
+  ggplot(aes(x = shelf, 
+             y = avg_sugar, 
+             color = manuf)
+         ) +
+  geom_line() +
+  theme_minimal() +
+  labs()
+```
+
 ### `fct_reorder2()`
+
+```{r}
+#| echo: true
+#| code-fold: true
+#| code-line-numbers: 6
+cereal_recode |> 
+  group_by(manuf, shelf) |> 
+  summarise(avg_sugar = mean(sugars, na.rm = TRUE)) |> 
+  ggplot(aes(x = shelf, 
+             y = avg_sugar, 
+             color = fct_reorder2(manuf, .x = shelf, .y = avg_sugar))
+         ) +
+  geom_line() +
+  theme_minimal() +
+  labs()
+```
 
 ::: 
 
-## Lab 5: Factors in Data Visualizations
+## [Lab 5: Factors in Data Visualizations](https://earobinson95.github.io/stat331-calpoly/lab-assignments/lab5/lab5-factors-in-visualizations.html)
+
++ We will be working with the `survey.csv data` from *Lab 2: Exploring Rodents with ggplot2* to improve our plots!
+
++ See [Will Chase's 2020 RStudio Conference Presentation - Glamour of Graphics](https://www.youtube.com/watch?v=h5cTacaWE6I&ab_channel=PositPBC)
+  + [slides](https://www.williamrchase.com/slides/assets/player/KeynoteDHTMLPlayer.html#0)
+
++ You will be asked to "sketch your game plan" with [https://excalidraw.com/](https://excalidraw.com/).
+
+::: callout-caution
+
+You will be **required** to use functions from the {forcats} package! e.g. `reorder()` is a no go, use `fct_reorder` instead!
+
+:::
 
 # Date + Time Variables
 
@@ -306,14 +600,14 @@ parse_datetime("5/8/1995", format = "%m/%d/%Y")
 
 ```{r}
 #| echo: true
-as_datetime(2023-03-6)
+as_datetime(2023-02-6)
 ```
 
 <br>
 
 ```{r}
 #| echo: true
-my_date <- 2023-03-6
+my_date <- 2023-02-6
 my_date
 ```
 
@@ -386,6 +680,9 @@ Unfortunately, the date and time of the murder is not known. You have been hired
 + **Lab 5: Factors in Data Visualization**
   + Due Friday, 2/10 at 11:59pm
   
++ **Final Project Group Formation Survey**
+  + Due Friday, 2/10 at 11:59pm
+  
 ## Wednesday, February 8th
 
 Today we will...
@@ -398,6 +695,17 @@ Today we will...
 + [PA 5.2: Scrambled Message](https://earobinson95.github.io/stat331-calpoly/practice-activities/PA5_2-scrambled-message-regex.html)
 
 ## Midterm Exam -- In-class Wednesday 2/15
+
+## Lab 4: Game Plans!
+
+::: panel-tabset
+### Q5
+
+### Q7
+
+### Q8
+
+:::
 
 # `stringr`
 
@@ -626,6 +934,9 @@ Selects all variables with a name that matches the supplied pattern
   + Due Friday, 2/10 at 8:00am
 
 + **Lab 5: Factors in Data Visualization**
+  + Due Friday, 2/10 at 11:59pm
+
++ **Final Project Group Formation Survey**
   + Due Friday, 2/10 at 11:59pm
 
 + [**Bonus Challenge: Murder Mystery in SQL City**](https://earobinson95.github.io/stat331-calpoly/bonus-challenges/bonus-challenge-murder-in-sql-city.html)
