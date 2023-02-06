@@ -1,139 +1,114 @@
 ---
-title: "Lab 1 & Challenge 1: Grading Guide"
+title: "Lab 2 & Challenge 2: Grading Guide"
 format: html
 self-contained: true
 toc: true
 code-tools: true
 ---
 
-# Lab 1: Introduction to Quarto (20 pts)
+# Lab 2: Exploring Rodents with ggplot2 (32 pts)
 
-## 1. Changing the YAML (4pts)
+## 1. Load in data (4pts)
 
-1. The title of the document should be "Lab 1: Introduction to Quarto"
-2. The author of the document should be their name
-3. Includes `self-contained: true`
-4. Includes `echo: true`
-5. (Optional) `editor: source/visual`
+1. use `here()`
+2. use `read_csv()`
 
 |  4  |  3  |  2  |  1  |  0  |
 | ----| --- | --- | --- | --- |
-| 4/4 | 3/4 | 2/4 | 1/4 | 0/4 |
+| `read_csv` + `here` |  |  |  |  |
 
-`yamlemissingtitle` Don't forget to change the title in the YAML; the title goes in quotes -- title: "Assignment Name Goes Here"
+`useherefunc` Make sure you understand how the here() function assists in organizing your workflow!
 
-`yamlmissingauthor` Make sure to give yourself credit for the assignment and add your name -- add author: "Your Name Goes Here" to the line under the title within the YAML
-
-`yamlmissingselfcontained` Your plot outputs do not show up; this indicates you are missing the self-contained option in the YAML (specified by the --- at the top of the document) -- add `self-contained: true` to a new line within the YAML.
-
-`yamlmissingecho` Your code output should be showing in the rendered file; this indicates you are missing the echo execution option in the YAML (specified by the --- at the top of the document) -- add a new line with `exectue:` then enter another new line and indent with `echo: true` within the YAML.
+`useread_csv` The read_csv() function from the readr package (part of the tidyverse).
 
 
-## 2. Add a New Section with Content -- Cars Description (4pts)
+## 2. Data Description (4pts)
 
-1. Section header with `# Cars Dataset`
-2. `summary(cars)` + output -- speed & dist
-3. (1/2 pt each) Description of cars data set-- This data set contains information about **the speed of cars and distances taken to stop**. The data was collected in **the 1920s.**
-4. Dimensions of cars data set -- It has **50** rows and **2** variables.
+1. dimensions: 30463 x 15
 
 |  4  |  3  |  2  |  1  |  0  |
 | ----| --- | --- | --- | --- |
-| 4/4 | 3/4 | 2/4 | 1/4 | 0/4 |
+| 4/4 | missing code for one | missing code for both | 1/4 | 0/4 |
 
-`createsectionheader` Use markdown syntax to create a section header; there must be a *space* between the hashtag and header text -- # Section Header Here
+`dimfunc` Using dim() will output the dimensions of the data set (rows x columns) -- e.g., dim(surveys)
 
-`carsmissingdescription` Type ?cars or help(cars) into the RStudio console -- this will tell you about the data set you are working with!
+`strfunc` The str() function will output a compact display of the structure of an R object, use give.attr = FALSE to remove the attributes -- e.g., str(survyes, give.attr = F)
 
-`carsmissingyears` What does the help file say about when the data was collected? Why might this be important information?
 
-`carsmissingdims` It is useful to know the size of the data set you are working with. What does the help file say about the number of rows and variables in the data set?
+## 3. Scatterplot (4pts)
 
-## 3. Modify the Provided Plot -- Pressure (4pts)
+x = weight
 
-+ section header (+1/2)
-+ code shown -- remove `#| echo: false` (+1/2)
-+ `plot(pressure)` (+1)
-+ x-axis label (temperature) includes "deg C" in title (+1/2 label +1/2 units)
-+ y-axis label (pressure) includes "mm" in title (+1/2 label +1/2 units)
+y = hindfoot_length
 
-`missingsectionheader` It is good to use section headers to organize your output -- this makes it easy to find your work! Use # to create a section header.
+geom_point()
 
-`removeecho` In order to display your code in the rendered document, remove the code chunk option *#| echo: false*
+`betterggplotformat` Be aware of your code formatting! Putting every layer and aesthetic on a new line will help you follow your parentheses and make the code easier to read!
 
-`betteraxeslabel` We want our axes labels to be informative and reader friendly -- should there be capitalization? What units should you include?
 
-`missingaxeslabel` It is important to provide informative and reader friendly labels. We often need to change these from the default labels outputting the variable names. We should include units of measurement and any additional information that makes it easy to understand what is being plotted.
 
-`missingaxesunits` When adding axes labels, make sure to include units of measurement!
+# 4. Scatterplot: Alpha Blending + Faceting (4pts)
 
-# 4. Creating a Code Chunk (4pts)
+`setalpha` since you are setting the alpha aesthetic, this goes outside of the aes() function and within the geom_xxx() function you want to apply the transparancy to -- e.g. geom_point(alpha = 0.1).
 
-+ Section Header -- Exploring Cars
-+ Extract the distance column of the `cars` data set and save it into a new
-  object named `dist` -- `dist <- cars[,2]` or `dist <- cars[,"dist"]` (+1)
+`smalleralpha` The smaller the alpha (between 0 and 1), the more transparency the points or geometric object will have!
   
-Code chunks for:
+`usefacetwrap` Using facet_wrap() instead of facet_grid() will help "wrap" the small multiples for each species into multiple rows.
 
-+ Plot the distribution of the stopping distances (`dist`). (+1 if histogram/density/boxplot; +1/2 if scatterplot with index)
-  + Distribution of stopping distances must be plotted with either a *histogram* 
-or a *density* plot
-+ *scatterplot* of the relationship between the stopping distance (`dist`) and speed
-  (`speed`). (+1)
+# 4. Scatterplot: Axes Labels (4pts)
 
-Plots created have axis labels (+1/2) with units (+1/2)
+`betteraxeslabel`
 
-*Note:* If they use `ggplot()` to plot the distribution of `dist`, then it is
-okay if they don't use the `dist` variable that is the vector of extracted
-distances. But they must have the code that extracts `dist` regardless of
-whether they use it for their plot.
+`missingaxeslabel`
 
-|  4  |  3  |  2  |  1  |  0  |
-| ----| --- | --- | --- | --- |
-|     |     |     |     |     |
+`niceaxeslabel`
 
-`extractingdist` See the pre-reading for indexing matrices. We want to extract and assign this column to a vector and name that object *dist*.
+`missingaxesunits`
 
-`extractingdistmultways` There are may ways to extract a column/variable -- cars[,2]; cars[,"dist"]; cars$dist -- These all create a vector we can assign to the object *dist*.
+`yasisinsubtitle` To move the y-axes label to the subtitle use labs(subtitle = "Y Axes Label") and either (1) set labs(y = "") empty or (2) theme(axis.title.y = element_blank()).
 
-`distnothist` When looking at the distribution of a single numerical variable we want to create either a histogram, density plot, or box-plot.
+## 5. Boxplot (4pts)
 
-`carsscatterplot` Look at the help file for plot() -- ?plot or help(plot) -- what arguments does this take?
+x = species, y = weight
 
-## 5. Commenting on Plots (4pts)
+geom_boxplot()
 
-+ Numbered List
-+ Includes at least *two* aspects of the plots they wish they could improve
+`sidebysidenotfacet` A side by side box plot is not the same as small multiples; this was clarified in class and posted on the course discord page. We want species on the x-axis and weight on the y-axis with a geom_boxplot().
 
-|  4                                 |            3.5                    |          3                       |      2       |   1      |  0  |
-| -----------------------------------| --------------------------------- | -------------------------------- | ------------ | -------- | --- |
-| Numbered list with 2 or more items | Needs to hit enter before numbers | 2 items, but not a numbered list |  only 1 item | No items |     |
+## 6. Boxplot: geom_jitter() + color + remove outliers (4pts)
 
-`greatplotlist` I really like seeing your creativity show as you think about what aspects of the plots you would like to improve!
+geom_boxplot(outlier.shape = NA)
 
-`enterbeforelist` In order for the markdown syntax to notice a list, you must hit enter in your .qmd file, leaving an empty space between the previous line of text and the start of the list.
+geom_jitter(alpha = 0.1, color = "steelblue")
 
-# Challenge 1: Modifying your Quarto Document (+10 Challenge Points)
+`setalpha`
 
-## Code Folding
+`smalleralpha`
 
-`nocodefold` Add a new line to your YAML header containing *code-fold: true*. Render your .qmd file to see the changes it makes!
+`setcolor` Recall the difference between setting an aesthetic and assigning/mapping an aesthetic. We want to SET the color -- therefore, color = should be outside of the aes() statement witht the specific color in quotes -- e.g., geom_jitter(color = "blue").
 
-## Center Aligned -- pressure
+`removeoutlierbxplt` Look up the R documentation with ?geom_boxplot. See what it says about outlier.shape -- this should be outside of any aes() statements and specifically applyied locally to the boxplot geometric object.
 
-`usehashpipefigalign` There will be slightly different syntax between Rmarkdown (.Rmd) and Quarto (.qmd) files. In Rmarkdown, *{r, fig.align = 'center'}* is included in defining the code chunk. In Quarto however, we want to use that fancy hashpipe *#| fig-align: center* ! This will have an auto-fill feature making code chunk options simple to use. Make sure you are getting in the habit of using the hashpipe code chunk options (disclaimer: you may be already using the hashpipe -- I just can't tell from the output since this part is not shown in the rendered document)
+## 7. Boxplot: axes labels + orientation (+4)
 
-## Figure Caption -- pressure
+`betteraxeslabel`
 
-`c1figcap` It is good practice to give your figures informative captions about what is being displayed. Quarto documents specify this with a hashpipe: *#| fig-cap: "Put your figure caption here."*
+`missingaxeslabel`
 
-## Side-by-side plots -- cars histogram + cars scatterplot
+`niceaxeslabel`
 
-`carsnotsidebyside` Apparently there is a blogpost that says you should be able to place figures side-by-side with 'hold' and fig.width = "50%". This might be a difference between RMarkdown and Quarto code chunk options. When using base R for plotting, *use par(mfrow = c(1,2))* to change the output window layout to have 1 row and 2 columns. You can then change this back using *par(mfrow = c(1,1))*.
+`missingaxesunits`
 
-## Additional modification
+`doublecheckaxeslabels` When you flipped your axes, make sure you double check your labels align with the correct axes!
 
-`specifyquartomod` What additional quarto modification did you make? There are a lot of really cool tips and creative features you can modify in quarto documents!
+`habityasisinsubtitle` It is good to get in the habit of putting your y-axis label into the subtitle of your plot!
 
-```{r}
-#| fig-alt: 
-```
+`usecoordflip` Another way to flip your axes is to use coord_flip(), but be cautious about what this does with your axes labels!
+
+# Challenge 2: Spicing things up with ggplot (+10 Challenge Points)
+
+## Ridge Plots
+
+## Colors
+
+## Annotation

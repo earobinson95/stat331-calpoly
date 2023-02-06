@@ -19,12 +19,46 @@ library(palmerpenguins)
 
 Today we will...
 
++ Final Project Group Formation
 + Review Lab 4
-+ Final Project Timeline
 + Mini lecture on text material
   + Reordering Factor Variables
   + Working with Date & Time Variables
 + [PA 5.1: Zodiac Killer](https://earobinson95.github.io/stat331-calpoly/practice-activities/PA5_1-zodiac-killer.html)
+
+## Final Project Group Formation
+
+## Lab 4: Tips
+
+**Don't include pages of output**
+
+Use the code chunk option
+
+`#| output: false`
+
+`#| results: false`
+
+**Data Description Components**
+
+## `mutate()` vs `summarise()`
+
+
+
+## Lab 4: Game Plans!
+
+::: panel-tabset
+
+Read **Average** and **Total** -- Think `summarize(avg_var = mean())` and `summarize(total = sum())`
+
+Read **which** or **for each** -- Think `group_by()`
+
+### Q5
+
+### Q7
+
+### Q8
+
+:::
 
 ## Lab 4: Better alternatives to bar plots
 

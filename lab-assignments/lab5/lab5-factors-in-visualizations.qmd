@@ -125,3 +125,9 @@ It should be very clear that there are more rodents captured on the weekend than
 ::: callout-warning
 Your plot **should not** make people tilt their heads to read it! Be mindful in choosing which variable goes on which axis and if / how you use axis labels.
 :::
+
+<br>
+
+:::callout-caution
+Don't forget to submit your final project group formation survey this week! Due at the same time as this lab!
+:::
