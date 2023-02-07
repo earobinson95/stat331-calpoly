@@ -2719,6 +2719,7 @@ Danger
 <p><code>self-contained: true</code></p>
 <p><code>echo: true</code></p>
 <p><code>code-tools: true</code></p>
+<p><code>code-fold: true</code></p>
 <p>You may want to copy a YAML from a previous lab assignment.</p>
 </div>
 </div>
@@ -2749,6 +2750,7 @@ Tip
 </div>
 <div class="callout-body-container callout-body">
 <p>While this is not an English class, I will be looking for clear and concise communication. Make sure to frame your insight with a data description paragraph and explain your argument.</p>
+<p>See an <a href="https://earobinson95.github.io/stat331-calpoly/lab-assignments/lab4/lab4-student-sample-Q7.html">example of a good open-ended analysis</a> by one of your peers.</p>
 </div>
 </div>
 <!-- -->
@@ -3036,34 +3038,38 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a><span class="in">`code-tools: true`</span></span>
 <span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>You may want to copy a YAML from a previous lab assignment.</span>
-<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>You will be asked one open-ended question about the minimum wage data set, such</span>
-<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>as &quot;Make an argument about the price of avocados and housing prices&quot;. You will</span>
-<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>create a write-up of approximately 1 page (including all plots, echoed code, and</span>
-<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>tables) that tells a clear story. Your write-up must include **at least** one plot</span>
-<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>and **at least** one table of summary statistics.</span>
-<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>You will turn in your <span class="in">`.html`</span> and <span class="in">`.qmd`</span> files; only your <span class="in">`.html`</span> file will be</span>
-<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>graded. </span>
-<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>::: callout-warning</span>
-<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>Make sure your output only answers the question asked (e.g. I don&#39;t want</span>
-<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>to scroll through 2 pages of <span class="in">`summary(data)`</span> or 50 pages of the data set printed</span>
-<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>out).</span>
-<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a>Code format and design **is** part of your grade. You should be using the</span>
-<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a><span class="in">`tidyverse`</span> package and style guide to address the question, but you can use</span>
-<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a>outside supporting code (e.g. indexing from base R is not prohibited, but you</span>
-<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>should use <span class="in">`ggplot2`</span> to create your plot instead of base R <span class="in">`plot`</span>).</span>
-<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
-<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a>While this is not an English class, I will be looking for clear and concise</span>
-<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a>communication. Make sure to frame your insight with a data description paragraph</span>
-<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a>and explain your argument.</span>
-<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a><span class="in">`code-fold: true`</span></span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>You may want to copy a YAML from a previous lab assignment.</span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>You will be asked one open-ended question about the minimum wage data set, such</span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>as &quot;Make an argument about the price of avocados and housing prices&quot;. You will</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>create a write-up of approximately 1 page (including all plots, echoed code, and</span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>tables) that tells a clear story. Your write-up must include **at least** one plot</span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>and **at least** one table of summary statistics.</span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>You will turn in your <span class="in">`.html`</span> and <span class="in">`.qmd`</span> files; only your <span class="in">`.html`</span> file will be</span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>graded. </span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>::: callout-warning</span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>Make sure your output only answers the question asked (e.g. I don&#39;t want</span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a>to scroll through 2 pages of <span class="in">`summary(data)`</span> or 50 pages of the data set printed</span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a>out).</span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a>Code format and design **is** part of your grade. You should be using the</span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a><span class="in">`tidyverse`</span> package and style guide to address the question, but you can use</span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a>outside supporting code (e.g. indexing from base R is not prohibited, but you</span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a>should use <span class="in">`ggplot2`</span> to create your plot instead of base R <span class="in">`plot`</span>).</span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a>While this is not an English class, I will be looking for clear and concise</span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a>communication. Make sure to frame your insight with a data description paragraph</span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a>and explain your argument.</span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a>See an <span class="co">[</span><span class="ot">example of a good open-ended analysis</span><span class="co">](https://earobinson95.github.io/stat331-calpoly/lab-assignments/lab4/lab4-student-sample-Q7.html)</span> by one of your peers.</span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

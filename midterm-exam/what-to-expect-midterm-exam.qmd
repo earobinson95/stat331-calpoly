@@ -93,6 +93,8 @@ Make sure the following quarto options are included in your YAML.
 
 `code-tools: true`
 
+`code-fold: true`
+
 You may want to copy a YAML from a previous lab assignment.
 :::
 
@@ -120,4 +122,6 @@ should use `ggplot2` to create your plot instead of base R `plot`).
 While this is not an English class, I will be looking for clear and concise
 communication. Make sure to frame your insight with a data description paragraph
 and explain your argument.
+
+See an [example of a good open-ended analysis](https://earobinson95.github.io/stat331-calpoly/lab-assignments/lab4/lab4-student-sample-Q7.html) by one of your peers.
 :::
