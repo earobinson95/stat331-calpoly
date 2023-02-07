@@ -21,6 +21,8 @@ library(tidyverse)
 library(lubridate)
 ```
 
+***Disclaimer: Points could be adjusted as I finalize my rubric, but I am thinking this general weighting across the categories.***
+
 ## Exam Details {-}
 
 + You will have one hour and 50 minutes to complete the exam on your own computer.
