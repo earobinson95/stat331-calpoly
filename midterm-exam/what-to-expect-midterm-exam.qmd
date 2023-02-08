@@ -27,7 +27,9 @@ library(lubridate)
 
 + You will have one hour and 50 minutes to complete the exam on your own computer.
 + The exam is worth a total of 100 points and consists of 3 sections: General Questions, Short Answer, and Open-Ended Analysis.
-+ I will bring paper copies of the exam questions and a `.qmd` starter file will be unlocked at the start of each sections class.
++ I will bring paper copies of the exam questions 
++ A `.qmd` starter file for the short answer will be unlocked at the start of each sections class.
++ You will be creating your own `.qmd` file for the open-ended analysis. You may bring one already created on your computer.
 
 ::: callout-caution
 While this is an open resource exam, you will likely get caught running out of time if you have to look everything up. Know what functions you might need to approach the problem and where to find documentation for implementing these functions.
