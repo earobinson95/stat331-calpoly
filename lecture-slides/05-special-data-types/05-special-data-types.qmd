@@ -686,6 +686,7 @@ Unfortunately, the date and time of the murder is not known. You have been hired
 Today we will...
 
 + Review PA 5.1: Zodiac Killer
++ Bonus Challenge: Save the Date
 + Midterm Exam 2/15: What to Expect
   + Example Game Plans
   + Example Open-ended Analysis
@@ -735,7 +736,7 @@ While this is an open resource exam, you will likely get caught running out of t
 
 ## Lab 4: Game Plans!
 
-Question 1: Data Cleaning
+Q2: Clean the data in any way you see fit.
 
 ::: panel-tabset
 ### version 1
@@ -750,13 +751,13 @@ Question 1: Data Cleaning
 
 ## Lab 4: Game Plans!
 
-Q3: Total Small Avos
+Q3: Which major geographical region sold the most total organic, small Hass avocados in 2017?
 
 ![](images/q3-game-plan-sketch.JPG)
 
 ## Lab 4: Game Plans!
 
-Q8: Recreate the plot
+Q8: The following plot shows, for all four California regions, the proportion of the average Hass avocado sales that are small, large, or extra large; conventional vs. organic. Recreate the plot.
 
 ::: panel-tabset
 ### version 1
@@ -883,7 +884,7 @@ Returns **character matrix** with either `NA` or the pattern, depending on if th
 ```{r}
 #| echo: true
 my_vector <- c("Hello,", "my name is", "Bond", "James Bond")
-str_detect(my_vector, pattern = "Bond")
+str_match(my_vector, pattern = "Bond")
 ```
 
 ## `str_extract()` 
@@ -897,7 +898,9 @@ str_extract(my_vector, pattern = "Bond")
 ```
 
 ::: callout-warning
-`str_extract()` only returns the **first** pattern match; use `str_extract_all()` to return **every** pattern match.
+`str_extract()` only returns the **first** pattern match.
+
+Use `str_extract_all()` to return **every** pattern match.
 :::
 
 ## `str_locate()` 
@@ -931,8 +934,6 @@ str_subset(my_vector, pattern = "Bond")
 ::: panel-tabset
 
 ### `str_replace()`
-
-`str_replace(x, pattern = "", replace = "")`
 
 replaces the **first** matched pattern
 
@@ -1027,8 +1028,12 @@ Joins multiple strings into a single string.
 prompt <- "Hello, my name is"
 first  <- "James"
 last   <- "Bond"
-str_c(prompt, first, last, sep = " ")
+str_c(prompt, last, ",", first, last, sep = " ")
 ```
+
+::: callout-note
+Similar to `paste()` and `paste0()`
+:::
 
 ### `str_flatten()`
 
@@ -1095,7 +1100,14 @@ knitr::include_graphics("images/regular_expressions.png")
 
 R uses "extended" regular expressions, which are common.
 
-`pattern = "REGEX GOES HERE"`
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: 2
+str_detect(string  = my_string_vector, 
+           pattern = "REGULAR EXPRESSION"
+           )
+```
 
 [Web app to test R regular expressions](https://spannbaueradam.shinyapps.io/r_regex_tester/)
 
@@ -1121,7 +1133,7 @@ toung_twister
 
 ```{r}
 #| echo: true
-str_subset(toung_twister, pattern = ".ea")
+str_subset(toung_twister, pattern = ".ells")
 ```
 
 ### Anchoring `^ $`
@@ -1149,7 +1161,7 @@ str_subset(toung_twister, pattern = "^s")
 
 ```{r}
 #| echo: true
-str_subset(toung_twister, pattern = "!$")
+str_subset(toung_twister, pattern = "s$")
 ```
 
 ### Quantifiers `? + *`
@@ -1301,7 +1313,7 @@ str_subset(toung_twister2, pattern = "^[Pp]")
 
 ## Let's try it out!
 
-Write a regular expressions that search for words that do the following:
+Write regular expressions that search for words that do the following:
 
 + end with a vowel
 + start with x, y, or z
