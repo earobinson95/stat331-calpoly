@@ -695,7 +695,7 @@ Today we will...
 + Example: "Messy" Covid Variants
 + [PA 5.2: Scrambled Message](https://earobinson95.github.io/stat331-calpoly/practice-activities/PA5_2-scrambled-message-regex.html)
 
-## Bonus Challenge: Save the Date
+## [Bonus Challenge: Save the Date](https://earobinson95.github.io/stat331-calpoly/bonus-challenges/bonus-challenge-data-mishaps-night.html)
 
 :::: {.columns}
 :::{.column  width="55%"}
@@ -707,7 +707,7 @@ Today we will...
 :::
 :::{.column  width="45%"}
 ```{r}
-#| out-width: 50%
+#| out-width: 70%
 #| fig-align: center
 knitr::include_graphics("https://datamishapsnight.files.wordpress.com/2021/01/data-mishaps_main_withtext-4.png?w=768")
 ```
@@ -718,12 +718,8 @@ knitr::include_graphics("https://datamishapsnight.files.wordpress.com/2021/01/da
 You must register for **free** [here](https://datamishapsnight.com/) to receive the link!
 :::
 
-+ Submit to canvas a "hardy" paragraph reflection for each of the keynote and/or theme sessions you attend. 
-+ Each reflection gets you +2 challenge points (that is up to +8 for the whole night!)
-
-::: callout-tip
-Make sure to indicate with a header, which theme your reflection is for. You can write this in any document editor of your choosing (Word, Quarto, Google Docs, etc.)
-:::
++ Submit to canvas a "reflection" for each of the keynote and/or theme sessions you attend. 
++ Each "reflection" gets you +2 challenge points (that is up to +8 for the whole night!)
 
 ## Midterm Exam -- In-class Wednesday 2/15
 
