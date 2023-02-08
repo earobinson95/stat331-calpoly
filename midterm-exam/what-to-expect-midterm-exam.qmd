@@ -58,7 +58,7 @@ and Responsibilities; academic dishonesty may be punishable by a grade of F in t
   
 ## The Data {-}
 
-Your data set for the exam, `minimum-wage-data.csv` can be downloaded [here](mininimum-wage-data.csv).
+Your data set for the exam, `minimum-wage-data.csv` can be downloaded [here](minimum-wage-data.csv).
 
 The data set contains information about the minimum wage for each state across years. Documentation for this data set can be found [here](https://github.com/Lislejoem/Minimum-Wage-by-State-1968-to-2020).
 

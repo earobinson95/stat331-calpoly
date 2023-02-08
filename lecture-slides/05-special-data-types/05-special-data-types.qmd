@@ -1144,10 +1144,6 @@ toung_twister <- c("She", "sells", "seashells", "by", "the", "seashore!")
 toung_twister
 ```
 
-```{r}
-#| echo: true
-toung_twister
-```
 <br>
 
 `^` Looks at the beginning  
@@ -1216,7 +1212,7 @@ str_subset(shells_str, pattern = "shel{2}s")
 
 ```{r}
 #| echo: true
-str_subset(shells_str, pattern = "shel{2}s")
+str_subset(shells_str, pattern = "shel{2,}s")
 ```
 
 `{n,m}` matches between n and m times.
@@ -1252,7 +1248,6 @@ str_subset(toung_twister2, pattern = "p(e|i)ck")
 ```{r}
 #| echo: true
 toung_twister2 <- c("Peter", "Piper", "picked", "a", "peck", "of", "pickled", "peppers!")
-toung_twister2
 ```
 
 . . .
@@ -1313,7 +1308,7 @@ str_subset(toung_twister2, pattern = "^[Pp]")
 
 ## Let's try it out!
 
-Write regular expressions that search for words that do the following:
+Discuss with a neighbor which regular expressions would search for words that do the following:
 
 + end with a vowel
 + start with x, y, or z
@@ -1446,10 +1441,10 @@ military_clean <- military |>
 #| code-line-numbers: 3, 6 
 military_clean <- military |> 
   mutate(
-         across(matches("[1-9]"), 
+         across(matches("[1-9][1-9][1-9][1-9]"), 
                 ~ na_if(.x, y = ". .")
                 ),
-         across(matches("[1-9]"), 
+         across(matches("[1-9][1-9][1-9][1-9]"), 
                 ~ na_if(.x, y = "xxx")
                 )
          )
