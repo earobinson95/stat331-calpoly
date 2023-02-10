@@ -1,5 +1,5 @@
 ---
-title: "WEEK 5: SPECIAL DATA TYPES"
+title: "WEEK 6: VERSION CONTROL"
 format: 
   revealjs:
     theme: [default, ../../slide_custom.scss]
@@ -12,592 +12,508 @@ self-contained: true
 #| include: false
 #| message: false
 library(tidyverse)
-library(palmerpenguins)
 ```
 
-## Monday, February 6th
+## Monday, February 13th
 
 Today we will...
 
-+ Review Lab 4
-+ Final Project Timeline
-+ Mini lecture on text material
-  + Reordering Factor Variables
-  + Working with Date & Time Variables
-+ [PA 5.1: Zodiac Killer](https://earobinson95.github.io/stat331-calpoly/practice-activities/PA5_1-zodiac-killer.html)
++ Review Lab 5
++ Mini Lecture on text material
+  + git/GitHub
++ Connect GitHub to RStudio
++ PA 6: Merge Conflicts -- Collaborating within a GitHub Repo
++ Any lingering questions about Midterm
 
-## Lab 4: Better alternatives to bar plots
+# git/GitHub Basics
 
-*Bar plots are typically reserved for displaying frequencies*
-
-::: panel-tabset
-### Bar plots
-
-### Dotchart
-
-### Segment
-:::
-
-# Factor Variables
-
-`as.factor()`
-
-## `library(forcats)`
+## Git vs GitHub
 
 :::: columns
 ::: column
-**Common tasks**
+<br>
+```{r}
+#| fig-align: center
+#| out-width: 50%
+knitr::include_graphics("https://bornsql.ca/wp-content/uploads/2022/03/Git-Logo-2Color.png") 
+```
 
-+ Turn a `character` or `numeric` variable into a factor
-
-+ Make a factor by discritizing / "binning" a numeric variable
-
-+ Rename or reorder the `levels` of an existing `factor`
++ Language for version control
++ Developed by Linus Torvalds (Linux, Android, Chrome OS)
++ Uses command line or GUI
 :::
 ::: column
 ```{r}
-#| out-width: 50%
 #| fig-align: center
-knitr::include_graphics("https://github.com/rstudio/hex-stickers/blob/main/thumbs/forcats.png?raw=true")
+#| out-width: 50%
+knitr::include_graphics("https://logos-world.net/wp-content/uploads/2020/11/GitHub-Emblem.png") 
 ```
+
++ Cloud-based hosting service
++ Basic services are free
++ Advanced services are paid (Similar to RStudio) 
 :::
 ::::
 
-::: callout-note
-The packages `forcats` ("for categoricals") gives nice shortcuts for
-wrangling categorical variables.
+## Why GitHub?
 
-  + `forcats` loads with the `tidyverse`!
-:::
+1. A structured way for tracking changes to files over the course of a project.
 
-## Create a `factor`
+2. Makes it easy to have multiple people working on the same files at the same time.
 
-```{r}
-#| echo: true
-x <- c("apple", "dog", "banana", "cat", "banana", "Queen Elizabeth", "dog")
-x
-```
+3. You can host a URL of fun things (like the class text, these slides, a personal website, etc.) with [GitHub pages](https://pages.github.com/).
 
-<br>
+*Think "track-changes" or "drop-box" history, but more structured.*
 
-```{r}
-#| echo: true
-x <- factor(x)
-x
-```
+## Git Repositories
 
-## What happened?
++ Think of this as a folder-directory for a single project (like your stat-331 folder!)
 
 ```{r}
 #| fig-align: center
-knitr::include_graphics("images/factor_mapping.jpg")
+#| out-width: 20%
+
+knitr::include_graphics("https://miro.medium.com/max/512/1*w07Er4gPg8H2Ew-P0HhxNA.png")
 ```
 
-<!-- :::: columns -->
-<!-- ::: column -->
-<!-- ```{r} -->
-<!-- #| echo: false -->
-<!-- x <- c(1,4,2,3,2,5,4) -->
-<!-- ``` -->
++ You may have code, documentation, data, TODO lists, and more associated with a project.
 
-<!-- ```{r} -->
-<!-- #| echo: true -->
-<!-- x -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- ::: column -->
-<!-- ```{r} -->
-<!-- x <- factor(c("apple", "dog", "banana", "cat", "banana", "Queen Elizabeth", "dog")) -->
-<!-- ``` -->
++ To create a repository, you can start with your local computer first, or you can start with the online repository first.
 
-<!-- ```{r} -->
-<!-- #| echo: true -->
-<!-- #| eval: false -->
-<!-- levels(x) -->
-<!-- ``` -->
+## Actions in Git
 
-<!-- ```{r} -->
-<!-- #| echo: false -->
-<!-- levels(x) |>  -->
-<!--   knitr::kable() -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- :::: -->
-
-## `factor_recode()`
-
-new level = old level
-
-```{r}
-#| echo: true
-x <- fct_recode(x,
-                fruit = "apple",
-                fruit = "banana",
-                pet   = "cat",
-                pet   = "dog"
-                )
-x
-```
-
-::: callout-note
-Notice Queen Elizabeth is a "remaining" level that was never recoded.
-:::
-
-## `factor_relevel()`
-
-```{r}
-#| echo: true
-x <- fct_relevel(x, 
-                 levels = c("Queen Elizabeth", 
-                            "pet", 
-                            "fruit")
-)
-levels(x)
-```
-
-
-## Factors in the `tidyverse`
-
-```{r}
-#| echo: true
-
-```
-
-## Factors in `ggplot2`
-
-::: panel-tabset
-### `labels`
-
-### `fct_reorder()`
-
-### `fct_reorder2()`
-
-::: 
-
-## Lab 5: Factors in Data Visualizations
-
-# Date + Time Variables
-
-# `library(lubridate)`
+## Cloning a Repo
 
 :::: columns
 ::: column
-**Common Tasks**
-
-+ Convert a date-like variable ("May 8, 1995") to a special DateTime Object.
-
-+ Find the weekday, month, year, etc from a DateTime object
-
-+ Convert between timezones
 
 :::
 ::: column
 ```{r}
 #| fig-align: center
 #| out-width: 50%
-knitr::include_graphics("https://github.com/rstudio/hex-stickers/blob/main/thumbs/lubridate.png?raw=true")
+knitr::include_graphics("images/git_clone_diagram.png")
 ```
 :::
 ::::
 
-::: callout-note
-The package `lubridate` is AMAZING for this. 
+## Committing
 
-+ `lubridate` does not **load** with the `tidyverse` but it does **install**
-  with it.
-  
+Git tracks changes to each file that it is told to monitor, and as the files change, you provide short labels describing what the changes were and why they exist (called “commits”).
+
 ```{r}
-#| echo: true
-library(lubridate)
+#| fig-align: center
+#| out-width: 50%
+#| fig-cap: "Here, we commit the red line as a change to our file."
+knitr::include_graphics("images/git-commit.png")
 ```
-:::
 
-## `datetime` Objects
+The log of these changes (along with the file history) is called your git commit history. This means you can always go back to old copies!
 
-There are actually three data types (classes) in R for dates and datetimes.
-
-+ Date (duh)
-
-+ POSIXlt (???)
-
-+ and POSIXct (???)
-
-## History of `POSIXlt` and `POSIXct`
+## Pushing
 
 :::: columns
 ::: column
-- `POSIXct` -- stores date/time values as the number of seconds since
-January 1, 1970 ("Unix Epoch")
-
-- `POSIXlt` -- stores date/time values as a list with elements for second,
-minute, hour, day, month, and year, among others. 
+Updates the copy of the repository on another machine (e.g. on GitHub) so that it has the most recent changes you’ve made to your machine.
 :::
 ::: column
-In the "old days", to make a Date or Datetime object, you'd have to get the
-format *just right*.
-
 ```{r}
-#| echo: true
-as.Date("1995-05-08") |>  str()
-as_datetime("1995-05-08") |>  str()
+#| fig-align: center
+#| out-width: 75%
+knitr::include_graphics("images/git_push_diagram.png")
 ```
 :::
 ::::
 
-## Enter `lubridate`!
+## Pulling
 
 :::: columns
 ::: column
-```{r}
-#| echo: true
-make_date(year = 1995, month = 05, day = 08)
-mdy("May 8, 1995")
-dmy("8-May-1995", tz = "America/Chicago")
-```
+Updates your local copy of the repository (the copy on your computer) with the files that are “in the cloud” (on GitHub). 
 :::
 ::: column
 ```{r}
-#| echo: true
-parse_datetime("05/8/1995", format = "mdy")
-
-parse_datetime("5/8/1995", format = "%m/%d/%Y")
-
+#| fig-align: center
+#| out-width: 75%
+knitr::include_graphics("images/git_pull_diagram.png")
 ```
 :::
 ::::
 
-## Common mistake with dates
-
-*What is wrong with these two code chunks?*
+## Pushing and Pulling
 
 ```{r}
-#| echo: true
-as_datetime(2023-03-6)
+#| fig-align: center
+#| out-width: 75%
+knitr::include_graphics("images/pushing-and-pulling.jpg")
 ```
 
-<br>
-
-```{r}
-#| echo: true
-my_date <- 2023-03-6
-my_date
-```
-
-## Components of dates
+## Merge Conflicts
 
 
-```{r}
-#| echo: true
-bday <- ymd_hms("1995-05-8 6:32:12", tz = "America/Chicago")
-bday
-```
-
-<br>
+## Workflow {#git-workflow}
 
 :::: columns
 ::: column
-```{r}
-#| echo: true
-year(bday)
-month(bday)
-day(bday)
-```
+**Starting a new project/local repo**
+
+::: incremental
+1. Clone the project or create a new repository
+2. Make some changes
+4. Commit the changes
+5. Pull any changes from the remote repository
+6. Resolve any merge conflicts
+7. Push the changes (and merged files)
+:::
 :::
 ::: column
-```{r}
-#| echo: true
-wday(bday)
-
-wday(bday, label = TRUE)
-
-wday(bday, label = TRUE)
-```
 :::
 ::::
 
-## When is my ______ birthday?
+## Workflow
 
-<br>
+:::: columns
+::: column
+**Starting a new project/local repo**
 
-next birthday...
+1. Clone the project or create a new repository
+2. Make some changes
+4. Commit the changes
+5. Pull any changes from the remote repository
+6. Resolve any merge conflicts
+7. Push the changes (and merged files)
+:::
+::: column
+**Working with an existing local repo**
+
+::: incremental
+1. Pull the repo (especially if collaborating)
+2. Make some changes
+4. Commit the changes
+5. Pull any changes from the remote repository (again!)
+6. Resolve any merge conflicts
+7. Push the changes (and merged files)
+:::
+:::
+::::
+
+# Connect GitHub to RStudio
+
+## Rpackages we will need
+
+Work in your terminal or an .Rscript for this...
+
+1. Install and load the {usethis} Rpackage
 
 ```{r}
+#| eval: false
 #| echo: true
-(bday + years(28)) |>  
-  wday(label = TRUE, abbr = FALSE)
+install.packages(usethis)
+library(usethis)
 ```
 
-<br>
-
-hundredth...
+2. Install and load {gitcreds} RPackage
 
 ```{r}
+#| eval: false
 #| echo: true
-bday + years(100)
+install.packages("gitcreds")
+library(gitcreds)
 ```
 
-## [PA 5.1: Zodiac Killer](https://earobinson95.github.io/stat331-calpoly/practice-activities/PA5_1-zodiac-killer.html)
 
-One of the most famous mysteries in California history is the identity of the so-called “Zodiac Killer”, who murdered 7 people in Northern California between 1968 and 1969. A new murder was committed last year in California, suspected to be the work of a new Zodiac Killer on the loose.
+## Generate your PAT (Personal Access Token)
 
-Unfortunately, the date and time of the murder is not known. You have been hired to crack the case. Use the clues below to discover the murderer’s identity.
-
-> Submit the name of the killer to the Canvas Quiz.
-
-## To do...
-
-+ **PA 5.1: Zodiac Killer**
-  + Due Wednesday, 2/8 at 8:00am
-
-+ **Lab 5: Factors in Data Visualization**
-  + Due Friday, 2/10 at 11:59pm
-  
-## Wednesday, February 8th
-
-Today we will...
-
-+ Review PA 5.1: Zodiac Killer
-+ Midterm Exam 2/15: What to Expect
-+ Mini lecture on text material
-  + Strings
-  + Regular Expressions
-+ [PA 5.2: Scrambled Message](https://earobinson95.github.io/stat331-calpoly/practice-activities/PA5_2-scrambled-message-regex.html)
-
-## Midterm Exam -- In-class Wednesday 2/15
-
-# `stringr`
+3. `Generate token`
 
 ```{r}
+#| eval: false
 #| echo: true
-library(stringr)
+create_github_token()
 ```
-
-## strings
-
-**raw strings**
 
 ```{r}
-str_view(r"{This is a raw string! :)}")
+#| fig-align: center
+#| out-width: 60%
+knitr::include_graphics("images/pat-generate.jpg")
 ```
 
-## `separate_xxx_delim()`
-
-`separate_longer_delim()`
-
-`separate_wider_delim()`
-
-## Combine Strings
-
-::: panel-tabset
-### `str_c()`
-
-### `str_glue()`
-
-### `str_flatten()`
+::: callout-warning
+GitHub really doesn't like it when you do not have a PAT expiration date... but I don't ever want to deal with it again. Make sure your expiration date is AT LEAST through the end of the quarter (60 days).
 :::
 
-# regex
+## Store your PAT
+
+4. Copy your PAT
 
 ```{r}
 #| fig-align: center
 #| out-width: 70%
-knitr::include_graphics("images/regular_expressions.png")
+knitr::include_graphics("images/pat-copy.jpg")
 ```
 
-## `pattern = `
 
-[Web app to test R regular expressions](https://spannbaueradam.shinyapps.io/r_regex_tester/)
+5. `Enter password or token:` Paste PAT
 
-The **pattern argument** in all of the `stringr` functions ...
+```{r}
+#| eval: false
+#| echo: true
+gitcreds_set()
+```
 
+## Verify PAT
 
-## Meta Characters
+You should be good to go! Let's verify.
 
+```{r}
+#| echo: true
+#| eval: false
+git_sitrep()
+```
 
-| Character | What it does                          |
-| --------- | ------------------------------------- |
-| `.`       | wild card; matches any character      |
-|           |                                       |
-| `+`       | pattern repeats at least once (matches 1 to infinity) |
-| `?`       | pattern is optional (matches 0 or 1)  |
-| `*`       | pattern is optional or repeats (matches 0 to infinity)        |
-|           |                                       |
-|           |                                       |
-| `|`       | alteration (or)                       |
+```{r}
+#| out-width: 40%
+knitr::include_graphics("images/pat-verify.jpg")
+```
 
-## Character Classes `[]`
+# PA 6: Merge Conflicts
 
-`^` except
+Collaborating within a GitHub Repo
 
-`-` range
+## Get into your groups!
 
-# Key `stringr` Functions
+![](images/card-suits.jpg){width="20%"}
 
-`str_detect()`
-
-`str_count()`
-
-`str_replace()`, `str_replace_all()`
-
-## `str_detect()` Detect Matches
-Returns logical boolean `TRUE/FALSE` if pattern matches
-
-+ Pairs well with `filter()`
-+ Could be used with `summarise()` and `sum` or `mean`
-
-::: {.callout-note collapse="true"}
-### Related functions 
-`str_subset()` returns just the strings that contain the match
-
-`str_which()` returns the indexes of strings that have a match
-:::
-
-## `str_count()` Count Matches
-
-Tells you how many matches of the pattern in each string
-
-+ Pairs well with `mutate()`
-
-::: {.callout-note collapse="true"}
-### Related functions 
-`str_to_lower()` converts all letters in the strings to lowercase
-
-`str_to_upper()` converts the first letter of the strings to uppercase
-:::
-
-## `str_replace()`, `str_replace_all()`
-
-`str_replace(x, pattern = "", replace = "")`
-
-`str_replace_all()`
-
-
-::: {.callout-note collapse="true"}
-### Related functions 
-`str_remove(x, pattern, "")`
-
-`str_remove_all()`
-:::
-
-## Escape: Get `\` happy! `\\\\`
-
-In order to match a special character you need to "escape" first
-
-::: callout-note
-Could also use `[]` character class
-
-Full set of metacharacters `.` `^`  `$` `\`  `|` `*` `+` `?` `{` `}` `[` `]` `(` `)`
-:::
+Designate each person to one of the suits -- you will be referencing it as you work through this activity.
 
 ::: callout-warning
-In general, look at punctuation characters with suspicion.
+If you only have 3 group members here, assign one person both ![](images/club.jpg){width="3%"} and ![](images/heart.jpg){width="3%"}.
+
+<!-- If you only have 2 group members here, assign one person both ![](images/club.jpg){width="3%"} and ![](images/heart.jpg){width="3%"} and the other person both ![](images/spade.jpg){width="3%"} and ![](images/diamond.jpg){width="3%"}. -->
 :::
 
-## When in Doubt
-<br>
-<br>
-```{r}
-#| fig-align: center
-#| out-width: 80%
-knitr::include_graphics("images/backslashes.png")
-```
+## Flags
 
-## Anchoring
+Please use sticky notes to indicate how your group is doing:
 
-::: panel-tabset
-### `^` anchor to start
++ <p style="background-color:Green;">Green</p> -- we are ready to move on
++ <p style="background-color:Yellow;">Yellow</p> -- we're figuring it out
++ <p style="background-color:Pink;">Pink</p> -- Please help!!
 
-### `$` anchor to end
+# Repository Setup
 
-### `\b` boundaries
+##  Creating a Repo (starting from GitHub)
+
+![](images/club.jpg){width="4%"} 
+
++ Create a new Github repository titled `stat-331-PA6`
+  + You can choose Public or Private
+  + Select `.gitignore template: R`
++ Click on the `Settings` tab > Click on `Collaborators` > `Add people`
++ Add your other group members to the repository using their username or email
+
+## Accessing the Repo (cloud repo)
+
+![](images/spade.jpg){width="4%"} ![](images/diamond.jpg){width="4%"} ![](images/heart.jpg){width="4%"}
+
++ Verify repository invite in your email
++ Open the repository in Github
+
+## Cloning the Repo (local repo)
+
+![](images/spade.jpg){width="4%"} ![](images/diamond.jpg){width="4%"} ![](images/club.jpg){width="4%"} ![](images/heart.jpg){width="4%"} 
+
++ In Rstudio `File` > `New Project` > `Version Control` > `Git` (pause)
++ In GitHub, copy the HTTPS address from the repo `<> Code` and paste into the repository address line in RStudio
++ Click `Browse` and navigate to where you want to create your new project. I recommend creating this on your desktop.
+
+::: callout-caution
+**Do not** save this within your master stat 331 folder!!! We don't want to embbed and Rproject within an RProject.
 :::
 
-## More on Character Classes
++ `Create the project!`
 
-::: panel-tabset
+# Collaborating in GitHub
 
-### Digits
-`\d` matches any digit
+## Pulling Changes from the Repo
 
-`\D` matches anything that isn’t a digit
+![](images/spade.jpg){width="4%"}
 
-```{r}
-# example goes here
-```
++ Create a new Quarto file (using the standard template)
+  + Title the document "Practice Activity 6"
+  + **Resist** the urge to add author names
+  + Save the document as `PA6.qmd`
+  + Add `self-contained: true` to the YAML
+  + Render the document
++  **Commit** both the `PA6.qmd` and `PA6.html` files with an explanatory message such as *"Created practice activity quarto file"*
++ **Push** the changes to the repository
 
-### Whitespace
-`\s` matches any whitespace (e.g. space, tab, newline)
+## Pulling Changes from the Repo
 
-`\S` matches anything that isn’t whitespace.
+![](images/diamond.jpg){width="4%"} ![](images/club.jpg){width="4%"} ![](images/heart.jpg){width="4%"}
 
-```{r}
++ **Pull** the changes that were made!
 
-# example goes here
-```
+Everyone should now have the `.qmd` and `.html` files on their local computers!
+
+## Making a Change
+
+![](images/diamond.jpg){width="4%"} 
+
++ Change the author name in the document to have everyone's *first* names
++ Render the document
++ **Commit** the changes
++ **Push** the changes
+
+## Pushing Changes & Not Pulling
+
+![](images/spade.jpg){width="4%"} ![](images/club.jpg){width="4%"} ![](images/heart.jpg){width="4%"}
+
+**Do not** pull the changes that were made!
+
+## Making the Same Change
+
+ ![](images/heart.jpg){width="4%"}
+
++ Change the author name in the document to have everyone's *first* ***and*** *last names*.
++ Render the document
++ **Commit** your changes
++ **Push** your changes
+
+::: callout-caution
+Oh no `r emo::ji("shocked")` You got an error! Ugh. We forgot to pull before we started making changes `r emo::ji("cry")`
+:::
+
+## Making The Same Changes
+
+ ![](images/heart.jpg){width="4%"}
+ 
++ **Pull** the changes from the repo
++ Review the document with the merge conflict
+
+::: callout-tip
+Note how the conflicting lines are marked! You might need to submit this to Canvas `r emo::ji("smile")`
+:::
+
++ Resolve the conflict with the preferred change
++ **Commit** your changes
++ **Push** the changes to the repository
+
+## Making The Same Changes
+
+![](images/spade.jpg){width="4%"} ![](images/diamond.jpg){width="4%"} ![](images/club.jpg){width="4%"}
+
+**Do not** pull the changes that were made!
+
+## Making Different Changes
+
+![](images/spade.jpg){width="4%"}
+
++ Change the first code chunk to find the product of 13 times 13.
++ Render the document
++ **Commit** your changes
++ **Push** your changes
+
+::: callout-warning
+You will get an error, read it, and **pull**.
+
+No merge conflicts should occur. Now **push** your changes.
+:::
+
+## Making Different Changes
+
+ ![](images/diamond.jpg){width="4%"} ![](images/club.jpg){width="4%"} ![](images/heart.jpg){width="4%"}
+
+**Do not** pull the changes that were made!
+
+## Making the Same Changes (Again)
+
+![](images/club.jpg){width="4%"}
+
++ Change the first code chunk to find the product of 11 times 11.
++ Render the document
++ **Commit** your changes
++ **Push** the changes to the repository
+
+::: callout-caution
+You will get an error. Ugh!!!! We forgot to pull again!
+:::
+
+## Making the Same Changes (Again)
+
+![](images/club.jpg){width="4%"}
+
++ **Pull** the changes from the repo
++ Review the document with the merge conflict
++ Clear the merge conflict by choosing the correct/preferred change
++ **Commit** your changes
++ **Push** you changes
+
+## Final Document
+
+![](images/spade.jpg){width="4%"} ![](images/diamond.jpg){width="4%"} ![](images/club.jpg){width="4%"} ![](images/heart.jpg){width="4%"}
+ 
+ **Pull**, and observe the changes in your document.
+
+## Canvas Quiz Submission
 
 ::: callout-note
-`str_trim()`
+How does Git mark the start of lines with a merge conflict? Specifically, I want the **four capital letter characters** with which every conflict is marked.
 :::
 
-### "Words"
-`\w` matches any “word” character, i.e. letters and numbers
+## Commit Tips
 
-`\W` matches any “non-word” character
++ Use relatively short, but also informative commit messages.
++ Commit small blocks of changes. Work to commit every time you’ve accomplished a small task. 
+  + You’ll have small, bite-sized changes that are briefly described to serve as a record of what you’ve done (and what still needs doing)
+  + When you mess up (or end up in a merge conflict) you will have a much easier time pinpointing the spot where things went bad, what code was there before, and (because you have nice, descriptive commit messages) how the error occurred.
+
+## Tips for avoiding merge conflicts
+
+::: incremental
++ Always **pull** before you start working and always **push** after you are done working!
+
++ In general, if you follow the [workflow for an existing local repo](#git-workflow) exactly, you only have problems if two of you are making local changes to the same line in the same file at the same time.
+
++ If you are working with collaborators in real time, **pull**, **commit**, and **push** often.
+
++ Git commits **lines** -- lines of code, lines of text, etc.
+  + Practice good code format and and put each sentence on its own line.
+:::
+
+## When all else fails...
+
+Burn your local repo to the ground and clone again.
 
 ```{r}
-# example goes here
+#| fig-align: center
+#| out-width: 100%
+knitr::include_graphics("https://t3.ftcdn.net/jpg/00/60/10/14/240_F_60101445_pT7VV0oc1OZHeyb4bjzsavtJbPk07kWn.jpg")
 ```
 
-:::
-
-## More on Quantifiers
-
-::: panel-tabset
-
-### `{n}` Exactly
-
-`{n}` matches exactly n times.
-
-### `{n,}` At Least
-
-`{n,}` matches at least n times.
-
-### `{n,m}` Between
-
-`{n,m}` matches between n and m times.
-:::
-
-# strings in the `tidyverse`
-
-## `matches(pattern)`
-
-Selects all variables with a name that matches the supplied pattern
-
-+ pairs well with `select()`, `rename_with()`, and `across()`
-
-## `pivot_longer()`
-
-`name_pattern = `
-
-`delim = regex()`
-
-
-## [PA 5.2: Scrambled Message](https://earobinson95.github.io/stat331-calpoly/practice-activities/PA5_2-scrambled-message-regex.html)
-
-**Reminder about Indexing Vectors**
+# Questions about Midterm Exam?
 
 ## To do...
 
-+ **PA 5.2: Scrambled Message**
-  + Due Friday, 2/10 at 8:00am
++ **PA 6: Merge Conflicts**
+  + Due Monday, 2/13 at end of class
 
-+ **Lab 5: Factors in Data Visualization**
-  + Due Friday, 2/10 at 11:59pm
-
-+ [**Bonus Challenge: Murder Mystery in SQL City**](https://earobinson95.github.io/stat331-calpoly/bonus-challenges/bonus-challenge-murder-in-sql-city.html)
-  + Due Sunday 2/12 at 11:59pm
++ **Midterm Exam**
+  + In-class Wednesday
   
-+ **Read Chapter 6: Version Control**
-  + **Concept Check 6.1 + 6.2** due Monday (2/13) at 8:00am
+## Wednesday, February 15th -- Midterm Exam
 
+
+## To do...
+
++ **NO CLASS MONDAY, 2/20**
+
++ **Final Project Group Contract**
+  + Due Thursday at 11:59pm
+  
++ **Final Project Proposals**
+  + DETAILS COMING SOON
+  
++ Read **Chapter 7: Writing Functions**
+  + Check-ins due Wednesday 2/22 at 8am
   

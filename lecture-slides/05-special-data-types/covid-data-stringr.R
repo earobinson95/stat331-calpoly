@@ -8,6 +8,9 @@
   # {'
 # across(variable:value, ~ str_remove_all(.x, "^(\\[\\{\\'|\\'|\\{\\')")),
 
+# should be able to do: occurs at beginning 0/1 for each in [{' order?
+# across(variable:value, ~ str_remove_all(.x, "^\\[?\\{?\\'?")),
+
 # remove from end "(This|This|orThis)$"
 # \\ to escape before each punctuation character
   # '
@@ -15,8 +18,18 @@
   # }]
 # across(variable:value, ~ str_remove_all(.x, "(\\'|\\}|\\}\\])$")),
 
+# should be able to do: occurs at bend 0/1 for each in '}] order?
+# across(variable:value, ~ str_remove_all(.x, "\\'?\\}?\\]?$"))
+
 # stick it all together
   #"(That|That)"
+
+# across(variable:value, ~ str_remove_all(.x, "(^(\\[\\{\\'|\\'|\\{\\')|(\\'|\\}|\\}\\])$)"))
+# across(variable:value, ~ str_remove_all(.x, "(^\\[?\\{?\\'?|\\'?\\}?\\]?$)"))
+
+
+# Pattern goes start -- [}' end --'}] all together now [{'}]
+
 
 # ------------------------------------------------------------------------------
 
@@ -41,7 +54,7 @@ clean_data <- messy_data |>
                        ) |> 
   # use stringr and regex to remove all the "junk"
   mutate(across(variable:value, ~ str_trim(.x)),
-         across(variable:value, ~ str_remove_all(.x, "(^(\\[\\{\\'|\\'|\\{\\')|(\\'|\\}|\\}\\])$)"))
+         across(variable:value, ~ str_remove_all(.x, "(^\\[?\\{?\\'?|\\'?\\}?\\]?$)"))
   ) |> 
   # transform the data from long to wide format so each variable is in its own column
   pivot_wider(id_cols     = areaType:date,

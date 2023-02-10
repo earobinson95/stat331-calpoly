@@ -1,160 +1,189 @@
 ---
-title: "Collaborating within a GitHub Repo"
+title: "PA 6: Merge Conflicts"
+subtitle: "Collaborating within a GitHub Repo"
 format: 
-  html: 
-    theme: minty
-    fontsize: 1em
-    mainfont: sans-serif
-    number-sections: true
-    number-depth: 2
-    code-block-bg: "#76b5c5"
-    highlight-style: monochrome
-editor: visual
+  html:
+    self-contained: true
+    code-tools: true
+    toc: true
+editor: source
 execute: 
+  error: true
   echo: false
+  message: false
+  warning: false
 ---
 
 ```{r setup}
 #| include: false
 library(knitr)
-library(rmdformats)
+# library(rmdformats)
 ```
 
-This activity will give you a taste of what working collaboratively in Github 
-looks like. 
+This activity will give you a taste of what working collaboratively in Github looks like. We will be working step by step through this activity together in class.
+
+I believe learning about merge conflicts is best done in small groups! Your group of 4 has been given each suit for a particular card (e.g. Ace, 2, Jack, etc.). Designate each person to one of the suits ![](images/card-suits.jpg){width="10%"} -- you will be referencing it as you work through this activity.
+
+::: callout-warning
+If you only have 3 group members here, assign one person both ![](images/club.jpg){width="3%"} and ![](images/heart.jpg){width="3%"}.
+
+<!-- If you only have 2 group members here, assign one person both ![](images/club.jpg){width="3%"} and ![](images/heart.jpg){width="3%"} and the other person both ![](images/spade.jpg){width="3%"} and ![](images/diamond.jpg){width="3%"}. -->
+:::
+
+# ![](images/spade.jpg){width="4%"} ![](images/diamond.jpg){width="4%"} ![](images/club.jpg){width="4%"} ![](images/heart.jpg){width="4%"} Connecting git/GitHub to RStudio
+
+# Repositories
+
+Think about a repository as a "folder directory".
+
+##  ![](images/club.jpg){width="4%"} Creating a Repo (starting from GitHub)
+
++ Create a new Github repository titled `stat-331-PA6`
+  + You can choose Public or Private
+  + Select `.gitignore template: R`
++ Click on the `Settings` tab > Click on `Collaborators` > `Add people`
++ Add your other group members to the repository using their username or email
+
+## ![](images/spade.jpg){width="4%"} ![](images/diamond.jpg){width="4%"} ![](images/heart.jpg){width="4%"} Accessing the Repo (cloud repo)
+
++ Verify repository invite in your email
++ Open the repository in Github
+
+## ![](images/spade.jpg){width="4%"} ![](images/diamond.jpg){width="4%"} ![](images/club.jpg){width="4%"} ![](images/heart.jpg){width="4%"} Cloning the Repo (local repo)
+
+Clone the repository into a new RStudio project
+
++ In Rstudio `File` > `New Project` > `Version Control` > `Git` (pause)
++ In GitHub, copy the HTTPS address from the repo `<> Code` and paste into the repository address line in RStudio
++ Click `Browse` and navigate to where you want to create your new project.
+
+::: callout-tip
+I recommend creating this on your desktop.
+:::
+
+::: callout-caution
+**Do not** save this within your master stat 331 folder!!! We don't want to embbed and Rproject within an RProject.
+:::
+
++ `Create the project!`
 
 
-# Set-up
-
-I believe learning about merge conflicts is best done in small groups! I want
-for you to assign each group member a number, since you will be referencing it 
-as you work through this activity. 
-
-
-# Creating a Repo
-
-**Member 3**: 
-
-- Create a new Github repository titled "stat-331-PA8"
-- Click on the "Settings" tab
-- Click on "Manage access" 
-- Click on "Invite a collaborator" 
-
-Add your other group members to the repository using their username or email
-
-
-# Accessing the Repo
-
-**All other Members** (e.g. 1, 2, 4, and 5): 
-
-- Verify repository invite in your email
-- Open the repository in Github
-
-
-# Cloning the Repo
-
-**Every** member: 
-
-- Clone the repository into a new RStudio project
-  * Copy the HTTPS address from the repo
-  * Create a new folder called "PA6" on your desktop
-  * Click on "New project" in RStudio
-  * Choose Version Control"
-  * Choose "Git"
-  * Paste the HTTPS address in the repository address line
-  * Click on the "Browse" button to navigate to your PA6 folder (on your desktop)
-  * Create the project! 
-  
-  
-# Pulling Changes from the Repo
+# Collaobrating in GitHub
 
 Take turns in completing the exercise, only one member at a time:
 
-- **Member 1**: 
-  * Create a new Quarto file (using the standard template)
-  * Title the document "Practice Activity 6" 
-  * Save the document as `PA6.qmd`
-  * Render the document 
-  * Commit **both** the `PA6.qmd` and `PA6.html` files with an explanatory
-  message
-  * Push the changes to the repository
-  
-**All other members:** Pull the changes that were made! 
+## Pulling Changes from the Repo
 
-# Pushing Changes & Not Pulling 
+![](images/spade.jpg){width="4%"}
 
-- **Member 2**: 
-  * Change the author name in the document to have everyone's *first* names
-  * Render the document
-  * Commit the changes
-  * Push the changes 
-  
-**All other members:** Do not pull the changes that were made! 
++ Create a new Quarto file (using the standard template)
+  + Title the document "Practice Activity 6"
+  + **Resist** the urge to add author names
+  + Save the document as `PA6.qmd`
+  + Add `self-contained: true` to the YAML
+  + Render the document
++  **Commit** **both** the `PA6.qmd` and `PA6.html` files with an explanatory message such as *"Created practice activity quarto file"*
++ **Push** the changes to the repository
 
-# Making The Same Changes
+<br>
 
-- **Member 4** (or 3 if there are only three group members): 
-  * Change the author name in the document to have everyone's first **and** last
-  names. 
-  * Render the document
-  * Commit your changes 
-  * Push your changes
+![](images/diamond.jpg){width="4%"} ![](images/club.jpg){width="4%"} ![](images/heart.jpg){width="4%"}
 
-**You will get an error!** 
++ **Pull** the changes that were made!
 
-  * Pull the changes from the repo
-  * Review the document with the merge conflict 
-  (Note how the conflicting lines are marked!)
-  * Resolve the conflict with the preferred change
-  * Commit your changes
-  * Push the changes to the repository 
-  
-**All other members:** Do not pull the changes that were made! 
+## Pushing Changes & Not Pulling
 
-# Making Different Changes
+![](images/diamond.jpg){width="4%"} 
 
-- **Member 1**: 
++ Change the author name in the document to have everyone's *first* names
++ Render the document
++ **Commit** the changes
++ **Push** the changes
 
-  * Change the first code chunk to find the product of 13 times 13. 
-  * Render the document
-  * Commit your changes
-  * Push your changes 
-  
-**You will get an error, read it, and pull.** 
+<br>
 
-No merge conflicts should occur. Now push your changes.
+![](images/spade.jpg){width="4%"} ![](images/club.jpg){width="4%"} ![](images/heart.jpg){width="4%"}
 
-**All other members:** Do not pull the changes that were made! 
+**Do not** pull the changes that were made!
 
-# Making the Same Changes (Again)
+## Making The Same Changes
 
-- **Member 2**:
+ ![](images/heart.jpg){width="4%"}
 
-  * Change the first code chunk to find the product of 11 times 11.
-  * Render the document 
-  * Commit your changes
-  * Push the changes to the repository
-  
-**You will get an error.**
++ Change the author name in the document to have everyone's *first* ***and*** *last names*.
++ Render the document
++ **Commit** your changes
++ **Push** your changes
 
-  * Pull the changes from the repo
-  * Review the document with the merge conflict
-  * Clear the merge conflict by choosing the correct/preferred change
-  * Commit your changes 
-  * Push you changes
-  
+::: callout-caution
+Oh no `r emo::ji("shocked")` You got an error!
+:::
 
----
++ **Pull** the changes from the repo
++ Review the document with the merge conflict
 
-# Final Document 
+::: callout-tip
+Note how the conflicting lines are marked! You might need to submit this to Canvas `r emo::ji("smile")`
+:::
 
-**All members:** Pull, and observe the changes in your document.
++ Resolve the conflict with the preferred change
++ **Commit** your changes
++ **Push** the changes to the repository
 
+<br>
 
-# Submission
+![](images/spade.jpg){width="4%"} ![](images/diamond.jpg){width="4%"} ![](images/club.jpg){width="4%"}
 
-How does Git mark the start of lines with a merge conflict? Specifically, I want
-the **four capital letter characters** with which every conflict is marked.
+**Do not** pull the changes that were made!
 
+## Making Different Changes
 
+![](images/spade.jpg){width="4%"}
 
++ Change the first code chunk to find the product of 13 times 13.
++ Render the document
++ **Commit** your changes
++ **Push** your changes
+
+::: callout-warning
+You will get an error, read it, and **pull**.
+
+No merge conflicts should occur. Now **push** your changes.
+:::
+
+<br>
+
+ ![](images/diamond.jpg){width="4%"} ![](images/club.jpg){width="4%"} ![](images/heart.jpg){width="4%"}
+
+**Do not** pull the changes that were made!
+
+## Making the Same Changes (Again)
+
+![](images/club.jpg){width="4%"}
+
++ Change the first code chunk to find the product of 11 times 11.
++ Render the document
++ **Commit** your changes
++ **Push** the changes to the repository
+
+::: callout-caution
+You will get an error. Ugh.
+:::
+
++ **Pull** the changes from the repo
++ Review the document with the merge conflict
++ Clear the merge conflict by choosing the correct/preferred change
++ **Commit** your changes
++ **Push** you changes
+
+## Final Document
+
+![](images/spade.jpg){width="4%"} ![](images/diamond.jpg){width="4%"} ![](images/club.jpg){width="4%"} ![](images/heart.jpg){width="4%"}
+ 
+ **Pull**, and observe the changes in your document.
+
+::: callout-note
+# Canvas Quiz Submission
+
+How does Git mark the start of lines with a merge conflict? Specifically, I want the **four capital letter characters** with which every conflict is marked.
+:::
