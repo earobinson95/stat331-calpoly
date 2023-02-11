@@ -78,14 +78,16 @@ knitr::include_graphics("https://miro.medium.com/max/512/1*w07Er4gPg8H2Ew-P0HhxN
 
 + You may have code, documentation, data, TODO lists, and more associated with a project.
 
-+ To create a repository, you can start with your local computer first, or you can start with the online repository first.
++ To create a repository, you can start with your local computer first, or you can start with the remote (online) repository first.
 
-## Actions in Git
+# Actions in Git
 
 ## Cloning a Repo
 
 :::: columns
 ::: column
+
+Clone = create an exact copy locally
 
 :::
 ::: column
@@ -149,6 +151,14 @@ knitr::include_graphics("images/pushing-and-pulling.jpg")
 ```
 
 ## Merge Conflicts
+
+Occur when you make changes to the same line as a collaborator either at the same time, or without starting from the same "state". 
+
+1. Maybe you are working in real time on the same line of code or text.
+2. Maybe you forgot to push your changes last time you finished working.
+3. Maybe you forgot to pull your changes before you started working this time.
+
+![](images/same-conflict-pull.jpg)
 
 
 ## Workflow {#git-workflow}
@@ -306,64 +316,72 @@ Please use sticky notes to indicate how your group is doing:
 
 ![](images/club.jpg){width="4%"} 
 
-+ Create a new Github repository titled `stat-331-PA6`
++ Create a new Github repository -- `Repositories` > `New` 
+  + Name the repository `stat-331-PA6`
   + You can choose Public or Private
   + Select `.gitignore template: R`
 + Click on the `Settings` tab > Click on `Collaborators` > `Add people`
 + Add your other group members to the repository using their username or email
 
-## Accessing the Repo (cloud repo)
+## Accessing the Repo (remote repo)
 
 ![](images/spade.jpg){width="4%"} ![](images/diamond.jpg){width="4%"} ![](images/heart.jpg){width="4%"}
 
-+ Verify repository invite in your email
-+ Open the repository in Github
++ Verify repository invite in your email -- `View invite` > `Accept invite`
++ Open the repository in GitHub -- `github.com/`
 
 ## Cloning the Repo (local repo)
 
 ![](images/spade.jpg){width="4%"} ![](images/diamond.jpg){width="4%"} ![](images/club.jpg){width="4%"} ![](images/heart.jpg){width="4%"} 
 
 + In Rstudio `File` > `New Project` > `Version Control` > `Git` (pause)
-+ In GitHub, copy the HTTPS address from the repo `<> Code` and paste into the repository address line in RStudio
++ In GitHub, copy the HTTPS address from the repo `<> Code` and paste into `Repository URL` in RStudio
 + Click `Browse` and navigate to where you want to create your new project. I recommend creating this on your desktop.
 
 ::: callout-caution
-**Do not** save this within your master stat 331 folder!!! We don't want to embbed and Rproject within an RProject.
+**Do not** save this within your master stat 331 folder!!! We don't want to embed and Rproject within an RProject.
 :::
 
-+ `Create the project!`
++ `Create Project`
 
 # Collaborating in GitHub
 
-## Pulling Changes from the Repo
+## Adding Documents to the Repo
 
 ![](images/spade.jpg){width="4%"}
 
 + Create a new Quarto file (using the standard template)
   + Title the document "Practice Activity 6"
   + **Resist** the urge to add author names
-  + Save the document as `PA6.qmd`
+  + Save the document as `PA6.qmd` in your `stat-331-PA6` desktop folder
   + Add `self-contained: true` to the YAML
   + Render the document
-+  **Commit** both the `PA6.qmd` and `PA6.html` files with an explanatory message such as *"Created practice activity quarto file"*
-+ **Push** the changes to the repository
++ Edit the `.gitignore` file to include `*.Rproj`
+
+## Pushing Documents to the Repo
+
++ `Git` pane > `Commit` > `Stage` (or checkmark) files > `Commit message` > `Commit`
+  + Commit both the `.gitignore` file with an explanatory message such as *"Ignoring all .Rproj files in repo"*
+  + Commit the `PA6.qmd`, and `PA6.html` files with an explanatory message such as *"Created practice activity quarto file"*
++ `Push` the changes to the remote repository
 
 ## Pulling Changes from the Repo
 
 ![](images/diamond.jpg){width="4%"} ![](images/club.jpg){width="4%"} ![](images/heart.jpg){width="4%"}
 
-+ **Pull** the changes that were made!
++ `Git` pane > `Pull` the changes that were made!
 
-Everyone should now have the `.qmd` and `.html` files on their local computers!
+Everyone should now have the `.qmd` and `.html` files in their local repos!
 
 ## Making a Change
 
 ![](images/diamond.jpg){width="4%"} 
 
-+ Change the author name in the document to have everyone's *first* names
++ Add `author:` to the YAML and include everyone's *first* names
 + Render the document
-+ **Commit** the changes
-+ **Push** the changes
++ `Git` pane > `Commit` > `Stage` (or checkmark) files > `Commit message` > `Commit`
+  + Commit the changes with a message such as *"added group first names"*
++ `Push` the changes
 
 ## Pushing Changes & Not Pulling
 
@@ -375,20 +393,40 @@ Everyone should now have the `.qmd` and `.html` files on their local computers!
 
  ![](images/heart.jpg){width="4%"}
 
-+ Change the author name in the document to have everyone's *first* ***and*** *last names*.
++ Add `author:` to the YAML and to include everyone's *first* ***and*** *last names*.
 + Render the document
-+ **Commit** your changes
-+ **Push** your changes
++ `Git` pane > `Commit` > `Stage` (or checkmark) files > `Commit message` > `Commit`
+  + Commit the changes with a message such as *"added group first and last names"*
++ `Push` your changes
 
 ::: callout-caution
 Oh no `r emo::ji("shocked")` You got an error! Ugh. We forgot to pull before we started making changes `r emo::ji("cry")`
 :::
 
-## Making The Same Changes
+## Forgetting to Pull before you Push
+
+![](images/heart.jpg){width="4%"}
+
+![](images/same-changes-error.jpg)
+
+## Resolving Merge Conflicts
 
  ![](images/heart.jpg){width="4%"}
  
-+ **Pull** the changes from the repo
++ `Pull` the changes from the repo
+
+![](images/same-conflict-pull.jpg)
+
+## Resolving Merge Conflicts
+
+ ![](images/heart.jpg){width="4%"}
+
+![](images/merge-conflict-location-no-HEAD.png)
+
+## Resolving Merge Conflicts
+
+ ![](images/heart.jpg){width="4%"}
+
 + Review the document with the merge conflict
 
 ::: callout-tip
@@ -396,10 +434,10 @@ Note how the conflicting lines are marked! You might need to submit this to Canv
 :::
 
 + Resolve the conflict with the preferred change
-+ **Commit** your changes
-+ **Push** the changes to the repository
++ `Commit` your changes
++ `Push` the changes to the repository
 
-## Making The Same Changes
+## Pushing Changes & Not Pulling
 
 ![](images/spade.jpg){width="4%"} ![](images/diamond.jpg){width="4%"} ![](images/club.jpg){width="4%"}
 
@@ -411,14 +449,18 @@ Note how the conflicting lines are marked! You might need to submit this to Canv
 
 + Change the first code chunk to find the product of 13 times 13.
 + Render the document
-+ **Commit** your changes
-+ **Push** your changes
++ `Commit` your changes
++ `Push` your changes
 
 ::: callout-warning
 You will get an error, read it, and **pull**.
 
 No merge conflicts should occur. Now **push** your changes.
 :::
+
+## Auto Merge
+
+![](images/auto_merge.png)
 
 ## Making Different Changes
 
@@ -432,8 +474,8 @@ No merge conflicts should occur. Now **push** your changes.
 
 + Change the first code chunk to find the product of 11 times 11.
 + Render the document
-+ **Commit** your changes
-+ **Push** the changes to the repository
++ `Commit` your changes
++ `Push` the changes to the repository
 
 ::: callout-caution
 You will get an error. Ugh!!!! We forgot to pull again!
@@ -443,17 +485,17 @@ You will get an error. Ugh!!!! We forgot to pull again!
 
 ![](images/club.jpg){width="4%"}
 
-+ **Pull** the changes from the repo
++ `Pull` the changes from the repo
 + Review the document with the merge conflict
 + Clear the merge conflict by choosing the correct/preferred change
-+ **Commit** your changes
-+ **Push** you changes
++ `Commit` your changes
++ `Push` you changes
 
 ## Final Document
 
 ![](images/spade.jpg){width="4%"} ![](images/diamond.jpg){width="4%"} ![](images/club.jpg){width="4%"} ![](images/heart.jpg){width="4%"}
  
- **Pull**, and observe the changes in your document.
+ `Pull`, and observe the changes in your document.
 
 ## Canvas Quiz Submission
 
@@ -500,6 +542,9 @@ knitr::include_graphics("https://t3.ftcdn.net/jpg/00/60/10/14/240_F_60101445_pT7
 
 + **Midterm Exam**
   + In-class Wednesday
+  
++ **Group Contracts**
+  + Due Tuesday 1/21 at 11:59pm
   
 ## Wednesday, February 15th -- Midterm Exam
 
