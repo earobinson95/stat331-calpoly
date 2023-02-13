@@ -548,6 +548,12 @@ knitr::include_graphics("https://t3.ftcdn.net/jpg/00/60/10/14/240_F_60101445_pT7
   + In-class Wednesday 2/15
   + Please grab the separators from the sides of class when you enter.
   
+::: callout-note
+No individual office hours Friday this week.
+
+Office hours extended Tuesday from 10am - 12pm.
+:::
+  
 + **Group Contracts**
   + Due Wednesday 1/22 at 11:59pm
   
