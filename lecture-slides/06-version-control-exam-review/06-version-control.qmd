@@ -18,11 +18,13 @@ library(tidyverse)
 
 Today we will...
 
-+ Review Lab 5
++ Questions on PA 5.2: Scrambled Message
++ Questions on Lab 5: Factors in Data Visualization
 + Mini Lecture on text material
   + git/GitHub
 + Connect GitHub to RStudio
 + PA 6: Merge Conflicts -- Collaborating within a GitHub Repo
++ Discuss Group Contract
 + Any lingering questions about Midterm
 
 # git/GitHub Basics
@@ -306,9 +308,9 @@ If you only have 3 group members here, assign one person both ![](images/club.jp
 
 Please use sticky notes to indicate how your group is doing:
 
-+ <p style="background-color:Green;">Green</p> -- we are ready to move on
-+ <p style="background-color:Yellow;">Yellow</p> -- we're figuring it out
-+ <p style="background-color:Pink;">Pink</p> -- Please help!!
++ <p style="background-color:Blue;">Blue</p> -- We are ready to move on
++ <p style="background-color:Yellow;">Yellow</p> -- We're figuring it out
++ <p style="background-color:Red;">Red</p> -- Please help!!
 
 # Repository Setup
 
@@ -533,18 +535,21 @@ Burn your local repo to the ground and clone again.
 knitr::include_graphics("https://t3.ftcdn.net/jpg/00/60/10/14/240_F_60101445_pT7VV0oc1OZHeyb4bjzsavtJbPk07kWn.jpg")
 ```
 
+# Final Project Group Contract
+
 # Questions about Midterm Exam?
 
 ## To do...
 
 + **PA 6: Merge Conflicts**
-  + Due Monday, 2/13 at end of class
+  + Due Monday, 2/13 at 11:59pm
 
 + **Midterm Exam**
-  + In-class Wednesday
+  + In-class Wednesday 2/15
+  + Please grab the separators from the sides of class when you enter.
   
 + **Group Contracts**
-  + Due Tuesday 1/21 at 11:59pm
+  + Due Wednesday 1/22 at 11:59pm
   
 ## Wednesday, February 15th -- Midterm Exam
 
@@ -553,12 +558,14 @@ knitr::include_graphics("https://t3.ftcdn.net/jpg/00/60/10/14/240_F_60101445_pT7
 
 + **NO CLASS MONDAY, 2/20**
 
-+ **Final Project Group Contract**
-  + Due Thursday at 11:59pm
-  
-+ **Final Project Proposals**
-  + DETAILS COMING SOON
-  
 + Read **Chapter 7: Writing Functions**
-  + Check-ins due Wednesday 2/22 at 8am
+  + Check-in 7.1 due Wednesday 2/22 at 8am
+
++ **Final Project Group Contract**
+  + Due Wednesday 2/22 at 11:59pm
+  
++ **Bonus Challenge - Data Mishaps Night**
+  + Reminder to Register
+  + February 23rd at 5pm PT
+  
   
