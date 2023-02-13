@@ -1,7 +1,7 @@
 ---
 title: "PA 1: Find the Mistakes"
 subtitle: "Working with R Objects"
-author: "YOUR NAME"
+author: "YOUR NAME "
 format: html
 self-contained: true
 execute:
