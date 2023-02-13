@@ -362,6 +362,8 @@ Please use sticky notes to indicate how your group is doing:
 
 ## Pushing Documents to the Repo
 
+![](images/spade.jpg){width="4%"}
+
 + `Git` pane > `Commit` > `Stage` (or checkmark) files > `Commit message` > `Commit`
   + Commit both the `.gitignore` file with an explanatory message such as *"Ignoring all .Rproj files in repo"*
   + Commit the `PA6.qmd`, and `PA6.html` files with an explanatory message such as *"Created practice activity quarto file"*
