@@ -567,9 +567,33 @@ Office hours extended Tuesday from 10am - 12pm.
   
 + **Group Contracts**
   + Due Wednesday 1/22 at 11:59pm
-  
+
 ## Wednesday, February 15th -- Midterm Exam
 
++ Please grab separators from the sides of the room.
+
++ I will pass out a sheet with instructions and questions.
+
++ Canvas will unlock midterm material at the beginning of class.
+
+You're going to rock this `r emo::ji("smile")`
+
+## Wednesday, February 15th -- Midterm Exam
+
+**Section 1: General Questions**
+
++ Canvas Quiz -- multiple submissions allowed (will keep highest), but grade not displayed.
++ Due at end of class.
+
+**Section 2: Short Answer**
+
++ Download `.qmd` template from Canvas.
++ Submit `.qmd` and `.html` file by the end of class.
+
+**Section 3: Open-ended Analysis**
+
++ Create your own `.qmd` file.
++ Submit `.qmd` and `.html` file by **Thursday, 1/16 at 11:59pm**
 
 ## To do...
 
