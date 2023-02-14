@@ -25,9 +25,10 @@ library(lubridate)
 
 ## Exam Details {-}
 
-+ You will have one hour and 50 minutes to complete the exam on your own computer.
 + The exam is worth a total of 100 points and consists of 3 sections: General Questions, Short Answer, and Open-Ended Analysis.
 + I will bring paper copies of the exam questions 
++ You will have one hour and 50 minutes to complete sections 1 (General Questions) and 2 (Short Answer) of the exam on your own computer.
++ **UPDATE: Section 3 (Open-ended Analysis) may be started during class, but will be due Thursday 2/16 at 11:59pm.**
 + A `.qmd` starter file for the short answer will be unlocked at the start of each sections class.
 + You will be creating your own `.qmd` file for the open-ended analysis. You may bring one already created on your computer.
 
@@ -86,7 +87,9 @@ You will turn in your `.html` and `.qmd` files only your `.html` file will be gr
 
 ## Open-Ended Analysis [50 points]
 
-You will create your own `.qmd` file for this part. Make sure you know how to do this!
+You will create your own `.qmd` file for this part. Make sure you know how to do this! 
+
+**UPDATE: This section is now allowed to be completed outside of class and will be due Thursday, 1/16 at 11:59pm**
 
 ::: callout-caution
 Make sure the following quarto options are included in your YAML.

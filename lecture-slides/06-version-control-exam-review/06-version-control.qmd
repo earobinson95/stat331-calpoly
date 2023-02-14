@@ -220,7 +220,7 @@ Work in your terminal or an .Rscript for this...
 ```{r}
 #| eval: false
 #| echo: true
-install.packages(usethis)
+install.packages("usethis")
 library(usethis)
 ```
 
@@ -233,10 +233,19 @@ install.packages("gitcreds")
 library(gitcreds)
 ```
 
+## Configure git
+
+3. Tell git your email and username.
+
+```{r}
+#| eval: false
+#| echo: true
+use_git_config(user.name = "JaneDoe2", user.email = "jane@example.org")
+```
 
 ## Generate your PAT (Personal Access Token)
 
-3. `Generate token`
+4. `Generate token`
 
 ```{r}
 #| eval: false
@@ -256,7 +265,7 @@ GitHub really doesn't like it when you do not have a PAT expiration date... but 
 
 ## Store your PAT
 
-4. Copy your PAT
+5. Copy your PAT
 
 ```{r}
 #| fig-align: center
@@ -265,7 +274,7 @@ knitr::include_graphics("images/pat-copy.jpg")
 ```
 
 
-5. `Enter password or token:` Paste PAT
+6. `Enter password or token:` Paste PAT
 
 ```{r}
 #| eval: false
