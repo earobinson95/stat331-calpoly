@@ -2,7 +2,7 @@
 title: "Practice Activity 6"
 format: html
 self-contained: true
-editor: visual
+editor: source
 ---
 
 ## Quarto
