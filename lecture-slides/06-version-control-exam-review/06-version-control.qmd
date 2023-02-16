@@ -213,7 +213,7 @@ Occur when you make changes to the same line as a collaborator either at the sam
 
 ## Rpackages we will need
 
-Work in your terminal or an .Rscript for this...
+Work in your console or a .Rscript for this...
 
 1. Install and load the {usethis} Rpackage
 
