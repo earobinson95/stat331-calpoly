@@ -1,0 +1,94 @@
+---
+title: "Challenge 7: Incorporating Multiple Inputs"
+subtitle: "Functions & Fish"
+author: "Your name"
+format: 
+  html:
+    self-contained: true
+    code-tools: true
+    toc: true
+editor: source
+execute: 
+  error: true
+  echo: true
+  message: false
+  warning: false
+---
+
+[Download .qmd starter file](challenge7-functions-and-fish.qmd)
+
+[Download `BlackfootFish.csv`](BlackfootFish.csv)
+
+This is a continuation of [Lab 7: Functions & Fish]().
+
+```{r setup}
+library(tidyverse)
+library(gridExtra)
+library(ggtext)
+
+fish <- read.csv(here::here("lab-assignments", "lab7", "BlackfootFish.csv"))
+```
+
+<center>
+
+::: columns
+::: {.column width="25%"}
+![](images/smallest_trout.jpg)
+:::
+
+::: {.column width="40%"}
+![](images/largest_trout.png)
+:::
+:::
+
+</center>
+
+A frequently used measurement for fish health is a "condition index." [(Wikipedia article)](https://en.wikipedia.org/wiki/Condition_index_in_fish) The following simple equation can be used to calculate the approximate condition index of a fish:
+
+$$\text{condition index} = \frac{weight}{length^3} \times 100$$
+
+**1. There are specific units required for the calculation of a condition index. Length must be in millimeters, and weight must be in grams. Inspect the `length` and `weight` variables to decide if you believe these are the correct units associated with these measurements.**
+
+:::callout-tip
+This will likely require Googling what "typical" measurements of trout are.
+:::
+
+```{r}
+# Question 1 code
+```
+
+**2. Replace impossible measurements with `NA`s -- Based on your research, write function(s) to handle the unlikely / impossible measurements included in the data set.**
+
+Your function(s) should accept three inputs 
+
++ a vector of measurements,
++ the minimum value you believe is "reasonable,"
++ the maximum value you believe is "reasonable." 
+
+If a value falls outside these bounds, you should replace it with an `NA`.
+
+::: callout-tip
+If you are struggling with the structure of your function, I would suggest reading the [Mutating Function](https://r4ds.hadley.nz/functions.html#mutate-functions) from R4DS.
+:::
+
+Use your function to modify the `length` and `weight` columns of the `BlackfootFish` data set, removing values you believe are "unreasonable."
+
+```{r}
+# Question 2 code
+```
+
+**3. Write a function which calculates the condition index of a fish, given inputs of weight and length.**
+
+::: callout-warning
+Consider whether your function will accept vectors as inputs or if it will accept variable names as inputs!
+:::
+
+```{r}
+# Question 3 code
+```
+
+**4. Make a thoughtful visualization of how fish conditions have varied over the duration of this study.**
+
+```{r}
+# Question 4 code
+```
