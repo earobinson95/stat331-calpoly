@@ -153,5 +153,5 @@ my_vec
 
 ::: callout-tip
 ### Canvas Submission
-If you have done everything correctly, your final vector will be six numbers long. Google these six numbers to find a TV show as your final answer and submit to Cavnas.
+If you have done everything correctly, your final vector will be six numbers long. Google these six numbers to find a TV show as your final answer and submit to Canvas.
 :::
