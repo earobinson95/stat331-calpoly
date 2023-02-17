@@ -19,7 +19,7 @@ execute:
 
 [Download `BlackfootFish.csv`](BlackfootFish.csv)
 
-This is a continuation of [Lab 7: Functions & Fish]().
+This is a continuation of [Lab 7: Functions & Fish](https://earobinson95.github.io/stat331-calpoly/lab-assignments/lab7/lab7-functions-and-fish.html).
 
 ```{r setup}
 library(tidyverse)

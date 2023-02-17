@@ -31,7 +31,7 @@ fish <- read.csv(here::here("lab-assignments",
 
 ## Data Set
 
-This lab's dataset concerns mark-recapture data on fish from the Blackfoot River, outside of Helena, Montana.
+This lab's data set concerns mark-recapture data on fish from the Blackfoot River, outside of Helena, Montana.
 
 ![](https://github.com/earobinson95/stat331-calpoly/blob/master/lab-assignments/lab7/images/blackfoot_river.jpg?raw=true)
 
