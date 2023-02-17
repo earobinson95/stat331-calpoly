@@ -22,16 +22,18 @@ The goal of this lab is learn more about exploring missing data and to teach you
 
 ```{r setup}
 library(tidyverse)
-library(gridExtra)
 
-fish <- read.csv(here::here("lab-assignments", "lab7", "BlackfootFish.csv"))
+fish <- read.csv(here::here("lab-assignments", 
+                            "lab7", 
+                            "BlackfootFish.csv")
+                 )
 ```
 
 ## Data Set
 
 This lab's dataset concerns mark-recapture data on fish from the Blackfoot River, outside of Helena, Montana.
 
-![](images/blackfoot_river.jpg)
+![](https://github.com/earobinson95/stat331-calpoly/blob/master/lab-assignments/lab7/images/blackfoot_river.jpg?raw=true)
 
 Mark-recapture is a common method used by Ecologists to estimate an animal population's size, when it is impossible to conduct a census (count every animal). This method works by "tagging" animals with a tracking device, so scientists can track their movement and / or presence.
 
@@ -39,15 +41,15 @@ Mark-recapture is a common method used by Ecologists to estimate an animal popul
 
 ::: columns
 ::: {.column width="25%"}
-![](images/grizzly.jpg)
+![](https://github.com/earobinson95/stat331-calpoly/blob/master/lab-assignments/lab7/images/grizzly.jpg?raw=true)
 :::
 
 ::: {.column width="25%"}
-![](images/condor.jpg)
+![](https://github.com/earobinson95/stat331-calpoly/blob/master/lab-assignments/lab7/images/condor.jpg?raw=true)
 :::
 
 ::: {.column width="25%"}
-![](images/fish.PNG)
+![](https://github.com/earobinson95/stat331-calpoly/blob/master/lab-assignments/lab7/images/fish.PNG?raw=true)
 :::
 :::
 

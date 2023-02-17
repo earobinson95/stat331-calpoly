@@ -23,21 +23,22 @@ This is a continuation of [Lab 7: Functions & Fish]().
 
 ```{r setup}
 library(tidyverse)
-library(gridExtra)
-library(ggtext)
 
-fish <- read.csv(here::here("lab-assignments", "lab7", "BlackfootFish.csv"))
+fish <- read.csv(here::here("lab-assignments", 
+                            "lab7", 
+                            "BlackfootFish.csv")
+                 )
 ```
 
 <center>
 
 ::: columns
 ::: {.column width="25%"}
-![](images/smallest_trout.jpg)
+![](https://github.com/earobinson95/stat331-calpoly/blob/master/lab-assignments/lab7/images/smallest_trout.jpg?raw=true)
 :::
 
 ::: {.column width="40%"}
-![](images/largest_trout.png)
+![](https://github.com/earobinson95/stat331-calpoly/blob/master/lab-assignments/lab7/images/largest_trout.png?raw=true)
 :::
 :::
 
