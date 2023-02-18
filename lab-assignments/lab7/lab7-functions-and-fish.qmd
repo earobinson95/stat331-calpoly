@@ -59,12 +59,16 @@ Mark-recapture is a common method used by Ecologists to estimate an animal popul
 
 The measurements of each fish captured were taken by a Biologist on a raft. This lack of "laboratory setting" opens the door to the possibility of measurement errors.
 
-#### 1. Summarizing the Data {-}
+#### 1. Summarizing the Data
 
 Output ONE table to answer the following two questions:
 
 + How many observations have missing values?
 + What variable(s) have missing values present?
+
+::: callout-tip
+Hint: use `across()`
+:::
 
 ```{r}
 # Question 1 code
@@ -72,7 +76,7 @@ Output ONE table to answer the following two questions:
 
 Unfortunately, these missing values are not for only one `year`, `trip`, or `section` of river.
 
-#### 2. Visualizing the Data {-}
+#### 2. Visualizing the Data
 Create a thoughtful visualization exploring the frequency of missing values across the different years, sections, and trips.
 
 ```{r}
@@ -109,7 +113,7 @@ This process of duplicating an action multiple times makes it difficult to under
 
 Often you will find yourself in the position of needing to find a function that performs a specific task, but you do not know of a function or a library that would help you. You could spend time Googling for a solution, but in the amount of time it takes you to find something you could have already written your own function!
 
-#### 3. Writing a Function {-}
+#### 3. Writing a Function
 
 Let's transform the repeated process above into a `rescale_01()` function.
 
@@ -124,7 +128,7 @@ Think about the "efficiency" of your function. Are you calling the **same** func
 # Question 3 & 4 code
 ```
 
-#### 4. Adding Stops {-}
+#### 4. Adding Stops
 
 Now, let's incorporate some checks into your function! Modify your previous code to create the following checks:
 
@@ -135,7 +139,7 @@ Now, let's incorporate some checks into your function! Modify your previous code
 No need to write code here, simply add these stops to your code from Task 1!
 :::
 
-#### 5. Performing a Simple Test {-}
+#### 5. Performing a Simple Test
 
 First, test your function on the simple vector below. Verify that the maximum of your rescaled vector is 1 and the minimum is 0!
 
@@ -143,17 +147,27 @@ First, test your function on the simple vector below. Verify that the maximum of
 x <- c(1:25, NA)
 ```
 
-#### 6. Performing a More Difficult Test {-}
+#### 6. Performing a More Difficult Test
 
 Next, let's test the function on the `length` column of the `BlackfootFish` data set.
 
-Make plots of the original values of `length` and the rescaled values of `length`. Output your plots side-by-side, so the reader can confirm the only aspect that has changed is the scale.
+Make histograms of the original values of `length` and the rescaled values of `length`. Output your plots side-by-side (like challenge 1), so the reader can confirm the only aspect that has changed is the scale.
+
+::: callout-warning
+This will require you call your `rescaled_01()` function within a `mutate()` statement in order to create a new `length_scaled` variable.
+:::
+
+::: callout-tip
+There are multiple methods and packages that allow you to put plots side by side. One of my favorite for ggplot is the {patchwork} R package. 
+
+Set both plots y-axis limits from 0 to 4000 for direct comparison across plots.
+:::
 
 ```{r}
 # Question 6 plot code
 ```
 
-#### 7. Incorportaing Variables {-}
+#### 7. Incorportaing Variables
 
 Suppose you would like for your `rescale()` function to perform operations on a variable within a dataset. Ideally, your function would take a dataframe and a variable name as inputs and return a dataframe where the variable has been rescaled.
 
@@ -167,7 +181,7 @@ If you are struggling with this task, I would recommend reading the [Data frame 
 # Question 7 code
 ```
 
-#### 8. Another Function Test {-}
+#### 8. Another Function Test
 
 Alright, now let's put your `rescale_column()` function to work! Use your `rescale_column()` function to rescale **both** the `length` and `weight` columns.
 
