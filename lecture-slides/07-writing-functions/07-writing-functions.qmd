@@ -317,11 +317,7 @@ add_something(x = 2, something = "R")
 
 :::
 
-## Multiple Conditions
-
-
-
-# Environments & Scope
+# Environments
 
 ## Environments
 
@@ -339,7 +335,9 @@ knitr::include_graphics("images/environment.jpg")
 + The code inside the function executes in the **function environment**.
 + It does not change your **global environment**.
 
-## Searching...
+## Dynamic Lookup
+
+If an object doesn’t exist in the function’s environment, the global environment will be searched next; if there is no object in the global environment, the program will error out.
 
 :::: columns
 ::: column
@@ -365,7 +363,7 @@ add_two()
 :::
 ::::
 
-## Function Objects
+## Name Masking
 
 Objects you make in the function don't affect "real life".
 
@@ -381,23 +379,24 @@ add_two <- function(x) {
 }
 ```
 
-Let's assign the variable `my_result` a value in the global environment (outside the function).
+<br>
 
 ```{r}
 #| echo: true
 my_result <- 2000
 ```
 
+This is an example of name masking, where names defined **inside** of a function mask names defined outside of a function.
+
 :::: columns
 ::: column
-Inside the function, the global `my_result` variable is ignored.
+
 ```{r}
 #| echo: true
 add_two(5)
 ```
 :::
 ::: column
-But the global `my_result` variable still exists.
 ```{r}
 #| echo: true
 my_result
@@ -405,9 +404,109 @@ my_result
 :::
 ::::
 
-## Name Masking
+## Debugging
+
+```{r}
+#| fig-align: center
+#| out-width: 80%
+#| fig-cap: "The faces of debugging (by Allison Horst)"
+knitr::include_graphics("https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/51084276-ab7f-4c57-a0e7-5cf14a277359_rw_1920.png?h=825c5593149a63edef46664796766751")
+```
 
 ## Debugging Strategies
+
++ Interactive coding (highlight small lines within your funciton to run them independent of the rest)
+
++ `print()` Debugging
+
++ Rubber Ducking
+
+. . .
+
+In general...
+
+1. Write a simple **example** once (without a function)
+
+2. **Generalize** by assigning variables.
+
+3. **Write** into a function.
+
+4. **Call** the function on desired arguments
+
+## Example -- `find_car_make()`
+
+Write a function called `find_car_make()` that takes as input the name of a car, and returns only the “make”, or the company that created the car.
+
+::: callout-tip
+For example, find_car_make("Toyota Camry") should return "Toyota" and find_car_make("Ford Anglica") should return "Ford".
+:::
+
+::: panel-tabset
+
+### Example
+```{r}
+#| echo: true
+make <- str_extract(string = "Toyota Camry", 
+            pattern = "[:alpha:]*"
+            )
+make
+
+make <- str_extract(string = "Ford Anglica", 
+            pattern = "[:alpha:]*"
+            )
+make
+```
+
+### Generalize
+```{r}
+#| echo: true
+car_name <- "Toyota Camry"
+
+make <- str_extract(string = car_name, 
+                    pattern = "[:alpha:]*"
+                    )
+make
+```
+
+### Write + Call Funciton
+```{r}
+#| echo: true
+find_car_make <- function(car_name){
+  
+  make <- str_extract(string = car_name, 
+                      pattern = "[:alpha:]*"
+                      )
+  make
+  
+}
+
+find_car_make("Toyota Camry")
+find_car_make("Ford Anglica")
+```
+:::
+
+## Calling functions in data sets
+
+Consider `mtcars`
+
+```{r}
+#| echo: true
+data(mtcars)
+head(mtcars, n = 3)
+```
+
+Let's use our function to create a new column in the data called `make` that gives the make of each car.
+
+```{r}
+#| echo: true
+mtcars |> 
+  rownames_to_column("make_model") |> 
+  mutate(make = find_car_make(make_model),
+         .after = make_model
+         ) |> 
+  head(n = 3)
+```
+
 
 ## Lab 7 & Challenge 7
 
@@ -712,9 +811,9 @@ Look for patterns!
 ::: column
 **Why Scale?**
 
-+ (More) difficult to compare 
++ Easier to compare across variables
 
-+ (More) difficult to model 
++ Easier to model (standardizes variance)
 :::
 ::: column
 **Why not Scale?**
