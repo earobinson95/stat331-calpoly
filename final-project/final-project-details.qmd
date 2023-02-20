@@ -31,12 +31,14 @@ income <- read_csv("data/income_per_person_gdppercapita_ppp_inflation_adjusted.c
 | Group Contract    | Wednesday, 2/22  |
 | [Project Proposal - Data](#proposal)    | Sunday, 3/4   |
 | [Linear Regression](#linear-reg) | Sunday, 3/11  |
-| [Simulation](#sim)| Sunday, 3/18 |
+| [Final Written Report](#sim)| Sunday, 3/18 |
+
+Please turn in **both** your `.qmd` and `.html` document at each check-point. *You can continue to build on one file for each subsequentive check-point.*
 
 ::: callout-note
 ### Check-point Grading
 
-These check-points are in place to keep your group on track. I will be doing a quick skim of each check-point for completion and any glaring issues, but I will not be providing detailed feedback at each step. Please see me in office hours or reach out on Discord if you have specific questions.
+The first three check-points before the Final Report submission are in place to keep your group on track. I will be doing a quick skim of each check-point for completion and any glaring issues, but I will not be providing detailed feedback at each step. Please see me in office hours or reach out on Discord if you have specific questions.
 
 Each check-point will be worth 5 points:
 
