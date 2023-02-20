@@ -122,10 +122,16 @@ Let's transform the repeated process above into a `rescale_01()` function.
 
 ::: callout-tip
 Think about the "efficiency" of your function. Are you calling the **same** function multiple times?
+
+Look into the function `rng()`
 :::
 
 ```{r}
-# Question 3 & 4 code
+rescale_01 <- function(x){
+  
+  # Question 3 & 4 code
+
+}
 ```
 
 #### 4. Adding Stops
@@ -141,17 +147,21 @@ No need to write code here, simply add these stops to your code from Task 1!
 
 #### 5. Performing a Simple Test
 
-First, test your function on the simple vector below. Verify that the maximum of your rescaled vector is 1 and the minimum is 0!
+Run the code below to test your function on the simple vector below. Verify that the maximum of your rescaled vector is 1 and the minimum is 0!
 
 ```{r}
 x <- c(1:25, NA)
+
+rescaled <- rescale_01(x)
+min(rescaled, na.rm = TRUE)
+max(rescaled, na.rm = TRUE)
 ```
 
 #### 6. Performing a More Difficult Test
 
 Next, let's test the function on the `length` column of the `BlackfootFish` data set.
 
-Make histograms of the original values of `length` and the rescaled values of `length`. Output your plots side-by-side (like challenge 1), so the reader can confirm the only aspect that has changed is the scale.
+The code below makes a histogram of the original values of `length`. Add a plot of the rescaled values of `length`. Output your plots side-by-side (like challenge 1), so the reader can confirm the only aspect that has changed is the scale.
 
 ::: callout-warning
 This will require you call your `rescaled_01()` function within a `mutate()` statement in order to create a new `length_scaled` variable.
@@ -164,21 +174,35 @@ Set both plots y-axis limits from 0 to 4000 for direct comparison across plots.
 :::
 
 ```{r}
-# Question 6 plot code
+original_plot <- fish |>  
+  ggplot(aes(x = length)) + 
+  geom_histogram(binwidth = 45) +
+  labs(x = "Original Values of Fish Length (mm)") +
+  scale_y_continuous(limits = c(0,4000))
+
+scaled_plot <- # Question 6 plot code
+  
+# Code to output plots side by side
 ```
 
 #### 7. Incorportaing Variables
 
 Suppose you would like for your `rescale()` function to perform operations on a variable within a dataset. Ideally, your function would take a dataframe and a variable name as inputs and return a dataframe where the variable has been rescaled.
 
-Create a `rescale_column()` that accepts two arguments, (1) a dataframe, and (2) the name(s) of the variable(s) to be rescaled. The body of the function should call the original `rescale_01()` function you wrote previously.
+Create a `rescale_column()` function that accepts two arguments, (1) a dataframe, and (2) the name(s) of the variable(s) to be rescaled. The body of the function should call the original `rescale_01()` function you wrote previously.
 
 ::: callout-tip
 If you are struggling with this task, I would recommend reading the [Data frame functions](https://r4ds.hadley.nz/functions.html#data-frame-functions) section from R4DS.
+
+Take a look at the slides from class on Wednesday.
 :::
 
 ```{r}
-# Question 7 code
+rescale_column <- function(data, variables){
+  
+  # Question 7 code
+  
+}
 ```
 
 #### 8. Another Function Test
@@ -194,5 +218,13 @@ I advise against using functions like `mutate_at()`, which have been superseded.
 :::
 
 ```{r}
+# original values
+fish |> 
+ select(length:weight) |> 
+ head()
+
+# rescaled values
+
 # Question 8 code
+
 ```
