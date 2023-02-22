@@ -123,7 +123,7 @@ Let's transform the repeated process above into a `rescale_01()` function.
 ::: callout-tip
 Think about the "efficiency" of your function. Are you calling the **same** function multiple times?
 
-Look into the function `rng()`
+Look into the function `range()`
 :::
 
 ```{r}
