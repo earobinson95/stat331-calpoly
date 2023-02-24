@@ -1,0 +1,225 @@
+---
+title: "PA 8: The 12 Days of Christmas"
+subtitle: "Starter Functions"
+format: 
+  html:
+    self-contained: true
+    code-tools: true
+    toc: true
+    number-sections: true
+editor: source
+execute: 
+  error: true
+  echo: true
+  message: false
+  warning: false
+---
+
+```{r setup}
+#| include: false
+library(tidyverse)
+library(glue)
+```
+
+[Download starter .qmd file](PA8-twelve-days-of-christmas.qmd)
+
+## Introduction {-}
+
+The song *"12 Days of Christmas"*, written around 1780, tells the tale of many gifts a person receives in the days leading up to Christmas ([link to lyrics](https://en.wikipedia.org/wiki/The_Twelve_Days_of_Christmas_(song)).
+
+::: callout-note
+You can watch a video of the [12 Days of Christmas at the Cambria Christmas Market](https://www.youtube.com/watch?v=_N9UeQRf_aQ&ab_channel=SanLuisObispoCountyVisitorsGuide).
+:::
+
+These gifts repeat and compound; on the first day, the narrator receives
+
+    A partridge in a pear tree.
+
+On the twelfth day, they receive
+
+    Twelve Drummers Drumming
+    Eleven Pipers Piping
+    Ten Lords a Leaping
+    Nine Ladies Waiting
+    Eight Maids a Milking
+    Seven Swans a Swimming
+    Six Geese a Laying
+    Five Golden Rings
+    Four Calling Birds
+    Three French Hens
+    Two Turtle Doves
+    And a Partridge in a Pear Tree
+
+This week, your task will be to write functions that automatically sing this very repetitive song. In the practice activity, we will start by writing two helper functions which we will use in the lab to write a function to sing this entire song.
+
+## Data set {-}
+
+Run the code provided to load in a data set called `xmas` that contains the crucial information about the gifts in the song. We will use this data set to test out our functions as we work on them.
+
+```{r}
+xmas <- read.csv("https://github.com/earobinson95/stat331-calpoly/raw/master/practice-activities/data/xmas.csv")
+```
+
+::: callout-warning
+Your functions can - and should! - reference each other. That is, don't duplicate code; use earlier, smaller functions inside your larger functions.
+:::
+
+::: callout-note
+### Packages
+
+The `tidyverse` package (including: `dplyr`, `stringr`, and `purrr`) and the `glue` package are already loaded into the materials for making the `twelvedays` functions. Make sure you have each of these packages installed!
+
+If you want to rely on functions from other packages that's fine, but you will need to load them in the set-up chunk.
+:::
+
+::: callout-tip
+### Advice
+
+##### Workflow {-}
+
++ Make smaller versions of the `xmas` data set (e.g., the first two days).
+
++ Once you feel confident in your function code, use the smaller version of the data to test the functions you write, *before* you test them on the full data set.
+
+##### Build from small pieces {-}
+
++ If you have some trouble getting started, I recommend writing a function that works in one case, and then trying to generalize.
+
++ For example, in building my `sing_day()` function, I might first write a version called `sing_third_day()` that sings
+
+      On the third day of Christmas, my true love gave to me:
+      three french hens,
+      two turtle doves,
+      and a patridge in a pear tree.
+
+##### Don't sweat the small stuff {-}
+
++ There's a lot you can do to polish up the way the song prints.
+
++ However, the goal of this practice activity is to practice writing functions and using iteration. Don't get bogged down in details like how the song displays, or small grammar rules (like commas!), until you've finished the main tasks. You will have a chance to do this on the Challenge for this week!
+:::
+
+## Plurals -- `pluralize_gift()`
+
+The gifts are listed in singular: for example, on day five the narrator receives "five golden rings", but the entry in the data set for the gift on day five simply says "ring".
+
+::: callout-tip
+*Hint 1:* The gifts on days six and nine have unusual pluralization. You may assume that in other data sets, there will be **no** additional special cases besides these types.
+
+*Hint 2:* The following small example may be useful to you:
+
+```{r, eval = TRUE}
+my_names <- c("Kimberly", "Trini", "Jason", 
+              "Billy", "Zach", "Tommy")
+
+my_names |> 
+  str_c("s", sep = "") |> 
+  str_replace("ys$", "ies")
+```
+:::
+
+::: callout-caution
+#### Important!
+
+You should **absolutely not** "hard-code" anything into this function; this function should work in general, not just for the items in *The 12 Days of Christmas*. For example, the word "rings" should not appear anywhere in the function. I should be able to give it any gift and get back the plural of that gift.
+:::
+
+Using the skeleton of the `pluralize_gift()` function, complete the code so that the function takes a gift and returns the appropriate plural.
+
+```{r pluralize-function}
+# Function that takes a noun and makes it plural
+# Arguments -- gift -- A string or vector of strings
+# Return -- A string or vector of strings with the pluralized words
+
+pluralize_gift <- function(gift){
+
+  gift <- gift |> 
+    str_replace()
+
+  return(gift)
+
+}
+```
+
+::: callout-note
+### Test Your Function
+
+Try your function out on the smaller and then larger gift data set. Consider: is your function *vectorized*? It does not have to be, but you can try it out if you want!
+
+```{r pluralize-test}
+# Will work if your function is vectorized! 
+pluralize_gift(xmas$Gift.Item)
+
+# Will work if your function is not vectorized!
+map_chr(xmas$Gift.Item, pluralize_gift)
+```
+:::
+
+## Creating sentences -- `make_phrase()`
+
+Write a function called `make_phrase()` that takes as input the necessary information, and returns a phrase. For example,
+
+
+    make_phrase(num_word = "ten", 
+                item = "lords", 
+                verb = "a-leaping", 
+                adjective = "", 
+                location = "")
+
+should return
+
+    "ten lords a-leaping"
+    
+```{r phrase-function}
+make_phrase <- function(num_day, item, verb, adjective, location) {
+  
+  ## Step 1: Replace NAs with blank strings
+  verb <- str_replace_na(verb, "")
+  
+  
+  ## Step 2: If the day number is larger than 1, the gift items need pluralized!
+  ### Hint: call the function you created above!
+  
+  
+  ## Step 3: Figure out if a gift item starts with a vowel
+  ### See tip below about how you will need to address number vs the number word (e.g. 10 vs ten)
+  
+  
+  ## Step 4: For the first day, if the gift item starts with a vowel, add "an" to the beginning and if the gift item does not start with a vowel, add "a" to the beginning (e.g. a partridge in a pear tree). If it is not the first day, use just the number word (e.g. ten lords a leap)
+  
+  
+  ## Step 5: Glue all of the pieces together into one string and return!
+
+}
+```
+
+::: callout-tip
+The `Day.in.Words` variable isn't quite what you want! You want `12` to say `"twelve"` **not** `"twelfth"`. I suggest using the `english` package to create numbered days and then use those in your `pmap_chr()`!
+
+If you are getting a frustrating error, try throwing `as.character()` around the new evaluation for `day.num` within your `mutate()` statement.
+:::
+
+::: callout-note
+### Test Your Function
+
+Try your function out on the `xmas` data, by making a new variable containing the daily phrases. Notice I've provided you with the code to iterate through each row of the data set to create a phrase---all you need to do is provide the necessary inputs into `pmap_chr()`.
+
+```{r}
+xmas2 <- xmas |> 
+  mutate(day.word = ______), 
+  Full.Phrase = pmap_chr(.l = list(num       = ______,
+                                   num_word  = ______, 
+                                   item      = ______, 
+                                   verb      = ______, 
+                                   adjective = ______, 
+                                   location  = ______), 
+                         .f = make_phrase)
+
+```
+:::
+
+## Canvas Submission {-}
+
+> Your `Full.Phrase` column is the answer to this week's Practice Activity.
+>
+> Copy and paste your `Full.Phrase` column to show me the phrases you made!
