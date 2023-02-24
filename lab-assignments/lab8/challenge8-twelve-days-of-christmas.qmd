@@ -1,0 +1,73 @@
+---
+title: "Challenge 8: The 12 Days of Christmas"
+subtitle: "Styling Your Song"
+format: 
+  html:
+    self-contained: true
+    code-tools: true
+    toc: true
+editor: source
+execute: 
+  error: true
+  echo: true
+  message: false
+  warning: false
+---
+
+```{r packages}
+#| include: false
+library(tidyverse)
+```
+
+It would be nice if your song output in a visually appealing way. For this Challenge, you will be provided with four options. You are welcome to complete as many as you wish and you will recieve the specified number of challenge points when completed in "good faith effort".
+
+::: callout-note
+Create a .qmd file that contains all the necessary functions, packages, and the data necessary to "sing the song". Then modify your functions to add styling options to your final document. Make this document easy to follow.
+:::
+
+::: callout-caution
++ Make sure to tell me which options you selected to complete.
++ Make sure at least the following Quarto options are included: `self-contained: true`, `code-tools: true`
+:::
+
+### Option 1 (+3)
+
+Remove any additional spaces between words, such that there should only be **one** whitespace character between words and **no** whitespace at the beginning or end of each phrase.
+
+### Option 2 (+4)
+
+Ensure each phase (e.g., "two turtle doves") of your song is printed on its own line. For example, your function should output the following for `sing_line(xmas, num = 2, phrase_col = Full.Phrase)`:
+
+    On the second day of Christmas, my true love gave to me: 
+    two turtle doves and 
+    a partridge in a pear tree
+
+### Option 3 (+5)
+
+Ensure there are blank spaces between the different lines of the song. For example, when iterating your function, your output should look like the following:
+
+    On the second day of Christmas, my true love gave to me: 
+    two turtle doves and 
+    a partridge in a pear tree
+
+    On the first day of Christmas, my true love gave to me:
+    a partridge in a pear tree
+
+### Option 4 (+6)
+
+Ensure the lines of your song are grammatically correct. There are three components you should address in making your lines grammatically correct:
+
+1.  Use of Commas -- each line should end in a comma *except* for the last line
+2.  Use of And -- there should be an "and" included *either* at the [end]{.underline} of the second to last line *or* at the [beginning]{.underline} of the final line
+3.  Use of Period -- there should be a period at the end of the final line
+
+For example, your function should output the following for `sing_line(xmas, num = 3, phrase_col = Full.Phrase)`:
+
+    On the third day of Christmas, my true love gave to me: 
+    three french hens, 
+    two turtle doves, and 
+    a partridge in a pear tree.
+
+::: callout-note
+While I am a fan of the oxford comma, you do not have to use an oxford comma for the second to last phrase of your song.
+:::

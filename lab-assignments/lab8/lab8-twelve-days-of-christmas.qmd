@@ -1,0 +1,147 @@
+---
+title: "Lab 8: The 12 Days of Christmas"
+subtitle: "Sing the Full Song"
+author: "Your name"
+format: 
+  html:
+    self-contained: true
+    code-tools: true
+    toc: true
+    number-sections: true
+editor: source
+execute: 
+  error: true
+  echo: true
+  message: false
+  warning: false
+---
+
+```{r packages}
+#| include: false
+library(tidyverse)
+xmas <- read.csv("https://github.com/earobinson95/stat331-calpoly/raw/master/practice-activities/data/xmas.csv")
+```
+
+[Download starter .qmd file](lab8-twelve-days-of-christmas.qmd)
+
+Alright, so you've already created two helper functions, `pluralize_gift()` and `make_phrase()`, which you used at the end of the Practice Activity to create a column of song phrases / lines.
+
+Today, you will use these phrases to write a function which sings the lines of song for a given day. We will then use this function to iterate through the 12 days of Christmas to get our song!
+
+::: callout-note
+Note, you will either need to copy over your functions from the Practice Activity into your new lab Quarto document.
+:::
+
+```{r}
+# Copy over functions from your practice activity
+```
+
+Use your PA functions to create a `Full.Phrase` column in the `xmas2` data set.
+
+```{r}
+xmas2 <- xmas |>
+  mutate(
+    day.num = as.character(english::english(Day)), 
+    Full.Phrase = pmap_chr(.l = list(num       = Day,
+                                     num_word  = day.num, 
+                                     item      = Gift.Item, 
+                                     verb      = Verb, 
+                                     adjective = Adjective, 
+                                     location  = Location), 
+                           .f = make_phrase)
+  )
+```
+
+::: callout-tip
+As you are writing your function, you might want to test them out as a simple case on this data set.
+:::
+
+## Iteration.
+
+Write a function called `sing_day()` that takes as input:
+
++ A dataset (input as a dataframe)
+
++ A number indicating which day to sing about (input as an integer)
+
++ The name of a column in the dataset that contains the phrases for each day (input as an tidy name)
+
+For example,
+
+    sing_day(xmas2, 2, Full.Phrase)
+
+should return
+
+    On the second day of Christmas, my true love sent to me:
+    two turtle doves and
+    a partridge in a pear tree.
+
+::: callout-tip
+**Hint 1:** The `{{phrase_col}}` part, which I provided for you, lets you use column names as arguments to a function. Don't delete that line of code!
+
+**Hint 2:** The `ordinal()` function from the **english** package could be helpful when converting the `line` input (e.g., 1) to a word (e.g., "first").
+:::
+
+```{r sing-day-function}
+# Produces the string for one day of the song.
+# Arguments -- dataset -- A data frame containing information about gifts
+# Arguments -- num -- The number of the day you want to sing about
+# Arguments -- phrase_col -- The variable name for the column in the dataset that contains the song phrases
+# Return -- A string singing the line of the song with all gifts for the given day.
+
+sing_day <- function(dataset, num, phrase_col){
+  
+  # Step 1: Setup the intro line
+  # Hint: You need to convert a number (e.g., 1) to a word (e.g., first)
+  num_word <- ____
+  
+  intro <- glue::glue("On the {num_word} day of Christmas, my true love sent to me:")
+  
+  # Step 2: Sing the gift phrases
+  # Hint: What order are they gifts sung in each day?
+
+    phrases <- dataset |>
+      pull( {{ phrase_col }} )
+
+  ????
+    
+  ## put it together
+    
+  ????
+
+}
+
+```
+
+::: callout-note
+### A Small Test
+
+```{r}
+xmas2 |>
+  sing_day(num = 2, 
+           phrase_col = Full.Phrase
+           )
+```
+:::
+
+## Use Your Functions!
+
+Run the following code to test out your functions! The output should be the lyrics for the entire 12 Days of Christmas song.
+
+```{r}
+map_chr(1:12, ~ sing_day(dataset = xmas2, 
+                         num = .x, 
+                         phrase_col = Full.Phrase)
+        ) |>
+  str_c(collapse = "\n") |>
+  cat()
+```
+
+::: callout-warning
+**You will get automatic deductions for:**
+
++ Functions that do not work the way they are intended
++ "Hard-Coding" in functions.
++ Not using the `map()` code supplied for you to iterate the function you just wrote.
++ Not singing the full song. Remember, each day, you get the gift for that day *and* all the prior days.
+:::
