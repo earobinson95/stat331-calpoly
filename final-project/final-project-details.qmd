@@ -29,9 +29,9 @@ income <- read_csv("data/income_per_person_gdppercapita_ppp_inflation_adjusted.c
 | Project Component | Due Date         |
 | ----------------- | ---------------- |
 | Group Contract    | Wednesday, 2/22  |
-| [Project Proposal - Data](#proposal)    | Sunday, 3/4   |
-| [Linear Regression](#linear-reg) | Sunday, 3/11  |
-| [Final Written Report](#sim)| Sunday, 3/18 |
+| [Project Proposal - Data](#proposal)    | Sunday, 3/5   |
+| [Linear Regression](#linear-reg) | Sunday, 3/12  |
+| [Final Written Report](#sim)| Sunday, 3/19 |
 
 Please turn in **both** your `.qmd` and `.html` document at each check-point. *You can continue to build on one file for each subsequentive check-point.*
 
