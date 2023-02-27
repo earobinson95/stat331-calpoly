@@ -171,7 +171,7 @@ should return
     "ten lords a-leaping"
     
 ```{r phrase-function}
-make_phrase <- function(num_day, item, verb, adjective, location) {
+make_phrase <- function(num, num_word, item, verb, adjective, location) {
   
   ## Step 1: Replace NAs with blank strings
   verb <- str_replace_na(verb, "")
@@ -182,10 +182,10 @@ make_phrase <- function(num_day, item, verb, adjective, location) {
   
   
   ## Step 3: Figure out if a gift item starts with a vowel
-  ### See tip below about how you will need to address number vs the number word (e.g. 10 vs ten)
   
   
-  ## Step 4: For the first day, if the gift item starts with a vowel, add "an" to the beginning and if the gift item does not start with a vowel, add "a" to the beginning (e.g. a partridge in a pear tree). If it is not the first day, use just the number word (e.g. ten lords a leap)
+  ## Step 4: For the first day, if the gift item starts with a vowel, replace the day with "an" and if the gift item does not start with a vowel, replace the day with "a" (e.g. a partridge in a pear tree). If it is not the first day, use just the number word (e.g. ten lords a leap)
+### See tip below about how you will need to address number vs the number word (e.g. 10 vs ten) You can choose to do this here or there.
   
   
   ## Step 5: Glue all of the pieces together into one string and return!

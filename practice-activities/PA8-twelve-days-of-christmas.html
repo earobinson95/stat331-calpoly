@@ -2837,7 +2837,7 @@ Caused by error in `check_lengths()`:
 <p>should return</p>
 <pre><code>&quot;ten lords a-leaping&quot;</code></pre>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>make_phrase <span class="ot">&lt;-</span> <span class="cf">function</span>(num_day, item, verb, adjective, location) {</span>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>make_phrase <span class="ot">&lt;-</span> <span class="cf">function</span>(num, num_word, item, verb, adjective, location) {</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Step 1: Replace NAs with blank strings</span></span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  verb <span class="ot">&lt;-</span> <span class="fu">str_replace_na</span>(verb, <span class="st">&quot;&quot;</span>)</span>
@@ -2848,10 +2848,10 @@ Caused by error in `check_lengths()`:
 <span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Step 3: Figure out if a gift item starts with a vowel</span></span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  <span class="do">### See tip below about how you will need to address number vs the number word (e.g. 10 vs ten)</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Step 4: For the first day, if the gift item starts with a vowel, add &quot;an&quot; to the beginning and if the gift item does not start with a vowel, add &quot;a&quot; to the beginning (e.g. a partridge in a pear tree). If it is not the first day, use just the number word (e.g. ten lords a leap)</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Step 4: For the first day, if the gift item starts with a vowel, replace the day with &quot;an&quot; and if the gift item does not start with a vowel, replace the day with &quot;a&quot; (e.g. a partridge in a pear tree). If it is not the first day, use just the number word (e.g. ten lords a leap)</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="do">### See tip below about how you will need to address number vs the number word (e.g. 10 vs ten) You can choose to do this here or there.</span></span>
 <span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Step 5: Glue all of the pieces together into one string and return!</span></span>
@@ -3272,7 +3272,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb17-173"><a href="#cb17-173" aria-hidden="true" tabindex="-1"></a><span class="in">    &quot;ten lords a-leaping&quot;</span></span>
 <span id="cb17-174"><a href="#cb17-174" aria-hidden="true" tabindex="-1"></a><span class="in">    </span></span>
 <span id="cb17-175"><a href="#cb17-175" aria-hidden="true" tabindex="-1"></a><span class="in">```{r phrase-function}</span></span>
-<span id="cb17-176"><a href="#cb17-176" aria-hidden="true" tabindex="-1"></a>make_phrase <span class="ot">&lt;-</span> <span class="cf">function</span>(num_day, item, verb, adjective, location) {</span>
+<span id="cb17-176"><a href="#cb17-176" aria-hidden="true" tabindex="-1"></a>make_phrase <span class="ot">&lt;-</span> <span class="cf">function</span>(num, num_word, item, verb, adjective, location) {</span>
 <span id="cb17-177"><a href="#cb17-177" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb17-178"><a href="#cb17-178" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Step 1: Replace NAs with blank strings</span></span>
 <span id="cb17-179"><a href="#cb17-179" aria-hidden="true" tabindex="-1"></a>  verb <span class="ot">&lt;-</span> <span class="fu">str_replace_na</span>(verb, <span class="st">&quot;&quot;</span>)</span>
@@ -3283,10 +3283,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb17-184"><a href="#cb17-184" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb17-185"><a href="#cb17-185" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb17-186"><a href="#cb17-186" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Step 3: Figure out if a gift item starts with a vowel</span></span>
-<span id="cb17-187"><a href="#cb17-187" aria-hidden="true" tabindex="-1"></a>  <span class="do">### See tip below about how you will need to address number vs the number word (e.g. 10 vs ten)</span></span>
+<span id="cb17-187"><a href="#cb17-187" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb17-188"><a href="#cb17-188" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb17-189"><a href="#cb17-189" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb17-190"><a href="#cb17-190" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Step 4: For the first day, if the gift item starts with a vowel, add &quot;an&quot; to the beginning and if the gift item does not start with a vowel, add &quot;a&quot; to the beginning (e.g. a partridge in a pear tree). If it is not the first day, use just the number word (e.g. ten lords a leap)</span></span>
+<span id="cb17-189"><a href="#cb17-189" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Step 4: For the first day, if the gift item starts with a vowel, replace the day with &quot;an&quot; and if the gift item does not start with a vowel, replace the day with &quot;a&quot; (e.g. a partridge in a pear tree). If it is not the first day, use just the number word (e.g. ten lords a leap)</span></span>
+<span id="cb17-190"><a href="#cb17-190" aria-hidden="true" tabindex="-1"></a><span class="do">### See tip below about how you will need to address number vs the number word (e.g. 10 vs ten) You can choose to do this here or there.</span></span>
 <span id="cb17-191"><a href="#cb17-191" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb17-192"><a href="#cb17-192" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb17-193"><a href="#cb17-193" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Step 5: Glue all of the pieces together into one string and return!</span></span>
