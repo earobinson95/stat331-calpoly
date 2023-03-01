@@ -60,7 +60,7 @@ abs(x)
 
 ```{r}
 x <- seq(from = -4, to = 12, by = 0.5)
-for(i in length(x)){
+for(i in 1:length(x)){
   x[i] <- abs(x[i])
 }
 
@@ -574,7 +574,9 @@ new_var <- case_when(condition1 ~ change1,
 + The `condition` should result in a TRUE/FALSE Boolean value
 + The `change` is some sort of modification to a variable
 
-*Tip: Test it out on a simple case, then generalize!*
+::: callout-tip
+Tip: Test it out on a simple case, then generalize!
+:::
 
 ### `case_when(TRUE = )`
 
@@ -593,7 +595,7 @@ pos_neg_zero <- function(x){
 x <- seq(from = -4, to = 4, by = 1)
 pos_neg_zero(x)
 ```
-## `case_when(.default = )`
+### `case_when(.default = )`
 
 Works with `dplyr` versions 1.1.0 over newer.
 
@@ -644,6 +646,9 @@ The function `glue_collapse()` might be useful -- look at the arguments in the R
 
 + **Challenge 8: Styling Your Song**
   + Due Saturday 3/4 at 11:59pm
+  
++ **Project Proposal -- Data**
+  + Due Sunday 3/5 at 11:59pm
   
 + Read **Chapter 9: Regression & Simulation**
   + Check-in 9.1 & 9.2 due Monday 3/6 at 8am
