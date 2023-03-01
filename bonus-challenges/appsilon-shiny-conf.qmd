@@ -1,0 +1,52 @@
+---
+title: "Bonus Challenge: Appsilon Shiny Conference"
+subtitle: "March 15-17, 2023"
+format: 
+  html:
+    self-contained: true
+editor: source
+execute: 
+  echo: false
+---
+
+```{r}
+#| out-width: 50%
+#| fig-align: center
+knitr::include_graphics("https://jeremymack-lu.github.io/shinyapps/images/shiny_hex.png")
+```
+
+Visit the [R Shiny Gallery](https://shiny.rstudio.com/gallery/).
+
+
+## When
+
+March 15-17th: 5am PT - 1pm PT
+
+::: callout-warning
+Make sure you are paying CLOSE attention to time zones. The program lists times in CET (Central European Time).
+
+Use a [a time converter](https://www.worldtimebuddy.com/).
+:::
+
+## Where
+
+Virtual
+
+::: callout-caution
+You must register for **free** [here](https://shinyconf.appsilon.com/registration/) to receive the links!
+:::
+
+## Challenge Points (up to +12)
++ Submit to canvas a "hardy" and "clear" reflection for each session you attend.
+  + This can be in paragraph form or some sort of creative "sketch" format.
+  + What did you learn? How does this relate to your current or future experiences?
++ Each "reflection" gets you +1 challenge point
++ Turn in one document for all session reflections
+  + Make sure to indicate with a header, which talk you attended.
+  + You can write/sketch this in any document editor of your choosing (Word, Quarto, Google Docs, Excalidraw, etc.)
++ You can submit reflections for up to **12 talks**.
+  + Please make sure to indicate how many talks you attended.
+  
+**Due Sunday, March 19, 2023 at 11:59pm**
+
+See the [conference program](https://shinyconf.appsilon.com/conference-scheduler/?utm_medium=social&utm_source=twitter&utm_campaign=scheduler) for a list of session talks. 

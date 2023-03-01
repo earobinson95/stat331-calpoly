@@ -481,6 +481,7 @@ bottles_song(4)
 
 Today we will...
 
++ Bonus Challenge Opportunity
 + Lab 7 Comments
 + Clarify `case_when()`
 + Recap `pmap()`
@@ -488,7 +489,6 @@ Today we will...
 + Work-time
   + Lab and Challenge 8
   + Project Proposal
-
 
 ## Comments from Lab 7: Functions and Fish
 
