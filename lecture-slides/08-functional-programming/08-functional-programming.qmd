@@ -60,7 +60,6 @@ abs(x)
 
 ```{r}
 x <- seq(from = -4, to = 12, by = 0.5)
-
 for(i in length(x)){
   x[i] <- abs(x[i])
 }
@@ -249,10 +248,10 @@ knitr::include_graphics("images/map.png")
 :::: columns
 ::: column
 + `map()` creates a *list*
-+ `map_chr()` creates a *logical vector*
-+ `map_lgl()` creates an *integer vector*
-+ `map_int()` creates a *double vector*
-+ `map_dbl()` creates a *character vector*
++ `map_chr()` creates a *character vector*
++ `map_lgl()` creates an *logical vector*
++ `map_int()` creates a *integer vector*
++ `map_dbl()` creates a *numeric vector*
 :::
 ::: column
 + `map2_chr()`
@@ -482,7 +481,161 @@ bottles_song(4)
 
 Today we will...
 
-+ Challenge 7: Incorporating Multiple Inputs
++ Lab 7 Comments
++ Clarify `case_when()`
++ Recap `pmap()`
++ Preview for Lab 8: Writing the Full Song
++ Work-time
+  + Lab and Challenge 8
+  + Project Proposal
+
+
+## Comments from Lab 7: Functions and Fish
+
+Get creative with your plots...
+
+:::: columns
+::: column
+```{r}
+#| echo: false
+fish <- read.csv(here::here("lab-assignments", 
+                            "lab7", 
+                            "BlackfootFish.csv")
+                 )
+
+fish |> 
+  filter(is.na(weight)) %>% 
+  group_by(year, section, trip) %>% 
+  count() %>% 
+  mutate(trip = as.factor(trip), 
+         year = as.factor(year)) %>% 
+  ggplot(aes(y = year, x = n, fill = fct_relevel(trip, levels = c("1", "2")))) + 
+  geom_col() + 
+  facet_wrap(vars(section)) + 
+  labs(y = "", 
+       x = "") +
+  scale_fill_manual(values = c("#1F87B4", "#A6CEE3")) +
+  labs(title = str_c("Missing Fish Weights for ",
+      "<span style = 'color:#A6CEE3'>**Trip 1**</span>",
+      " and <span style = 'color:#1F87B4'>**Trip 2**</span>"),
+      subtitle = "by Section of Blackfoot River"
+    ) + 
+  theme(plot.title = ggtext::element_markdown(size = 24),
+        plot.subtitle = ggtext::element_markdown(size = 18),
+        legend.position = "none", 
+        axis.text.y = element_text(size = 12), 
+        axis.title = element_text(size = 16)
+        )
+
+```
+:::
+::: column
+
+::: panel-tabset
+### Options
++ Rotate your axes
++ Make sure people don't tilt their head
++ use non-default colors
++ change font and/or font size
++ add legend to your title!
+
+### Legend Colors in Plot title
+```{r}
+#| eval: false
+labs(title = str_c("Missing Fish Weights for ",
+      "<span style = 'color:#A6CEE3'>**Trip 1**</span>",
+      " and <span style = 'color:#1F87B4'>**Trip 2**</span>"),
+      subtitle = "by Section of Blackfoot River"
+    )
+```
+
+How did I figure out the colors?
+
+```{r}
+library(RColorBrewer)
+brewer.pal(n = 2, name = "Paired")
+```
+:::
+:::
+::::
+
+## `dplyr` 1.1.0 -- `case_when(.default = )`
+
+::: panel-tabset
+### `case_when()` logic
+
+```
+new_var <- case_when(condition1 ~ change1,
+                     condition2 ~ change2,
+                     .default ~ variable
+                     )
+```
+
++ The `condition` should result in a TRUE/FALSE Boolean value
++ The `change` is some sort of modification to a variable
+
+*Tip: Test it out on a simple case, then generalize!*
+
+### `case_when(TRUE = )`
+
+Works with older versions of `dplyr` -- will always work!
+
+```{r}
+pos_neg_zero <- function(x){
+  stopifnot(is.numeric(x))
+  
+  state <- case_when(x > 0 ~ "Greater than 0!", 
+                     x < 0 ~ "Less than 0!", 
+                     TRUE ~ "Equal to 0!")
+  return(state)
+}
+
+x <- seq(from = -4, to = 4, by = 1)
+pos_neg_zero(x)
+```
+## `case_when(.default = )`
+
+Works with `dplyr` versions 1.1.0 over newer.
+
+```{r}
+pos_neg_zero <- function(x){
+  stopifnot(is.numeric(x))
+  
+  state <- case_when(x > 0 ~ "Greater than 0!", 
+                     x < 0 ~ "Less than 0!", 
+                     .default = "Equal to 0!")
+  return(state)
+}
+
+x <- seq(from = -4, to = 4, by = 1)
+pos_neg_zero(x)
+```
+
+:::
+
+## What is `pmap()` doing?
+
+```{r}
+#| fig-align: center
+#| out-width: 90%
+#| echo: false
+knitr::include_graphics("images/pmap.png")
+```
+
+## Lab and Challenge: 12 Days of Christmas
+
+1. Write a `sing_day()` function
+  + what does "one day" lyrics look like
+  + what order do "one day" lyrics go in
+  
+::: callout-tip
+The function `glue_collapse()` might be useful -- look at the arguments in the R documentation.
+:::
+
+2. Iterate your `sing_day()` function over a set of days
+
+3. Style your output!
+
 
 ## To do...
   
