@@ -567,7 +567,7 @@ brewer.pal(n = 2, name = "Paired")
 ```
 new_var <- case_when(condition1 ~ change1,
                      condition2 ~ change2,
-                     .default ~ variable
+                     .default = variable
                      )
 ```
 
@@ -578,7 +578,7 @@ new_var <- case_when(condition1 ~ change1,
 Tip: Test it out on a simple case, then generalize!
 :::
 
-### `case_when(TRUE = )`
+### `case_when(TRUE ~ )`
 
 Works with older versions of `dplyr` -- will always work!
 
@@ -627,10 +627,17 @@ knitr::include_graphics("images/pmap.png")
 ## Lab and Challenge: 12 Days of Christmas
 
 1. Write a `sing_day()` function
-  + what does "one day" lyrics look like
-  + what order do "one day" lyrics go in
+
+  + what does "one day" lyrics look like (how might you extract these?)
+  + what order do "one day" of lyrics go in
   
 ::: callout-tip
+Start with a small example and test it out on a single day outside of the function environment.
+
+```
+xmas2 |> 
+   pull(Full.Phrase)
+```
 The function `glue_collapse()` might be useful -- look at the arguments in the R documentation.
 :::
 
