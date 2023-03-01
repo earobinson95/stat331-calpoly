@@ -36,15 +36,15 @@ Virtual
 You must register for **free** [here](https://shinyconf.appsilon.com/registration/) to receive the links!
 :::
 
-## Challenge Points (up to +12)
+## Challenge Points (up to +20)
 + Submit to canvas a "hardy" and "clear" reflection for each session you attend.
   + This can be in paragraph form or some sort of creative "sketch" format.
   + What did you learn? How does this relate to your current or future experiences?
-+ Each "reflection" gets you +1 challenge point
++ Each "reflection" gets you up to +2 challenge point
 + Turn in one document for all session reflections
   + Make sure to indicate with a header, which talk you attended.
   + You can write/sketch this in any document editor of your choosing (Word, Quarto, Google Docs, Excalidraw, etc.)
-+ You can submit reflections for up to **12 talks**.
++ You can submit reflections for up to **10 talks**.
   + Please make sure to indicate how many talks you attended.
   
 **Due Sunday, March 19, 2023 at 11:59pm**
