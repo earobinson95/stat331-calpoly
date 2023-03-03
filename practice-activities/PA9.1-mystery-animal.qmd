@@ -1,0 +1,57 @@
+---
+title: "PA 9.1: Mystery Animal"
+subtitle: "Linear Regression"
+format: 
+  html:
+    self-contained: true
+    code-tools: true
+    toc: true
+    number-sections: true
+editor: source
+execute: 
+  error: true
+  echo: true
+  message: false
+  warning: false
+---
+
+```{r setup}
+#| include: false
+library(tidyverse)
+```
+
+[Download starter .qmd file](PA9.1-mystery-animal.qmd)
+
+## Data
+
+The data set contains the weights of a particular animal before and after a year of eating only roasted duck.
+
+```{r}
+mystery_animal <- read_csv("https://github.com/earobinson95/stat331-calpoly/raw/master/practice-activities/data/mystery_animal.csv")
+```
+
+## Linear Regression
+
+Fit a linear regression to determine if the Duck Diet is associated with the animal gaining weight, losing weight, or neither.
+
+```{r}
+# Fit linear regression model here
+```
+
+## Residuals
+
+Extract and plot the residuals *(observed value minus predicted value)* of your linear model versus `weight_before`.
+
+::: callout-tip
+There are a few different ways to obtain your residuals. My favorite is the `augment()` function from the {broom} package. I like this option a lot because it gives you all of the information from your linear regression in a tidy [tibble]{.underline}!
+
+Each row has the explanatory and response values, the fitted / predicted value (`.fitted`), and the residual (`.resid`).
+:::
+
+```{r}
+# Extract and plot the residuals here
+```
+
+## Canvas Submission: Mystery Animal
+
+> What animal do you see?
