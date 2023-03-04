@@ -106,13 +106,13 @@ This is your chance to catch Professor Hill in his lie!
 **6. write a function that samples the correct number of weights of trombones, cornets (trumpets), and reed instruments (saxophones, clarinets, bassoons), and then returns the total weight of the shipment.**
 
 ```{r}
-#| eval: false
-#| echo: true
 music_man <- function(n_tromb, n_cor, n_reed){
   
   trombones <- rnorm(n_tromb, ...)
-  cornets <- ...
-  reeds <- ...
+  cornets   <- ...
+  reeds     <- ...
+  
+  ...
   
   return()
   
@@ -130,12 +130,16 @@ music_man <- function(n_tromb, n_cor, n_reed){
 set.seed(1957)
 
 my_weights <- map_dbl(.x = 1:1000, 
-                      .f = music_man(n_tromb = 76, ...)
+                      .f = ~ music_man(n_tromb = 76, ...)
                       )
 ```
 
 ## Canvas submission
 
-> How many of these samples had a weight less than Prof. Hill's shipment? 
+> How many of these samples had a weight less than Professor Hill's shipment? 
 >
-> Do you believe Professor Hill is lying, or not?
+> Do you beleive Professor Hill ordered genuine instruments?
+
+```{r}
+# Canvas submission code
+```
