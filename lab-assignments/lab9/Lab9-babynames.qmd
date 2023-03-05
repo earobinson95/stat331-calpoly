@@ -22,12 +22,12 @@ library(tidyverse)
 
 [Download .qmd starter file](Lab9-babynames.qmd)
 
-[Download `StateNames_E.csv`]()
+[Download `StateNames_E.csv`](baby-names-data/StateNames_E.csv)
 
 Our data set in this lab contains baby names that begin with "E" and their popularity over time. For each year, and for each name with at least 50 recorded babies born, we are given the counts of how many babies had that name.
 
 ::: callout-note
-If you wish to download the data set for your name, you can find the names for ALL 50 states, in separate data sets organized by first letter of the name [here]().
+If you wish to download the data set for your name, you can find the names for ALL 50 states, in separate data sets organized by first letter of the name [here](https://github.com/earobinson95/stat331-calpoly/tree/master/lab-assignments/lab9/baby-names-data).
 :::
 
 Let's take a look at how the name "Emily" has changed over time. As my name begins with "E", you should load in the `StateNames_E.csv` data set.
