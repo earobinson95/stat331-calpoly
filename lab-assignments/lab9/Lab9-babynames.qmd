@@ -1,0 +1,100 @@
+---
+title: "Lab 9: Baby Names"
+subtitle: "Regression"
+author: "Your name"
+format: 
+  html:
+    self-contained: true
+    code-tools: true
+    toc: true
+editor: source
+execute: 
+  error: true
+  echo: true
+  message: false
+  warning: false
+---
+
+```{r setup}
+#| include: false
+library(tidyverse)
+```
+
+[Download .qmd starter file](Lab9-babynames.qmd)
+
+[Download `StateNames_E.csv`]()
+
+Our data set in this lab contains baby names that begin with "E" and their popularity over time. For each year, and for each name with at least 50 recorded babies born, we are given the counts of how many babies had that name.
+
+::: callout-note
+If you wish to download the data set for your name, you can find the names for ALL 50 states, in separate data sets organized by first letter of the name [here]().
+:::
+
+Let's take a look at how the name "Emily" has changed over time. As my name begins with "E", you should load in the `StateNames_E.csv` data set.
+
+```{r}
+#| include: false
+babies_e <- read.csv(
+  here::here("lab-assignments",
+             "Lab9",
+             "baby-names-data",
+             "StateNames_E.csv")
+  )
+```
+
+## Explore the Number of Emilys
+
+**1. Make a summary table of the number of babies named "Emily" for each state and the sex of the baby.**
+
+  + **Specifically, each state should be its own row and each sex should have its own column.**
+  + **Additionally, if there were no babies born with the name "Emily" for that combination of state & sex the table should have a value of 0 (not an `NA`).** 
+  
+::: callout-warning 
+To be clear, there should be **one** row per state, which means you need to `summarize()` all the years for each state.
+:::
+
+::: callout-caution
+The dataset has a column titled `Gender`, which contains two values `"F"` and `"M"`, representing "Female" and "Male". The sex someone was assigned at birth is different from their gender identity [(definitions)](https://www.plannedparenthood.org/learn/gender-identity/sex-gender-identity). Thus, this variable should be renamed to `Sex` or `Sex at Birth`.
+:::
+
+**2. You should have seen in the table above that "Emily" is a name given overwhelmingly to babies assigned "female" at birth. So, `filter()` the data to include only babies assigned `F`emale at birth.** *(No output needed for this question, only code)*
+
+**3. Make a visualization showing how the popularity of the name "Emily" has changed over the years.**
+
+::: callout-warning
+To be clear, each year should have **one** observation--the total number of Emily born that year.
+:::
+
+## Modeling the Number of Emilys
+
+**4. Create a linear model with the year as the explanatory variable, and the number of Emilys as the response.**
+
+::: callout-warning
+Similar to #4, each year should have **one** observation--the total number of Allisons born that year.
+:::
+
+**5. Visualize the regression model.**
+
+**6. Write out the estimated regression equation.**
+
+**7. Plot the _residuals_ of the model, that is, the actual values minus the predicted values. Comment on the residuals - do you see any patterns?**
+
+::: callout-tip
+The `augment()` function from the **broom** package may be helpful!
+:::
+
+**8. What do you conclude from this model? Is my name not cool anymore?**
+
+## Spelling by State
+
+In middle school I was **so** upset with my parents for not naming me "Emmaleigh". Past my pre-teen rebellion, I'm happy with my name and am glad when baristas spell it "Emily".
+
+**1. Narrow the E name data set (downloaded previously) down to only female-assigned babies with alternative spellings "Emilee", "Emilie", "Emmaleigh", or "Emmalee".**
+
+**2. Make a plot comparing the popularity of these names over time.**
+
+**3. In California, the spelling of Emmaleigh is the least common of the four alternatives**
+
+<!-- -   but perhaps it's not such an unusual name for his home state of Pennsylvania. Compute the total number of babies born with each spelling of "Allan" in 2000, in Pennsylvania and in California. Specifically, each spelling should be its own column and each state should have its own row. Similar to before, a `0` (not an `NA`) should be used to represent locations where there were no instances of these names. -->
+
+**4.  Convert your total counts to overall percents. That is, what was the percent breakdown between the three spellings in CA? What about in PA?**

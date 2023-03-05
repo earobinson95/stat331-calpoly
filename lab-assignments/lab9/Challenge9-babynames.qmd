@@ -1,0 +1,64 @@
+---
+title: "Challenge 9: Formatting Nice Tables"
+format: 
+  html:
+    self-contained: true
+    code-tools: true
+    toc: true
+    number-sections: true
+editor: source
+execute: 
+  error: true
+  echo: true
+  message: false
+  warning: false
+---
+
+```{r setup}
+#| include: false
+library(tidyverse)
+```
+
+For this Challenge you will explore how to generate nice looking tables for HTML documents, by applying the skills to your [Lab 9: Baby Names](). There are many packages for generating tables, but I prefer the `kable()` function from the **knitr** package for *simple* tables and the `datatable()` function from the **DT** package for *more sophisticated* tables.
+
+I would recommend you think of tables no different from the visualizations you've been making. We want **all** aspects of our tables to be clear to the reader, so the comparisons we want them to make are straightforward. Tables are also a great avenue to display creativity! In fact, there is a yearly [RStudio table contest](https://www.rstudio.com/blog/rstudio-table-contest-2022/), and [here](https://community.rstudio.com/c/table-gallery/64) is a gallery of the award winning tables!
+
+## Formatting Basic Tables
+
+Use the `kable()` function from the [kable package](https://bookdown.org/yihui/rmarkdown-cookbook/kable.html) to create nice, basic HTML tables for [**every**]{.underline} table in Lab 9.
+
+::: callout-warning
+Similar to axis labels in visualizations, **every** column name in a table should describe what it contains. For example, a column of `n` is less explanatory than `Frequency of Babies`.
+:::
+
+## Formatting Nicer Tables
+
+There are two options for creating nicer tables:
+  + [kableExtra package](https://bookdown.org/yihui/rmarkdown-cookbook/kableextra.html)
+  + [DT Package](https://rstudio.github.io/DT/).
+  
+This part of the Challenge has two tasks:
+
+1.  Use either the **DT** or **kableExtra** packages to spice up **at least one** of your tables. Some ideas on how to "spice up" a table: change the font and / or font size, adding striping and / or cell borders to the table, creating custom formatting of columns, or allowing the user to interact with the table (e.g., filtering columns, editing cells).
+
+2.  Use the **DT** package to include an interactive preview of the data set at the beginning of your lab report.
+
+## Using LaTeX (Optional, but fun!)
+
+For this portion of the Challenge, you are tasked with using $\LaTeX$ to format your regression equation in #6. Keep in mind our estimated regression equation indicates the response ($y$) is estimated with a hat ($\hat{y}$)!
+
+$\LaTeX$, which is pronounced Lah-tech or Lay-tech, is a document preparation system for high-quality typesetting. It is most often used for medium-to-large technical or scientific documents but it can be used for almost any form of publishing. Some of the perks of using $\LaTeX$ are:
+
++ Typesetting journal articles, technical reports, books, and slide presentations
++ Control over large documents containing sectioning, cross-references, tables and figures
++ Typesetting of complex mathematical formulas
++ Advanced typesetting of mathematics with AMS-LaTeX
++ Automatic generation of bibliographies and indexes
+
+::: callout-note
+## Resources
+
++ [Overleaf Guide on Mathematical Expressions](https://www.overleaf.com/learn/latex/Mathematical_expressions)
+
++ [Dr. Theobold's Repository from a LaTeX workshop](https://github.com/atheobold/IntroLaTeXLesson)
+:::
