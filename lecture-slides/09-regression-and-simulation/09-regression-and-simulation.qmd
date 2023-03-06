@@ -1,0 +1,499 @@
+---
+title: "WEEK 9: LINEAR REGRESSION & SIMULATING DISTRIBUTIONS"
+format: 
+  revealjs:
+    theme: [default, ../../slide_custom.scss]
+    auto-stretch: false
+editor: source
+self-contained: true
+execute:
+  echo: true
+---
+
+```{r setup}
+#| include: false
+#| message: false
+library(tidyverse)
+```
+
+## Monday, March 6th
+
+Today we will...
+
++ Questions from Lab/Challenge 8
++ Final Project Part 2 -- Linear Regression
++ Mini lecture on text material
+  + Review of Simple Linear Regression
+  + Conditions of Linear Regression
++ PA 9.1: Mystery Animal
++ Lab 9: Baby Names
+
+
+## NC Births Data
+
+The `ncbirths` data set is a random sample of 1,000 cases taken from a larger 
+data set collected in North Carolina in 2004. 
+
+Each case describes the birth of a single child born in North Carolina, along
+with various characteristics of the child (e.g. birth weight, length of
+gestation, etc.), the child’s mother (e.g. age, weight gained during pregnancy,
+smoking habits, etc.) and the child’s father (e.g. age). 
+
+```{r}
+library(openintro)
+data(ncbirths)
+head(ncbirths) |> 
+  knitr::kable() |> 
+  kableExtra::scroll_box(height = "200px")
+```
+
+## Relationships Between Variables
+
+In a statistical model, we generally have one variable that is the output and
+one or more variables that are the inputs.
+
+:::: columns
+::: column
++ Response variable
+  + a.k.a. $y$, dependent
+  + The quantity you want to understand
+:::
+::: column
++ Explanatory variable
+  + a.k.a. $x$, independent, explanatory, predictor
+  + Something you think might be related to the response
+:::
+::::
+
+## Visualizing the Relationship
+
+The scatterplot has been called the most "generally useful invention in the
+history of statistical graphics."
+
+:::: columns
+::: column
+```{r}
+#| echo: false
+#| fig-width: 5
+#| fig-height: 4
+#| fig-align: center
+ggplot(data = bdims, aes(y = wgt, x = hgt)) + 
+  geom_point() +
+  scale_x_continuous("Explanatory Variable", labels = NULL) + 
+  scale_y_continuous("Response Variable", labels = NULL) +
+  theme(axis.title = element_text(size = 20)
+        )
+```
+:::
+::: column
+
+**Characterizing relationships**
+
++ Form -- linear, quadratic, non-linear?
+
++ Direction -- positive, negative?
+
++ Strength -- how much scatter/noise?
+
++ Unusual observations -- do points not fit the overall pattern?
+:::
+::::
+
+## Your turn!
+
+How would your characterize this relationship? 
+
+:::: {.columns}
+::: {.column width="25%"}
+- shape
+- direction
+- strength 
+- outliers
+:::
+::: {.column width="75%"}
+```{r}
+#| echo: false
+#| fig-height: 6
+ncbirths |> 
+ggplot(aes(x = weeks, y = weight)) +
+  geom_jitter() + 
+  labs(x = "Length of pregnancy (in weeks)",
+       y = "Birth weight of baby (in lbs)") +
+  theme(axis.title = element_text(size = 20),
+        axis.text = element_text(size = 18)
+        )
+```
+:::
+::::
+
+::: {.notes}
+As we work through these, please keep in mind that much of what we are doing at
+this stage involves making judgment calls. This is part of the nature of
+statistics, and while it can be frustrating - especially as a beginner - it is
+inescapable. For better or for worse, statistics is not a field where there is
+one right answer. There are of course an infinite number of indefensible claims,
+but many judgments are open to interpretation.
+
+There isn’t a universal, hard-and-fast definition of what constitutes an outlier, but they are often easy to spot in a scatterplot.
+
++ What observations would you consider to be outliers?
+
++ How would you go about removing these outliers from the data?
+:::
+
+## Simple Linear Regression (SLR)
+
+Assume the relationship between $x$ and $y$ takes the form of a linear function.
+
+$$
+  response = intercept + slope \cdot explanatory + noise
+$$
+
+:::: columns
+::: column
+**Population Regression Model**
+
+$Y = \beta_0 + \beta_1 \cdot X + \epsilon_i$  
+
+$\epsilon \sim N(0, \sigma)$
+:::
+::: column
+
+**Fitted Regression Model (_Sample_)** 
+
+$\hat{y} = \hat{\beta}_0 + \hat{\beta}_1 \cdot x$
+:::
+::::
+
+::: {.notes}
+Models are ubiquitous in statistics. In many cases, we assume that the value of
+our response variable is some function of our explanatory variable, plus some
+random noise.
+
+What we are saying here is that there is some mathematical function $f$, which can translate values of one variable into values of another, except that there is some randomness in the process. What often distinguishes statisticians from other quantitative researchers is the way that we try to model that random noise.
+:::
+
+
+## Fitting an SLR Model 
+
+::: panel-tabset
+
+### `geom_smooth(method = "lm")`
+
+```{r}
+#| code-line-numbers: 6
+#| fig-width: 8
+#| fig-height: 4
+#| fig-align: center
+ncbirths |> 
+ggplot(aes(x = gained, 
+           y = weight)
+       ) +
+  geom_jitter() + 
+  geom_smooth(method = "lm") 
+```
+
+### `lm`
+
+```{r}
+ncbirth_lm <- lm(weight ~ gained, 
+                 data = ncbirths
+                 )
+```
+
+### Coefficients
+
+```{r}
+library(broom)
+tidy(ncbirth_lm)
+```
+
++ Intercept: Expected __mean__ value for $y$, when $x$ is 0  
+
++ Slope: Expected change in the __mean__ of $y$, when $x$ is increased by 1 unit
+
+### Residuals
+
+Difference between the observed (point) and the expected (line).
+
+```{r}
+ncbirth_lm$residuals |> 
+  head(3)
+
+resid(ncbirth_lm) |> 
+  head(3)
+
+library(broom)
+augment(ncbirth_lm) |> 
+  head(3)
+```
+
+:::
+
+## Model Diagnostics
+
+::: panel-tabset
+
+### Linearity
+
+**Linear Relationship**
+
+:::: {.columns}
+::: {.column width="30%"}
++ Almost nothing you explore will look perfectly linear 
+
++ Be careful with relationships that have curvature 
+
++ Variable transformations can often help 
+:::
+::: {.column width="70%"}
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 6
+library(patchwork)
+## curvature
+p1 <- ggplot(ncbirths, aes(x = weeks, y = weight)) +
+  geom_jitter(alpha = 0.5) +
+  geom_smooth(method = "lm") +
+  labs(x = "Length of pregnancy (in weeks)", y = "Birth weight of baby (in lbs)")
+
+p2 <- ggplot(ncbirths, aes(x = weeks, y = weight)) +
+  scale_y_log10() +
+  scale_x_log10() +
+  geom_jitter(alpha = 0.5) +
+  geom_smooth(method = "lm") +
+  labs(x = "Length of pregnancy (in log weeks)", y = "Birth weight of baby (in log lbs)")
+
+p1 + p2
+```
+:::
+::::
+
+### Independence
+
+:::: columns
+::: column
+**Independence of observations**
+
+Nearly every statistical model you will encounter, require for the observations in the data to be independent.
+
+This is often the most crucial but also the most difficult to diagnose. 
+
+<!-- It is also extremely difficult to gather a dataset which is a true random sample -->
+<!-- from the population of interest.  -->
+
+**What does independence mean?**
+
+Independence means that I should not be able to know the $y$ value for one
+observation based on knowing the $y$ value of another observation. 
+:::
+::: column
+**Situations with independence violations**
+
+If there is an inherent grouping of observations, then independence may be 
+violated. 
+
++ Stock market prices over time  
++ Geographical similarities
++ Biological conditions of family members
++ Repeated observations 
+:::
+::::
+
+### Normality
+
+**Normally distributed residuals**
+
+:::: columns
+::: column
+Observations vary symmetrically around the least squares line, spreading out
+in a bell-shaped fashion.
+
+Less important than linearity or independence for a few reasons: 
+
++ Least squares is an unbiased estimate of the true population model.
++ Larger sample sizes make the model more reliable. 
+:::
+::: column
+```{r, fig.height = 6, fig.width = 6, echo = FALSE}
+ncbirth_lm |> 
+  augment() |> 
+  ggplot(aes(x = .resid)) +
+  geom_histogram(aes(y = ..density..)) +
+  geom_density(color = "steelblue", 
+               lwd = 1.5) + 
+  xlab("Residuals")
+```
+:::
+::::
+
+### Equal Variance
+
+**Equal (constant) variance**
+
+:::: columns
+::: column
+- The variability of points around the least squares line remains roughly
+constant.
+
+- Data that exhibit non-equal variance across the range of x-values will have
+the potential to seriously mis-estimate the variability of the slope. 
+
+:::
+::: column
+
+```{r}
+#| eval: false
+ncbirth_lm |> 
+  augment() |> 
+ggplot(aes(x = .fitted, y = .resid)) +
+  geom_point() +
+```
+
+```{r, echo = FALSE, fig.height = 6, fig.width = 10}
+p1 <- ncbirths |> 
+  filter(weeks > 26) %>% 
+  ggplot(aes(x = weeks, y = weight)) +
+  geom_jitter() +
+  geom_smooth(method = "lm") +
+  labs(x = "Length of pregnancy (in weeks)", y = "Birth weight of baby (in lbs)") +
+  theme(axis.title = element_text(size = 24),
+        axis.text = element_text(size = 20)
+        )
+
+p2 <- ggplot(data = ncbirth_lm, aes(x = .fitted, y = .resid)) +
+  geom_point() +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red", lwd = 1.5) +
+  xlab("Fitted values") +
+  ylab("Residuals") +
+  theme(axis.title = element_text(size = 24),
+        axis.text = element_text(size = 20)
+        )
+
+p1 + p2
+```
+:::
+::::
+
+:::
+
+## Assessing Model Fit
+
+:::: columns
+::: column
+```{r}
+anova(ncbirth_lm)
+summary(ncbirth_lm)
+```
+:::
+::: column
++ **Sum of Square Errors (SSE)**
+  + sum of squared residuals 
+
++ **Root Mean Square Error (RMSE)**
+  + standard deviation of residuals 
+
++ **R-squared**
+  + proportion of variability in response accounted for by the linear model
+:::
+::::
+
+## Model Comparison
+
+:::: columns
+::: column
+**Weight as explanatory variable**
+```{r}
+weight_weeks <- lm(weight ~ weeks, 
+                   data = ncbirths
+                   )
+```
+
+- SSE = 1246.55 
+- RMSE = 1.119
+- $R^2$ = 0.449
+:::
+::: column
+**Visit as explanatory variable**
+```{r}
+weight_visits <- lm(weight ~ visits, 
+                    data = ncbirths
+                    )
+```
+
+- SSE = 2152.74
+- RMSE = 1.475
+- $R^2$ = 0.01819
+:::
+::::
+
+## Extending to Multiple Linear Regression
+
+If you have multiple explanatory variables you want to include in the model:
+
+`lm(y ~ x1 + x2 + x3 + ... + xn)`
+
+If you want to include interactions:
+
+`lm(y ~ x1 + x2 + x1:x2)`
+
+or use the shortcut:
+
+`lm(y ~ x1*x2)`
+
+You can include quadratic relationships (recall $ax^2 + bx + c$)
+
+`lm(y ~ I(x1^2) + x1)`
+
+## A quick note about piping `|>` and `_`
+
++ [The new R pipe](https://www.r-bloggers.com/2021/05/the-new-r-pipe/)
++ [Pipe updates: Placeholder](https://www.r-bloggers.com/2022/04/new-features-in-r-4-2-0/)
+
+Instead of a `.x` you use `_`
+
+```{r}
+#| code-line-numbers: 4
+weight_fullterm <- ncbirths |> 
+  filter(premie == "full term") |> 
+  lm(weight ~ weeks, 
+     data = _
+     )
+```
+
+## Worktime
+
++ [PA 9.1: Mystery Animal](https://earobinson95.github.io/stat331-calpoly/practice-activities/PA9.1-mystery-animal.html)
+
++ [Lab 9: Baby Names](https://earobinson95.github.io/stat331-calpoly/lab-assignments/lab9/Lab9-babynames.html)
+
++ [Challenge 9: Formatting Nice Tables](https://earobinson95.github.io/stat331-calpoly/lab-assignments/lab9/Challenge9-babynames.html)
+
+## To do...
+  
++ **PA 9.1: Mystery Animal**
+  + Due **Wednesday, 3/8 at 8:00am**
+
++ **Lab 9: Baby Names**
+  + Due **Friday, 3/10 at 11:59pm**
+  
++ **Challenge 9: Formatting Nice Tables**
+  + Due **Saturday, 3/11 at 11:59pm**
+  
++ **Project Check-point 2: Linear Regression**
+  + Due **Sunday, 3/12 at 11:59pm**
+
+## Wednesday, March 8th
+
+Today we will...
+
++ Mini lecture on text material
+  + Simulating Distributions
+
+
+## To do...
+  
++ 
+  
+  
