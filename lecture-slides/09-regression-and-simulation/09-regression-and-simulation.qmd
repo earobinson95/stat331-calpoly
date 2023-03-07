@@ -490,10 +490,428 @@ Today we will...
 
 + Mini lecture on text material
   + Simulating Distributions
++ Worktime
+  + PA 9.2: Instrument Con
+  + Lab & Challenge 9
+  + Project: Linear Regression
 
+## Statistical Distributions
+
+Recall from your previous statistics classes...
+
+::: panel-tabset
+
+### Random Variable
+
+A **random variable** is a value we don't know until we take a **sample**.
+
++ Coin flip:  Could be heads (0) or tails (1)
++ Person's height:  Could be anything from 0 feet to 20 feet.
++ Annual income of a US worker:  $0 to $1.6 billion
+
+### Distribution
+
+The **distribution** of the random variable tells us the **possible values** and **how likely they are**
+
+:::: columns
+::: column
++ Coin flip has 50% chance of heads, 50% chance of tails
++ Likelihood of heights follow a bell curve shape around 5 foot 7.
++ Most American workers make under $100,000
+:::
+::: column
+```{r}
+#| fig-align: center
+#| echo: false
+#| out-width: 70%
+knitr::include_graphics("https://github.com/allisonhorst/stats-illustrations/blob/main/make-your-own-stats-cartoons/ex_3.png?raw=true")
+```
+:::
+::::
+    
+:::
+
+## Some distributions have names
+
+For this class, you need to know a few of them.
+
+::: panel-tabset
+
+### `unif`
+
+**Uniform Distribution**
+
+:::: columns
+::: column
+When you know the **range**, but not much else.
+
+All values in the range are **equally likely** to occur.
+:::
+::: column
+```{r}
+#| out-width: 100%
+#| echo: false
+my_samples <- data.frame(x = runif(1000))
+
+ggplot(my_samples, aes(x)) + 
+  geom_histogram(bins = 40, aes(y = ..density..), fill = "grey", col = "white") + 
+  stat_function(fun=dunif, col = "cornflowerblue", lwd = 2) +
+  theme_classic()
+```
+:::
+::::
+### `norm`
+
+**Normal Distribution**
+
+:::: columns
+::: column
+When you expect values to fall **near the center**.
+
+Frequency of values follows a **bell curve** shape.
+:::
+::: column
+```{r}
+#| out-width: 100%
+#| echo: false
+my_samples <- data.frame(x = rnorm(1000))
+
+ggplot(my_samples, aes(x)) + 
+  geom_histogram(bins = 40, aes(y = ..density..), fill = "grey", col = "white") + 
+  stat_function(fun=dnorm, col = "cornflowerblue", lwd = 2) +
+  theme_classic()
+```
+:::
+::::
+### `t`
+
+**t-Distribution**
+
+:::: columns
+::: column
+Slightly **wider bell curve** shape.
+
+Basically, the same context as the **Normal distribution**, but used more often in 
+real data.  (When the *standard deviation* is unknown.)
+:::
+::: column
+```{r}
+#| out-width: 100%
+#| echo: false
+
+ggplot(my_samples, aes(x)) + 
+  geom_histogram(bins = 40, aes(y = ..density..), fill = "grey", col = "white") + 
+  stat_function(fun= function(x) dt(x, df = 5), col = "cornflowerblue", lwd = 2) +
+  stat_function(fun = dnorm, col = "indianred", lwd = 1) +
+  theme_classic()
+```
+:::
+::::
+### `chisq`
+
+**Chi-Square Distribution**
+
+:::: columns
+::: column
+Somewhat **skewed**, and only allows values **above zero**.
+
+Used in testing **count data**.
+:::
+::: column
+```{r}
+#| out-width: 100%
+#| echo: false
+my_samples <- data.frame(x = rchisq(1000, df = 5))
+
+ggplot(my_samples, aes(x)) + 
+  geom_histogram(bins = 40, aes(y = ..density..), fill = "grey", col = "white") + 
+  stat_function(fun= function(x) dchisq(x, df = 5), col = "cornflowerblue", lwd = 2) +
+  theme_classic()
+```
+:::
+::::
+
+### `binom`
+
+**Binomial Distribution**
+
+:::: columns
+::: column
+Appears when you have **two possible outcomes**, and you are **counting**
+how many times each outcome occurred.
+
+(Common example: voting data)
+:::
+::: column
+```{r}
+#| out-width: 100%
+#| echo: false
+my_samples <- data.frame(x = rbinom(1000, 10, .8))
+
+ggplot(my_samples, aes(x)) + 
+  geom_bar(fill = "grey", col = "white") + 
+  theme_classic()
+```
+:::
+::::
+:::
+
+## Statistical Distributions
+
+Things you might want to use a Statistical distribution for:
+
++ Find the **probability** of an **event**
+  + If I flip 10 coins, what are the chances I get all heads?
+
++ Estimate a **percentage** of a **population**:
+
+  + About what percent of people are above 6 feet tall?
+  
++ Quantify the **evidence** in your **data**:
+  + In my survey of 100 people, 67 said they were voting for Measure A.  How confident am I that Measure A will pass?
+
+## Statistical Distributions in R -- `r`, `p`, `d`, `q`
+
+::: panel-tabset
+### `r` random sampling
+
++ `r` stands for for **random sampling**: generate a random value from the
+distribution
+
++ We typically use this to **simulate** date; that is, to generate pretend observations
+to see what happens.
+
+:::: columns
+::: column
+```{r}
+runif(n = 3)
+runif(n = 3, min = 10, max = 20)
+
+rnorm(n = 3)
+rnorm(n = 3, mean = -100, sd = 50)
+```
+:::
+::: column
+
+```{r}
+
+rt(n = 3, df = 11)
+
+rbinom(n = 3, size = 10, prob = 0.7)
+
+rchisq(n = 3, df = 11)
+```
+:::
+::::
+
+### `p` probability
+
++ `p` for **probability**: i.e. compute the chances of an observation less than `x`
+
++ We usually use this for calculating **p-values**
+
+```{r}
+pnorm(q = 1.5)
+pnorm(q = 70, mean = 67, sd = 3)
+
+1 - pnorm(q = 70, mean = 67, sd = 3)
+pnorm(q = 70, mean = 67, sd = 3, lower.tail = FALSE)
+```
+
+### `q` quantile
+
++ `q` stands for **quantile**: given a probability p, compute the x-value
+such that $$P(X < x) = p.$$
+
++ the `q` functions are the "backwards" version of the `p` functions
+
+```{r}
+qnorm(p = 0.95)
+qnorm(p = 0.95, mean = 67, sd = 3)
+```
+
+### `d` density
+
+`d` stands for **density**: compute the height of distribution curve
+
++ **Discrete** distributions: probability of getting that **exact value**
+
++ **Continuous** distributions: usually meaningless
+
+What is the probability of getting exactly 12 heads in 20 coin tosses, for a
+coin with a 70% chance of tails?
+
+```{r}
+dbinom(x = 12, size = 20, prob = 0.3)
+```
+
+:::
+
+## Simulating Fake Data
+
+::: panel-tabset
+### `set.seed()`
+
+Since there is randomness involved, if we want to create a reproducible random sample, we "set the seed" on so we get the same random sample each time the code is run.
+
+```{r}
+set.seed(94301)
+```
+
+### `tibble`
+```{r}
+#| code-line-numbers: 3-5 
+fake_data <- tibble(
+  names   = charlatan::ch_name(1000),
+  height  = rnorm(1000, mean = 67, sd = 3),
+  age     = runif(1000, min = 15, max = 75),
+  measure = rbinom(1000, size = 1, prob = 0.6)
+) |> 
+  mutate(
+    supports_measure_A = ifelse(measure == 1, "yes", "no")
+  )
+
+head(fake_data)
+```
+
+### visualize
+
+```{r}
+#| code-fold: true
+#| fig-align: center
+#| out-width: 70%
+fake_data |> 
+  ggplot(aes(y = supports_measure_A, 
+             x = age,
+             fill = supports_measure_A)
+         ) +
+  ggridges::geom_density_ridges(show.legend = F) +
+  scale_fill_brewer(palette = "Paired") +
+  theme_bw() +
+  labs(x = "Age (years)",
+       y = "",
+       subtitle = "Support for Measure A",
+       )
+```
+
+:::
+
+## Plotting distributions
+
+::: panel-tabset
+
+### `geom_histogram`
+
+```{r hist}
+#| code-line-numbers: 3
+#| fig-align: center
+#| out-width: 70%
+fake_data |> 
+  ggplot(aes(x = height)) +
+  geom_histogram(bins = 10, fill = "grey", color = "white") +
+  theme_bw()
+```
+
+### `dnorm`
+
+```{r}
+#| code-line-numbers: 4
+#| fig-align: center
+#| out-width: 70%
+fake_data |> 
+  ggplot(aes(x = height)) +
+  geom_histogram(bins = 10, fill = "grey", color = "white") +
+  stat_function(fun = dnorm, 
+                col = "steelblue", 
+                lwd = 2
+                )
+```
+### `dnorm(mean, sd)`
+
+```{r}
+#| code-line-numbers: 4
+#| fig-align: center
+#| out-width: 70%
+fake_data |> 
+  ggplot(aes(x = height)) +
+  geom_histogram(bins = 10, fill = "grey", color = "white") +
+  stat_function(fun = ~ dnorm(.x, mean = 67, sd = 3), 
+                color = "steelblue", 
+                lwd = 2
+                )
+```
+### `..density..`
+
+```{r}
+#| code-line-numbers: 3
+#| fig-align: center
+#| out-width: 70%
+fake_data |> 
+  ggplot(aes(x = height)) +
+  geom_histogram(aes(y = ..density..),
+                 bins = 10, fill = "grey", color = "white") +
+  stat_function(fun = ~ dnorm(.x, mean = 67, sd = 3), 
+                color = "steelblue", 
+                lwd = 2
+                )
+```
+:::
+
+## Empirical vs Theoretical Distributions
+
+::: panel-tabset
+### Empirical Distribution
+
+```{r}
+#| fig-align: center
+#| out-width: 70%
+#| code-fold: true
+fake_data %>%
+  ggplot(aes(x = height)) +
+  geom_histogram(aes(y = ..density..), bins = 10) 
+```
+
+### Theoretical Distributions
+
+```{r}
+#| fig-align: center
+#| out-width: 70%
+#| code-fold: true
+fake_data %>%
+  ggplot(aes(x = height)) +
+  stat_function(fun = ~dnorm(.x, mean = 67, sd = 3), 
+                col = "steelblue", lwd = 2) +
+  stat_function(fun = ~dnorm(.x, mean = 67, sd = 2), 
+                col = "orange2", lwd = 2)
+```
+:::
+
+## In-line code `` `r ` ``
+
+When writing up a report which includes results from a random generation process, in order to ensure reproducibility in your document, use `r ` to include your output within your written description.
+
+```{r}
+my_rand <- rnorm(1, mean = 0, sd = 1)
+my_rand
+```
+
+My random number is `r my_rand`.
 
 ## To do...
+
++ **PA 9.2: Instrument Con**
+  + Due **Friday, 3/10 at 8:00am**
   
-+ 
++ **Lab 9: Baby Names**
+  + Due **Friday, 3/10 at 11:59pm**
+  
++ **Challenge 9: Formatting Nice Tables**
+  + Due **Saturday, 3/11 at 11:59pm**
+  
++ **Project Check-point 2: Linear Regression**
+  + Due **Sunday, 3/12 at 11:59pm**
+  
++ Read **Chapter 10: Predictive Checks** and complete **Check-in 10.1**
+  + Due **Monday, 3/13 at 8:00am**
   
   
