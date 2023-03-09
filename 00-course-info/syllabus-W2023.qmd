@@ -182,7 +182,7 @@ class_cal <- Cal %>%
 class_cal
 
 exam_days <- filter(Cal, category == "Exam") %>%
-  mutate(topic = c("Midterm Exam", "Final Exam", "Final Exam"),
+  mutate(topic = c("Midterm Exam", "Final Exam (Section 71 at 10:10 - 1pm) -- if you come to class 12 - 2", "Final Exam (Section 70 at 10:10 - 1pm) -- if you come to class 10 - 12"),
          time = c("In Class", "10:10AM-1:00PM", "10:10AM - 1:00PM")) %>%
   rowwise() %>%
   mutate(sem_week = week(date),

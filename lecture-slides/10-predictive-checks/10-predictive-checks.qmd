@@ -1,0 +1,50 @@
+---
+title: "WEEK 10: PREDICTIVE CHECKS & FINAL PROJECT"
+format: 
+  revealjs:
+    theme: [default, ../../slide_custom.scss]
+    auto-stretch: false
+editor: source
+self-contained: true
+execute:
+  echo: true
+---
+
+```{r setup}
+#| include: false
+#| message: false
+library(tidyverse)
+```
+
+## Monday, March 13th
+
+Today we will...
+
++ Questions from Lab/Challenge 9
++ Final Exam -- What to Expect
++ Mini lecture on text:
+  + Predictive Checks
++ Final Project work-time
+
+## Final Exam -- What to Expect
+
+## Wednesday, March 15th
+
+Today we will...
+
++ Remaining Q & A
++ Course Evaluation
++ Eat Cookies
++ Final Project Worktime
+
+## To do...
+
++ **Course Evaluation**
+  + Closes **Friday, 3/10 at 8:00am**
+  
++ **Final Project**
+  + Due **Sunday, 3/10 at 8:00am**
+  
++ **Final Exam**
+  + Due **Sunday, 3/10 at 8:00am**
+  
