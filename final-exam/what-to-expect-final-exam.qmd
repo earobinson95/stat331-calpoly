@@ -1,0 +1,106 @@
+---
+title: "What to Expect"
+subtitle: "Stat 331/531 Final Exam"
+format: 
+  html:
+    self-contained: true
+    code-tools: true
+    toc: true
+    number-sections: true
+editor: source
+execute: 
+  error: true
+  echo: true
+  message: false
+  warning: false
+---
+
+```{r setup}
+#| include: false
+library(tidyverse)
+library(lubridate)
+```
+
+## Exam Details {-}
+
++ The exam is worth a total of 100 points and consists of 3 sections: General Questions, Short Answer, and Open-Ended Analysis.
++ I will bring paper copies of the exam questions 
++ You will have one hour and 50 minutes to complete sections 1 (General Questions) and 2 (Short Answer) of the exam on your own computer.
++ A `.qmd` starter file for the short answer will be unlocked at the start of each sections class.
++ You will be creating your own `.qmd` file for the open-ended analysis. You may bring one already created on your computer.
+
+::: callout-caution
+While this is an open resource exam, you will likely get caught running out of time if you have to look everything up. Know what functions you might need to approach the problem and where to find documentation for implementing these functions.
+:::
+
+## Policies {-}
+
++ You may use: any online resources, including anything posted on Canvas, in the text, or in your past assignments.
++ You may **NOT** contact anyone, inside or outside this class, during the course of the exam.  This includes email, chat/messenger services, and posting on online forums and message boards.
++ You may **NOT** use exam materials from previous years.
++ Violations of academic honesty include accessing and using any illegal materials, and giving or receiving help on this exam including looking at other student's exams, allowing other students to look at your own exam, and/or revealing any information about this exam or future exams to someone who has not yet taken it.
++ Students who exhibit academic misconduct will be reported to the Office of Student Rights
+and Responsibilities; academic dishonesty may be punishable by a grade of F in this course.
++ You may **NOT** discuss the exam with any other students until after the exams have been returned to all students.
++ If you witness others exhibiting academic misconduct, you have a duty to report them to your professor.
+
+## Basic Instructions {-}
+
++ Please note that you will probably need to use the data documentation in order to successfully complete this exam.
++ The problems on this exam do not necessarily need to be completed sequentially, e.g., if you cannot accomplish problem 1, you may still be able to accomplish problem 2.
++ Some parts to problems may need to be completed sequentially.  If you cannot complete part (a), please outline code or your thought process for completing part (b).
++ All questions should be answered **using R code**.  Make sure your code prints out only the information that directly answers the question.  **Penalties will be given if your .html file has extra output beyond that which answers the question.**
++ If your code has errors that you cannot fix in time, you may also include in the comments explanations of your thought process, to potentially receive partial credit.
++ For parts two and three, submit both your `.qmd` and `.html` files on Canvas by the end of the allotted time. However, only your `.html` file will be graded - make sure the knitted output contains all your answers.
++ Late uploads will be automatically deducted by -5 points per minute!
+  
+## The Data {-}
+
+The data set for this exam concerns hiking trails in America’s National Parks system. Data is taken from the AllTrails app, which allows users to input new trails and rate existing ones. You can find documentation on the data set from its creator [here](https://www.kaggle.com/datasets/planejane/national-park-trails).
+
+Variables in the data are:
+
++ `trail_id:` An ID number for the trail
++ `name:` Name of the trail
++ `area_name:` National Park where the trial is located
++ `city_name:` City where the trail is located
++ `state_name:` State where the trail is located
++ `country_name:` Country where the trail is located
++ `_geoloc:` Latitude and longitude of trail
++ `popularity:` A score from 0 to 100 of how often the trail is used.
++ `length:` Distance covered by trail (in meters).
++ `elevation_gain:` How much uphill is on the trail (in meters).
++ `difficulty_rating:` Average user rating of trail difficulty
++ `route_type:` Type of trail (loop, out and back, or point to point)
++ `visitor_usage:` (Honestly, I’m not sure what this one is.)
++ `avg_rating:` The average visitor rating of the trail (1 to 5 stars)
++ `num_reviews:` The total number of reviews on the app for that trail
++ `features:` Notable elements about the trail
++ `activities:` Common uses for the trail
++ `units:` This variable is a lie! All the lengths are in meters.
+
+You may bring to the exam any pre-analysis you have done of this data.
+  
+## General Questions  [25 points]
+
+You will be asked a series of eight questions about R, RStudio, and performing operations with the `tidyverse`, simulating data, etc. These will be multiple choice, fill in the blank, matching, and select all that apply style.
+
+You will fill out your answers in a Canvas Quiz.
+
+## Short Answer [50 points]
+
+You will be given a `.qmd` template similar to lab assignments and asked a series of short questions about the minimum wage data set, such as "Which word was most and least familiar to participants under 20 years old?" Each of these questions should be answered using functions from the `tidyverse`.
+
+There will be at least one "write a `function`" question and at least one "`map`" question.
+
+You will turn in your `.html` and `.qmd` files only your `.html` file will be graded. You will be graded on the correct output, as well as your code style and design.
+
+<!-- You will enter your answers into a "quiz" on Canvas.   -->
+
+<!-- You will also turn in your `.html` and `.qmd` files.  These do not need to be formatted or styled nicely, and they will not be graded; they will only be used to confirm that you used code, not Google, to answer the questions. -->
+
+<!-- After submitting your Canvas quiz, you will be able to see your score.  You may choose to correct your wrong answers and resubmit again, and your scores will be averaged. -->
+
+## Statistical Modeling [25 points]
+
+
