@@ -23,11 +23,14 @@ library(lubridate)
 
 ## Exam Details {-}
 
-+ The exam is worth a total of 100 points and consists of 3 sections: General Questions, Short Answer, and Open-Ended Analysis.
+**Wednesday, 3/22 at 10:10am - 1:00pm: Section 70 (if you come to class 10:10am - 12:00pm)**
+
+**Monday, 3/20 at 10:10am - 1:00pm: Section 71 (if you come to class 12:10pm - 2:00pm)**
+
++ The exam is worth a total of 100 points and consists of 3 sections: General Questions, Short Answer, and Statistical Modeling.
 + I will bring paper copies of the exam questions 
-+ You will have one hour and 50 minutes to complete sections 1 (General Questions) and 2 (Short Answer) of the exam on your own computer.
-+ A `.qmd` starter file for the short answer will be unlocked at the start of each sections class.
-+ You will be creating your own `.qmd` file for the open-ended analysis. You may bring one already created on your computer.
++ You will have two hours and 50 minutes to complete the exam on your own computer.
++ A `.qmd` starter file for sections two and three will be unlocked at the start of each sections final.
 
 ::: callout-caution
 While this is an open resource exam, you will likely get caught running out of time if you have to look everything up. Know what functions you might need to approach the problem and where to find documentation for implementing these functions.
@@ -37,11 +40,9 @@ While this is an open resource exam, you will likely get caught running out of t
 
 + You may use: any online resources, including anything posted on Canvas, in the text, or in your past assignments.
 + You may **NOT** contact anyone, inside or outside this class, during the course of the exam.  This includes email, chat/messenger services, and posting on online forums and message boards.
-+ You may **NOT** use exam materials from previous years.
 + Violations of academic honesty include accessing and using any illegal materials, and giving or receiving help on this exam including looking at other student's exams, allowing other students to look at your own exam, and/or revealing any information about this exam or future exams to someone who has not yet taken it.
 + Students who exhibit academic misconduct will be reported to the Office of Student Rights
 and Responsibilities; academic dishonesty may be punishable by a grade of F in this course.
-+ You may **NOT** discuss the exam with any other students until after the exams have been returned to all students.
 + If you witness others exhibiting academic misconduct, you have a duty to report them to your professor.
 
 ## Basic Instructions {-}
@@ -51,10 +52,12 @@ and Responsibilities; academic dishonesty may be punishable by a grade of F in t
 + Some parts to problems may need to be completed sequentially.  If you cannot complete part (a), please outline code or your thought process for completing part (b).
 + All questions should be answered **using R code**.  Make sure your code prints out only the information that directly answers the question.  **Penalties will be given if your .html file has extra output beyond that which answers the question.**
 + If your code has errors that you cannot fix in time, you may also include in the comments explanations of your thought process, to potentially receive partial credit.
-+ For parts two and three, submit both your `.qmd` and `.html` files on Canvas by the end of the allotted time. However, only your `.html` file will be graded - make sure the knitted output contains all your answers.
++ For parts two and three, submit both your `.qmd` and `.html` file on Canvas by the end of the allotted time. However, only your `.html` file will be graded - make sure the knitted output contains all your answers.
 + Late uploads will be automatically deducted by -5 points per minute!
   
 ## The Data {-}
+
+[Download `national_park_trails.csv`](https://github.com/earobinson95/stat331-calpoly/raw/master/final-exam/national_park_trails.csv)
 
 The data set for this exam concerns hiking trails in America’s National Parks system. Data is taken from the AllTrails app, which allows users to input new trails and rate existing ones. You can find documentation on the data set from its creator [here](https://www.kaggle.com/datasets/planejane/national-park-trails).
 
@@ -79,21 +82,33 @@ Variables in the data are:
 + `activities:` Common uses for the trail
 + `units:` This variable is a lie! All the lengths are in meters.
 
+::: callout-note
 You may bring to the exam any pre-analysis you have done of this data.
-  
+:::
+
 ## General Questions  [25 points]
 
-You will be asked a series of eight questions about R, RStudio, and performing operations with the `tidyverse`, simulating data, etc. These will be multiple choice, fill in the blank, matching, and select all that apply style.
+You will be asked a series of ten questions about performing operations with the `tidyverse`, simulating data, plotting, etc. These will be multiple choice, fill in the blank, matching, and select all that apply style.
 
+::: callout-note
 You will fill out your answers in a Canvas Quiz.
+:::
 
 ## Short Answer [50 points]
 
-You will be given a `.qmd` template similar to lab assignments and asked a series of short questions about the minimum wage data set, such as "Which word was most and least familiar to participants under 20 years old?" Each of these questions should be answered using functions from the `tidyverse`.
+You will be given a `.qmd` template and asked a series of short questions about the national park data set, such as "Which word was most and least familiar to participants under 20 years old?" 
 
 There will be at least one "write a `function`" question and at least one "`map`" question.
 
-You will turn in your `.html` and `.qmd` files only your `.html` file will be graded. You will be graded on the correct output, as well as your code style and design.
+::: callout-warning
+Each of these questions should be answered using one pipeline from the `tidyverse`. It should not take you more than 5-6 lines of code per question.
+
+The "one" pipeline rule holds for the body of the function and the entirety of the map question.
+:::
+
+::: callout-note
+You will turn in your `.html` and `.qmd` files, but only your `.html` file will be graded. You will be graded on the correct output, as well as your code style, workflow, and design.
+:::
 
 <!-- You will enter your answers into a "quiz" on Canvas.   -->
 
@@ -103,4 +118,8 @@ You will turn in your `.html` and `.qmd` files only your `.html` file will be gr
 
 ## Statistical Modeling [25 points]
 
+You will be given a `.qmd` template and asked to conduct a statistical analysis on the national park data set to answer a question. You will be asked to interpret the results of your model.
 
+::: callout-warning
+A second course in statistics is a prerequisite for this course and you may have to slightly extend some of the skills directly learned in this class with your knowledge from prior statistics courses.
+:::
