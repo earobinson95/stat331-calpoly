@@ -150,7 +150,7 @@ You should be using only **one** {dplyr} pipeline!
 ```
 
 
-**12. Create a table that converts your total counts to overall percents. That is, what was the percent breakdown between the four alternative spellings in each of the four states?**
+**12. Create a table that converts your total counts to overall percents. That is, what was the percent breakdown between the four alternative spellings in each of the four states, during 2012?**
 
 ::: callout-caution
 You should be using only **one** {dplyr} pipeline!
