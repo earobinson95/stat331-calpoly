@@ -57,7 +57,7 @@ and Responsibilities; academic dishonesty may be punishable by a grade of F in t
   
 ## The Data {-}
 
-[Download `national_park_trails.csv`](https://github.com/earobinson95/stat331-calpoly/raw/master/final-exam/national_park_trails.csv)
+[Download `national_park_trails.csv`](national_park_trails.csv)
 
 The data set for this exam concerns hiking trails in America’s National Parks system. Data is taken from the AllTrails app, which allows users to input new trails and rate existing ones. You can find documentation on the data set from its creator [here](https://www.kaggle.com/datasets/planejane/national-park-trails).
 
