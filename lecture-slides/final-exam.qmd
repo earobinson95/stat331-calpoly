@@ -22,7 +22,7 @@ library(tidyverse)
 
 + I will pass out a sheet with instructions and questions.
 
-+ Canvas will unlock midterm material at the beginning of class.
++ Canvas will unlock exam material at the beginning of class.
 
 You're going to rock this `r emo::ji("smile")`
 
@@ -40,5 +40,7 @@ All parts are due at end of the exam time (1pm).
 + Download `.qmd` template from Canvas.
 + Submit `.qmd` and `.html` file by the end of class.
 + Follow "one pipeline" rule.
+
+**Question 5 should have elevation in meters NOT miles**
 
 *ASK if you need clarification*
