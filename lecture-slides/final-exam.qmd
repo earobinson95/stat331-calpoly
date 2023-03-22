@@ -26,7 +26,7 @@ library(tidyverse)
 
 You're going to rock this `r emo::ji("smile")`
 
-## Monday, March 20th -- Final Exam
+## Wednesday, March 22nd -- Final Exam
 
 
 All parts are due at end of the exam time (1pm).
