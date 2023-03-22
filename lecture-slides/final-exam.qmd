@@ -16,7 +16,7 @@ execute:
 library(tidyverse)
 ```
 
-## Monday, March 20th -- Final Exam
+## Wednesday, March 22nd -- Final Exam
 
 + Please grab separators from the sides of the room.
 
