@@ -3,7 +3,7 @@ title: "PA 1: Find the Mistakes"
 subtitle: "Working with R Objects"
 author: "YOUR NAME "
 format: html
-self-contained: true
+embed-resources: true
 execute:
   echo: true
   error: true
@@ -14,20 +14,15 @@ execute:
 library(tidyverse)
 ```
 
-Today you will be creating and manipulating vectors, lists, and data frames to
-uncover a top secret message.
+Today you will be creating and manipulating vectors, lists, and data frames to uncover a top secret message.
 
 Some advice:
 
 + Work with those around you
 
-+ Google is your friend!  If an error is confusing, copy it into Google and see
-what other people are saying.  If you don't know how to do something, search for
-it.
++ Google is your friend!  If an error is confusing, copy it into Google and see what other people are saying.  If you don't know how to do something, search for it.
 
-+ Just because there is no error message doesn't mean everything went smoothly.
-Use the console to check each step and make sure you have accomplished what you
-wanted to accomplish.
++ Just because there is no error message doesn't mean everything went smoothly. Use the console to check each step and make sure you have accomplished what you wanted to accomplish.
 
 ## Access
 
@@ -42,12 +37,9 @@ You can access PA1: Find the Mistakes one of two ways:
 
 ## Part One: Setup
 
-Each of the following R chunks will cause one or more errors and / or do the
-desired task incorrectly.  Find the mistake, and correct it to complete the
-intended action.
+Each of the following R chunks will cause one or more errors and / or do the desired task incorrectly.  Find the mistake, and correct it to complete the intended action.
 
-1. Create vectors containing the upper case letters, lower case letters, and
-some punctuation marks.
+1. Create vectors containing the upper case letters, lower case letters, and some punctuation marks.
 
 ```{r}
 lower_case <- c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
@@ -56,7 +48,7 @@ lower_case <- c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
 upper_case <- c("A", "B", "C", "D", "E", "F", "G", "H" "I", "J", "K", "L", "M",
                 "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z")
 
-punctuation <- c(".", ",", "!", "?", "'", '"', "(", ")", " ", "-", ";", ":")
+punctuation <- c(".", ",", "!", "?", "'", """, "(", ")", " ", "-", ";", ":")
 ```
 
 2. Make **one** long **vector** containing all the symbols.
@@ -64,7 +56,6 @@ punctuation <- c(".", ",", "!", "?", "'", '"', "(", ")", " ", "-", ";", ":")
 ```{r}
 my_symbols <- cbind(lower_case, upper_case, punctuation)
 ```
-
 
 3. Turn the `my_symbols` vector into a data frame, with one column named 
 "Symbol".
