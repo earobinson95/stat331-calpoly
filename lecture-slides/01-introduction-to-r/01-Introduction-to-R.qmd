@@ -1,0 +1,1047 @@
+---
+title: "Introduction to R, RStudio, and Quarto"
+format: 
+  revealjs:
+    # theme: [default, ../slide_custom.scss]
+    theme: default
+editor: source
+self-contained: true
+---
+
+## Tuesday, January 9th
+
+Today we will...
+
++ Welcome to Stat 331/531: Statistical Computing in R
++ Introduction
+  + Intro to Me + You + the course
+  + Intro to R + RStudio
+  + Directories & File Paths
++ Troubleshooting
++ [PA 1: Find the Mistakes](https://earobinson95.github.io/stat331-calpoly/practice-activities/PA1-find-the-mistakes.html)
+
+# Introductions
+
+
+## `r fontawesome::fa("hand")` Hi, I'm Dr. Robinson!
+
++ I am a transplant to the west coast -- MN to NE to CA.
+
++ My favorite things are being outside, drinking tea, and watching reality tv.
+
+## Our Classroom Learning Assistant!
+
+We will be joined in class by Brandon.
+
+Sophia is...
+
++ A fourth-year Statistics major.
+
++ Originally from San Ramon in the East Bay Area.
+
++ A golfer, dancer, and crocheter!
+
+
+## You!
+
+I am looking forward to reading your introductions on Canvas Discussions!
+
++ Please read the intros of your classmates so you can discover who you will be learning with this quarter.
+
+
+# [Syllabus](https://earobinson95.github.io/stat218-calpoly-f2023/00-course-info/stat218-syllabus-F2023.html)
+
+
+# Intro to R
+
+
+## What is R?
+
++ **R** is a programming language designed originally for *statistical analyses*.
++ **R** was created by **Ross Ihaka** and **Robert Gentleman** in 1993.
+  + Their names are why it's called **R**.
++ **R** was formally released by the **R Core Group** in 1997.
+  + This group of [20-ish volunteers](https://www.r-project.org/contributors.html) are the *only* people who can change the **base** (built-in) functionality of **R**.
+
+
+## Strengths
+
+**R**'s **strengths** are...
+
+... handling data with lots of **different types** of variables.
+
+... making nice and complex data **visualizations**.
+
+... having cutting-edge statistical **methods** available to users.
+
+
+## Weaknesses
+
+**R**'s **weaknesses** are...
+
+... performing non-analysis programming tasks, like website creation (*python*, *ruby*, ...).
+
+... hyper-efficient numerical computation (*matlab*, *C*, ...).
+
+... being a simple tool for all audiences (*SPSS*, *STATA*, *JMP*, *minitab*, ...).
+
+
+## But wait!
+
+![](images/appforthat.jpg)
+
+
+## Packages
+
+The heart and soul of **R** are **packages**.
+
++ These are "extra" sets of code that add **new functionality** to R when installed.
++ "Official" **R** packages live on the *Comprehensive R Archive Network*, or **CRAN**.
++ But anyone can write and share new code in "package form" (more later).
+
+
+## Packages
+
+To install a package use:
+
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: false
+install.packages("tibble")
+```
+
++ You should have to install a package **only once**.
+
+. . .
+
+To load a package use:
+
+```{r}
+#| echo: true
+#| code-line-numbers: false
+#| eval: false
+library(tibble)
+```
+
++ You have to load a package **each time you restart R**.
+
+## Open-Source
+
+Importantly, **R** is *open-source*.
+
++ There is no company that owns **R**, like there is for *SAS* or *Matlab*.
+  + (*Python* is also open-source!)
+
+. . .
+
++ This means nobody can sell their **R** code!
+  + But you can sell "helpers" like **RStudio**.
+  + And you can keep code **private** within an organization or company.
+
+. . .
+
+**This means packages are created by users like you and me!**
+
+
+## Open-Source
+
+Being a good open-source citizen means...
+
+... **sharing** your code publicly when possible (later in this course, we'll learn about *GitHub*!).
+
+. . .
+
+... **contributing** to public projects and packages, as you are able.
+
+. . .
+
+... creating your own **packages**, if you can.
+
+. . .
+
+... using **R** for **ethical and respectful** projects.
+
+
+# Intro to RStudio
+
+## What is RStudio?
+
+**RStudio** is an IDE (*Integrated Developer Environment*).
+
++ This means it is an application that makes it easier for you to interact with **R**.
+
+```{r, fig.align='center', out.width = "75%", echo = F}
+knitr::include_graphics("https://d33wubrfki0l68.cloudfront.net/0b4d0569b2ddf6147da90b110fbb2a17653c8b08/f06f3/images/shutterstock/r_vs_rstudio_1.png")
+```
+
+
+##
+
+```{r, echo = FALSE, out.width="75%", fig.align='center'}
+knitr::include_graphics("https://srvanderplas.github.io/stat-computing-r-python/images/tools/Rstudio-important-buttons.png")
+```
+
+
+## History of RStudio
+
++ **RStudio** was released in 2011 by J.J. Allaire.
+
++ In 2014, RStudio hired *Hadley Wickham* as Chief Data Scientist. They now employ around 20 full-time developers.
+
+. . .
+
++ Recall: You can __not__ sell __R__ code, so packages created by RStudio's team are freely available.  
+
+  + They make money off the IDE and other helper software.
+
+. . .
+
++ In 2020, RStudio became a PBC (*Public Benefit Corp*), meaning they are legally obligated to support education and open-source development.
+
+
+# Directories & Scientific Reproducibility
+
+
+## What is a directory?
+
+- A **directory** is just a fancy name for a folder.
+
+- Your **working directory** is the folder that `R` "thinks" it lives in at the moment.
+  - If you save things you have created, they save to your working directory by default.
+
+. . .
+
+```{r}
+#| echo: true
+#| code-line-numbers: false
+getwd()
+```
+
+
+
+## Paths
+
+- A **path** describes where a certain file or directory lives.
+
+```{r}
+getwd()
+```
+
+This file lives in my user files `c:/Users/`...
+
+...on my account `erobin17/` ...
+
+...in my `OneDrive - Cal Poly` folder ...
+
+...in a series of organized folders.
+
+
+## Manage your Class Directory
+
+In Check-in 1.3, you will be asked to create a directory for this class!
+
++ Is it in a place you can easily find it?
+
++ Does it have an informative name?
+
++ Are the files inside it well-organized?
+
+
+## The Beauty of R Projects
+
++ An **R Project** is basically a "flag" planted in a certain directory.
+
++ When you double click an **.Rproj** file, it:
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+1. Opens RStudio
+
+2. Sets the working directory to be wherever the .Rproj file lives.
+
+3. Links to GitHub, if set up (more on that later!)
+:::
+
+::: {.column width="50%"}
+```{r, out.width = "70%", fig.align='center', echo = F}
+knitr::include_graphics("images/project_flag.jpg")
+```
+:::
+
+::::
+
+
+## RStudio Projects & Reproducibility
+
+RStudio Projects are great for **reproducibility**!
+
++ You can send anyone your folder with your .Rproj file and they will be able to run your code on their computer.
+
++ We will be using R Projects throughout this course.
+
+
+## Principles of Reproducibility
+
+You can to send your project to someone else, and they can
+jump in and start working right away.
+
++ This means:
+
+  1. Files are organized and well-named.
+
+  2. References to data and code work for everyone.
+
+  3. Package dependency is clear.
+
+  4. Code will run the same every time, even if data values change.
+
+  5. Analysis process is well-explained and easy to read.
+
+
+# [Setting up an RStudio Project](https://earobinson95.github.io/stat331-calpoly-text/01-introduction.html#rprojects)
+
+
+## Good practice
+
+- Organize your folders carefully, and name them meaningfully:
+  * `C:/User/erobin17/Stat331/lab1/` rather than `Desktop/stuff/`
+    
+- Use **R Projects** liberally - put one in the "main" folder for each project
+
+`r fontawesome::fa("warning")` However, think of `stat331` as one project and *not* each assignment as a new project. Do not put projects within projects.
+
+
+## Bad practice
+
+If you put something like this at the top of your .qmd file (more on Quarto later), I will set your 
+computer on fire:
+
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: false
+setwd("/User/reginageorge/Desktop/R_Class/Lab_1/")
+```
+
+- Setting working directory by hand = BAD!  
+
+- That directory is specific to you!
+
+- R Markdown and Quarto (more on these later) ignore this code when knitting/rendering! 
+
+
+# R Basics
+
+## Data Types
+
++ A **value** is a basic unit of stuff that a program works with.
+
++ Values have **types**:
+
+. . .
+
+  1. **logical / boolean**: FALSE/TRUE or 0/1 values.
+
+. . .
+
+  2. **integer**: whole numbers.
+
+. . .
+
+  3. **double / float / numeric**: decimal numbers.
+      
+. . .
+
+  4. **character / string** - holds text, usually enclosed in quotes.
+
+
+## Variables
+
+**Variables** are names that refer to values.
+
++ A variable is like a container that holds something - when you refer to the container, you get whatever is stored inside.
+
++ We assign values to variables using the syntax ``object_name <- value``.
+  
+  + You can read this as “object name gets value” in your head.
+
+. . .
+
+```{r}
+#| echo: true
+message <- "So long and thanks for all the fish"
+year <- 2025
+the_answer <- 42
+earth_demolished <- FALSE
+```
+
+
+## Data Structures
+
+*Homogeneous*: every element has the same data type.
+
++ **Vector**: a one-dimensional column of homogeneous data.
+
++ **Matrix**: the next step after a vector - it’s a set of homogenous data arranged in a two-dimensional, rectangular format.
+
+. . .
+
+*Heterogeneous*: the elements can be of different types.
+
++ **List**: a one-dimensional column of heterogeneous data.
+
++ **Dataframe**: a two-dimensional set of heterogeneous data arranged in a rectangular format.
+
+
+## Indexing
+
+We use **square brackets** (``[]``) to access elements within data structures.
+
+  + In R, we start indexing from 1.
+  
+. . .
+
+:::: {.columns}
+
+::: {.column width="25%"}
+
+Vector:
+
+:::
+
+::: {.column width="75%"}
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: false
+vec[4]    # 4th element
+vec[1:3]  # first 3 elements
+```
+
+:::
+
+::::
+
+:::: {.columns}
+
+::: {.column width="25%"}
+        
+Matrix:
+
+:::
+
+::: {.column width="75%"}
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: false
+mat[2,6]  # element in row 2, col 6
+mat[,3]   # all elements in col 3
+```
+
+:::
+
+::::
+
+:::: {.columns}
+
+::: {.column width="25%"}
+
+List:
+
+:::
+
+::: {.column width="75%"}
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: false
+li[[5]]    # 5th element
+```
+
+:::
+
+::::
+
+:::: {.columns}
+
+::: {.column width="25%"}
+
+Dataframe:
+
+:::
+
+::: {.column width="75%"}
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: false
+df[1,2]     # element in row 1, col 2
+df[17,]     # all elements in row 17
+df$calName  # all elements in the col named "colName"
+```
+
+:::
+
+::::
+
+
+## Logic
+
+We can combine logical statements using and, or, and not.
+
++ (X AND Y) requires that both X and Y are true.
+
++ (X OR Y) requires that one of X or Y is true.
+
++ (NOT X) is true if X is false, and false if X is true.
+
+. . .
+
+```{r}
+#| echo: true
+x <- c(TRUE, FALSE, TRUE, FALSE)
+y <- c(TRUE, TRUE, FALSE, FALSE)
+
+x & y   # AND
+
+x | y   # OR
+
+!x & y  # NOT X AND Y
+```
+
+
+# Troubleshooting Errors!
+
+# Syntax Errors
+
+## Did you leave off a parenthesis?
+
+seq<span style="background-color:#ffff7f">(</span>from = 1, to = 10, by = 1
+
+```{r}
+#| echo: true
+#| error: true
+#| code-line-numbers: false
+seq(from = 1, to = 10, by = 1
+```
+
+. . .
+
+```{r}
+#| echo: true
+#| code-line-numbers: false
+seq(from = 1, to = 10, by = 1)
+```
+
+## Did you leave off a comma?
+
+seq(from = 1, to = 10 <span style="background-color:#ffff7f">by</span> = 1)
+
+```{r}
+#| echo: true
+#| error: true
+#| code-line-numbers: false
+seq(from = 1, to = 10 by = 1)
+```
+
+. . .
+
+```{r}
+#| echo: true
+#| code-line-numbers: false
+seq(from = 1, to = 10, by = 1)
+```
+
+## Did you make a typo? Are you using the right names?
+
+<span style="background-color:#ffff7f">sequence</span>(from = 1, to = 10, by = 1)
+
+```{r}
+#| echo: true
+#| error: true
+#| code-line-numbers: false
+sequence(from = 1, to = 10, by = 1)
+```
+
+. . .
+
+```{r}
+#| echo: true
+#| code-line-numbers: false
+seq(from = 1, to = 10, by = 1)
+```
+
+# Object Type Errors
+
+## Are you using the right _input_ that the function expects?
+
+sqrt(<span style="background-color:#ffff7f">'1'</span>)
+
+```{r}
+#| echo: true
+#| error: true
+#| code-line-numbers: false
+sqrt('1')
+```
+
+. . .
+
+```{r}
+#| echo: true
+#| code-line-numbers: false
+sqrt(1)
+```
+
+## Are you expecting the right _output_ of the function?
+
+```{r}
+#| echo: true
+#| error: true
+#| code-line-numbers: false
+my_obj <- seq(from = 1, to = 10, by = 1)
+
+my_obj(5)
+```
+
+. . .
+
+```{r}
+#| echo: true
+#| code-line-numbers: false
+my_obj[5]
+```
+
+# Errors + Warnings + Messages
+
+## Messages
+
+Just because you see scary red text, this does **not** mean something went wrong! This is just **R** communicating with you.
+
+. . .
+
++ For example, you will often see:
+
+```{r}
+#| echo: true
+#| message: true
+#| code-line-numbers: false
+library(lme4)
+```
+
+## Warnings
+
+Often, **R** will give you a **warning**.
+
++ This means that your code *did* run... 
+
++ ...but you probably want to make sure it succeeded.
+
+. . .
+
+**Does this look right?**
+
+```{r}
+#| echo: true
+#| warning: true
+#| code-line-numbers: false
+my_vec <- c("a", "b", "c")
+
+my_new_vec <- as.integer(my_vec)
+```
+
+. . .
+
+```{r}
+#| echo: true
+#| code-line-numbers: false
+my_new_vec
+```
+
+## Errors
+
+If the word **Error** appears in your message from **R**, then you have a problem.
+
++ This means your code **could not run**!
+
+. . .
+
+```{r}
+#| echo: true
+#| error: true
+#| code-line-numbers: false
+my_vec <- c("a", "b", "c")
+
+my_new_vec <- my_vec + 1
+```
+
+# Parlez-vous ERROR?
+
+## **R** says...
+
+> Error: Object `some_obj` not found.
+
+. . .
+
+It *probably* means...
+
+> You haven't run the code to create `some_obj`  OR you have a typo in the name!
+
+```{r}
+#| echo: true
+#| error: true
+#| code-line-numbers: false
+some_ojb <- 1:10
+
+mean(some_obj)
+```
+
+
+## **R** says...
+
+> Error: Object of type 'closure' is not subsettable.
+
+. . .
+
+It *probably* means...
+
+> Oops, you tried to use square brackets on a function
+
+```{r}
+#| echo: true
+#| error: true
+#| code-line-numbers: false
+mean[1, 2]
+```
+
+
+## **R** says...
+
+> Error: Non-numeric argument to binary operator.
+
+. . .
+
+It *probably* means...
+
+> You tried to do math on data that isn't numeric.
+
+```{r}
+#| echo: true
+#| error: true
+#| code-line-numbers: false
+"a" + 2
+```
+
+## What if none of these solved my error?
+
+1. Look at the help file for the function!
+
+2. When all else fails, **Google** your error message.
+
+- Leave out the specifics.
+
+- Include the function you are using.
+
+## Try it...
+
+**What's wrong here?**
+
+```{r}
+#| echo: true
+#| error: true
+#| code-line-numbers: false
+matrix(c("a", "b", "c", "d"), num_row = 2)
+```
+
+**Hint:** Look up the help documentation -- `help(matrix)`
+
+## [PA 1: Find the Mistakes](https://earobinson95.github.io/stat331-calpoly/practice-activities/PA1-find-the-mistakes.html)
+
+The components of the Practice Activity are described below:
+
+**Part One:**
+
+This file has many mistakes in the code. Some are errors that will prevent the file from knitting; some are mistakes that do NOT result in an error.
+
+Fix all the problems in the code chunks.
+
+**Part Two:**
+
+Follow the instructions in the file to uncover a secret message.
+
+Submit the name of the poem as the answer to the Canvas Quiz question.
+
+## To do...
+
++ **Do Pre-reading + Chapter 1: Introduction**
++ **Check-ins 1.1 - 1.4**
+  + Due Thursday (1/11) at 8:00am
+  
++ **PA 1: Find the Mistakes**
+  + Due Thursday (1/11) at 8:00am
+  
++ **Bonus Challenge 0: FizzBuzz (up to +5 FP)**
+  + Due Thursday (4/18) at 11:59pm 
+
+## Thursday, January 11
+
+Today we will...
+
++ Answer Clarifying Questions:
+  + Syllabus?
+  + Chapter 1 Reading?
+  + PA 1: Find the Mistakes?
++ New Material
+  + Scripts + Notebooks
++ Lab 1: Introduction to Quarto
+
+# Scripts + Notebooks
+
+## Scripts
+
++ **Scripts** (`File > New File > R Script`) are files of code that are meant to be run on their own.
+
+. . .
+
++ Scripts can be run in RStudio by clicking the `Run` button at the top of the editor window when the script is open.
+
++ You can also run code interactively in a script by:
+
+  + highlighting lines of code and hitting run.
+
+  + placing your cursor on a line of code and hitting run.
+
+  + placing your cursor on a line of code and hitting `ctrl + enter` or `command + enter`.
+
+
+## Notebooks
+
+Notebooks are an implementation of **literate programming**.
+
++ They allow you to integrate code, output, text, images, etc. into a single document.
++ E.g.,
+
+  + R Markdown notebook
+  + **Quarto notebook**
+  + Jupyter notebook
+
+**Reproducibility!**
+
+
+## What is Markdown?
+
+**Markdown** (without the "R") is a *markup language*.  
+
++ It uses special symbols and formatting to make pretty documents.
+
++ Markdown files have the **.md** extension.
+
+
+##
+
+<center>
+
+![](https://d33wubrfki0l68.cloudfront.net/59f29676ef5e4d74685e14f801bbc10c2dbd3cef/c0688/lesson-images/markdown-1-markup.png)
+</center>
+
+## What is R Markdown?
+
+**R Markdown** (with the "R") uses regular *Markdown*, **AND** it can run and display **R** code.
+
++ (Other languages, too!)
++ R Markdown files have the **.Rmd** extension.
+
+
+##
+
+<center>
+
+![](https://miro.medium.com/max/1200/1*jL-whKGBhuUlU7Q2oevz9w.png)
+
+</center>
+
+
+## 
+
+<center>
+
+![](https://d33wubrfki0l68.cloudfront.net/ece57b678854545e6602a23daede51ad72da2170/21cca/lesson-images/outputs-1-word.png)
+
+</center>
+
+
+## What is Quarto?
+
+Quarto **unifies** and **extends** the R Markdown ecosystem.
+
++ Quarto files have the **.qmd** extension.
+
+```{r}
+#| echo: false
+#| out-width: 50%
+#| fig-align: center
+knitr::include_graphics("images/rmd_ecosystem.png")
+```
+
+Quarto is the next generation R Markdown.
+
+
+## Highlights of Quarto
+
++ Consistent implementation of attractive and handy features across outputs:
+  + E.g., tabsets, code-folding, syntax highlighting, etc.
+
++ More accessible defaults and better support for accessibility.
+
++ Guardrails that are helpful when learning:
+  + E.g., YAML completion, informative syntax errors, etc.
+
++ Support for other languages like Python, Julia, Observable, and more.
+
+
+## Quarto Formats
+
+Quarto makes moving between outputs straightforward.
+
++ All that needs to change between these formats is a few lines in the front matter (YAML)!
+
+:::: {.columns}
+::: {.column width="50%"}
+
+**Document**
+
+``` yaml
+title: "Lesson 1"
+format: html
+```
+
+**Presentation**
+
+``` yaml
+title: "Lesson 1"
+format: revealjs
+```
+
+:::
+::: {.column width="50%"}
+
+**Website**
+
+``` yaml
+project:
+  type: website
+
+website: 
+  navbar: 
+    left:
+      - lesson-1.qmd
+```
+
+:::
+::::
+
+
+## Quarto Components
+
+![](images/quarto_sections.jpeg){width="80%"}
+
+
+## Markdown in Quarto
+
+A few useful tips for formatting the **Markdown** text in your document:
+
++ \*text\* -- makes italics
++ \*\*text\*\* -- makes bold text
++ \# -- makes headers
++ !\[ \]( ) -- includes images or HTML links
++ \< \> -- embeds URLs
+
+
+## R Code Options in Quarto
+
+**R code chunk** options are included at the top of each code chunk, prefaced with a #| (hashpipe).
+
++ These options control how the following code is run and reported in the final Quarto document.
++ R code options can also be included in the front matter (YAML) and are applied globally to the document.
+
+
+##
+
+<center>
+
+![](images/code_options.png)
+
+</center>
+
+
+## 
+
+<center>
+
+![](images/quarto_code_options.png)
+
+</center>
+
+
+## Rendering your Quarto Document
+
+To take your *.qmd* file and make it look pretty, you have to **render** it.
+
+<center>
+
+![](images/render.png)
+
+![](images/render_on_save.png)
+
+</center>
+
+
+## Rendering your Quarto Document
+
+Quarto CLI (command line interface) orchestrates each step of rendering:
+
+1. Process the executable code chunks with either `knitr` or `jupyter`.
+2. Convert the resulting Markdown file to the desired output.
+
+```{r, echo = F, fig.align='center'}
+knitr::include_graphics("images/horst_qmd_render_schema.png")
+```
+
+<!-- The main difference is that with R Markdown, the R package rmarkdown does the heavy lifting of going from the source Rmd file to the the output, using knitr for evaluating the code chunks. -->
+
+
+## Rendering your Quarto Document
+
+When you click **Render**:
+
+-   Your file is saved.
+-   The R code written in your *.qmd* file gets run **in order**.
+    -   It starts from scratch, even if you previously ran some of the code.
+-   A new file is created.
+    -   If your Quarto file is called "Lab1.qmd", then a file called "Lab1.html" will be created.
+    -   This will be saved in the same folder as "Lab1.qmd".
+
+
+## [Lab 1: Introduction to Quarto](https://zoerehnberg.github.io/STAT331-S23/lab_assignments/lab1/LA1_intro_quarto.html)
+
+## `r fontawesome::fa("warning")` NOTE
+
++ Next Tuesday (1/16) follows a Monday schedule
++ Therefore, we do not have class and you are expected to read through the material and begin the practice activity on your own.
+
+## To do...
+
++ **Lab 1: Introduction to Quarto**
+  + Due Friday (4/7) at 11:59pm 
++ **Read Chapter 2: Importing Data + Basics of Graphics**
+  + **Check-in 2.1 + 2.2** due Tuesday (1/16) at 8:00am
+  + **PA 2:  Using Data Visualization to Find the Penguins** due Thursday (1/18 at 11:59pm)
++ **FizzBuzz (up to +5 FP)**
+  + Due Thursday (1/18) at 11:59pm 
