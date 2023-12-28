@@ -3067,7 +3067,7 @@ vertical-align: -.125em;
 <li>If you have already <a href="https://earobinson95.github.io/stat331-calpoly-text/01-introduction.html#checkin3-install">installed R and RStudio (+Quarto)</a>, you can download the <a href="PA1-find-the-mistakes.qmd">practice activity template here</a>.</li>
 </ol>
 <ul>
-<li>Make sure to save this in your <code>stat331/practice-activities</code> folder!</li>
+<li>Make sure to move this from your <code>Downloads</code> into your <code>stat331/practice-activities</code> folder!</li>
 </ul>
 </section>
 <section id="part-one-setup" class="level2">
@@ -3134,8 +3134,7 @@ vertical-align: -.125em;
 <h2 class="anchored" data-anchor-id="part-two-decoding-the-secret-message.">Part Two: Decoding the secret message.</h2>
 <p>This chunk will load up the encoded secret message as a vector.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>top_secret <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&#39;https://raw.githubusercontent.com/earobinson95/stat331-calpoly/master/practice-activities/data/PA1-secret-code.csv&#39;</span>)<span class="sc">$</span>X1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>top_secret <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&#39;https://raw.githubusercontent.com/earobinson95/stat331-calpoly/master/practice-activities/data/PA1-secret-code.csv&#39;</span>)<span class="sc">$</span>X1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>By altering this top secret set of numbers, you will be able to create a message. Write your own code to complete the steps, <strong>in the order given</strong> below.</p>
 <p><strong>Hint:</strong> To update a vector after performing an operation, you <em>overwrite</em> the existing object with its updated counterpart. This looks something like this:</p>

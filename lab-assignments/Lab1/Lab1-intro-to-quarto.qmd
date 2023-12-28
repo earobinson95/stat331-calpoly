@@ -1,10 +1,15 @@
 ---
 title: "Lab 1: Introduction to Quarto"
-format: html
-self-contained: true
-
+format: 
+  html:
+    toc: true
+embed-resources: true
+theme:
+  light: flatly
+  dark: darkly
+# code-tools: true
 execute:
-  echo: false
+  echo: fenced
 ---
 
 ```{r, setup}
@@ -14,214 +19,190 @@ library(tidyverse)
 
 ## Setup
 
-### Make a Stat 331 and Lab 1 Folder
+### Make a Stat 331/531 and Lab 1 Folder `r fontawesome::fa("folder")`
 
 If you have completed *Check-in 1.3*, you have already completed steps 1 & 2.
 
-1.  If you have not already, create a folder on your computer called "Stat 331"
-    or similar.
+1.  If you have not already, create a folder on your computer called "stat-331" or similar.
 
 2.  Create an RStudio Project **inside** of this folder.
 
-3.  Inside your Stat 331 folder, create another folder called either "Week 1" or
-    "Labs".
+3.  Inside your Stat 331 folder, work within your existing sub-folder called "week-1" or create a new sub-folder "lab-assignments". Remember, we are trying to be organized and not work out of our Downloads or kitchen sink!
 
-4.  Inside of this folder, create another folder called "Lab 1".
+4.  Inside of this sub-folder, create another level of a sub-folder called "lab-1" or similar.
 
-### Create your Lab 1 File
+### Create your Lab 1 File `r fontawesome::fa("file")`
 
-To create a Quarto document , you first need to install Quarto on your computer.
-To do this go to the following link <https://quarto.org/docs/get-started/>. You may have already installed Quarto during *Check-in 1.3*.
+To create a Quarto document , you first need to ensure Quarto is installed on your computer. To do this go to the following link <https://quarto.org/docs/get-started/>. You may have already installed Quarto with the newest version of RSTudio during *Check-in 1.3*.
 
 1.  Once you have Quarto installed, open RStudio on your computer.
 
-2.  In RStudio, go to "File" \> "New File" \> "Quarto Document..." and click on
-    "Create" in the dialog box **without changing anything**.
+2.  In RStudio, go to "File" \> "New File" \> "Quarto Document..." and click on "Create" in the dialog box **without changing anything**.
 
 3.  Change the title of your document to be "Lab 1: Introduction to Quarto"
 
 4.  Add additional lines to your YAML header
   + add an `author` line, and include your name
-  + add a line with `self-contained: true` to 
-  + (optional) add a line to specify the `editor` as your preference for either source or visual.
+  + add a line with `embed-resources: true`
+  + add a line with `code-tools: true`
+  + (optional) add a line to specify the `editor` as your preference for either source or visual. I prefer source!
 
-5.  Save the Quarto file as "lab1" in your "Week 1" or "Labs" folder. You can change up the name of your document, but the name **cannot** have spaces and it should describe what the document is.
+5.  Save the Quarto (.qmd) file as "lab1-intro-to-quarto.qmd" in your "week-1/lab-1" or "labs/lab-1" sub-folder. You can change up the name of your document, but the name **cannot** have spaces and it should describe what the document is.
 
 ## Lab Instructions
 
-### Changing the Execution Options
+### Changing the Execution Options `r fontawesome::fa("square")`
 
 Execution options specify how the R code in your Quarto document should be displayed. This guide <https://quarto.org/docs/computations/execution-options.html> provides
 descriptions on the options you can specify in a document's execution.
 
 To start, your YAML should look something like this:
 
-```{r}
-#| out.width = "50%"
-knitr::include_graphics("images/quarto-yaml.jpg")
+```{yaml}
+#| echo: true
+---
+title: "Lab 1: Introduction to Quarto"
+author: "Dr. Robinson"
+format: html
+embed-resources: true
+code-tools: true
+editor: source (or visual)
+---
 ```
 
-Similar to how you added an `author`, `self-contained`, (and `editor`) line, you will first need to add an `execute` line to your YAML.
+Similar to how you added an `author`, `embed-resources`, (and `editor`) line, you will first need to add an `execute` line to your YAML.
 
 Use the guide above to specify execution options that:
 
-1.   your source code is always output on the page
+1.   your source code is **always** output on the page
 2.   your document will render even if there are errors
 
-## Running the Provided Code
+### Running the Provided Code `r fontawesome::fa("computer")`
 
-Next, click on the "Play" button on the right of the first auto-populated code chunk.
-Alternatively, you can highlight (or simply put your curser on the line of) the code you want to run and type
-<kbd>ctrl</kbd> + <kbd>Enter</kbd> or <kbd>⌘</kbd> + <kbd>Enter</kbd>.
+Next, click on the "Play" button on the right of the first auto-populated code chunk. Alternatively, you can highlight (or simply put your cursor on the line of) the code you want to run and type
 
-You should see the code appear in the console, as well as the result of
-the code (`2`). Keep in mind the `[1]` before the `2` is vector
-notation. This means the result is a *vector* of length 1, whose first
-element is `2`.
+`ctrl` + `Enter` or `⌘` + `Enter`.
 
-Let's spice this code up a bit. Delete `1 + 1` from the code chunk and
-write the following code: `summary(cars)`
+You should see the code appear in the console, as well as the result of the code (`2`). Keep in mind the `[1]` before the `2` is vector notation. This means the result is a *vector* of length 1, whose first element is `2`.
 
-Now run this code. You should see a six-number summary of the variables
-`speed` and `dist` included in the `cars` dataset. However, if you
-inspect environment tab, the `cars` dataset should not appear!
-
-### Check the data documentation
-
-In your **console** (*not* in the Quarto document), type `?cars` (or alternatively `help(cars)`.
-
-Use the information that pops up in your *Help* pane in RStudio to fill
-in the blanks below. Add the questions and your responses *after* the R
-code chunk. *Before* the code chunk, create a section header (using
-`#`s) that describes the contents of the section (e.g., Cars Dataset).
-
-<center>
-
-*This data set contains information about \_\_\_\_. The data was
-collected in \_\_\_\_.*
-
-*It has \_\_\_ rows and \_\_\_\_ variables.*
-
-</center>
-
-Your cars data set section should look something like this:
+Let's spice this code up a bit. Delete `1 + 1` from the code chunk and write the following code:
 
 ```{r}
-#| out.width: "80%"
-knitr::include_graphics("images/cars-dataset-section.jpg")
+#| echo: true
+# Load the data set into the R Environment
+data(ToothGrowth)
+# Look at the summary of the variables in the data set.
+summary(ToothGrowth)
 ```
 
-## Creating a Plot {#sec-creating-a-plot}
+Now run this code. You should see a six-number summary of the variables `len` and `dose` included in the `ToothGrowth` data set as well as the frequency of the levels contained in the `supp` variable. If you inspect environment tab, the `ToothGrowth` data set should appear! You can click on the data set name (not the blue play button!) to inspect the data set.
 
-Your second code chunk is just as boring as your first, so let's spice
-it up! Replace the `2 * 2` code with the following: `plot(pressure)`
+### Check the data documentation `r fontawesome::fa("circle-question")`
 
-Now, run this code chunk! You should see a scatterplot of the
-relationship between temperature and pressure of mercury, contained in
-the `pressure` data set.
+In your **console** (*not* in a Quarto document code chunk), type `?ToothGrowth` (or alternatively `help(ToothGrowth)`.
 
-Similar to what you did before with the `cars` data set, look up the help
-file on the `pressure` data set to determine what units `temperature` and
-`pressure` were measured in.
+Use the information that pops up in your *Help* pane in RStudio to fill in the blanks below. Add the questions and your responses *after* the R code chunk. *Before* the code chunk, create a section header (using `#`s) that describes the contents of the section (e.g., Tooth Growth Data Set).
 
-Next, look up the help file on the `plot()` function to find the
-arguments you can use to specify the $x$- and $y$-axis labels. Change the
-$x$-axis and $y$-axis labels to reflect the units of measurement you found
-in the `pressure` help file.
+*This data set investigates the effect of ________ on Tooth Growth in _________ ________.*
 
-Note that `#| echo: false` is an output option applied only to this specific
-code-chunk. Remove this line so the code shows in your final knitted document.
+*The two supplement delivery methods include OJ (______________) and VC (_________ ______)*
 
-Create another section header (like you did before) stating what is
-included in this section.
+*It is a data frame with ____ observations and ____ variables.*
 
-### Inserting a New Code Chunk
+Your Tooth Growth data set section should look something like this:
 
-Navigate to the last sentence of the Quarto document, we're going to
-insert a new `R` code chunk at the bottom of the document.
+```{r}
+#| out.width: "90%"
+#| fig-align: center
+#| echo: false
+knitr::include_graphics("images/toothgrowth-section.PNG")
+```
+
+### Creating a Plot `r fontawesome::fa("chart-line")`
+
+Your second code chunk is just as boring as your first, so let's spice it up! Replace the `2 * 2` code with the following (we will talk about graphics next week!): 
+
+```{r}
+#| echo: true
+ggplot(data = ToothGrowth, 
+       aes(x = supp,
+           y = len)) +
+  geom_boxplot() +
+  labs()
+```
+
+Now, run this code chunk! You should see a side-by-side box plot comparing the tooth length between the two supplement delivery methods, contained in the `ToothGrowth` data set.
+
+Look back at the help documentation for the `ToothGrowth` data set to determine what the `len` represents (e.g., "Length of xxx").
+
+Next, look up the help file on the `labs()` ggplot2 function to find the arguments you can use to specify the $x$- and $y$-axis labels. Change the $x$-axis and $y$-axis labels to display reader-friendly axis labels as found in the `ToothGrowth` help file. For example, "Supplement Type" is better than "supp".
+
+Note that `#| echo: false` is an output option applied only to this specific code-chunk. Remove this line so the code shows in your final rendered document.
+
+Create another section header (like you did before) stating what is included in this section.
+
+### Inserting a New Code Chunk `r fontawesome::fa("code")`
+
+Navigate to the last sentence of the Quarto document, we're going to insert a new `R` code chunk at the bottom of the document.
 
 There are four different ways to do this:
 
-1.  type <kbd>ctrl</kbd> + <kbd>alt</kbd> + <kbd>i</kbd> on Windows, or
-    <kbd>⌘</kbd> + <kbd>⌥</kbd> + <kbd>i</kbd> on macOS,
+1.  type `ctrl` + `alt` + `i` on Windows, or
+    `⌘` + `⌥` + `i` on macOS,
 
-2.  Click on the ![](images/add-code-chunk.jpg) symbol. This should
-    automatically default to R code, but if you have a Python compiler
-    on your computer, you might need to select "R" from the options.
+2.  Click on the ![](images/add-code-chunk.jpg) symbol in the top right. This should automatically default to R code, but if you have a Python compiler on your computer, you might need to select "R" from the options.
 
-3.  If you are using the Visual editor, then click on
-    the "Insert" button, then select "Code Chunk", and finally select
-    "R".
+3.  If you are using the Visual editor, then click on the "Insert" button, then select "Code Chunk", and finally select "R".
     
 4. Manually add the code chunk by typing ` ```{r}`. Make sure to close your
 code chunk with ` ``` `.
 
-### Creating and Discussing Visualizations {#sec-creating-and-discussing-visualizations}
 
-Now, in the code chunk you just created, carry out the following steps:
+```{r}
+# We will add code to conduct a t-test here!
+```
 
--   Step 1: Extract the distance column of the `cars` dataset (remember
-    how we did this in the Practice Activity) and save it into a new
-    object named `dist`.
+### Conducting Statistical Analyses `r fontawesome::fa("calculator")`
 
--   Step 2: Plot the distribution of the stopping distances (contained
-    in `dist`).[^1]
+::: callout-tip
+#### Refresher on a two-sample independent t-test
 
--   Step 3: Create a second plot, a scatterplot, visualizing the
-    relationship between the stopping distance and speed.[^2]
+While a second course in statistics is a pre-requisite for this class, you may visit <https://openintro-ims.netlify.app/inference-two-means> for a refresher on conducting two-sample independent t-tests. 
+:::
 
-[^1]: You are permitted to use whatever code you would prefer. This task
-    can be completed with the `plot()` function, but if you would rather
-    use `ggplot()` you are more than welcome to. We will be getting
-    there next week!
+In this section, we are going to conduct a two-sample independent t-test to compare the length between the two supplement methods in the `ToothGrowth` data set. I have outlined the null and alternative hypotheses we will be testing below:
 
-[^2]: See previous footnote!
+> Null: The population average tooth length for the OJ supplement delivery method is the same as the population average tooth length for the VC supplement delivery method.
+>
+> Alternative: The population average tooth length for the OJ supplement delivery method is the same as the population average tooth length for the VC supplement delivery method.
 
-To earn a "Success" on your plots, make sure each plot has reasonable
-axis labels. For example, if you use the `dist` variable, your axis
-should say "Stopping Distance" with the correct units not just "dist".
+In the code chunk you created, carry out the following steps:
 
--   Step 4: Create another section header, describing the contents of
-    this section.
+1. Look up the help documentation for `t.test()`. *Hint: look at the examples at the bottom for comparing extra across groups in the sleep data set.*
 
--   Step 5: Create a **numbered list** of two aspects of the plots you would
-    like to improve.
+2. Using the function `t.test()`, write code to carry out the analysis.
+  + You can assume unequal variances and a two-sided alternative.
 
-### Knit your document
+3. Run your code chunk to obtain the output for your statistical test.
 
-Render your document as an **html** file. Use the "Render" button.
+4. Create a **numbered list** containing: 
+  + Your conclusion (in context of the data set) based on the p-value.
+  + An interpretation of the confidence interval (make sure to read what confidence level is used by default).
 
-If you run into trouble rendering your document, try running your code
-chunks again in order, and see if you can find the problem.
+5. Create another section header, describing the contents of this section.
 
-Another common issue is deleting the tick marks (```` /``` ````) that
-surround your code chunks. If you notice that the code chunks are not
-showing a "Play" button, or that they are not highlighted in gray,
+### Render your document `r fontawesome::fa("print")`
+
+Render your document as a `.html` file. Use the "Render" button (blue arrow at the top!).
+
+If you run into trouble rendering your document, try restarting your R and running your code chunks again in order, and see if you can find the problem.
+
+Another common issue is deleting the tick marks (```` ``` ````) that surround your code chunks. If you notice that the code chunks are not showing a "Play" button, or that they are not highlighted in gray,
 double check your tick marks!
 
-Recall we included `error: true` in our YAML execution options. This means that
-your document will still knit even if there are errors. Make sure you are double
-checking your work!
+Recall we included `error: true` in our YAML execution options. This means that your document will still render even if there are errors. Make sure you are double checking your work!
 
-### Turn it in!
-
-Open the .html file on your computer to make sure it looks as you expected. Then
-upload the knitted (.html extension) document to Canvas!
-
-> You'll be doing this same process for all your future Lab Assignments and
-Challenges. Each of these will involve a Quarto file. Some weeks, I may have a
-template for you to copy into the Quarto file just as with the first practice
-activity.
-
-## Challenge:
-
-Either (1) edit your `lab1.qmd` file or (2) copy it and rename to
-`challenge1.qmd` to edit.[^3]
-
-[^3]: I prefer option (2). The more organized you can stay in this class, the
-easier it will be to debug and find resources.
-
-### Styling Quarto Documents
+### Styling your Quarto Document `r fontawesome::fa("paintbrush")`
 
 You can find a list of every option you can use to format an HTML
 document [here](https://quarto.org/docs/output-formats/html-basics.html).
@@ -230,26 +211,28 @@ document [here](https://quarto.org/docs/output-formats/html-basics.html).
 lists of different themes you can specify in your YAML which will
 produce different styling outputs.
 
-For this Challenge, there are some specific additions to your document I
-would like you to make, as they will benefit you for the rest of the
-course.
+Make the following additional changes to your document:
 
-1.  Specify "code folding" in your YAML document options
+1.  Specify "code-folding" in your YAML document options.
 
-2.  Specify in the code chunk options that your plot of the `pressure`
-    data set should be center aligned.
+2.  Specify in the code chunk options that your box-plot of the tooth length by supplement delivery method should be center aligned.
 
-3.  Specify a figure caption in the above code chunk (plot of the
-    `pressure` data).
+3.  Write and include a figure caption for the box-plot of the `ToothGrowth` data set using a code-chunk option.
 
-4.  In the code chunk created in **Creating and Discussing
-    Visualizations**, specify the figures should be printed side-by-side
-    (in two columns).
+You might have fun playing around with other themes or options!
 
-5.  Now, make **at least one** additional modification to your Quarto
-    document. Make sure you explicitly state which tip you tried; for
-    example, you might write "Here is an example of alt text:" followed
-    by your alt text description.
+### Render again! `r fontawesome::fa("print")`
 
-6.  Upload your knitted (.html) document to the Challenge 1 assignment
-    on Canvas.
+Notice that when you render the document, all of the code reruns again, producing the same output as before, but with your changes -- this is called reproducibility `r fontawesome::fa("smile")` !
+
+You should render often while completing your practice activities and lab assignments. Make small changes, then make sure the file still renders rather than making a bunch of big changes and then realizing something is wrong.
+
+### Turn it in! `r fontawesome::fa("check")`
+
+Open the `.html` file on your computer to make sure it looks as you expected. Then upload the rendered (`.html` extension) document to Canvas!
+
+::: callout-caution
+Double check that you have `embed-resources: true` in your YAML. Without this, your html will not be formatted correctly on Canvas. You may want to look at what you turn in through your Canvas portal!
+:::
+
+> You'll be doing this same process for all your future Lab Assignments and potential Flex Points. Each of these will involve a Quarto file. Some weeks, I may have a template for you to download just as with the first practice activity, but it is good to know how to create one!

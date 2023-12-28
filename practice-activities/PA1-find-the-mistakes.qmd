@@ -33,7 +33,7 @@ You can access PA1: Find the Mistakes one of two ways:
   + Make sure to save a permanent copy!
 
 2. If you have already [installed R and RStudio (+Quarto)](https://earobinson95.github.io/stat331-calpoly-text/01-introduction.html#checkin3-install), you can download the [practice activity template here](PA1-find-the-mistakes.qmd).
-  + Make sure to save this in your `stat331/practice-activities` folder!
+  + Make sure to move this from your `Downloads` into your `stat331/practice-activities` folder!
 
 ## Part One: Setup
 
@@ -85,7 +85,6 @@ This chunk will load up the encoded secret message as a vector.
 
 ```{r}
 #| message: false
-library(readr)
 top_secret <- read_csv('https://raw.githubusercontent.com/earobinson95/stat331-calpoly/master/practice-activities/data/PA1-secret-code.csv')$X1
 ```
 
