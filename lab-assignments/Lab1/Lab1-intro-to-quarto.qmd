@@ -126,7 +126,8 @@ Your second code chunk is just as boring as your first, so let's spice it up! Re
 #| echo: true
 ggplot(data = ToothGrowth, 
        aes(x = supp,
-           y = len)) +
+           y = len)
+       ) +
   geom_boxplot() +
   labs()
 ```
