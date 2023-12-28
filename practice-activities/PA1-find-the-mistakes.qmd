@@ -18,7 +18,7 @@ Today you will be creating and manipulating vectors, lists, and data frames to u
 
 Some advice:
 
-+ Work with those around you
++ Work with those around you.
 
 + Google is your friend!  If an error is confusing, copy it into Google and see what other people are saying.  If you don't know how to do something, search for it.
 
@@ -28,12 +28,12 @@ Some advice:
 
 You can access PA1: Find the Mistakes one of two ways:
 
-1. Click [here](https://posit.cloud/content/5172799) to access an **RStudio Cloud** project which we work on in groups on Day 1 of the course
-  + Note: if you do not have an RStudio (Posit) Cloud account, you will be asked to create one.
+1. Click [here](https://posit.cloud/content/5172799) to access a Posit Cloud project.
+  + Note: if you do not have a Posit Cloud account, you will be asked to create one.
   + Make sure to save a permanent copy!
 
-2. If you have already [installed R, RStudio, and Quarto](https://earobinson95.github.io/stat331-calpoly-text/01-introduction.html#checkin3-install), you can create a new [Quarto document](https://earobinson95.github.io/stat331-calpoly-text/01-introduction.html#notebooks), and copy the [practice activity template](https://raw.githubusercontent.com/earobinson95/stat331-calpoly/master/practice-activities/PA1-find-the-mistakes.qmd?token=GHSAT0AAAAAABYBOW2KDYAEG2R7JS4OT2HMY54NK7A) into the file.
-  + Make sure your quarto file is on Source mode and not Visual mode (top left) when you copy the template.
+2. If you have already [installed R and RStudio (+Quarto)](https://earobinson95.github.io/stat331-calpoly-text/01-introduction.html#checkin3-install), you can download the [practice activity template here](PA1-find-the-mistakes.qmd).
+  + Make sure to save this in your `stat331/practice-activities` folder!
 
 ## Part One: Setup
 
@@ -86,23 +86,18 @@ This chunk will load up the encoded secret message as a vector.
 ```{r}
 #| message: false
 library(readr)
-top_secret <- read_csv("https://www.dropbox.com/s/k72h1zewk4gtqep/PA_Secret_Code?dl=1", 
-                       col_names = FALSE)$X1
+top_secret <- read_csv('https://raw.githubusercontent.com/earobinson95/stat331-calpoly/master/practice-activities/data/PA1-secret-code.csv')$X1
 ```
 
-By altering this top secret set of numbers, you will be able to create a
-message. Write your own code to complete the steps, **in the order given**
-below.
+By altering this top secret set of numbers, you will be able to create a message. Write your own code to complete the steps, **in the order given** below.
 
-**Hint:** To update a vector after performing an operation, you *overwrite* the 
-existing object with its updated counterpart. This looks something like this:
+**Hint:** To update a vector after performing an operation, you *overwrite* the existing object with its updated counterpart. This looks something like this:
 
 `x <- x + 12`,
 
-where the original value(s) in `x` have had 12 added to them, and the resulting 
-values are put back in to the object named `x`.
+where the original value(s) in `x` have had 12 added to them, and the resulting values are put back in to the object named `x`.
 
-*Be careful not to* **overwrite** *more than you intend. If this happens, go back and run (6) and any subsequent code chunks to start fresh with the top_secret vector.*
+*Be careful not to* **overwrite** *more than you intend. If this happens, go back and re-read in the top secret message and any subsequent code chunks to start fresh with the top_secret vector.*
 
 + Add 14 to every number (completed for you!)
 
@@ -114,153 +109,124 @@ top_secret <- top_secret + 14
 1. Multiply every number by 18, then subtract 257 (watch your order of operations!)
 
 ```{r}
-## Code to carry out step 1
+## Code to carry out step 1.
 
 ```
 
 2. Use the `exp()` function to exponentiate every number.
 
 ```{r}
-## Code to carry out step 2
+## Code to carry out step 2.
 
 ```
 
 3. Square every number.
 
 ```{r}
-## Code to carry out step 3
+## Code to carry out step 3.
 
 ```
 
-**Checkpoint:** Headquarters has informed you that at this stage of decoding,
-there should be 352 numbers in the secret message that are below 17. The code
-below verifies that this is true for your `top_secret` object!
+**Checkpoint:** Headquarters has informed you that at this stage of decoding, there should be 352 numbers in the secret message that are below 17. The code below verifies that this is true for your `top_secret` object!
 
-*Hint:* This is what is called a "relational" comparison, where you compare 
-an object to a number and R will give you a vector of TRUEs and FALSEs based 
-on whether the comparison is / is not met. You can then use these TRUEs and 
-FALSEs as numbers, since TRUE = 1 and FALSE = 0 in R land.
+*Hint:* This is what is called a "relational" comparison, where you compare an object to a number and R will give you a vector of `TRUE`s and `FALSE`s based on whether the comparison is / is not met. You can then use these `TRUE`s and `FALSE`s as numbers, since `TRUE = 1` and `FALSE = 0` in R land. This is called a Boolean variable type.
 
 ```{r}
-# The code below verifies that there are 352 numbers with values **below** 17
-# should be 352!
-sum(top_secret < 17)
+# Write code to verify that there are 352 numbers with values **below** 17
+
 ```
 
 Next, carry out the following steps: 
 
-4. Turn your vector of numbers into a matrix with 5 columns.
+4. Turn your vector of numbers into a matrix called `top_secret` with 5 columns.
 
 ```{r}
-## Complete the code to carry out step 4
-top_secret <-  matrix(top_secret, ncol = ____)
-```
-
-+ Separately from your top secret numbers, create a vector of all the even
-numbers between 1 and 382. Name it "evens". That is, "evens" should contain
-2, 4, 6, 8 ..., 382.
-
-```{r}
-# Code completed for you
-evens <- (1:191)*2
-# Alternative solution: evens <- seq(from = 2, to = 382, by = 2)
-```
-
-+ Subtract the "evens" vector from the first column of your secret message
-matrix.
-
-```{r}
-# Code completed for you
-top_secret[, 1] <- top_secret[, 1] - evens
-```
-
-5. Subtract 100 from all numbers 18-24th rows of the 3rd column of your secret
-message matrix.
-
-```{r}
-## Complete the code to carry out step 5
-top_secret[18:24, 3] <- top_secret[_____, __] - 100
-```
-
-6. Multiply all numbers in the 4th and 5th column of your secret message matrix
-by 2.
-
-```{r}
-## Code to carry out step 6
+# Write code to carry out step 4.
 
 ```
 
-7. Turn your secret message matrix back into a vector.
+5. Separately from your top secret numbers, create a vector of all the even numbers between 1 and 382. Name it `evens`. That is, `evens` should contain 2, 4, 6, 8 ..., 382.
 
 ```{r}
-## Complete the code to carry out step 7
-top_secret <- ___(top_secret)
+# Write code to carry out step 5.
+
 ```
 
-**Checkpoint:** Headquarters has informed you that at this stage of decoding,
-all numbers in indices 500 and beyond are below 100. The code below verifies
-that this is true for your `top_secret` object! 
+6. Subtract the `evens` vector from the first column of your top_secret message matrix.
 
-*Hint:* Use a relational comparison similar to what you used in the last
-checkpoint, but here you will need to subset values from your vector! It may be
-helpful to think of below 100 as **not** equal to or greater than 100.
+```{r}
+# Write code to carry out step 6. Don't forget to 'overwrite' your top_secret object.
+
+```
+
+7. Subtract 100 from all numbers 18-24th rows of the 3rd column of your secret message matrix.
+
+```{r}
+# Write code to carry out step 7. Remember to overwrite!
+
+```
+
+8. Multiply all numbers in the 4th and 5th column of your secret message matrix by 2.
+
+```{r}
+## Write code to carry out step 8.
+
+```
+
+9. Turn your secret message matrix back into a vector.
+
+```{r}
+# Write code to carry out step 9.
+```
+
+**Checkpoint:** Headquarters has informed you that at this stage of decoding, all numbers in indices 500 and beyond are below 100. The code below verifies that this is true for your `top_secret` object! 
+
+*Hint:* Use a relational comparison similar to what you used in the last checkpoint, but here you will need to subset values from your vector! It may be helpful to think of below 100 as **not** equal to or greater than 100.
 
 
 ```{r}
-# The code below verifies that indices 500 and beyond have values **below** 100
+# Write code to verify that indices 500 and beyond have values **below** 100
 # should be 0!
-sum(top_secret[500:955] >= 100)
+
 ```
 
-The following operations on our secret message are completed for you: (make sure to run these code chunks yet)
-
-+ Take the square root of all numbers in indices 38 to 465.
+10. Take the square root of all numbers in indices 38 to 465.
 
 ```{r}
-top_secret[38:465] <- sqrt(top_secret[38:465])
+
 ```
 
-+ Use the `round()` function to round all numbers to the nearest whole number.
+11. Use the `round()` function to round all numbers to the nearest whole number.
 
 ```{r}
-top_secret <- round(top_secret, digits = 0)
+
 ```
 
-+ Replace all instances of the number 39 with 20.
-  + This step requires another relational comparison, but this time it is
-equality. Equality in R is checked with a double equal sign rather than a single
-equal sign!
+12. Replace all instances of the number 39 with 20. 
+
+**Hint:** This step requires another relational comparison, but this time it is equality. Equality in R is checked with a double equal sign rather than a single equal sign!
 
 ```{r}
-top_secret[top_secret == 39] <- 20
+
 ```
 
+**Checkpoint:** Headquarters has informed you that your final message should have 344 even numbers.
 
-**Checkpoint:** Headquarters has informed you that your final message should
-have 344 even numbers.
-
-*Hint:* Checking for divisibility is an interesting operation that isn't done
-much in R. Modulus is the operation you are interested in, where you are
-checking for whether the numbers are divisible by 2, with no remainder. See what
-you can find about modulus in R!
+*Hint:* Checking for divisibility is an interesting operation that isn't done much in R. Modulus is the operation you are interested in, where you are checking for whether the numbers are divisible by 2, with no remainder. See what you can find about modulus in R!
 
 ```{r}
-# The code below verifies how many even numbers are in your top_secret vector
+# Code to verify how many even numbers are in your top_secret vector
 # Should be 344!
-sum(top_secret %% 2 == 0)
-```
 
+```
 
 ## Part Three: The secret message!
 
-Use your final vector of numbers as indices for my_symbols to discover the final
-message, by running the following code:
+Use your final vector of numbers as indices for `my_symbols` to discover the final message, by running the following code:
 
 ```{r}
 stringr::str_c(my_symbols$Symbol[top_secret], collapse = "")
 ```
 
-
-Google the first line of this message, if you do not recognize it, to see what
-poem it is.
+Google the first line of this message, if you do not recognize it, to see what poem it is. Make sure to submit the poem name to the Canvas Quiz!
 
