@@ -27,19 +27,19 @@ Today we will...
 
 + I am a transplant to the west coast -- MN to NE to CA.
 
-+ My favorite things are being outside, drinking tea, and watching reality tv.
++ My favorite things are playing pickleball, reading, and FaceTiming my 3 year-old nephew.
 
 ## Our Classroom Learning Assistant!
 
 We will be joined in class by Brandon.
 
-Sophia is...
+Brandon is...
 
 + A fourth-year Statistics major.
 
-+ Originally from San Ramon in the East Bay Area.
++ Originally from San Jose in the Bay Area.
 
-+ A golfer, dancer, and crocheter!
++ xxxx
 
 
 ## You!
@@ -49,7 +49,7 @@ I am looking forward to reading your introductions on Canvas Discussions!
 + Please read the intros of your classmates so you can discover who you will be learning with this quarter.
 
 
-# [Syllabus](https://earobinson95.github.io/stat218-calpoly-f2023/00-course-info/stat218-syllabus-F2023.html)
+# [Syllabus](https://earobinson95.github.io/stat331-calpoly/00-course-info/syllabus-W2024.html)
 
 
 # Intro to R
