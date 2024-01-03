@@ -201,11 +201,11 @@ officehr_cal <- Cal2 |>
 
 ## Communication
 
-**Dr. Emily Robinson**
+**Dr. Immanuel Williams**
 
-`r fontawesome::fa("envelope")` Email: [erobin17@calpoly.edu](mailto:erobin17@calpoly.edu?subject=Stat%20331/531)
+`r fontawesome::fa("envelope")` Email: [imwillia@calpoly.edu](mailto:imwillia@calpoly.edu?subject=Stat%20331/531)
 
-`r fontawesome::fa("building")` Office: Building 25 Office 103 (by Statistics Department Office) 
+`r fontawesome::fa("building")` Office: Building 25 Office 113 (by Statistics Department Office) 
 
 **Course Discord Page:**
 
