@@ -35,23 +35,28 @@ We will be joined in class by Brandon.
 
 Brandon is...
 
-+ A fourth-year Statistics major.
++ a fourth-year Statistics major with a minor in computer science.
 
-+ Originally from San Jose in the Bay Area.
++ originally from San Jose in the Bay Area.
 
-+ He enjoys xxx
-
++ the stat club secretary and enjoys gaming & basketball!
 
 ## You!
 
-I am looking forward to reading your introductions on Canvas Discussions!
+I am looking forward to reading your introductions on Discord!
 
 + Please read the intros of your classmates so you can discover who you will be learning with this quarter.
 
-
 # [Syllabus](https://earobinson95.github.io/stat331-calpoly/00-course-info/syllabus-W2024.html)
 
-## FYI: Potential Faculty Strike
+## FYI: Potential Faculty Strike {auto-animate=true}
+
++ **When?** Third week of classes - January 22-26th
++ **I will...**
++ **You are expected to...**
++ **Brandon (LA) will...**
+
+## FYI: Potential Faculty Strike {auto-animate=true}
 
 + **When?** Third week of classes - January 22-26th
 + **I will...**
@@ -61,7 +66,7 @@ I am looking forward to reading your introductions on Canvas Discussions!
 + **You are expected to...**
 + **Brandon (LA) will...**
   
-## FYI: Potential Faculty Strike
+## FYI: Potential Faculty Strike {auto-animate=true}
 
 + **When?** Third week of classes - January 22-26th
 + **I will...**
@@ -70,7 +75,7 @@ I am looking forward to reading your introductions on Canvas Discussions!
   + work with each other, discuss on discord, etc. to complete assignments.
 + **Brandon (LA) will...**
 
-## FYI: Potential Faculty Strike
+## FYI: Potential Faculty Strike {auto-animate=true}
 
 + **When?** Third week of classes - January 22-26th
 + **I will...**
@@ -814,7 +819,7 @@ Submit the name of the poem as the answer to the Canvas Quiz question.
 + **PA 1: Find the Mistakes**
   + Due Thursday (1/11) at 8:00am
   
-+ **Bonus Challenge 0: FizzBuzz (up to +9 FP)**
++ **FizzBuzz (up to +9 FP)**
   + Due Friday (1/19) at 11:59pm 
 
 ## Thursday, January 11
