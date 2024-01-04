@@ -51,6 +51,33 @@ I am looking forward to reading your introductions on Canvas Discussions!
 
 # [Syllabus](https://earobinson95.github.io/stat331-calpoly/00-course-info/syllabus-W2024.html)
 
+## FYI: Potential Faculty Strike
+
++ **When?** Third week of classes - January 22-26th
++ **I will...**
+  + participate in the strike (no class + no responding to emails/discord messages Mon-Fri).
+  + post all week three course materials ahead of time.
+  + give each of you 2 more "grace days".
++ **You are expected to...**
++ **Brandon (LA) will...**
+  
+## FYI: Potential Faculty Strike
+
++ **When?** Third week of classes - January 22-26th
++ **I will...**
++ **You are expected to...**
+  + continue working through course material asynchronously as if we were having class.
+  + work with each other, discuss on discord, etc. to complete assignments.
++ **Brandon (LA) will...**
+
+## FYI: Potential Faculty Strike
+
++ **When?** Third week of classes - January 22-26th
++ **I will...**
++ **You are expected to...**
++ **Brandon (LA) will...**
+  + monitor Discord for approximately 7 hours that week.
+  + potentially hold office hours in some capacity.
 
 # Intro to R
 
@@ -787,8 +814,8 @@ Submit the name of the poem as the answer to the Canvas Quiz question.
 + **PA 1: Find the Mistakes**
   + Due Thursday (1/11) at 8:00am
   
-+ **Bonus Challenge 0: FizzBuzz (up to +5 FP)**
-  + Due Thursday (4/18) at 11:59pm 
++ **Bonus Challenge 0: FizzBuzz (up to +9 FP)**
+  + Due Friday (1/19) at 11:59pm 
 
 ## Thursday, January 11
 
@@ -1031,17 +1058,18 @@ When you click **Render**:
 
 ## [Lab 1: Introduction to Quarto](https://zoerehnberg.github.io/STAT331-S23/lab_assignments/lab1/LA1_intro_quarto.html)
 
-## `r fontawesome::fa("warning")` NOTE
+## `r fontawesome::fa("warning")` NOTE!
 
 + Next Tuesday (1/16) follows a Monday schedule
 + Therefore, we do not have class and you are expected to read through the material and begin the practice activity on your own.
++ I will have office hours on Tuesday (1/16) at 3:10-4pm, following my regular Monday office hour schedule.
 
 ## To do...
 
 + **Lab 1: Introduction to Quarto**
   + Due Friday (4/7) at 11:59pm 
++ **FizzBuzz (up to +9 FP)**
+  + Due Friday (1/19) at 11:59pm 
 + **Read Chapter 2: Importing Data + Basics of Graphics**
   + **Check-in 2.1 + 2.2** due Tuesday (1/16) at 8:00am
-  + **PA 2:  Using Data Visualization to Find the Penguins** due Thursday (1/18 at 11:59pm)
-+ **FizzBuzz (up to +5 FP)**
-  + Due Thursday (1/18) at 11:59pm 
+  + **PA 2:  Using Data Visualization to Find the Penguins** due Thursday (1/18 at **11:59pm**)
