@@ -1,11 +1,10 @@
 ---
 title: "PA 2: Using Data Visualization to Find the Penguins"
 format: html
-self-contained: true
+embed-resources: true
 execute: 
   echo: true
   error: true
-  code-fold: true
 ---
 
 <!-- Insert your setup code chunk here. This is just good practice. -->
@@ -28,23 +27,31 @@ We will be creating visualizations using the `ggplot2` package.
 
 For this activity, we will be exploring the `penguins` data from the `palmerpenguins` package, which has [fantastic documentation with really awesome artwork](https://allisonhorst.github.io/palmerpenguins/). So, you will need to install the **palmerpenguins** package.
 
-`install.packages("palmerpenguins")`
+`install.packages("palmerpenguins")` 
+
+::: callout-note
+### `install.packages()` in Console NOT `.qmd` file
+
+You should type this in your console and NOT include it in a code chunk in your `.qmd` file. Recall, we only have to *install* a package once, but *load* it each time. Each time to Render your `.qmd` file the code chunks are run, thus it would continue to unnecessarily install the package over and over again.
+:::
 
 ## Creating a Set-up Code Chunk
 
 1.  Insert a code chunk at the beginning of your document (directly under the YAML).
-2.  Name the code chunk *setup*.
+2.  Name the code chunk `setup`.
 3.  Specify the code chunk option with the hashpipe `#|` that the messages from loading in the packages should not be included.
 4.  Load in the `tidyverse` or `ggplot2` package.
 5.  Load in the `palmerpenguins` package.
 
 ::: callout-note
-Naming your code chunk "setup" has special properties in .qmd - specifically this code chunk will run automatically when you try to run a subsequent code chunk. This ensures all packages and any other specifications for your document are loaded and will not cause you errors or messages.
+### Code chunk name: `setup`
+
+Naming your code chunk "setup" has special properties in `.qmd` - specifically this code chunk will run automatically when you try to run a subsequent code chunk. This ensures all packages and any other specifications for your document are loaded and will not cause you errors or messages.
 :::
 
 ## Data set `penguins`
 
-I like to tangibly see the data set I will be working with so I am going to pull the `penguins` data into my R environment.
+I like to tangibly see the data set I will be working with so I am going to pull the `penguins` data into my R environment (do you see it in the top right Environment tab?).
 
 ```{r}
 data(penguins)
@@ -56,26 +63,29 @@ data(penguins)
 
 ::: callout-note
 Make sure to give your plots reader friendly axes labels!
+
+Follow good code format!
 :::
 
-7. Use `ggplot2` to draw a barchart of `species`. Map `species` to the fill color of the barchart.
+7. Use `ggplot2` to draw a barchart of `species`.
 
 ```{r}
 
 ```
 
-8. Create a scatterplot of the relationship between the bill length (`bill_length_mm`) and bill depth (`bill_depth_mm`).
+8. Use `ggplot2` to create a scatterplot of the relationship between the bill length (`bill_length_mm`) and bill depth (`bill_depth_mm`).
 
 ```{r}
 
 ```
 
-9. Add an aesthetic to differentiate the species by color.
+9. Building off of (8), add an aesthetic to differentiate the species on your scatterplot by color.
 
 ```{r}
 
 ```
-10. Add the location of the penguins, `island`, to your visualization. There may be more than one method to address this, however, one method will more easily address the questions below.
+
+10. Building off of (9), add the location of the penguins, `island`, to your visualization. There may be more than one method to address this, however, one method will more easily address the questions below.
 
 ```{r}
 
@@ -97,7 +107,7 @@ Make sure to give your plots reader friendly axes labels!
 5.  Color deficiencies can make differentiating groups difficult - which aesthetic could you add to your plot to double encode species?
 :::
 
-## If you finish early... take everything you know, and use it for evil (+2 Challenge Points)
+## If you finish early... take everything you know, and use it for evil (up to +6 FP)
 
 The textbook spent lots of time showing you how to create different types of graphics, but I spent a lot less time showing you all of the different ways you could customize graphics in `ggplot2`. I want you to create the ugliest version of the scatterplot you created in (8) above, and then explain why, exactly, you made the decisions you did, and which principles of good graphics you’ve intentionally violated.
 
@@ -107,9 +117,13 @@ Ugliness is subjective, so the goal here is for you to explore the different way
 
 ```
 
-Once you have created the ugliest graphic you can, [save your plot](https://r4ds.hadley.nz/data-visualize.html#sec-ggsave), and upload it to the [shared google slides](https://docs.google.com/presentation/d/1bChpVMyrhBnOjJLwK1ku9uIcM6I-ZTTMXkY0200CHhw/edit?usp=sharing) along with how you modified the chart - let's share code! - your explanation as to why you made the decisions you did, and which principles of good graphics you’ve intentionally violated.
+Once you have created the ugliest graphic you can, [save your plot](https://r4ds.hadley.nz/data-visualize.html#sec-ggsave), and upload it to the [shared google slides](https://docs.google.com/presentation/d/1INpPdMjh7nUqv21OLGMWeAVaAuLL3N-aicmpOfFc30Q/edit#slide=id.g2aab62f17a9_0_0) along with how you modified the chart - let's share code! - your explanation as to why you made the decisions you did, and which principles of good graphics you’ve intentionally violated.
 
-To receive your challenge points, upload the url link to your slide to the Canvas Assignment by **Wednesday, January 23rd at 10:10am**. We want to be able to look at them during class tomorrow!
+To receive your flex points, upload the url link to your slide to the Canvas Assignment by **Monday, January 22 at 11:59pm**. We want to be able to look at them during class next week!
+
+::: callout-warning
+If you are on your slide, you can copy-paste the URL from the top of your browser just as you would any other website. This is NOT the link that you click on to Share.
+:::
 
 ### Useful References
 
