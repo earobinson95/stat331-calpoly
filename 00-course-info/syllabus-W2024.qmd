@@ -12,7 +12,7 @@ fontfamily: mathpazo
 fontsize: 11pt
 ---
 
-```{r}
+```{r help}
 #| include: false
 library(tidyverse)
 
@@ -35,8 +35,9 @@ not_here_dates <- c(
   )
 
 # Dates of Exams
-exam_dates <- c(ymd(20240215), 
-                ymd(20240321)
+exam_dates <- c(ymd(20240201), ## Midterm 1  
+                ymd(20240229), ## Midterm 2
+                ymd(20240321) ## Final Exam
                 )
 finals_week <- seq(ymd(20240318), ymd(20240323), by = 1)
 
@@ -95,14 +96,16 @@ class_cal <- Cal |>
                              "Finals"="white",
                              "Cal Poly Holiday" = "grey10",
                              "NA" = "white", # I like these whited out...
-                             "Exam"="orange3"),
+                             "Exam"="green4"),
                     #... but also suppress a label for a non-class semester day
                     breaks=c("Finals", "Cal Poly Holiday", "Class Day","Exam"))
 # class_cal
 
+
 exam_days <- Cal |> 
   filter(category == "Exam") |> 
-  mutate(topic = c("Midterm Exam", 
+  mutate(topic = c("Midterm Exam 1",
+                   "Midterm Exam 2",
                    "Final Exam"
                    )
          ) |> 
@@ -136,7 +139,7 @@ class_days <- Cal |>
 
 
 # Weekday(s) of office hours
-officehr_wdays <- c("Mon", "Wed", "Thu")
+officehr_wdays <- c("Mon","Tues", "Wed", "Thu")
 
 # Create a data frame of dates, assign to Cal
 Cal2 <- tibble(date = seq(ymd(20240107), ymd(20240113), by = 1))  |> 
@@ -146,7 +149,14 @@ Cal2 <- tibble(date = seq(ymd(20240107), ymd(20240113), by = 1))  |>
          week     = wom(date),
          classday = wkdy %in% class_wdays,
          officehrday = wkdy %in% officehr_wdays,
-         officehrtime = c(NA, "3:10-4:00pm", NA, "1:10-2:00pm", "2:30-3:30pm", NA, NA)
+         officehrtime = c(NA,                   ## Sunday 
+                          "11:00am-12:15pm",    ## Monday
+                          "11:00am-12:15pm",    ## Tuesday
+                          "11:00am-12:15pm",    ## Wednesday
+                          "11:00am-12:15pm",    ## Thursday
+                          NA,                   ## Friday
+                          NA                    ## Saturday
+                          )
   )
 
 
@@ -207,13 +217,7 @@ officehr_cal <- Cal2 |>
 
 `r fontawesome::fa("building")` Office: Building 25 Office 113 (by Statistics Department Office) 
 
-**Course Discord Page:**
 
-For questions of general interest, such as course clarifications or conceptual questions, please use the course Discord page (you will join this Week 1). I encourage you to give your post a concise and informative initial sentence, so that other people can find it. For example, *“How do I color bars in a barplot with ggplot?”* is a better opening sentence than *“help with plotting”*.
-
-You may post snippets of your code and errors on Discord, but please do not post full solutions to lab assignments.
-
-`r fontawesome::fa("brain")` `r fontawesome::fa("question")` `r fontawesome::fa("question")` While your posts are not anonymous, in this case there is no such thing as a bad question!
 
 ## Course Logistics
 
@@ -232,12 +236,12 @@ You may post snippets of your code and errors on Discord, but please do not post
 classday_cal
 ```
 
-- Section 70: 9:10am - 11:00pm
-- Section 71: 12:10pm - 2:00pm
+- Section 72: 4:10pm - 6:00pm
+
 
 **Room:** 38-0123 (Math & Science)
 
-**Office Hours** are held in my office (25-103) during the following times:
+**Office Hours** are held in my office (25-113) during the following times:
 
 <!-- ::: column-margin -->
 
@@ -259,15 +263,16 @@ classday_cal
 officehr_cal
 ```
 
-<!-- | Day        | Time                | -->
-<!-- |------------|---------------------| -->
-<!-- | Mondays    | 3:10pm - 4:00pm     | -->
-<!-- | Wednesdays | 1:10pm - 2:00pm     | -->
-<!-- | Thursdays  | 2:30pm - 3:30pm   | -->
+<!-- | Day        | Time                  | -->
+<!-- |------------|-----------------------| -->
+<!-- | Mondays    | 11:00am - 12:15pm     | -->
+<!-- | Tuesdays   | 11:00am - 12:15pm     | -->
+<!-- | Wednesdays | 11:00am - 12:15pm     | -->
+<!-- | Thursdays  | 11:00am - 12:15pm     | -->
 
 Note that office hours are not just for when you have content questions. Stop by to introduce yourself, ask questions about the broader field of statistics, or share what you are working on!
 
-I will likely be on Discord throughout the workday when I am in my office. Should you have a question, post in one of the discord channels and either myself or another student is likely to respond.
+
 
 # Course Description
 
@@ -346,8 +351,7 @@ kableExtra::kable(caption = "Tentative schedule of class topics and important du
 ::: callout-tip
 ## **Final Exam** on Thursday, March 21:
 
-+ Section 70 at 10:10 - 1pm (if you come to class 9-11am)
-+ Section 71 at 1:10 - 4pm (if you come to class 12-2pm)
++ Section 72 at 7:10pm –10:00pm 
 :::
 
 # Course Policies
@@ -356,15 +360,15 @@ kableExtra::kable(caption = "Tentative schedule of class topics and important du
 
 Your grade in STAT 331/531 will contain the following components:
 
-| Assignments          | Weight |
-| -------------------- | -------|
-| Check-ins            | 5%     |
-| Flex Points          | 5%     |
-| Practice Activities  | 10%    |
-| Lab Assignments      | 25%    |
-| Midterm Exam         | 15%    |
-| Final Project        | 15%    |
-| Final Exam           | 25%    |
+| Assignments              | Weight |
+| -------------------------|--------|
+| Weekly Journal Quizzes   | 5%     |
+| Check-ins                | 5%     |
+| Practice Activities      | 10%    |
+| Lab Assignments          | 25%    |
+| Midterm Exams            | 20%    |
+| Final Project            | 25%    |
+| Final Exam               | 10%    |
 
 Lower bounds for grade cutoffs are shown in the following table. I will not "round up" grades at the end of the quarter. See this [social media thread](https://twitter.com/drseanmullen/status/1604212304622518272?s=46&t=II3oNLTSSrljVPqptoe21g) for advice on *"Playing the lines. Don't be there."*
 
@@ -394,21 +398,34 @@ Interpretation of this table:
 
 ### General Evaluation Criteria
 
-In every assignment, discussion, and written component of this class, you are expected to demonstrate that you are intellectually engaging with the material. I will evaluate you based on this engagement, which means that technically
-correct but low effort answers which do not demonstrate engagement or understanding will receive no credit.
+In every assignment, discussion, and written component of this class, you are expected to demonstrate that you are intellectually engaging with the material. I will evaluate you based on this engagement, which means that technically correct but low effort answers which do not demonstrate engagement or understanding will receive no credit.
 
-When you answer questions in this class, your goal is to show that you either understand the material or are actively engaging with it. If you did not achieve this goal, then your answer is incomplete, regardless of whether or not it is
-technically correct. This is not to encourage you to add unnecessary complexity to your answer - simple, elegant solutions are always preferable to unwieldly, complex solutions that accomplish the same task.
+When you answer questions in this class, your goal is to show that you either understand the material or are actively engaging with it. If you did not achieve this goal, then your answer is incomplete, regardless of whether or not it is technically correct. This is not to encourage you to add unnecessary complexity to your answer - simple, elegant solutions are always preferable to unwieldly, complex solutions that accomplish the same task.
 
 While this is not an English class, grammar and spelling are important, as is your ability to communicate technical information in writing; both of these criteria will be used in addition to assignment-specific rubrics to evaluate
 your work.
 
 ## Assignment Breakdown
 
+### Weekly Reflection Journal 
+
+**Objective**: Enhance your learning experience in statistical computing by actively tracking your progress, reflecting on challenges, and celebrating achievements. Each week, you will maintain a journal in a Quarto file, documenting new functions you've learned, errors encountered, and your overall learning journey. This reflective exercise aims to deepen your understanding and improve problem-solving skills in R programming.
+
+**Weekly Tasks**:
+- **Function Log**: Document any new R functions you learn each week, including their purpose and an example of how they're used.
+- **Error Diary**: Record errors you encounter, describe the issue, and note how you resolved it. This will serve as a valuable troubleshooting guide.
+- **Reflection**: Write a brief reflection on your learning experiences, challenges faced, and how you plan to apply or improve upon this knowledge.
+
+To reinforce active learning and ensure consistent engagement with the Weekly Reflection Journal, a brief quiz will be administered each week. This quiz is designed to encourage deeper reflection and understanding of the concepts learned in class, and to foster the application of R programming skills in practical scenarios. The quiz aims to ensure that you are actively participating in the learning process by maintaining your journal, applying R programming concepts, and critically analyzing your experiences and challenges. Quizzes will be submitted via Canvas and are due on Sunday at 11:59 pm each week. This quizzes will graded based on completion.
+
+
+::: column-margin
+An Example will be provide on Canvas 
+:::
+
 ### Check-ins
 
-Each week, you will find short Check-In questions or tasks throughout the text to make sure you are prepared for class that week. Make sure you submit your answers to these on Canvas to get credit for your efforts. Note that the Canvas
-Check-in quizzes can be submitted up to three times without a penalty - so you should get 100% on this part of the course!
+Each week, you will find short Check-In questions or tasks throughout the text to make sure you are prepared for class that week. Make sure you submit your answers to these on Canvas to get credit for your efforts. Note that the Canvas Check-in quizzes can be submitted up to three times without a penalty - so you should get 100% on this part of the course!
 
 + All responses to Check-ins are due **Tuesdays at 8:00am**.
 
@@ -436,15 +453,6 @@ Most weeks, there will be class time on Thursdays dedicated to working on comple
 
 + Labs are due on **Mondays at 11:59pm**.
 
-### Flex Points
-
-A portion of your grade will be contributed to Flex Points out of a total of 100 points at the end of the quarter. These points are designed to encourage you to explore skills beyond the required curriculum, reflect on your own work, and actively engage in the computing or R community.
-
-Throughout the quarter, various opportunities will arise, such as coding challenges, free online conference talks, or additional tasks to enhance your final project. Earned Flex Points will be determined based on whether your work meets "satisfactory" criteria for the activity. More than 100 Flex Points will be offered, allowing flexibility, but it's advisable not to postpone these opportunities until the end of the quarter.
-
-Please note, there is no added benefit to earning points beyond 100. This ensures a focus on quality rather than quantity. If you have a suggestion for a Flex Point opportunity, feel free to submit your proposal via the Google Form [here](https://forms.gle/vCkpuWZhd9G6mT9M8).
-
-+ Watch Canvas for Flex Point opportunities and deadlines.
 
 ## Attendance & Participation
 
@@ -471,6 +479,16 @@ Canvas is set up to automatically input 0% for missing assignments (as an incent
 :::
 
 If you find yourself with extenuating circumstances beyond the defined late policy, please email me before the due date.
+
+
+
+
+
+## Extra Credit Opportunity
+
+**If you see me on campus, you know me.**  Ask me a statistical question. You will fill out this [survey](https://forms.gle/xf2oSkBiZDsBNJmu7) an I will give points to you at the end of quarter. 
+
+I currently do not know how many points. 
 
 # Course Expectations
 

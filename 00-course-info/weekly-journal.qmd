@@ -1,0 +1,34 @@
+---
+title: "Weekly Reflection Journal for Statistical Computing"
+author: "Immanuel Williams"
+format: html
+editor: visual
+---
+
+#### **Student's Weekly Reflection Journal for Statistical Computing**
+
+------------------------------------------------------------------------
+
+**Week 1: 1/7 - 1/13**
+
+**1. Function Log:**
+
+-   Function: `function_name_1()`
+
+-   Purpose: \[Brief description of the function 1's purpose\]
+
+-   Example: \[Code snippet using the function\]
+
+-   Function: `function_name_2()`
+
+-   Purpose: \[Brief description of the function 2's purpose\]
+
+-   Example: \[Code snippet using the function\]
+
+**2. Error Diary:** - Error Encountered: \[Error 1 message\] - Issue Description: \[Brief description of the problem\] - Resolution: \[How you resolved the issue\]
+
+-   Error Encountered: \[Error 2 message\]
+-   Issue Description: \[Brief description of the problem\]
+-   Resolution: \[How you resolved the issue\]
+
+**3. Reflection:** - This Week's Learning: \[Your insights and understanding gained this week\] - Challenges: \[Any challenges faced and how you addressed them\] - Future Applications: \[How you plan to use this knowledge going forward\]
