@@ -2,7 +2,8 @@
 title: "WEEK 2: TIDY DATA + BASICS OF GRAPHICS"
 format: 
   revealjs:
-    theme: [default, custom.scss]
+    theme: [default, ../slide_custom.scss]
+    # theme: [default, custom.scss]
 editor: source
 self-contained: true
 ---
