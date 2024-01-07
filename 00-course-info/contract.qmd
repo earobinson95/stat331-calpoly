@@ -1,0 +1,55 @@
+---
+title: "Educational Partnership Contract"
+subtitle: "STAT 331/531"
+author: "Dr. Williams"
+format: pdf
+---
+
+## Educational Partnership Contract
+
+### Contract Description
+
+#### Title: Educational Partnership Agreement
+
+This document represents a mutual commitment between ME and my students of STAT 331 at Cal Poly SLO. It is designed to establish a clear understanding of the expectations and responsibilities of both parties, fostering a productive and respectful learning environment.
+
+**Instructor's Commitment**: The instructor pledges to provide a high-quality educational experience, staying current in their field, teaching with enthusiasm, and being accessible and fair. They will offer constructive feedback and support, extending help beyond the classroom when necessary. I will make mistakes, but I will be more than willing to admit them when they occur and help you learn through these issues.
+
+**Student's Commitment**: Students agree to engage actively in their learning process. This includes regular attendance, thorough class preparation, active participation, and a respectful environment toward peers and the instructor. Importantly, students commit to academic integrity, explicitly agreeing not to use AI tools or engage in cheating, especially during assessments.
+
+**Purpose**: This agreement is a foundation for a successful educational partnership, emphasizing mutual respect, dedication, and a commitment to academic excellence. It is a reminder that education is a collaborative effort, requiring active participation and responsibility from the instructor and the students.
+
+**Signing the Contract**: By signing this contract, both the instructor and students agree to uphold these standards and commitments throughout the duration of the course. It symbolizes a shared understanding and a collective agreement to strive for a positive and effective learning experience.
+
+#### Instructor's Commitment:
+
+I, \textcolor{red}{Immanuel Williams PhD}, am excited to be your partner in this educational journey. I pledge to uphold my responsibilities as your instructor with dedication and enthusiasm. My commitments to you are as follows:
+
+1.  Stay updated with the latest developments in our field.
+2.  Teach with enthusiasm, imparting essential knowledge and skills.
+3.  Encourage and constructively respond to your comments and questions.
+4.  Be available for consultation outside of class, within reasonable limits.
+5.  Evaluate and provide prompt, constructive feedback on your work.
+6.  Treat you with fairness, respect, and understanding.
+7.  Assist with or guide you to additional help beyond this course if needed.
+
+#### Student's Commitment:
+
+As a student in this course, I, \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\[Student's Name\], commit to the following:
+
+1.  Attend class regularly or inform in advance of any necessary absences.
+2.  Complete readings and assignments on time, preparing thoroughly for each class.
+3.  Stay engaged and focused during class, minimizing distractions.
+4.  Participate actively in class discussions.
+5.  Respect my peers and their perspectives.
+6.  Refrain from using AI tools or engaging in cheating, especially during midterms and other assessments.
+
+Together, we embark on this journey with a shared commitment to excellence and integrity in education.
+
+#### Agreement:
+
+By signing below, we agree to uphold our respective commitments throughout this course.
+
+Instructor's Signature: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ Date: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+Student's Signature: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ Date: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_

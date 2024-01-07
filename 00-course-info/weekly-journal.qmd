@@ -1,7 +1,7 @@
 ---
 title: "Weekly Reflection Journal for Statistical Computing"
 author: "Immanuel Williams"
-format: html
+format: pdf
 editor: visual
 ---
 
@@ -9,26 +9,31 @@ editor: visual
 
 ------------------------------------------------------------------------
 
+
 **Week 1: 1/7 - 1/13**
 
 **1. Function Log:**
 
--   Function: `function_name_1()`
+- Function: `sum()`
+  - Purpose: This function calculates the sum of the elements in a numeric vector.
+  - Example: `sum(c(1, 2, 3, 4))` returns 10.
 
--   Purpose: \[Brief description of the function 1's purpose\]
+- Function: `mean()`
+  - Purpose: This function computes the arithmetic mean of a numeric vector.
+  - Example: `mean(c(2, 4, 6, 8))` returns 5.
 
--   Example: \[Code snippet using the function\]
+**2. Error Diary:**
+- Error Encountered: "Error in sum(x, y) : argument 'y' is missing, with no default"
+  - Issue Description: I tried to calculate the sum of two vectors but forgot to combine them into one vector.
+  - Resolution: I realized I should use `c()` to combine the elements into a single vector. Corrected it to `sum(c(x, y))`.
 
--   Function: `function_name_2()`
+- Error Encountered: "Error: object 'num_vec' not found"
+  - Issue Description: I attempted to calculate the mean of a vector but mistyped the vector name.
+  - Resolution: After checking, I found the correct name of the vector and corrected the typo.
 
--   Purpose: \[Brief description of the function 2's purpose\]
+**3. Reflection:**
 
--   Example: \[Code snippet using the function\]
+- This Week's Learning: I've learned the importance of vector operations in R and how simple functions like `sum()` and `mean()` are fundamental in data analysis. I also realized the significance of accurate typing and syntax in R.
+- Challenges: The primary challenge was getting familiar with R syntax and understanding error messages. Initially, the error messages were confusing, but I'm starting to understand how they guide towards the problem.
+- Future Applications: Understanding these basic functions lays the groundwork for more complex data analysis tasks. I plan to apply this knowledge in upcoming projects where data summarization is necessary.
 
-**2. Error Diary:** - Error Encountered: \[Error 1 message\] - Issue Description: \[Brief description of the problem\] - Resolution: \[How you resolved the issue\]
-
--   Error Encountered: \[Error 2 message\]
--   Issue Description: \[Brief description of the problem\]
--   Resolution: \[How you resolved the issue\]
-
-**3. Reflection:** - This Week's Learning: \[Your insights and understanding gained this week\] - Challenges: \[Any challenges faced and how you addressed them\] - Future Applications: \[How you plan to use this knowledge going forward\]

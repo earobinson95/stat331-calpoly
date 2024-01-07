@@ -127,10 +127,10 @@ class_days <- Cal |>
     "Data Cleaning and Manipulation (dplyr)",
     "Data Transformations + Factors (tidyr + forcats)",
     "Special Data Types (stringr + lubridate)",
-    "Version Control (Git/GitHub)",
+    "Shiny Applications",
     "Functions",
     "Functional Programming (purrr)",
-    "Simulation",
+    "Version Control (Git/GitHub)",
     "Final Project")) |> 
   # bind_rows(project_days) |> 
   bind_rows(exam_days) |> 
@@ -139,7 +139,7 @@ class_days <- Cal |>
 
 
 # Weekday(s) of office hours
-officehr_wdays <- c("Mon","Tues", "Wed", "Thu")
+officehr_wdays <- c("Mon","Tue", "Wed", "Thu")
 
 # Create a data frame of dates, assign to Cal
 Cal2 <- tibble(date = seq(ymd(20240107), ymd(20240113), by = 1))  |> 
@@ -200,7 +200,7 @@ officehr_cal <- Cal2 |>
             linewidth = 0.45,
             show.legend = F
   ) +
-  geom_text(aes(label = officehrtime), color = "black") +
+  geom_text(aes(label = officehrtime), color = "red", size = 2.75) +
   scale_x_discrete(expand = c(0,0)) +
   scale_y_discrete(expand = c(0,0)) +
   scale_fill_manual(values=c("white", "gray")
@@ -241,7 +241,7 @@ classday_cal
 
 **Room:** 38-0123 (Math & Science)
 
-**Office Hours** are held in my office (25-113) during the following times:
+**Learning Hours** are held in my office (25-113) during the following times:
 
 <!-- ::: column-margin -->
 
@@ -270,7 +270,7 @@ officehr_cal
 <!-- | Wednesdays | 11:00am - 12:15pm     | -->
 <!-- | Thursdays  | 11:00am - 12:15pm     | -->
 
-Note that office hours are not just for when you have content questions. Stop by to introduce yourself, ask questions about the broader field of statistics, or share what you are working on!
+Note that learning hours are not just for when you have content questions. Stop by to introduce yourself, ask questions about the broader field of statistics, or share what you are working on!
 
 
 
@@ -295,7 +295,7 @@ After taking this course, you will be able to:
 + Import, manage, and clean data from a wide variety of data sources.
 + Visualize and summarize data for informative exploratory data analysis and presentations.
 + Write efficient, well-documented, and tidy `R` code.
-+ Program random experiments and simulations from probability models.
++ Build an Shiny applications to be able to display visualizations and tables.
 
 Additionally, it is my hope that you will learn to:
 
@@ -308,7 +308,7 @@ Additionally, it is my hope that you will learn to:
 
 **Textbook**
 
-There is an abundance of free online resources for learning programming and R. Therefore, the primary text for this course is a compilation of various resources - it is available for free at `r fontawesome::fa("book")` <https://earobinson95.github.io/stat331-calpoly-text/>.
+There is an abundance of free online resources for learning programming and R. Therefore, the primary text for this course is a compilation of various resources - it is available for free at `r fontawesome::fa("book")` <https://gato365.github.io/stat331-calpoly-text/>.
 
 This text has been modified from material by [Dr. Susan VanderPlas](https://github.com/srvanderplas). See [Statistical Computing using R and Python](https://srvanderplas.github.io/stat-computing-r-python/) for her course book with integration of content and videos from [Dr. Allison Theobold](https://github.com/atheobold) and [Dr. Kelly Bodwin](https://github.com/kbodwin).
 
@@ -336,7 +336,7 @@ This schedule is tentative and subject to change.
 #| fig-width: 8
 #| fig-height: 3.5
 #| fig-pos: 'h'
-#| fig-cap: "Note: Tuesday, January 16th will follow a Monday class schedule."
+#| fig-cap: "Note: Tuesday, January 16th will follow a Monday class schedule due to Martin Luther King's Day."
 class_cal
 ```
 
@@ -344,9 +344,13 @@ class_cal
 #| echo: false
 #| eval: true
 #| fig-pos: 'h'
+#| fig-cap: "Note: Please note that our textbook is currently being updated to include additional chapters that are essential for our course. I appreciate your patience and understanding as these updates are made throughout the quarter."
 class_days |> 
 kableExtra::kable(caption = "Tentative schedule of class topics and important due dates", format = "simple")
 ```
+
+
+
 
 ::: callout-tip
 ## **Final Exam** on Thursday, March 21:
@@ -407,21 +411,43 @@ your work.
 
 ## Assignment Breakdown
 
+
 ### Weekly Reflection Journal 
 
-**Objective**: Enhance your learning experience in statistical computing by actively tracking your progress, reflecting on challenges, and celebrating achievements. Each week, you will maintain a journal in a Quarto file, documenting new functions you've learned, errors encountered, and your overall learning journey. This reflective exercise aims to deepen your understanding and improve problem-solving skills in R programming.
+**Objective**: This journal is designed to enhance your learning experience in statistical computing. By actively documenting your progress, reflecting on challenges, and acknowledging your achievements, you will deepen your understanding and improve your problem-solving skills in R programming.
 
-**Weekly Tasks**:
-- **Function Log**: Document any new R functions you learn each week, including their purpose and an example of how they're used.
-- **Error Diary**: Record errors you encounter, describe the issue, and note how you resolved it. This will serve as a valuable troubleshooting guide.
-- **Reflection**: Write a brief reflection on your learning experiences, challenges faced, and how you plan to apply or improve upon this knowledge.
+**Components of the Journal**:
 
-To reinforce active learning and ensure consistent engagement with the Weekly Reflection Journal, a brief quiz will be administered each week. This quiz is designed to encourage deeper reflection and understanding of the concepts learned in class, and to foster the application of R programming skills in practical scenarios. The quiz aims to ensure that you are actively participating in the learning process by maintaining your journal, applying R programming concepts, and critically analyzing your experiences and challenges. Quizzes will be submitted via Canvas and are due on Sunday at 11:59 pm each week. This quizzes will graded based on completion.
+1. **Quarto File – 'The Journal'**:
+
+   - Each week, you will maintain a digital journal in a Quarto file. This journal is your space to document new R functions you've learned, errors encountered, and reflections on your learning journey.
+   - **Weekly Entries**:
+     - **Function Log**: Note any new R functions you learn each week, detailing their purpose and an example of their usage.
+     - **Error Diary**: Record any significant errors you encounter, describe the issue, and explain how you resolved it. This diary will serve as a valuable resource for troubleshooting. Throughout the course, students are likely to encounter various errors, both minor and significant. Initially, log all errors, including omitted arguments, to build a strong foundation; as proficiency increases, focus on documenting more complex and conceptually challenging errors.
+     - **Reflection**: Pen a brief reflection on your learning experiences, the challenges you faced, and how you plan to apply or improve upon this knowledge in the future.
+
+2. **Weekly Quiz**:
+
+   - To complement your journaling and ensure consistent engagement, a brief, three-question quiz will be administered each week. This quiz reflects on the information entered into your journal.
+   - **Quiz Format**:
+     - One question about a newly learned R function.
+     - One question about a noteworthy error you encountered and resolved.
+     - One question about a significant aspect of your learning journey.
+   - **Purpose**: The quiz is not graded for correctness but serves as a mechanism of accountability. It encourages you to thoroughly engage with your journal entries and reflect on your weekly learning experiences.
+   - **Submission and Grading**: Quizzes will be submitted via Canvas and are due every Sunday at 11:59 pm. They are graded based on completion, emphasizing the importance of regular reflection and participation.
 
 
-::: column-margin
-An Example will be provide on Canvas 
+
+
+::: callout-tip
+# Example Journal
+
++ An example Quarto Journal will be provided on Canvas. Your journal will not be graded but your quizzes 
 :::
+
+
++ All responses to Check-ins are due **Sundays at 11:59 pm**.
+
 
 ### Check-ins
 
@@ -466,19 +492,23 @@ If you are feeling ill, please **do not come to class**. Instead, email me,
 review the material and work on the participation activity and weekly lab
 assignment; then schedule an appointment with me to meet virtually.
 
+
+
 ## Late Policy
 
-We are living through a challenging time with unique, unusual circumstances. I do not want class deadlines to cause you extreme stress or anxiety. I offer **3 "grace days"** -- 24 hours to turn in the assignment late without a penalty or explanation necessary. These can be used on the Lab Assignments, Flex Point deadlines, and Final Project check-points, but not Practice Activities (since solutions will be posted) or Exams. These "grace days" can be used all at once on a single assignment or used on separate assignments throughout the quarter. Simply add a comment on the assignment in Canvas **and** send me an email to let me know you how many "grace days" you want to use on the assignment.
+Given the importance of maintaining consistency and fairness for all students, this course has a strict policy regarding deadlines. It is essential that you manage your time effectively and meet all assignment deadlines.
 
-After using up your "grace days", late work will be accepted with a 10% grade penalty for each day late (including weekends) with a minimum grade of 50%.
+### No Late Work Accepted
+- **Strict Deadlines**: Assignments must be submitted by their specified deadlines. Late submissions will not be accepted under any circumstances.
+- **Responsibility**: It is your responsibility to stay on top of your work and adhere to the schedule. Plan ahead to ensure you can meet all deadlines.
+- **Exceptions**: There will be no "grace days" or penalty-free extensions. This policy is in place to encourage timely submission and to ensure that all students are treated equally.
 
-::: callout-warning
-### Automatic Canvas Settings
+### Managing Your Workload
+- **Plan Ahead**: Keep track of all due dates and plan your work schedule accordingly. Avoid last-minute submissions to ensure the quality of your work.
+- **Stay Informed**: Regularly check course announcements and email communications for any updates on assignments or deadlines.
 
-Canvas is set up to automatically input 0% for missing assignments (as an incentive to go complete the assignment) and apply the 10% grade deduction policy. I will need to manually adjust your grade when you use your "grace days" so it is important for you to leave a note on your assignment and email me. You are responsible for double checking your grade.
-:::
-
-If you find yourself with extenuating circumstances beyond the defined late policy, please email me before the due date.
+### Extenuating Circumstances
+- While no late work is accepted, I understand that unforeseen circumstances can occur. If you have a serious issue that might affect your ability to meet a deadline, please contact me as soon as possible before the due date to discuss your situation.
 
 
 
@@ -519,6 +549,12 @@ I expect of you in my classroom (and also what you should expect of me).
 + *In short, I expect you to devote as much effort to learning as I devote to teaching.*
 
 *What you get out of this relationship is that you’ll be better equipped to succeed in this and other college courses, work-related assignments, and life in general. What I get is a great deal of professional and personal satisfaction. Because I do really like you [all] and want the best for you.”*
+
+::: callout-tip
+# Sign Contract
+
++ Take time to read this document from time to time to feel empowered by this class and our effort to make this class an experience.
+:::
 
 ### Make Mistakes!
 

@@ -8,16 +8,14 @@ To ensure that students are maintaining a comprehensive and insightful weekly re
 
 ### Weekly Reflection Journal Accountability Quiz
 
-1. **Function Application Insight**
-   - "Describe one new R function you learned this week. How did you apply it in your work, and what specific problem did it help you solve or understand better?"
-   - This question encourages students to not only list the function but also to think critically about its application and usefulness in their work.
-
-2. **Error Resolution Analysis**
-   - "Share a significant error you encountered this week. How did you identify and resolve this error, and what did you learn from this experience?"
-   - This question prompts students to reflect on their problem-solving skills and the learning outcomes derived from overcoming challenges.
-
-3. **Reflective Summary**
-   - "In your reflection this week, what key challenge or learning experience stood out to you, and how do you plan to apply this understanding in future assignments or projects?"
-   - This question aims to gauge the depth of their weekly reflection, encouraging them to connect their experiences with future applications or broader learning goals.
+1.  **Function Application Insight**
+    -   "Describe one new R function you learned this week. How did you apply it in your work, and what specific problem did it help you solve or understand better?"
+    -   This question encourages students to not only list the function but also to think critically about its application and usefulness in their work.
+2.  **Error Resolution Analysis**
+    -   "Share a significant error you encountered this week. How did you identify and resolve this error, and what did you learn from this experience?"
+    -   This question prompts students to reflect on their problem-solving skills and the learning outcomes derived from overcoming challenges.
+3.  **Reflective Summary**
+    -   "In your reflection this week, what key challenge or learning experience stood out to you, and how do you plan to apply this understanding in future assignments or projects?"
+    -   This question aims to gauge the depth of their weekly reflection, encouraging them to connect their experiences with future applications or broader learning goals.
 
 These questions not only ensure that the students are diligently maintaining their journals but also foster a deeper level of engagement with the material, enhancing their learning and problem-solving skills in statistical computing with R.

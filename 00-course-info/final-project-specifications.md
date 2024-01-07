@@ -3,7 +3,6 @@
 #### **Overview**
 The final project for this course involves creating an R Shiny application that draws on one of four specified areas: Spotify, Sports, Census Data, or Finance Data. This project is designed to integrate concepts from each chapter of the textbook and demonstrate practical applications using R.
 
-
 #### **Group Organization and Selection Process**
 - **Total Number of Groups**: The class will be divided into 12 groups, with each group consisting of exactly 3 members. This ensures a balanced team size for effective collaboration.
 
@@ -16,7 +15,6 @@ The final project for this course involves creating an R Shiny application that 
 - **Project Area Selection**:
   - **Initial Meeting Requirement**: After forming your group, you are required to meet with me either during learning hours or after class. This meeting is crucial for discussing your project selection. This should be done by week 2. 
   - **Area Availability Confirmation**: During our meeting, I will confirm the availability of your chosen project area. It's important to have a second choice in mind, as spots in each area are limited and assigned on a first-come, first-served basis.
-
 
 ### 10-Week Project Timeline with Detailed Tasks 
 
@@ -39,7 +37,6 @@ The final project for this course involves creating an R Shiny application that 
     - **Project Area**: Specify the area you plan to investigate. [Dropdown menu with options like Spotify, Sports, Census Data, Finance Data]
     - **Justification**: Briefly explain why you've chosen this particular area and what you hope to explore or achieve.
     - **Final Submission**: Submit the form only after receiving my approval, as this will be your formal commitment to the selected area and team structure for the project.
-
 
 
 
@@ -71,25 +68,21 @@ The final project for this course involves creating an R Shiny application that 
   - **Showcase Discoveries**: Present findings in an informal setting, highlighting any surprising insights or potential areas of further exploration.
   - **Open Exploration**: Encourage creativity in exploring the data. This is the stage for brainstorming and playing around with different ideas without being committed to a final project direction.
 
-
-#### Week 7: Refining Focus for R Shiny Application
-- **Task**: Narrow down the focus for the R Shiny application based on exploratory findings. Students should:
-  - **Determine Application Focus**: Based on the exploratory analysis in Week 6, decide what specific aspect or question the R Shiny app will address. This decision should be informed by the data’s potential to engage and inform users.
-  - **Initial Visualization Concepts**: Start developing ideas for how data will be visualized in the app. Consider interactivity, user experience, and the clarity of the presented data.
-  - **Flexibility to Pivot**: Students can change their project focus if they find a more compelling direction based on their data exploration. This flexibility is allowed up until Week 8.
-
+#### Week 7: Refining Focus for R Shiny Application and Data Preparation
+- **Task**: This week, students will refine the focus of their R Shiny application using insights from their exploratory data analysis and start preparing their data for the application.
+  - **Determine Application Focus**: Based on the exploratory analysis conducted in Week 6, decide on the specific aspect or question your R Shiny app will explore. This decision should leverage the data's potential to engage and inform users, focusing on a clear and achievable objective.
+  - **Data Preparation**: Once a direction has been selected, students are required to save their data from the API they are using as an RDA (R Data) file. This step ensures that the data is readily available in a format that can be efficiently used within the R environment, facilitating smoother development and deployment of the application.
+  - **Initial Visualization Concepts**: Begin brainstorming and sketching initial ideas for data visualization within the app. Focus on creating interactive, user-friendly, and informative visualizations that effectively communicate the data's story.
+  - **Flexibility to Pivot**: Remember, you have the option to adjust or change your project focus if a more compelling or feasible direction emerges from your data exploration. This flexibility is available until the end of Week 8, allowing for adaptive and responsive project development.
 
 #### Week 8: Enhance App Aesthetics and Functionality
-- **Task**: Improve app's UI/UX and script the video demonstration.
+- **Task**: Create app's UI/UX outline and develop script the video demonstration.
 - **Checkpoints**:
   - Assess the aesthetic appeal and user experience of the app.
   - Review the script for clarity and comprehensiveness.
 
 #### Week 9: Finalize App and Draft Report
 - **Task**: Complete app development and start the report draft.
-- **Feedback**:
-  - Evaluate overall functionality and reliability of the app.
-  - Provide guidance on report structure and content focus.
 
 #### Week 10: Project Submission
 - **Task**: Submit the final version of the R Shiny app, video, and report.
@@ -97,15 +90,6 @@ The final project for this course involves creating an R Shiny application that 
   - Thoroughly test the app for functionality and user experience.
   - Assess the video for effective communication and demonstration of the app.
   - Evaluate the report for depth of analysis, technical accuracy, and reflection on the learning process.
-
-
-
-
-#### **Group Organization**
-Your description for the group organization seems clear and well-structured. Here's a slightly refined version for clarity and coherence:
-
-
-
 
 
 #### **Project Requirements**
@@ -121,7 +105,6 @@ Your description for the group organization seems clear and well-structured. Her
 3. **Census Data Explorer**: An interactive tool for visualizing and interpreting demographic data from census reports.
 4. **Financial Trends Analyzer**: An app that tracks and predicts stock market trends or personal finance management.
 
-
 #### **Evaluation Criteria**
 - Adherence to project requirements and timeline.
 - Creativity and practicality of the R Shiny application.
@@ -129,3 +112,4 @@ Your description for the group organization seems clear and well-structured. Her
 - Effective use of R and integration of textbook concepts.
 
 T
+
