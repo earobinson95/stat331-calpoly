@@ -1072,7 +1072,7 @@ When you click **Render**:
 ## To do...
 
 + **Lab 1: Introduction to Quarto**
-  + Due Friday (1/15) at 11:59pm 
+  + Due Monday (1/15) at 11:59pm 
 + **FizzBuzz (up to +9 FP)**
   + Due Friday (1/19) at 11:59pm 
 + **Read Chapter 2: Importing Data + Basics of Graphics**
