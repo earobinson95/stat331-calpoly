@@ -175,7 +175,7 @@ In this section, we are going to conduct a two-sample independent t-test to comp
 
 > Null: The population average tooth length for the OJ supplement delivery method is the same as the population average tooth length for the VC supplement delivery method.
 >
-> Alternative: The population average tooth length for the OJ supplement delivery method is the same as the population average tooth length for the VC supplement delivery method.
+> Alternative: The population average tooth length for the OJ supplement delivery method is different from the population average tooth length for the VC supplement delivery method.
 
 In the code chunk you created, carry out the following steps:
 
