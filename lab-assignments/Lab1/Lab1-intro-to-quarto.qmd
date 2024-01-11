@@ -124,6 +124,8 @@ Your second code chunk is just as boring as your first, so let's spice it up! Re
 
 ```{r}
 #| echo: true
+# make sure to load the package ggplot2 (or alternatively tidyverse)
+library(ggplot2)
 ggplot(data = ToothGrowth, 
        aes(x = supp,
            y = len)
