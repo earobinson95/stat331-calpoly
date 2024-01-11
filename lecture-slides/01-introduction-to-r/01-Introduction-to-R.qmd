@@ -1061,7 +1061,7 @@ When you click **Render**:
     -   This will be saved in the same folder as "Lab1.qmd".
 
 
-## [Lab 1: Introduction to Quarto](https://zoerehnberg.github.io/STAT331-S23/lab_assignments/lab1/LA1_intro_quarto.html)
+## [Lab 1: Introduction to Quarto](https://earobinson95.github.io/stat331-calpoly/lab-assignments/Lab1/Lab1-intro-to-quarto.html)
 
 ## `r fontawesome::fa("warning")` NOTE!
 
