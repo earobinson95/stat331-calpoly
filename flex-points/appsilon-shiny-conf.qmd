@@ -1,6 +1,5 @@
 ---
-title: "Appsilon Shiny Conference (+20 FP)"
-subtitle: "March 15-17, 2023"
+title: "Appsilon Shiny (+15 FP)"
 format: html
 embed-resources: true
 editor: source
@@ -16,36 +15,39 @@ knitr::include_graphics("https://jeremymack-lu.github.io/shinyapps/images/shiny_
 
 Visit the [R Shiny Gallery](https://shiny.rstudio.com/gallery/).
 
+Each spring, Appsilon Shiny hosts a conference showcasing new developments and applications of R Shiny. Unfortunately, this spring, it is in April after the end of our quarter. You can watch recordings from past conference talks at <https://www.youtube.com/@appsilon_official/playlists>. There are three playlists associated with past conferences:
 
-## When
++ *2023 Shiny Conf* - Shiny App Showcases: short videos showcasing applications
++ *ShinyConf 2023* - Videos about developments in R Shiny
++ *2022 Appsilon Shiny Conference* - Videos from the 2022 conference; includes both series of showcases and developments (you may even find Dr. Robinson's talk in here!)
 
-April 17th-19th: 5am PT - 1pm PT
-
-::: callout-warning
-Make sure you are paying CLOSE attention to time zones. The program lists times in CET (Central European Time).
-
-Use a [a time converter](https://www.worldtimebuddy.com/).
+::: callout-tip
+You may want to look through (`CTRL` + `F`) the playlists for some of the "KEYNOTES" -- for example, [Keynote, Filip Stachura: Transforming Business with Open Source: Insights from the Pharma Industry](https://www.youtube.com/watch?v=CHkriKBlNws&list=PLexAKolMzPcriOdeLwoMxQOyHRnMguEv4&index=5) or general talks 
+such as the [R-Ladies Panel discussion: Women in Shiny](https://www.youtube.com/watch?v=nSwSy0jd4g0&list=PLexAKolMzPcrYjGA1PULfm7-P12qjKmPb&index=8)
 :::
 
-## Where
+You may wish to try your hand at creating a Shiny app of your own! `r emoji::emoji("bubble")` I wonder if this would make a good FP opportunity. Want to suggest it?!
 
-Virtual
-
-::: callout-caution
-You must register for the **FREE** student ticket (with your @calpoly.edu email address) [here](https://hopin.com/events/shinyconf-2024) to receive the links!
-:::
-
-## Flex Points (up to +18)
-+ Submit to canvas a "hardy" and "clear" reflection for each session you attend.
+## Flex Points: Video Reflections (up to +15)
++ Submit to canvas a "hardy" and "clear" reflection for each video you watch.
   + This can be in paragraph form or some sort of creative "sketch" format.
   + What did you learn? How does this relate to your current or future experiences?
+  + Make sure to include the title and link to the video in your reflection!
 + Each "reflection" gets you up to +3 FP
 + Turn in one document for all session reflections
   + Make sure to indicate with a header, which talk you attended.
   + You can write/sketch this in any document editor of your choosing (Word, Quarto, Google Docs, Excalidraw, etc.)
-+ You can submit reflections for up to **6 talks**.
-  + Please make sure to indicate how many talks you attended.
++ You can submit reflections for up to **5 talks/videos**.
+  + Please make sure to indicate how many videos you watched.
   
-**Due XXXX at 11:59pm**
+**Due Friday, March 1st at 11:59pm**
 
-See the conference program (COMING SOON) for a list of session talks. 
+::: callout-note
+## Coming up in the spring! Virtual Appsilon Shiny Conference
+
+April 17th-19th: 5am PT - 1pm PT
+
+Make sure you are paying CLOSE attention to time zones. The program lists times in CET (Central European Time). Use a [a time converter](https://www.worldtimebuddy.com/).
+
+You must register for the **FREE** student ticket (with your @calpoly.edu email address) [here](https://hopin.com/events/shinyconf-2024) to receive the links!
+:::
