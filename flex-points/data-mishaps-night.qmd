@@ -1,5 +1,5 @@
 ---
-title: "Bonus Challenge: Data Mishaps Night"
+title: "Data Mishaps Night (+9 FP)"
 subtitle: "Thursday, March 7th at 5pm PST"
 format: html
 embed-resources: true
