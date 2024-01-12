@@ -1,9 +1,8 @@
 ---
 title: "Bonus Challenge: Data Mishaps Night"
-subtitle: "Thursday, February 23rd at 5pm PST"
-format: 
-  html:
-    self-contained: true
+subtitle: "Thursday, March 7th at 5pm PST"
+format: html
+embed-resources: true
 editor: source
 execute: 
   echo: false
@@ -20,7 +19,7 @@ Data Mishaps Night feature a lineup of data mistake stories with a focus on the 
 
 ## When
 
-Thursday, February 23rd at 5pm PST
+Thursday, March 7th at 5pm PST
 
 ::: callout-warning
 This event is **not** recorded.
@@ -31,16 +30,16 @@ This event is **not** recorded.
 Zoom!
 
 ::: callout-caution
-You must register for **free** [here](https://datamishapsnight.com/) to receive the link!
+You must register for **free** [here](https://datamishapsnight.typeform.com/register-2024) to receive the link!
 :::
 
-## Challenge Points (up to +8)
+## Challenge Points (up to +9)
 + Submit to canvas a "hardy" and "clear" reflection for each of the keynote and/or theme sessions you attend.
   + This can be in paragraph form or some sort of creative "sketch" format.
   + Should be much more insightful than *"They left their usb drive on the subway. That's rough."*.
-+ Each "reflection" gets you +2 challenge points (that is up to +8 for the whole night!)
++ Each "reflection" gets you +3 challenge points (that is up to +9 for the whole night!)
 + Turn in one document for all session reflections
   + Make sure to indicate with a header, which theme your reflection is for. 
   + You can write/sketch this in any document editor of your choosing (Word, Quarto, Google Docs, Excalidraw, etc.)
   
-**Due Sunday, March 5, 2023**
+**Due Sunday, March 10, 2024 at 11:59pm**
