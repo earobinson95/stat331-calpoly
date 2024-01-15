@@ -107,7 +107,7 @@ Follow good code format!
 5.  Color deficiencies can make differentiating groups difficult - which aesthetic could you add to your plot to double encode species?
 :::
 
-## If you finish early... take everything you know, and use it for evil (up to +6 FP)
+## If you finish early... take everything you know, and use it for evil (up to +9 FP)
 
 The textbook spent lots of time showing you how to create different types of graphics, but I spent a lot less time showing you all of the different ways you could customize graphics in `ggplot2`. I want you to create the ugliest version of the scatterplot you created in (8) above, and then explain why, exactly, you made the decisions you did, and which principles of good graphics you’ve intentionally violated.
 
