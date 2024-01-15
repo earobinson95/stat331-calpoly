@@ -2,10 +2,10 @@
 title: "WEEK 2: TIDY DATA + BASICS OF GRAPHICS"
 format: 
   revealjs:
-    theme: [default, ../slide_custom.scss]
-    # theme: [default, custom.scss]
+    # theme: [default, ../slide_custom.scss]
+    theme: [default, custom.scss]
 editor: source
-self-contained: true
+embed-resources: true
 ---
 
 ```{r setup}
@@ -14,169 +14,285 @@ self-contained: true
 library(tidyverse)
 ```
 
-## Tuesday, January 17th
+## Tuesday, January 16th
+
+No Class! Check Canvas Announcement for details
+
++ Introduce "Game Planning"
++ Review text + check-in 2.1 + 2.2
++ Begin PA 2: Using Data Visualization to Find the Penguins
+
+# "Game Planning"
+
+**What**: [Game Plans!](https://earobinson95.github.io/stat331-calpoly-text/02-tidy-data-and-basics-of-graphics.html#exploratory-data-analysis-with-the-grammar-of-graphics) are strategic guides that prompt you to map your coding strategies before implementation. 
+
+**How**: Your favorite sketch app, paper + pencil, online whiteboard ([Excalidraw!](https://excalidraw.com/))
+
+**Why**: Dr. Rehnberg and I will be collecting and saving game plans through your Canvas assignment submissions to use in work related to investigating the efficacy of using “game plans” as a pedagogical approach in the context of statistical computing education.
+
+**Informed Consent** Please complete the informed consent for game plans on Canvas by Thursday 1/18 at 11:59pm.
+
+## Creating a Graphic
+
+To create a specific type of graphic, we will **combine** aesthetics and geometric objects.
+
+. . .
+
+<br>
+
+Let's try it!
+
+
+##
+
+::: panel-tabset
+
+### The Goal
+
+Start with the TX housing data.
+
+![](images/tx_housing.png)
+
+Make a plot of <span style="color:teal"> median house price </span> over <span style="color:purple"> time </span> (including both <span style="color:green"> individual data points </span> and <span style="color:darkorange"> a smoothed trend line </span>), distinguishing between <span style="color:blue"> different cities </span>.
+
+
+### Game Plan
+
+![](images/txhousing_plan.png)
+
+### ggplot
+
+```{r}
+#| echo: true
+#| code-fold: true
+ggplot(data = txhousing, 
+       mapping = aes(x = date, 
+                     y = median, 
+                     color = city
+                     )
+       ) + 
+  geom_point() + 
+  geom_smooth(method = "loess") + 
+  labs(x = "Date",
+       y = "Median Home Price",
+       title = "Texas Housing Prices")
+```
+
+:::
+
+## [PA 2: Using Data Visualization to Find the Penguins](https://earobinson95.github.io/stat331-calpoly/practice-activities/PA2-ggplot-palmer-penguins.html)
+
+![Artwork by Allison Horst](https://allisonhorst.github.io/palmerpenguins/reference/figures/lter_penguins.png)
+
+## To do...
+
++ **"Game Plan" Informed Consent**
+
++ **PA 2: Using Data Visualization to Find the Penguins**
+  + Due Thursday (1/18) at **11:59pm**
+
++ **Ugly Graphics of Penguins (up to +9 FP)**
+  + Due Monday (1/22) at 11:59pm
+
+::: callout-note  
+I have my Monday office hours Tuesday (1/16) from 3:10-4pm.
+:::
+
+## Thursday, January 18th
 
 Today we will...
 
-+ Review PA 1: Find the Mistake
-+ Mini lecture on text material
++ Let's talk about "Game Plans"
++ Update on Flex Point Opportunities
++ Review
+  + Questions from Reading
+  + PA 2: Using Data Visualization to Find the Penguins
++ New Material
   + Tidy Data
   + Load External Data
   + Graphics (and ggplot2)
-+ [PA 2: Using Data Visualization to Find the Penguins](https://earobinson95.github.io/stat331-calpoly/practice-activities/PA2-ggplot-palmer-penguins.html)
+  + What makes a good graphic?
++ Lab 2: Exploring Rodents with ggplot2
++ Strike: What happens next week?
 
 # Tidy Data
 
 ## Tidy Data
 
-![Artwork by Allison Horst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/85520b8f-4629-4763-8a2a-9ceff27458bf_rw_1920.jpg?h=21007b20ac00cf37318dca645c215453)
-
-
-## Same Data, Different Formats
-
-Which data follows a tidy data format?
-
-```{r tidy-data}
-#| echo: false
-bb_tidy_data <- tibble(Team     = c("A", "B", "C", "D"),
-                       Points   = c(88, 91, 99, 94),
-                       Assists  = c(12, 17, 24, 28),
-                       Rebounds = c(22, 28, 30, 31)
-                       )
-```
-
-::: panel-tabset
-### Option 1
-
-```{r}
-#| echo: false
-bb_tidy_data |> 
-  knitr::kable()
-```
-
-### Option 2
-
-```{r}
-#| echo: false
-bb_tidy_data |> 
-  pivot_longer(cols      = c(Points, Assists, Rebounds),
-               names_to  = "Variable",
-               values_to = "Value"
-               ) |> 
-  knitr::kable()
-```
-
-:::
-
-## Tidy Data
-
 ![Artwork by Allison Horst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/40488240-4609-4dc3-8920-693e078b55ce_rw_1920.jpg?h=2e96a7e21e19c43867546498da026649)
+
 
 # Working with External Data
 
+
 ## Common Types of Data Files
 
+Look at the **file extension** for the type of data file.
+
+. . .
 
 :::: {.columns}
 
-::: {.column width="50%"}
+::: {.column width="70%"}
 
-`.csv` :  "Comma-separated"
+`.csv` :  "comma-separated values"
+
+:::
+
+::: {.column width="30%"}
 ```
 Name, Age
 Bob, 49
 Joe, 40
 ```
-</br>
-
-`.xls, .xlsx`:  Microsoft Excel Spreadsheet
-  - Common approach: save as `.csv`
-  - Nicer approach:  `readxl` package
-
-:::
-
-::: {.column width="50%"}
-
-`.txt`:  Plain text
-  - Could be just text
-  - Could be comma-separated data
-  - Could be tab-separated, bar-separated, etc.
-  - Need to let R know what to look for
-
 :::
 
 ::::
 
+. . .
+
+`.xls, .xlsx`:  Microsoft Excel spreadsheet
+
+  + Common approach: save as `.csv`
+  + Nicer approach:  use the `readxl` package
+
+. . .
+
+`.txt`:  plain text
+
+  + Could have any sort of delimiter...
+  + Need to let R know what to look for!
+
+
+## Common Types of Data Files
+
+::: panel-tabset
+### File A
+
+![](images/csv_file.png)
+
+### File B
+
+![](images/tsv_file.png)
+
+### File C
+
+![](images/pipe_file.png)
+
+### Sources
+
++ [File A](https://people.sc.fsu.edu/~jburkardt/data/csv/csv.html)
++ [File B](https://github.com/ccusa/Disaster_Vulnerability_Map/blob/master/sample-data.tsv)
++ [File C](https://chadbaldwin.net/2021/03/24/quick-parse-csv-file.html)
+
+:::
+
+
 ## Loading External Data
 
-The tidyverse has some cleaned-up versions in the `readr` and `readxl` packages: 
+Using **base** `R` functions:
 
-- `read_csv()` works like `read.csv`, with some extra stuff
+- `read.csv()` is for reading in `.csv` files.
 
-- `read_tsv()` is for tab-separated data
+- `read.table()` and `read.delim()` are for any data with "columns" (you specify the separator).
 
-- `read_table()` is for any data with "columns" (white space separating)
 
-- `read_delim()` is for special "delimiters" separating data
+## Loading External Data
 
-- `read_excel()` is specifically for dealing with Excel files
+The **tidyverse** has some cleaned-up versions in the `readr` and `readxl` packages: 
+
+- `read_csv()` is for comma-separated data.
+
+- `read_tsv()` is for tab-separated data.
+
+- `read_table()` is for white-space-separated data.
+
+- `read_delim()` is any data with "columns" (you specify the separator). The above are special cases.
+
+- `read_excel()` is specifically for dealing with Excel files.
+
+Remember to load the `readr` and `readxl` packages first!
+
+
+## 
+
+![](images/read.csv_doc.png)
+
+![](images/read_csv_doc.png)
+
+</center>
 
 # Grammar of Graphics
 
-## Grammar of Graphics: graphic forms from the ground up
 
-Think of a data visualization or graph as a mapping
+## Grammar of Graphics
 
-+ **from variables** in the data set, (or statistics computed from the data)
-+ **to visual attributes** (or "aesthetics") of marks (or "geometric elements") on the page/screen
+The Grammar of Graphics (GoG) is a principled way of specifying **exactly** how to create a particular graph from a given data set. It helps us to systematically design new graphs.
 
-::: {.notes}
-The Grammar of Graphics (GoG) is a way of specifying exactly how to create a particular graph from a given data set. It helps us to see connections between apparently unrelated graphs and to systematically design new graphs.
-:::
+. . .
 
-## Grammar of Graphics: why both?
+<br>
 
-It's not just a neat party trick!
+Think of a graph or a data visualization as a mapping...
 
-+ More flexible than "chart zoo" of named graphs
-+ Software understands the structure of your graph
-  + easily automate small multiples for data subsets
+...**FROM variables** in the data set (or statistics computed from the data)...
+
+...**TO visual attributes** (or "aesthetics") **of marks** (or "geometric elements") on the page/screen.
+
+
+## Why Grammar of Graphics?
+
++ It's more flexible than a "chart zoo" of named graphs.
++ The software understands the structure of your graph.
++ It easily automates graphing of data subsets.
   
-::: callout-note
-"[The grammar] makes it easier for you to iteratively update a plot, changing a single feature at a time. The grammar is also useful because it suggests the high-level aspects of a plot that *can* be changed, giving you a framework to think about graphics, and hopefully shortening the distance from mind to paper. It also encourages the use of graphics customised to a particular problem, rather than relying on generic named graphics.
+. . .
+
+::: {.callout-tip}
+## *ggplot2: elegant graphics for data analysis* by Hadley Wickham
+The grammar makes it easier for you to iteratively update a plot, changing a single feature at a time. The grammar is also useful because it suggests the high-level aspects of a plot that *can* be changed, giving you a framework to think about graphics, and hopefully shortening the distance from mind to paper. It also encourages the use of graphics customised to a particular problem, rather than relying on specific chart types.
 :::
 
-## Grammar of Graphics: components
 
-GoG components, as specified in R's `ggplot2`
+## Components of Grammar of Graphics
 
-+ `data`
-+ `aes` : aesthetic mappings (position, length, color, symbol, ...)
-+ `geom` : geometric element (point, line, bar, ...)
++ `data`: dataframe containing variables
++ `aes` : aesthetic mappings (position, color, symbol, ...)
++ `geom` : geometric element (point, line, bar, box, ...)
 + `stat` : statistical variable transformation (identity, count, linear model, quantile, ...)
 + `scale` : scale transformation (log scale, color mapping, axes tick breaks, ...)
 + `coord` : Cartesian, polar, map projection, ...
-+ `facet` : divide into subplots / small multiples using a categorical variable
++ `facet` : divide into subplots using a categorical variable
 
-Of course, we can also control axes, legends, titles ... (`guides`)
 
 # Using `ggplot2`
 
-## How to build a graph
 
-![](https://unl-statistics.github.io/R-workshops/02-r-graphics/knitr/images/ggplot2-notation.png)
+## How to Build a Graphic
 
-## How to build a graph
+Complete this template to build a basic graphic:
+
+<br>
+
+![](images/basic_ggplot.png)
+
++ We use `+` to add **layers** to a graphic.
+
+
+##
 
 ::: panel-tabset
 
-### Data
+### Add data
 
-This will begin a plot that you can finish by adding layers to.
+This begins a plot that you can add layers to:
 
 ```{r}
 #| echo: true
 #| code-line-numbers: "1"
+#| fig-align: center
+#| fig-height: 4.5
+#| fig-width: 4.5
 ggplot(data = mpg)
 ```
 
@@ -185,12 +301,15 @@ ggplot(data = mpg)
 ```{r}
 #| echo: true
 #| code-line-numbers: "2"
+#| fig-align: center
+#| fig-height: 4.5
+#| fig-width: 4.5
 ggplot(data = mpg, 
        aes(x = class, y = hwy)
        )
 ```
 
-### You can add one geom per layer
+### Add one `geom` per layer
 
 :::: {.columns}
 
@@ -198,6 +317,7 @@ ggplot(data = mpg,
 ```{r}
 #| echo: true
 #| code-line-numbers: "4"
+#| fig-height: 6
 ggplot(data = mpg, 
        aes(x = class, y = hwy)
        ) +
@@ -210,6 +330,7 @@ ggplot(data = mpg,
 ```{r}
 #| echo: true
 #| code-line-numbers: "5"
+#| fig-height: 6
 ggplot(data = mpg, 
        aes(x = class, y = hwy)
        ) +
@@ -219,47 +340,70 @@ ggplot(data = mpg,
 
 :::
 
-How would you change the code to have the points on top of the boxplots?
+How would you make the points be **on top** of the boxplots?
 
 ::::
 :::
 
 ## Aesthetics
 
-In ggplot2, we map **variables** from the data set to **aesthetics** on the chart
+We map **variables** (columns) from the data to **aesthetics** on the graphic useing the `aes()` function.
 
-::: panel-tabset
+. . .
 
-### sketch
+What aesthetics can we set (*see [ggplot2 cheat sheet](https://github.com/rstudio/cheatsheets/blob/main/data-visualization-2.1.pdf) for more*)?
 
-![](https://earobinson95.github.io/stat331-calpoly-text/images/grammar-graphics-dataset-mapping-color.png)
+:::: {.columns}
+::: {.column width="22%"}
 
-### ggplot
-
-```{r}
-#| echo: true
-#| code-fold: true
-#| code-line-numbers: "6"
-ggplot(data = txhousing, aes(x = date, y = median, color = city)) + 
-  geom_point() + 
-  geom_smooth(method = "loess") + 
-  xlab("Date") + ylab("Median Home Price") + 
-  ggtitle("Texas Housing Prices")
-```
-
-### `aes()`
-
-*Not an exhaustive list -- see [ggplot2 cheat sheet](https://github.com/rstudio/cheatsheets/blob/main/data-visualization-2.1.pdf)*
+<font size = "6">
 
 + x, y
-+ color and fill
++ color, fill
 + linetype
 + lineend
-+ linejoin
 + size
 + shape
 
-### Special Properties
+</font>
+
+:::
+::: {.column width="78%"}
+
+:::
+::::
+
+
+## Aesthetics
+
+We map **variables** (columns) from the data to **aesthetics** on the graphic useing the `aes()` function.
+
+What aesthetics can we set (*see [ggplot2 cheat sheet](https://github.com/rstudio/cheatsheets/blob/main/data-visualization-2.1.pdf) for more*)?
+
+:::: {.columns}
+::: {.column width="20%"}
+
+<font size = "6">
+
++ x, y
++ color, fill
++ linetype
++ lineend
++ size
++ shape
+
+</font>
+
+:::
+::: {.column width="80%"}
+
+![](images/aes.png)
+
+:::
+::::
+
+
+## Special Properties of Aesthetics
 
 :::: {.columns}
 ::: {.column width="50%"}
@@ -320,57 +464,18 @@ ggplot(data = housingsub) +
 :::
 ::::
 
-:::
 
-## Geometric objects
+## Geometric Objects
 
-In `ggplot2`, we use a geom function to represent data points, and use the geom's aesthetic properties to represent variables.
+Wee use a `geom_xxx()` function to represent data points.
 
-::: panel-tabset
-
-### geom_point()
-
-```{r}
-#| echo: true
-#| code-fold: true
-#| code-line-numbers: "6"
-#| fig-height: 4
-#| fig-width: 6
-#| fig-align: center
-ggplot(data = mpg,
-       aes(x = cty,
-           y = hwy,
-           color = class)
-       ) +
-  geom_point() +
-  labs(xlab = "City (mpg)", y = "Highway (mpg)")
-```
-
-### geom_text()
-
-```{r}
-#| echo: true
-#| code-fold: true
-#| code-line-numbers: "6"
-#| fig-height: 4
-#| fig-width: 6
-#| fig-align: center
-ggplot(data = mpg,
-       aes(x = cty,
-           y = hwy,
-           color = class)
-       ) +
-  geom_text(aes(label = class)) +
-  labs(xlab = "City (mpg)", y = "Highway (mpg)")
-```
-
-### `geom_xxx()`
+. . .
 
 :::: {.columns}
 
-*Not an exhaustive list -- see [ggplot2 cheat sheet](https://github.com/rstudio/cheatsheets/blob/main/data-visualization-2.1.pdf)*
+<font size = "6">
 
-::: {.column width="33%"}
+::: {.column width="35%"}
 **one variable**
 
 + `geom_density()`
@@ -379,7 +484,7 @@ ggplot(data = mpg,
 + `geom_boxplot()`
 
 :::
-::: {.column width="33%"}
+::: {.column width="35%"}
 
 **two variable**
 
@@ -388,7 +493,7 @@ ggplot(data = mpg,
 + `geom_density_2d()`
 
 :::
-::: {.column width="33%"}
+::: {.column width="30%"}
 
 **three variable**
 
@@ -398,23 +503,208 @@ ggplot(data = mpg,
 :::
 ::::
 
-Once our data is formatted and we know what type of variables we are working with, we can select the correct geom for our visualization.
+</font>
+
+*Not an exhaustive list -- see [ggplot2 cheat sheet](https://github.com/rstudio/cheatsheets/blob/main/data-visualization-2.1.pdf)*.
+
+
+##
+
+::: panel-tabset
+
+### geom_point()
+
+```{r}
+#| echo: true
+#| code-fold: true
+#| code-line-numbers: "6"
+#| fig-height: 5
+#| fig-width: 7
+#| fig-align: center
+ggplot(data = mpg,
+       aes(x = cty,
+           y = hwy,
+           color = class)
+       ) +
+  geom_point() +
+  labs(x = "City (mpg)", y = "Highway (mpg)") +
+  theme(axis.title = element_text(size = 14),
+        legend.title = element_blank(),
+        legend.text = element_text(size = 14))
+```
+
+### geom_text()
+
+```{r}
+#| echo: true
+#| code-fold: true
+#| code-line-numbers: "6"
+#| fig-height: 5
+#| fig-width: 7
+#| fig-align: center
+ggplot(data = mpg,
+       aes(x = cty,
+           y = hwy,
+           color = class)
+       ) +
+  geom_text(aes(label = class)) +
+  labs(x = "City (mpg)", y = "Highway (mpg)") +
+  theme(axis.title = element_text(size = 14),
+        legend.title = element_blank(),
+        legend.text = element_text(size = 14))
+```
+
+### geom_line()
+
+```{r}
+#| echo: true
+#| code-fold: true
+#| code-line-numbers: "6"
+#| fig-height: 5
+#| fig-width: 7
+#| fig-align: center
+ggplot(data = mpg,
+       aes(x = cty,
+           y = hwy,
+           color = class)
+       ) +
+  geom_line() +
+  labs(x = "City (mpg)", y = "Highway (mpg)") +
+  theme(axis.title = element_text(size = 14),
+        legend.title = element_blank(),
+        legend.text = element_text(size = 14))
+```
 
 :::
 
-## Alternative method of building layers: Stats
 
-A stat builds a new variable to plot (e.g., count and proportion)
+## Creating a Graphic
 
-![](https://unl-statistics.github.io/R-workshops/02-r-graphics/knitr/images/stat1.png)
+To create a specific type of graphic, we will **combine** aesthetics and geometric objects.
+
+. . .
+
+<br>
+
+Let's try it!
+
+
+##
+
+::: panel-tabset
+
+### The Goal
+
+Start with the TX housing data.
+
+![](images/tx_housing.png)
+
+Make a plot of <span style="color:teal"> median house price </span> over <span style="color:purple"> time </span> (including both <span style="color:green"> individual data points </span> and <span style="color:darkorange"> a smoothed trend line </span>), distinguishing between <span style="color:blue"> different cities </span>.
+
+
+### Game Plan
+
+![](images/txhousing_plan.png)
+
+### ggplot
+
+```{r}
+#| echo: true
+#| code-fold: true
+ggplot(data = txhousing, aes(x = date, y = median, color = city)) + 
+  geom_point() + 
+  geom_smooth(method = "loess") + 
+  labs(x = "Date",
+       y = "Median Home Price",
+       title = "Texas Housing Prices")
+```
+
+:::
+
+
+## Statistical Transformation: `stat`
+
+A `stat` transforms an existing variable into a new variable to plot.
+
++ `identity` leaves the data as is.
++ `count` counts the number of observations.
++ `summary` allows you to specify a desired transformation function.
+
+. . .
+
+Sometimes these statistical transformations happen under the hood when we call a `geom`.
+
+
+
+
+## Statistical Transformation: `stat`
+
+::: panel-tabset
+
+### `stat_count()`
+
+:::: {.columns}
+::: {.column width="50%"}
+
+```{r}
+#| echo: true
+#| code-line-numbers: "3"
+ggplot(data = mpg,
+       mapping = aes(x = class)) +
+  geom_bar()
+```
+
+:::
+::: {.column width="50%"}
+
+```{r}
+#| echo: true
+#| code-line-numbers: "3"
+ggplot(data = mpg,
+       mapping = aes(x = class)) +
+  stat_count(geom = "bar")
+```
+
+:::
+::::
+
+### `stat_summary()`
+
+:::: {.columns}
+::: {.column width="50%"}
+
+```{r}
+#| echo: true
+#| code-line-numbers: "4-5"
+ggplot(data = mpg,
+       mapping = aes(x = class,
+                     y = hwy)) +
+  stat_summary(geom = "bar",
+               fun = "mean") +
+  scale_y_continuous(limits = c(0,45))
+```
+
+:::
+::: {.column width="50%"}
+
+```{r}
+#| echo: true
+#| code-line-numbers: "4-5"
+ggplot(data = mpg,
+       mapping = aes(x = class,
+                     y = hwy)) +
+  stat_summary(geom = "bar",
+               fun = "max") +
+  scale_y_continuous(limits = c(0,45))
+```
+
+:::
+::::
+:::
 
 ## Faceting
 
-A way to extract subsets of data and place them side-by-side in graphics
-
-::: callout-note
-sometimes called small multiples
-:::
+Extracts subsets of data and places them in side-by-side graphics.
 
 ::: panel-tabset
 
@@ -426,39 +716,70 @@ sometimes called small multiples
 #| code-line-numbers: "3"
 ggplot(data = mpg, aes(x = cty, y = hwy, color = class)) + 
   geom_point() +
-  facet_grid(~class)
+  facet_grid(.~class)
 ```
 
-### faceting options
+### `facet_wrap()`
+```{r}
+#| echo: true
+#| fig-height: 4
+#| fig-width: 12
+#| code-line-numbers: "3"
+ggplot(data = mpg, aes(x = cty, y = hwy, color = class)) + 
+  geom_point() +
+  facet_wrap(.~class)
+```
+
+### Options
+<font size = "6">
 
 + `facet_grid(. ~ b)`: facet into columns based on b
 + `facet_grid(a ~ .)`: facet into rows based on a
 + `facet_grid(a ~ b)`: facet into both rows and columns
-+ `facet_wrap( ~ fl)`: wrap facets into a rectangular layout
++ `facet_wrap( ~ b)`: wrap facets into a rectangular layout
 
-### faceting scales
+</font>
+
+### Scales
 You can set scales to let axis limits vary across facets:
 
-+ `facet_grid(y ~ x, scales = "free")`: x and y axis limits adjust to individual facets
-  + "free_x" - x axis limits adjust
-  + "free_y" - y axis limits adjust
+`facet_grid(y ~ x, scales = ______)`
 
-### facet labels
-You can also set a labeller to adjust facet labels:
+<font size = "6">
+
+  + `"free"` -- both x- and y-axis limits adjust to individual facets
+  + `"free_x"` -- only x-axis limits adjust
+  + `"free_y"` -- only y-axis limits adjust
+
+</font>
+
+### Labels
+You can set a labeller to adjust facet labels:
+
+<font size = "6">
 
 + `facet_grid(. ~ fl, labeller = label_both)`
 + `facet_grid(. ~ fl, labeller = label_bquote(alpha ^ .(x)))`
 + `facet_grid(. ~ fl, labeller = label_parsed)`
+
+</font>
 :::
+
 
 ## Position Adjustements
 
-Position adjustments determine how to arrange geoms that would otherwise occupy the same space
+Position adjustments determine how to arrange `geom`'s that would otherwise occupy the same space.
 
-+ `position = 'dodge'`: Arrange elements side by side
-+ `position = 'fill'`: Stack elements on top of one another, normalize height
-+ `position = 'stack'`: Stack elements on top of one another
-+ `position = 'jitter"`: Add random noise to X & Y position of each element to avoid overplotting (see `geom_jitter()`)
+<font size = "6">
+
++ `position = 'dodge'`: Arrange elements side by side.
++ `position = 'fill'`: Stack elements on top of one another + normalize height.
++ `position = 'stack'`: Stack elements on top of one another.
++ `position = 'jitter"`: Add random noise to X & Y position of each element to avoid overplotting (see `geom_jitter()`).
+ </font>
+
+
+## Position Adjustements
 
 ```{r}
 #| eval: false
@@ -468,7 +789,8 @@ ggplot(mpg, aes(fl, fill = drv)) +
   geom_bar(position = "")`
 ```
 
-![](https://unl-statistics.github.io/R-workshops/02-r-graphics/knitr/3-Layers_files/figure-html/unnamed-chunk-8-1.png)
+![](images/position-adjustments.png)
+
 
 ## Plot Customizations
 
@@ -476,14 +798,13 @@ ggplot(mpg, aes(fl, fill = drv)) +
 
 ### Labels
 
-Clearer labels with `labs()`
-
 ```{r}
 #| echo: true
 #| code-line-numbers: "3-6"
 #| fig-height: 4
 #| fig-width: 6
 #| fig-align: center
+#| code-fold: true
 ggplot(data = mpg) + 
   geom_jitter(mapping = aes(x = displ, y = hwy, color = cyl)) + 
   labs(x = "Engine Displacement (liters)", 
@@ -499,6 +820,7 @@ ggplot(data = mpg) +
 #| fig-height: 4
 #| fig-width: 6
 #| fig-align: center
+#| code-fold: true
 ggplot(data = mpg) + 
   geom_jitter(mapping = aes(x = displ, y = hwy, color = cyl)) + 
   labs(xlab = "Engine Displacement (liters)", 
@@ -516,6 +838,7 @@ ggplot(data = mpg) +
 #| fig-height: 4
 #| fig-width: 6
 #| fig-align: center
+#| code-fold: true
 ggplot(data = mpg) + 
   geom_jitter(mapping = aes(x = displ, y = hwy, color = cyl)) + 
   labs(x     = "Engine Displacement (liters)",
@@ -534,6 +857,7 @@ ggplot(data = mpg) +
 #| fig-height: 4
 #| fig-width: 6
 #| fig-align: center
+#| code-fold: true
 ggplot(data = mpg) + 
   geom_jitter(mapping = aes(x = displ, y = hwy, color = cyl)) + 
   labs(x    = "Engine Displacement (liters)",
@@ -544,13 +868,13 @@ ggplot(data = mpg) +
 ```
 :::
 
+
 ## Formatting your Plot Code
 
-::: callout-tip
-Notice how there is a lot of nesting that happens within `ggplot2` code (e.g., parentheses within parentheses). It is good practice to put each geom and aesthetic on a new line. This makes code easier to read! 
+It is good practice to put each `geom` and `aes` on a new line.
 
-The general guideline is that each line of your code should not be over 80 characters long.
-:::
++ This makes code easier to read! 
++ Generally: no line of code should be over 80 characters long.
 
 ::: panel-tabset
 ### Bad Practice
@@ -569,7 +893,8 @@ ggplot(data = mpg, mapping = aes(x = cty, y = hwy, color = class)) + geom_point(
 ggplot(data = mpg, 
        mapping = aes(x = cty, 
                      y = hwy, 
-                     color = class)
+                     color = class
+                     )
        ) + 
   geom_point() + 
   theme_bw() + 
@@ -578,7 +903,7 @@ ggplot(data = mpg,
        )
 ```
 
-### or somewhere in between
+### Somewhere In Between
 
 ```{r}
 #| echo: true
@@ -593,187 +918,372 @@ ggplot(data = mpg,
 
 :::
 
-## [PA 2: Using Data Visualization to Find the Penguins](https://earobinson95.github.io/stat331-calpoly/practice-activities/PA2-ggplot-palmer-penguins.html)
 
-![Artwork by Allison Horst](https://allisonhorst.github.io/palmerpenguins/reference/figures/lter_penguins.png)
+## Let's Practice!
 
-::: callout-tip
-I encourage you to use your neighbors for support!
+How would you make this plot from the `diamonds` dataset in `ggplot2`?
+
+
+:::: {.columns}
+::: {.column width="90%"}
+
+```{r}
+#| echo: false
+tmp <- diamonds
+tmp$category <- cut(tmp$price, breaks = c(0, 999, 4999, Inf))
+price_labs <- c("<$1k", "$1k-$5k", ">$5k")
+names(price_labs) <- c("(0,999]","(999,5e+03]","(5e+03,Inf]")
+
+ggplot(data = tmp,
+       mapping = aes(x = cut,
+                     fill = cut)) +
+  geom_bar() +
+  facet_wrap(.~category,
+             labeller = labeller(category = price_labs)) +
+  theme(axis.text.x = element_blank(),
+        axis.title = element_text(size = 18),
+        legend.title = element_text(size = 18),
+        legend.text = element_text(size = 14),
+        strip.text = element_text(size = 18))
+```
+
 :::
+::: {.column width="10%"}
 
-## To do...
+<br>
 
-+ **PA 2: Using Data Visualization to Find the Penguins**
-  + Due **TOMORROW, Wednesday** (1/18) at 8:00AM
++ `data`
++ `aes`
++ `geom`
++ `facet`
 
-+ **Bonus Challenge: Ugly Graphics of Penguins (+2)**
-  + Due **TOMORROW, Wednesday** (1/18) at 10:10AM
-
-::: callout-note  
-I have office hours TODAY, Tuesday (1/17) from 2:40pm - 3:30pm in 25-103
 :::
+::::
 
-## Wednesday, January 18th
 
-Today we will...
+## Creating a Game Plan
 
-+ Review PA 2: Using Data Visualization to Find the Penguins
-+ [Ugly Graphics of Penguins](https://docs.google.com/presentation/d/1bChpVMyrhBnOjJLwK1ku9uIcM6I-ZTTMXkY0200CHhw/edit#slide=id.p)
-+ Mini lecture on text material
-  + What makes a good graphic?
-+ Lab 2: Exploring Rodents with ggplot2
-+ Challenge 2: Spicing things up with ggplot2
+There are a lot of pieces to put together when creating a good graphic.
 
-## Why are some plots easier to read than others?
++ So, when sitting down to create a plot, you should first create a **game plan**!
 
-**What makes bad figures bad?**
+. . .
+
+This game plan should include:
+
+1. What data are you starting from?
+2. What are your x- and y-axes?
+3. What type(s) of `geom` do you need?
+4. What other `aes`'s do you need?
+
+
+##
 
 ::: panel-tabset
 
-### aesthetic
+### Make a Game Plan!
 
-Edward R. Tufte is a better known critic of this style of visualization:
+Use the `mpg` dataset to create two side-by-side scatterplots of city MPG vs. highway MPG where the points are colored by the drive type (drv). The two ploits should be separated by year.
 
-+ Graphical excellence is the well-designed presentation of interesting data and consists of:
-  + complex ideas communicated with clarity, precision, and efficiency
-  + maximizes the “data-to-ink” ratio.
-  + nearly always multivariate
-  + requires telling the truth about the data.
+![](images/empty_game_plan.png)
 
-+ defines "chartjunk" as superfluous details
+### Example
 
-### substantive
+![](images/mpg_game_plan.png)
 
-bad data.
+### R Code
 
-### perceptual
-
-Looking at pictures of data means looking at lines, shapes, and colors
-
-Our visual system works in a way that makes some things easier for us to see than others
-
-+ “Preattentive” features
-+ Gestalt Principles
-+ color and contrast
-
+```{r}
+#| code-fold: true
+#| echo: true
+#| fig-height: 4.5
+ggplot(data = mpg,
+       mapping = aes(x = cty,
+                     y = hwy,
+                     color = drv)
+       ) +
+  geom_point() +
+  facet_grid(.~year) +
+  labs(x = "city MPG",
+       y = "highway MPG")+
+  scale_color_discrete(name = "drive type",
+                      labels = c("4-wheel","front","rear"))
+```
 :::
 
-## Good Graphics
+## Graphics
 
 Graphics consist of:
 
 + **Structure:** boxplot, scatterplot, etc.
 
-+ **Aesthetics:** features such as color, shape, and size that map other characteristics to structural features
++ **Aesthetics:** features such as color, shape, and size that map other variables to structural features.
 
-Both the structure and aesthetics should help viewers interpret the information.
+**Both** the structure and aesthetics should help viewers interpret the information.
+
+
+## What makes bad graphics bad?
+
++ BAD DATA.
++ Too much "chartjunk" -- superfluous details (Tufte).
++ Design choices that are difficult for the human brain to process, including:
+
+:::: {.columns}
+::: {.column width="10%"}
+
+:::
+::: {.column width="50%"}
+
+  + Colors
+  + Orientation
+  + Organization
+
+:::
+::: {.column width="40%"}
+
+![](images/bad_graphic.png){.absolute width="300"}
+
+:::
+::::
+
+## What makes good graphics good?
+
+Edward R. Tufte is a well-known critic of visualizations, and his definition of **graphical excellence** consists of:
+
+  + communicating complex ideas with **clarity, precision, and efficiency**.
+  + maximizing the **data-to-ink** ratio.
+  + using multivariate displays.
+  + telling the truth about the data.
+
+
+## Graphics
+
+When creating graphics, we need to think carefully about how we make structure and aesthetic decisions.
+
 
 # Gestalt Principles
 
+
 ## Gestalt Principles
 
-What sorts of relationships are inferred, and under what circumstances?
+Our brains have an amazing ability to create and perceive structure among visual objects.
+
++ This is commonly referred to as the Gestalt principles of visual perception.
++ This framework can help us think about how to create the most expressive and effective data visualizations:
+
+
+## Gestalt Principles
 
 ::: panel-tabset
-### Graphic
+
+### Similarity
+
+Objects with the **same visual properties** are assumed to be similar and are grouped together.
+
+:::: {.columns}
+::: {.column width="65%"}
+
+<br>
+
+Use design elements such as **shape and color** to indicate groupings of the data.
+:::
+::: {.column width="35%"}
 
 ```{r}
-#| fig-align: center
-knitr::include_graphics("https://unl-statistics.github.io/R-workshops/02-r-graphics/knitr/images/gestalt3.jpg")
+knitr::include_graphics("images/similarity.png")
 ```
 
-### Features
-
-+ **Proximity:** Things that are spatially near to one another are related.
-+ **Similarity:** Things that look alike are related.
-+ **Enlosure:** A group of related elements are surrounded with a visual element
-+ **Symmetry:** If an object is asymmetrical, the viewer will waste time trying to find the problem instead of concentrating on the instruction.
-+ **Closure:** Incomplete shapes are perceived as complete.
-+ **Continuity:** Partially hidden objects are completed into familiar shapes.
-+ **Connection:** Things that are visually tied to one another are related.
-+ **Figure/Ground:** Visual elements are either in the foreground or the background.
 :::
+::::
+
+### Proximity
+
+Objects that are **close together** are perceived as a group.
+
+:::: {.columns}
+::: {.column width="50%"}
+
+Since physical distance connotes similarity, grouping bars on a chart can indicate similarities among their data.
+
+:::
+::: {.column width="50%"}
+  
+```{r}
+knitr::include_graphics("images/proximity.png")
+```
+
+:::
+::::
+### Continuity
+
+Elements that are **aligned** (on the same line, curve, or plane) are perceived to be more closely related to each other than to other elements.
+
+:::: {.columns}
+::: {.column width="60%"}
+
+It is often easier for us to perceive the groupings if the shapes are curves, rather than lines with sharp edges.
+
+:::
+::: {.column width="40%"}
+  
+```{r}
+knitr::include_graphics("images/continuity.png")
+```
+
+:::
+::::
+  
+
+### Enclosure
+
+Objects that appear to have a **boundary around them** are perceived as being related.
+
+  + Add line boundaries or shading to group objects.
+
+### Connection
+
+Objects that are **connected**, such as by a line, are perceived as a group.
+
+  + Connect data together to indicate a relationship.
+  + This connectedness is highly effective and often overrides other principles for group perception.
+  + Every line plot is an example of connectedness.
+  
+### Closure
+
+Complex arrangements of visual elements are perceived as a **single, recognizable pattern**.
+
+```{r}
+#| out-width: 25%
+#| fig-align: center
+knitr::include_graphics("images/closure.png")
+```
+
+### Figure and Ground
+
+Objects are perceived as either standing out prominently in the **foreground** of an image or receding into the **background**.
+
+  + Shading or color blocking can be employed to distinguish between the more important figure and less important ground features of an image.
+  + Place elements of the most importance in the foreground figure.
+  
+### Focal Point
+
+Whatever **stands out visually** is perceived as the most important. It will grab our attention first and hold it for the longest.
+
+  + Use design elements selectively to draw attention to the most important features of the data.
+
+:::
+
 
 ## Gestalt Principles
 
-Gestalt Hierarchy	| Graphs
-------------------| ------
-Enclosure	        | Facets
-Connection        |	Lines
-Proximitiy	      | White Space
-Similarity	      | Color/Shape
+Gestalt Hierarchy	| Graphical Feature
+------------------| ------------------
+1. Enclosure	    | Facets
+2. Connection     |	Lines
+3. Proximitiy	    | White Space
+4. Similarity	    | Color/Shape
 
-Implications for practice
+. . .
 
-+ Know how we perceive groups
-+ Know that we perceive some groups before others
-+ Design to facilitate and emphasize the most important comparisons
+Implications for practice:
+
++ Know that we perceive some groups before others.
++ Design to facilitate and emphasize the most important comparisons.
 
 # Pre-attentive Features
 
 ## Pre-attentive Features
 
+<br>
+
+The next slide will have one point that is not like the others.
+
+<br>
+
+Raise your hand when you notice it.
+
+## Pre-attentive Features
+
 ```{r}
 #| fig-align: center
-knitr::include_graphics("https://unl-statistics.github.io/R-workshops/02-r-graphics/knitr/4-Perception_files/figure-html/unnamed-chunk-3-1.png")
+knitr::include_graphics("images/pre-attentive-shape.png")
 ```
 
 ## Pre-attentive Features
 
 ```{r}
 #| fig-align: center
-knitr::include_graphics("https://unl-statistics.github.io/R-workshops/02-r-graphics/knitr/4-Perception_files/figure-html/unnamed-chunk-4-1.png")
+knitr::include_graphics("images/pre-attentive-color.png")
 ```
 
 ## Pre-attentive Features
 
-Pre-Attentive Features are things that "jump out" in less than 250 ms
+**Pre-attentive features** are features that we see and perceive before we even think about it.
 
-+ Color, form, movement, spatial localization
++ They will jump out at us in less than 250 ms.
 
-There is a hierarchy of features
++ E.g., color, form, movement, spatial location.
 
-+ Color is stronger than shape
-+ Combinations of pre-attentive features are usually not pre-attentive due to interference
+There is a **hierarchy** of features:
 
-## Pre-attentive Features: Double Encoding
++ Color is stronger than shape.
++ Combinations of pre-attentive features may **not** be pre-attentive due to interference.
+
+
+## Double Encoding
 ```{r}
 #| fig-align: center
-knitr::include_graphics("https://unl-statistics.github.io/R-workshops/02-r-graphics/knitr/4-Perception_files/figure-html/unnamed-chunk-5-1.png")
+knitr::include_graphics("images/double-encoding.png")
 ```
 
-## Pre-attentive Features: Double Encoding
+## No Double Encoding
 ```{r}
 #| fig-align: center
-knitr::include_graphics("https://unl-statistics.github.io/R-workshops/02-r-graphics/knitr/4-Perception_files/figure-html/unnamed-chunk-6-1.png")
+knitr::include_graphics("images/no-double-encoding.png")
 ```
 
-# Color
+# [Color](https://www.youtube.com/watch?v=zALBl5f1ib4)
 
-# Color
+## Color
 
-+ Hue: shade of color (red, orange, yellow...)
++ Use color to your advantage!
+  + Color, hue, and intensity are pre-attentive, where bigger contrasts lead to faster detection.
+  + **Hue**: main color family (red, orange, yellow...)
+  + **Intensity**: amount of color
 
-+ Intensity: amount of color
+:::: {.columns}
+::: {.column width="30%"}
 
-+ Both color and hue are pre-attentive. Bigger contrast corresponds to faster detection.
+```{r}
+#| out-width: 90%
+knitr::include_graphics("images/hue.png")
+```
 
-+ Use color to your advantage
+:::
+::: {.column width="70%"}
+  
+```{r}
+knitr::include_graphics("images/intensity.png")
+```
 
-+ When choosing color schemes, we will want mappings from data to color that are not just numerically but also perceptually uniform
+:::
+::::
+  
+## Color Guidelines
 
-+ Distinguish between sequential scales and categorical scales
++ Use mappings from data to color that are numerically and perceptually uniform.
++ Be conscious of what certain colors “mean”. Colors are psychological!
++ Do not use rainbow color gradients.
++ Avoid using green-yellow-red color schemes -- you might have audience members who are color deficient!
 
-## Color: Implications and Guidelines
+## Color Guidelines
 
-+ Do not use rainbow color gradient schemes.
-+ Avoid any scheme that uses green-yellow-red signaling if you have a target audience that may include colorblind people.
-+ To “colorblind-proof” a graphic, you can use a couple of strategies:
-  + double encoding - where you use color, use another aesthetic (line type, shape)
-  + If you can print your chart out in black and white and still read it, it will be safe for colorblind users. This is the only foolproof way to do it!
-  + If you are using a color gradient, use a monochromatic color scheme where possible.
-  + If you have a bidirectional scale (e.g. showing positive and negative values), the safest scheme to use is purple - white - orange. In any color scale that is multi-hue, it is important to transition through white, instead of from one color to another directly.
-+ Be conscious of what certain colors “mean”
++ To colorblind-proof a graphic, try:
+  + **double encoding** - when you use color, **also** use another aesthetic (line type, shape, etc.).
+  + using a **monochromatic** color gradient.
+    + If you have a bidirectional scale (e.g., showing + and - values), use purple-white-orange. Always transition through white!
+  + printing your chart out in black and white -- if you can still read it, it will be safe for colorblind users.
+
 
 ## Gradients
 
@@ -781,67 +1291,70 @@ knitr::include_graphics("https://unl-statistics.github.io/R-workshops/02-r-graph
 
 ### Qualitative schemes
 
-No more than 7 colors
+Usually no more than 7 colors:
 
 ```{r}
 #| fig-align: center
-knitr::include_graphics("https://unl-statistics.github.io/R-workshops/02-r-graphics/knitr/4-Perception_files/figure-html/unnamed-chunk-8-1.png")
+knitr::include_graphics("images/color-qualitative1.png")
 ```
 
 Can use `colorRampPalette()` from the `RColorBrewer` package to produce larger palettes by interpolating existing ones
 
 ```{r}
 #| fig-align: center
-knitr::include_graphics("https://unl-statistics.github.io/R-workshops/02-r-graphics/knitr/4-Perception_files/figure-html/unnamed-chunk-9-1.png")
+knitr::include_graphics("images/colors-qualitative2.png")
 ```
 
 
 ### Quantitative schemes
 
-Use color gradient with only one hue for positive values
+Use color gradient with only one hue for positive values:
 
 ```{r}
 #| fig-align: center
-knitr::include_graphics("https://unl-statistics.github.io/R-workshops/02-r-graphics/knitr/4-Perception_files/figure-html/unnamed-chunk-10-1.png")
+#| out-width: 50%
+knitr::include_graphics("images/blues.png")
 ```
 
-Use color gradient with two hues for positive and negative values. Gradient should go through a light, neutral color (white)
+Use color gradient with two hues for positive and negative values. Gradient should go through a light, neutral color (white).
 
 ```{r}
 #| fig-align: center
-knitr::include_graphics("https://unl-statistics.github.io/R-workshops/02-r-graphics/knitr/4-Perception_files/figure-html/unnamed-chunk-11-1.png")
+#| out-width: 50%
+knitr::include_graphics("images/PuOr.png")
 ```
 
 :::
 
 ## Color in ggplot2
 
-There are packages available for use that have color scheme options.
-
-Some Examples:
+There are several packages with color scheme options:
 
 + Rcolorbrewer
 + ggsci
 + viridis
-+ wes anderson
++ wesanderson
 
-There are packages such as RColorBrewer and dichromat that have color palettes which are aesthetically pleasing, and, in many cases, colorblind friendly.
+These packages have color palettes hthatare aesthetically pleasing and, in many cases, colorblind friendly.
 
 You can also take a look at other [ways to find nice color palettes](https://lisacharlottemuth.com/2016/04/22/Colors-for-DataVis/).
-
-## Week 2 Assignments
-
-[Lab 2: Exploring Rodents with ggplot2](https://earobinson95.github.io/stat331-calpoly/lab-assignments/Lab2-graphics/lab2-exploring-rodents-with-ggplot2.html)
-
-[Challenge 2: Spicing things up with ggplot2](https://earobinson95.github.io/stat331-calpoly/lab-assignments/Lab2-graphics/challenge2-spicing-things-up-with-ggplot2.html)
 
 ## To do...
 
 + **Lab 2: Exploring Rodents with ggplot2**
-  + due Friday, 1/20 at 11:59pm
-
-+ **Challenge 2: Spicing things up with ggplot2**
-  + due Saturday, 1/21 at 11:59pm
+  + due Monday, 1/22 at 11:59pm (remember, I will not be reachable Monday)
   
+## Strike -- Week 3
+
+All material will be posted by Friday afternoon. I will be unreachable Monday - Friday. 
+
+Please be patient afterwards as I catch up on emails and work.
+
 + **Read Chapter 3: Data Cleaning and Manipulation**
-  + **Concept Check 3.1 + 3.2** due Monday (1/23) at 8am
+  + **Check-in 3.1** due Tuesday (1/23) at 8am
+  
++ **PA 3: Identify the Mystery College**
+  + due Thursday (1/25) at 8am
+  
++ **Lab 3: XXX**
+  + due Monday (1/29) at 11:59pm
