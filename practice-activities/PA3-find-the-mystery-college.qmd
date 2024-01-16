@@ -69,12 +69,11 @@ Some tricks:
 
 # Part One: Data import and cleaning
 
-This section will clean today's dataset, so that you can use it more easily in Part Two.
+This section will clean today's data set, so that you can use it more easily in Part Two.
 
 ## Data download & packages
 
 First, we declare our package dependencies and load the data.
-
 
 ::: callout-warning
 The data loading function `read_csv()` will give you an outpouring of helpful information about the data set. If you do not see the word "error", there is nothing to be concerned about.
@@ -85,7 +84,7 @@ The data loading function `read_csv()` will give you an outpouring of helpful in
 #| message: false
 
 library(tidyverse)
-colleges <- read_csv("https://www.dropbox.com/s/bt5hvctdevhbq6j/colleges.csv?dl=1")
+colleges <- read_csv("https://raw.githubusercontent.com/earobinson95/stat331-calpoly/master/practice-activities/data/colleges.csv")
 str(colleges, give.attr = FALSE)
 ```
 
@@ -119,7 +118,7 @@ colleges_clean <- colleges_clean |>
   filter(CONTROL == 1, CONTROL == 2) 
 ```
 
-**Step 4:** Adjust the appropriate variables to be numeric -- `as.numeric()`.
+**Step 3:** Adjust the appropriate variables to be numeric -- `as.numeric()`.
 
 ```{r mutate-numeric}
 colleges_clean <- colleges_clean |> 
@@ -132,7 +131,7 @@ colleges_clean <- colleges_clean |>
     ) 
 ```
 
-**Step 5:** Adjust the appropriate variables to be factors -- `as.factor()`.
+**Step 4:** Adjust the appropriate variables to be factors -- `as.factor()`.
 
 ::: callout-note
 We will talk more about special data types (including factors) in a few weeks. 
@@ -146,14 +145,14 @@ colleges_clean |>
 )
 ```
 
-**Step 6:** Create a new variable called `TUITION_DIFF` which contains the difference between out of state and in state costs.
+**Step 5:** Create a new variable called `TUITION_DIFF` which contains the difference between out of state and in state costs.
 
 ```{r mutate-differences}
 colleges_clean <- colleges_clean |> 
     TUITION_DIFF = TUITIONFEE_OUT - TUITIONFEE_IN
 ```
 
-**Step 7:** Remove every row with missing data.
+**Step 6:** Remove every row with missing data.
 
 ::: callout-warning
 This is not always a great idea! Usually, even if *some* of the information is missing, we don't want to throw out the entire row. This time, however, we'll be lazy.
@@ -174,7 +173,7 @@ colleges_clean <- colleges_clean |> ...
 
 That is pretty redundant! Instead, we could perform all these tasks as one long "pipeline."
 
-**Step 8:** Combine your (fixed) code chunks into a **single** code chunk that carries out all of the steps necessary to clean the data.
+**Step 7:** Combine your (fixed) code chunks into a **single** code chunk that carries out all of the steps necessary to clean the data.
 
 ::: callout-tip
 Think about coding efficiency -- you **should not** have multiple calls to the **same** function!
