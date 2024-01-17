@@ -89,14 +89,14 @@ It is always good practice to start an analysis by getting a feel for the data a
 **3. What is the unit of observation (i.e. a single row in the data set) identified by?**
 
 ::: callout-warning
-It is not one teacher per row! It's also not just one class per row!
+It is not one instructor per row! It's also not just one class per row!
 :::
 
 
-**4. Clean the data set in whichever ways you see fit. This might mean adjusting *variable type*, for example, is the instructor a numeric data type? How do you want to deal with missing data? Assign your cleaned data set to a new data set named `teacher_evals_clean` -- use this data set going forward.**
+**4. Clean the data set by renaming the variable "gender" to indicate "sex_at_birth" and addressing data types in whichever way you see fit. For example, is the instructor actually a numeric data type? Assign your cleaned data set to a new data set named `teacher_evals_clean` -- use this data set going forward.**
 
 ::: callout-tip
-Helpful functions: `mutate()`, `as.factor()`
+Helpful functions: `rename()`, `mutate()`, `as.factor()`
 
 It would be most efficient to use `across()` in combination with `mutate()` to complete this task.
 :::
@@ -106,10 +106,10 @@ It would be most efficient to use `across()` in combination with `mutate()` to c
 
 ```
 
-**5. Rename the variable "gender" to indicate "sex_at_birth".**
+**5. How many unique instructors were evaluated in this data set?**
 
 ::: callout-tip
-Helpful functions: `rename()``
+Helpful functions: `distinct()`, `count()`
 :::
 
 ```{r}
@@ -117,18 +117,7 @@ Helpful functions: `rename()``
 
 ```
 
-**6. How many unique instructors were evaluated in this data set?**
-
-::: callout-tip
-Helpful functions: `distinct()`, `count()`
-:::
-
-```{r}
-# code chunk for Q6
-
-```
-
-**7. What are the demographics of the instructors in this study? Investigate the variables `academic_degree`, `seniority`, and `sex_at_birth` and summarize your findings in 1-3 complete sentences.**
+**6. What are the demographics of the instructors in this study? Investigate the variables `academic_degree`, `seniority`, and `sex_at_birth` and summarize your findings in 1-3 complete sentences.**
 
 ::: callout-tip
 You'll need to first manipulate your data to have each instructor represented only once.
@@ -137,7 +126,7 @@ Helpful functions: `select()`, `distinct(___, .keep_all = TRUE)`, `count()`, `su
 :::
 
 ```{r}
-# code chunk for Q7
+# code chunk for Q6
 
 ```
 
@@ -151,7 +140,7 @@ Helpful functions: `filter()`, `group_by()`, `summarize()`, `slice()`
 Useful variables: `course_id`, `SET_score_avg`, `academic_degree`, `seniority`, `sex_at_birth`
 :::
 
-**8. Which courses overall had the highest and lowest average rating for Question 3 (The professor used activities to make the class more engaging)?**
+**7. Which courses overall had the highest and lowest average rating for Question 3 (The professor used activities to make the class more engaging)?**
 
 **a. Sketch a "Game Plan" and include the image below.**
 
@@ -160,21 +149,21 @@ Useful variables: `course_id`, `SET_score_avg`, `academic_degree`, `seniority`, 
 **b. Implement/code your game plan**
 
 ```{r}
+# code chunk for Q7
+
+```
+
+**8. Which courses taught by instructors with over 6 years of experience had the highest and lowest average rating for Question 3 (The professor used activities to make the class more engaging)?**
+
+```{r}
 # code chunk for Q8
 
 ```
 
-**9. Which courses taught by instructors with over 6 years of experience had the highest and lowest average rating for Question 3 (The professor used activities to make the class more engaging)?**
+**9. Which courses taught by females with either a Doctorate ("dr") or Professor ("prof") academic degree had the highest and lowest average rating for Question 3 (The professor used activities to make the class more engaging)?**
 
 ```{r}
 # code chunk for Q9
-
-```
-
-**10. Which courses taught by females with either a Doctorate ("dr") or Professor ("prof") academic degree had the highest and lowest average rating for Question 3 (The professor used activities to make the class more engaging)?**
-
-```{r}
-# code chunk for Q10
 
 ```
 
@@ -188,10 +177,25 @@ While a second course in statistics is a pre-requisite for this class, you may v
 
 Let's compare the level of SET ratings for Question 7 (The lecturer delivered the class content in an understandable and efficient way) between males and females.
 
-**11. Create a new data set `teacher_eval_comparisons` that accomplishes the following with one pipeline. (1) Includes responses for Question 7 only, (2) creates a new variable called `SET_level` that is "low" if the `SET_score_avg` is lower than 3 and "high" otherwise, and (3) contains only the variables we are interested in -- `course_id`, `SET_score_avg`, `SET_level`, and `sex_at_birth`.**
+**10. Create a new data set `teacher_eval_comparisons` that accomplishes the following with one pipeline. (1) Includes responses for Question 7 only, (2) creates a new variable called `SET_level` that is "excellent" if the `SET_score_avg` is 4 or higher (inclusive) and "standard" otherwise, and (3) contains only the variables we are interested in -- `course_id`, `SET_score_avg`, `SET_level`, and `sex_at_birth`.**
 
 ::: callout-tip
 Helpful functions: `filter()`, `mutate()`, `if_else()`, `select()`
+:::
+
+```{r}
+# code chunk for Q10
+
+```
+
+**11. Using the new data set and your new ggplot2 skills, recreate the filled bar plot shown below.**
+
+![](https://github.com/earobinson95/stat331-calpoly/blob/master/lab-assignments/Lab3-dplyr/teacher-eval-recreate-the-graphic.png?raw=true)
+
+::: callout-tip
+Helpful geometric object and arguments: `geom_bar(stat = ..., position = ...)`
+
+You should NOT have to do any more data manipulation to create this plot. Note that getting the general structure and reader friendly labels is good enough, but my favorite colors are "steelblue" and "orange3", and my favorite theme is black/white!
 :::
 
 ```{r}
@@ -199,22 +203,15 @@ Helpful functions: `filter()`, `mutate()`, `if_else()`, `select()`
 
 ```
 
-**12. Using the new data set and your new ggplot2 skills, recreate the filled bar plot shown below.**
+
+**12. Look up the documentation for `chisq.test()` to carry out a chi-square test of independence between the SET level and instructor sex at birth in your new data set.**
 
 ::: callout-tip
-Helpful geometric object and arguments: `geom_bar(stat = ..., position = ...)`
+Note that the `chisq.test()` function does not take a formula/data specification as we have seen before. You will either have to use `with()` or indicate the variables of interest using `$` syntax.
 :::
 
 ```{r}
 # code chunk for Q12
-
-```
-
-
-**13. Look up the documentation for `chisq.test()` to carry out a chi-square test of independence between the SET level and instructor sex at birth in your new data set.**
-
-```{r}
-# code chunk for Q13
 
 ```
 
