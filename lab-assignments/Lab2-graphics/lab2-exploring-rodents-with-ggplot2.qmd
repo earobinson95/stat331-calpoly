@@ -118,6 +118,12 @@ It takes a larger cognitive load to read text that is rotated. It is common prac
 
 **9. Create side-by-side boxplots to visualize the distribution of weight within each species.** *Note: side-by-side does NOT mean facetting.*
 
+> **a. Sketch a game plan using your favorite tablet sketch tool, paper/pencil, or Excalidraw (link on Canvas). Upload your game plan image here.** This can take on your own flavor/format! The ideas is that you are *thinking* before *coding*. I recommend saving this in the same folder as your .qmd file.
+
+![](file-path/and/name-of-image.png)
+
+> **b. Implement/Code your game plan in the provided code space above.**
+
 A fundamental complaint of boxplots is that they do not plot the raw data. However, with **ggplot** we can add the raw points on top of the boxplots!
 
 **10. Add another layer to your previous plot (above) that plots each observation.**
