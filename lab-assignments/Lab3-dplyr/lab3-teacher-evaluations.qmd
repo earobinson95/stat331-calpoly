@@ -137,7 +137,7 @@ Helpful functions: `select()`, `distinct(___, .keep_all = TRUE)`, `count()`, `su
 :::
 
 ```{r}
-# code chunk for Q8
+# code chunk for Q7
 
 ```
 
@@ -153,22 +153,28 @@ Useful variables: `course_id`, `SET_score_avg`, `academic_degree`, `seniority`, 
 
 **8. Which courses overall had the highest and lowest average rating for Question 3 (The professor used activities to make the class more engaging)?**
 
+**a. Sketch a "Game Plan" and include the image below.**
+
+![](file-path-to-gameplan.png)
+
+**b. Implement/code your game plan**
+
 ```{r}
-# code chunk for Q10
+# code chunk for Q8
 
 ```
 
 **9. Which courses taught by instructors with over 6 years of experience had the highest and lowest average rating for Question 3 (The professor used activities to make the class more engaging)?**
 
 ```{r}
-# code chunk for Q11
+# code chunk for Q9
 
 ```
 
 **10. Which courses taught by females with either a Doctorate ("dr") or Professor ("prof") academic degree had the highest and lowest average rating for Question 3 (The professor used activities to make the class more engaging)?**
 
 ```{r}
-# code chunk for Q12
+# code chunk for Q10
 
 ```
 
@@ -189,7 +195,7 @@ Helpful functions: `filter()`, `mutate()`, `if_else()`, `select()`
 :::
 
 ```{r}
-# code chunk for Q14
+# code chunk for Q11
 
 ```
 
@@ -200,7 +206,7 @@ Helpful geometric object and arguments: `geom_bar(stat = ..., position = ...)`
 :::
 
 ```{r}
-# code chunk for Q15
+# code chunk for Q12
 
 ```
 
@@ -208,7 +214,7 @@ Helpful geometric object and arguments: `geom_bar(stat = ..., position = ...)`
 **13. Look up the documentation for `chisq.test()` to carry out a chi-square test of independence between the SET level and instructor sex at birth in your new data set.**
 
 ```{r}
-# code chunk for Q16
+# code chunk for Q13
 
 ```
 
