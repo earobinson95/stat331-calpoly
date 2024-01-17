@@ -36,27 +36,35 @@ Save **both** your .qmd file and your data set in the same folder within your St
 
 ### Data Set
 
-The data set `teacher_evals` contains Student Evaluations of Teaching (SET) ratings provided by students of one university in Poland at the end of the winter semester of the 2020/2021 academic year. The SET questionnaire used by this university is:
+The data set `teacher_evals.csv` contains Student Evaluations of Teaching (SET) ratings provided by students of one university in Poland at the end of the winter semester of the 2020/2021 academic year. The SET questionnaire used by this university is:
 
 > Evaluation survey of the teaching staff of [university name]
 >
 > Please, complete the following evaluation form, which aims to assess the lecturer’s performance. Only one answer should be indicated for each question. The answers are coded in the following way: 5- I strongly agree; 4- I agree; 3- Neutral; 2- I don’t agree; 1- I strongly don’t agree.
 >
 > Question 1. I learnt a lot during the course. 
+>
 > Question 2. I think that the knowledge acquired during the course is very useful.
+>
 > Question 3. The professor used activities to make the class more engaging.
+>
 > Question 4. If it was possible, I would enroll for the course conducted by this lecturer again. 
+>
 > Question 5. The classes started on time.
+>
 > Question 6. The lecturer always used time efficiently.
+>
 > Question 7. The lecturer delivered the class content in an understandable and efficient way.
+>
 > Question 8. The lecturer was available when we had doubts.
+>
 > Question 9. The lecturer treated all students equally regardless of their race, background and ethnicity.
 
 The data set covers all SET surveys filled by students in all fields and levels of study offered by the university. In the period of data collection, the university was entirely in the online regime amid the Covid-19 pandemic. While the expected learning outcomes formally have not been changed, the online mode of study could have affected the grading policy and could have implications for some of the studied SET biases. The average SET scores were matched with the characteristics of the teacher for degree, seniority, gender, and SET scores in the past six semesters; the course characteristics for time of day, day of the week, course type, course breadth, class duration, and class size; the attributes of the SET survey responses as the percentage of students providing SET feedback; and the grades of the course for the mean, standard deviation, and percentage failed. Data on course grades are also available for the previous six semesters. This rich data set allows many of the biases reported in the literature to be tested for and new hypotheses to be formulated.          
 
-Before tackling the problems, study the description of each variable [here](http://conservancy.umn.edu/bitstream/handle/11299/116327/5/explanationAAEHiphopChesley.txt).
+Before tackling the problems, study the description of each variable [here](https://earobinson95.github.io/stat331-calpoly/lab-assignments/Lab3-dplyr/teacher_evals_codebook.pdf).
 
-journal, Under blind review in refereed. University SET data, with faculty and courses characteristics. Ann Arbor, MI: Inter-university Consortium for Political and Social Research [distributor], 2021-09-12. <https://doi.org/10.3886/E149801V1>
+*journal, Under blind review in refereed. University SET data, with faculty and courses characteristics. Ann Arbor, MI: Inter-university Consortium for Political and Social Research [distributor], 2021-09-12.* <https://doi.org/10.3886/E149801V1>
 
 **1. Load the appropriate R packages and import the data set, `teacher_evals`.**
 
@@ -85,15 +93,7 @@ It is not one teacher per row! It's also not just one class per row!
 :::
 
 
-
-**4. Missing values for some of the variables were replaced with other values. How were missing values replaced? What do you believe are some benefits and drawbacks of doing this?**
-
-```{r}
-# you may want to use code to answer this question
-
-```
-
-**5. Clean the data set in whichever ways you see fit. This might mean adjusting *variable type*, for example from `character` to `factor`, or dealing with missing data. Assign your cleaned data set to a new data set named `hiphop_clean` -- use this data set going forward.**
+**4. Clean the data set in whichever ways you see fit. This might mean adjusting *variable type*, for example, is the instructor a numeric data type? How do you want to deal with missing data? Assign your cleaned data set to a new data set named `teacher_evals_clean` -- use this data set going forward.**
 
 ::: callout-tip
 Helpful functions: `mutate()`, `as.factor()`
@@ -102,11 +102,22 @@ It would be most efficient to use `across()` in combination with `mutate()` to c
 :::
 
 ```{r}
+# code chunk for Q4
+
+```
+
+**5. Rename the variable "gender" to indicate "sex_at_birth".**
+
+::: callout-tip
+Helpful functions: `rename()``
+:::
+
+```{r}
 # code chunk for Q5
 
 ```
 
-**6. How many unique AAE words were studied in this data set?**
+**6. How many unique instructors were evaluated in this data set?**
 
 ::: callout-tip
 Helpful functions: `distinct()`, `count()`
@@ -117,10 +128,10 @@ Helpful functions: `distinct()`, `count()`
 
 ```
 
-**7. Make a new variable that re-categorizes `ethnic` into only two groups, "white" and "non-white", to simplify your data.**
+**6. To simplify your data, make a new variable that re-categorizes `time_of_day` into three groups, "morning" -- "<10" "day" -- "10-14" and "14-18", and "evening -- ">18".**
 
 ::: callout-tip
-Helpful functions: `mutate()`, `if_else()`
+Helpful functions: `mutate()`, `case_when()`
 :::
 
 ```{r}
@@ -128,12 +139,10 @@ Helpful functions: `mutate()`, `if_else()`
 
 ```
 
-**8. It is fairly common for researchers to collapse ethnic or racial categories similar to what you just did. What are some issues with representing the data in this way?**
-
-**9. What are the demographics of the people in this study? Investigate the variables `sex`, `age`, and `ethnic` and summarize your findings in 1-3 complete sentences.**
+**7. What are the demographics of the instructors in this study? Investigate the variables `academic_degree`, `seniority`, and `sex_at_birth` and summarize your findings in 1-3 complete sentences.**
 
 ::: callout-tip
-You'll need to first manipulate your data to have each person represented only once.
+You'll need to first manipulate your data to have each instructor represented only once.
 
 Helpful functions: `select()`, `distinct(___, .keep_all = TRUE)`, `count()`, `summary()`
 :::
@@ -143,10 +152,10 @@ Helpful functions: `select()`, `distinct(___, .keep_all = TRUE)`, `count()`, `su
 
 ```
 
-**10. Make at least two plots to display the demographic information of the subjects in this study.**
+**8. Make one plot to display the demographic information of the subjects in this study.**
 
 ::: callout-note
-You do not need to discuss these plots, but make sure they are appropriate to the data types and have informative titles and axis labels. Feel free to use the skills you learned in Challenge 2 to enhance your plots!
+You do not need to discuss these plots, but make sure they are appropriate to the data types and have informative titles and axis labels. Your plot should include all three variables at once. Use the skills you learned in Week 2 to design and enhance your plots! What will your aesthetics be? What geometric objects are appropriate for the data types? Will you use facetting?
 :::
 
 ```{r}
@@ -154,93 +163,74 @@ You do not need to discuss these plots, but make sure they are appropriate to th
 
 ```
 
-### Familiar words
+### Rate my Professor
 
-For each demographic group listed below, determine which word(s) in this study was(were) the most **and** least familiar on average.
+For each demographic group and survey question specified below, determine which class(es) in this study was(were) the highest **and** lowest rated, on average.
 
 ::: callout-tip
-Helpful functions: `filter()`, `group_by()`, `summarize()`, `slice_max()`, `slice_min()`
+Helpful functions: `filter()`, `group_by()`, `summarize()`, `slice()`
 
-Useful variables: `word`, `familiarity`, `sex`, `age`, `ethnic`
+Useful variables: `course_id`, `SET_score_avg`, `academic_degree`, `seniority`, `sex_at_birth`
 :::
 
-**11. People below the age of 20.**
+**11. Which courses overall had the highest and lowest average rating for Question 3 (The professor used activities to make the class more engaging)?**
 
 ```{r}
 # code chunk for Q10
 
 ```
 
-**12. Non-white women.**
+**12. Which courses taught by instructors with over 6 years of experience had the highest and lowest average rating for Question 3 (The professor used activities to make the class more engaging)?**
 
 ```{r}
 # code chunk for Q11
 
 ```
 
-**13. White men above the age of 30.**
+**13. Which courses taught by females with either a Doctorate ("dr") or Professor ("prof") academic degree had the highest and lowest average rating for Question 3 (The professor used activities to make the class more engaging)?**
 
 ```{r}
 # code chunk for Q12
 
 ```
 
-### Study Subjects
-
-A joke among the [Tidy Tuesday](https://www.tidytuesday.com/) community is that Justin Bieber was one of the subjects in this study. Bieber, a white male, from a relatively small town (10,000-60,000 people) in Ontario would have been 17-23 at the time of the study.
-
-**14. Determine which subject you believe is secretly Bieber, justify your answer.**
+## Conducting Statistical Analyses (Chi-square Test of Independence)
 
 ::: callout-tip
-Refer again to the data set description. There is another clue about Bieber's identity.
+#### Refresher on one-way ANOVA
+
+While a second course in statistics is a pre-requisite for this class, you may visit <https://openintro-ims.netlify.app/inference-tables#inference-tables> for a refresher on Chi-square test of independence 
+:::
+
+Let's compare the level of SET ratings for Question 7 (The lecturer delivered the class content in an understandable and efficient way) between males and females.
+
+**14. Create a new data set `teacher_eval_comparisons` that accomplishes the following with one pipeline. (1) Includes responses for Question 7 only, (2) creates a new variable called `SET_level` that is "low" if the `SET_score_avg` is lower than 3 and "high" otherwise, and (3) contains only the variables we are interested in -- `course_id`, `SET_score_avg`, `SET_level`, and `sex_at_birth`.**
+
+::: callout-tip
+Helpful functions: `filter()`, `mutate()`, `if_else()`, `select()`
 :::
 
 ```{r}
-# code chunk for Q13
+# code chunk for Q14
 
 ```
 
-## Challenge 3: Published Comparisons & Data Ethics (+10)
-
-::: callout-note
-Your challenge should be submitted as a separate file, not included at the bottom of your Lab 3 file. Please submit your rendered HTML file.
-
-Make sure to include the following Quarto options in the YAML for your `challeng3.qmd` file:
-
--   `self-contained: true`
--   `echo: true`
--   `code-tools: true`
-
-You might just want to copy the YAML from this lab, or create a copy of this lab and delete the unnecessary parts. You may still need some of your data cleaning steps from the lab.
-:::
-
-### Published Comparisons
-
-In the published article ([You Know What It Is: Learning Words through Listening to Hip-Hop](https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0028248&type=printable)), the author presents a series of comparisons about the variables which most explain an individual's familiarity with African American English (AAE).
-
-Let us instead compare the number of artists participants reported liking for each genre. Specifically, you will determine which music genre most differentiates each of the demographic groups provided.
-
-> Which genre had much higher average (mean or median) reported artists in one group than the other.
->
-> -   Male versus Female
-> -   White versus Non-White
+**15. Using the new data set and your new ggplot2 skills, recreate the filled bar plot shown below.**
 
 ::: callout-tip
-You might find it helpful to first create a new data set with only the variables you are interested in! Look at the Music Variables in the data set description along with the demographics of interest.
-
-Helpful functions: `select()`, `group_by()`, `summarize()`, `across()`
-
-Other useful operations in R: `mean`, `diff`, `abs`, `which.max()`
+Helpful geometric object and arguments: `geom_bar(stat = ..., position = ...)`
 :::
 
-### Study Design Critique -- Data Ethics
+```{r}
+# code chunk for Q15
 
-Myself, members of the Tidy Tuesday community, and previous 331 students have voiced concerns regarding the design and social context of this study.
+```
 
-You've already read the [data description (link)](http://conservancy.umn.edu/bitstream/handle/11299/116327/5/explanationAAEHiphopChesley.txt) regarding how participants were recruited for participation in this study. **Now**, you need to read additional details regarding aspects of the study in the published paper: [You Know What It Is: Learning Words through Listening to Hip-Hop](https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0028248&type=printable).
 
-> Based on the design of this study and its context (African American English), what are **at least two** concerns you have?
->
-> Keep in mind this critique aligns with conversations regarding data ethics.
->
-> Thus, your concerns need to address the racial aspects of the design of this study.
+**16. Look up the documentation for `chisq.test()` to carry out a chi-square test of independence between the SET level and instructor sex at birth in your new data set.**
+
+```{r}
+# code chunk for Q16
+
+```
+
