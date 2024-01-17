@@ -128,17 +128,6 @@ Helpful functions: `distinct()`, `count()`
 
 ```
 
-**6. To simplify your data, make a new variable that re-categorizes `time_of_day` into three groups, "morning" -- "<10" "day" -- "10-14" and "14-18", and "evening -- ">18".**
-
-::: callout-tip
-Helpful functions: `mutate()`, `case_when()`
-:::
-
-```{r}
-# code chunk for Q7
-
-```
-
 **7. What are the demographics of the instructors in this study? Investigate the variables `academic_degree`, `seniority`, and `sex_at_birth` and summarize your findings in 1-3 complete sentences.**
 
 ::: callout-tip
@@ -152,17 +141,6 @@ Helpful functions: `select()`, `distinct(___, .keep_all = TRUE)`, `count()`, `su
 
 ```
 
-**8. Make one plot to display the demographic information of the subjects in this study.**
-
-::: callout-note
-You do not need to discuss these plots, but make sure they are appropriate to the data types and have informative titles and axis labels. Your plot should include all three variables at once. Use the skills you learned in Week 2 to design and enhance your plots! What will your aesthetics be? What geometric objects are appropriate for the data types? Will you use facetting?
-:::
-
-```{r}
-# code chunk for Q9
-
-```
-
 ### Rate my Professor
 
 For each demographic group and survey question specified below, determine which class(es) in this study was(were) the highest **and** lowest rated, on average.
@@ -173,21 +151,21 @@ Helpful functions: `filter()`, `group_by()`, `summarize()`, `slice()`
 Useful variables: `course_id`, `SET_score_avg`, `academic_degree`, `seniority`, `sex_at_birth`
 :::
 
-**11. Which courses overall had the highest and lowest average rating for Question 3 (The professor used activities to make the class more engaging)?**
+**8. Which courses overall had the highest and lowest average rating for Question 3 (The professor used activities to make the class more engaging)?**
 
 ```{r}
 # code chunk for Q10
 
 ```
 
-**12. Which courses taught by instructors with over 6 years of experience had the highest and lowest average rating for Question 3 (The professor used activities to make the class more engaging)?**
+**9. Which courses taught by instructors with over 6 years of experience had the highest and lowest average rating for Question 3 (The professor used activities to make the class more engaging)?**
 
 ```{r}
 # code chunk for Q11
 
 ```
 
-**13. Which courses taught by females with either a Doctorate ("dr") or Professor ("prof") academic degree had the highest and lowest average rating for Question 3 (The professor used activities to make the class more engaging)?**
+**10. Which courses taught by females with either a Doctorate ("dr") or Professor ("prof") academic degree had the highest and lowest average rating for Question 3 (The professor used activities to make the class more engaging)?**
 
 ```{r}
 # code chunk for Q12
@@ -197,14 +175,14 @@ Useful variables: `course_id`, `SET_score_avg`, `academic_degree`, `seniority`, 
 ## Conducting Statistical Analyses (Chi-square Test of Independence)
 
 ::: callout-tip
-#### Refresher on one-way ANOVA
+#### Refresher on Chi-square test of independence
 
 While a second course in statistics is a pre-requisite for this class, you may visit <https://openintro-ims.netlify.app/inference-tables#inference-tables> for a refresher on Chi-square test of independence 
 :::
 
 Let's compare the level of SET ratings for Question 7 (The lecturer delivered the class content in an understandable and efficient way) between males and females.
 
-**14. Create a new data set `teacher_eval_comparisons` that accomplishes the following with one pipeline. (1) Includes responses for Question 7 only, (2) creates a new variable called `SET_level` that is "low" if the `SET_score_avg` is lower than 3 and "high" otherwise, and (3) contains only the variables we are interested in -- `course_id`, `SET_score_avg`, `SET_level`, and `sex_at_birth`.**
+**11. Create a new data set `teacher_eval_comparisons` that accomplishes the following with one pipeline. (1) Includes responses for Question 7 only, (2) creates a new variable called `SET_level` that is "low" if the `SET_score_avg` is lower than 3 and "high" otherwise, and (3) contains only the variables we are interested in -- `course_id`, `SET_score_avg`, `SET_level`, and `sex_at_birth`.**
 
 ::: callout-tip
 Helpful functions: `filter()`, `mutate()`, `if_else()`, `select()`
@@ -215,7 +193,7 @@ Helpful functions: `filter()`, `mutate()`, `if_else()`, `select()`
 
 ```
 
-**15. Using the new data set and your new ggplot2 skills, recreate the filled bar plot shown below.**
+**12. Using the new data set and your new ggplot2 skills, recreate the filled bar plot shown below.**
 
 ::: callout-tip
 Helpful geometric object and arguments: `geom_bar(stat = ..., position = ...)`
@@ -227,7 +205,7 @@ Helpful geometric object and arguments: `geom_bar(stat = ..., position = ...)`
 ```
 
 
-**16. Look up the documentation for `chisq.test()` to carry out a chi-square test of independence between the SET level and instructor sex at birth in your new data set.**
+**13. Look up the documentation for `chisq.test()` to carry out a chi-square test of independence between the SET level and instructor sex at birth in your new data set.**
 
 ```{r}
 # code chunk for Q16
