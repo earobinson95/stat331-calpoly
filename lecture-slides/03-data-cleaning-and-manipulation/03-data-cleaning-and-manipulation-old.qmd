@@ -1,0 +1,877 @@
+---
+title: "WEEK 3: DATA CLEANING & MANIPULATION"
+format: 
+  revealjs:
+    theme: [default, custom.scss]
+editor: source
+self-contained: true
+---
+
+```{r setup}
+#| include: false
+#| message: false
+library(tidyverse)
+library(palmerpenguins)
+```
+
+## Monday, January 23rd
+
+Today we will...
+
++ Review File Paths + R Projects
++ Review Lab 2
++ A note on font accessibility in graphics
++ Mini lecture on text material
+  + Using `dplyr` verbs to manipulate data
++ [PA 3: Identify the Mystery College](https://earobinson95.github.io/stat331-calpoly/practice-activities/PA3-find-the-mystery-college)
+
+# Font Accessibility in Graphics
+
+## 
+
+![](images/nyt.png)
+
+::: columns
+::: {.column width="60%"}
+::: {style="font-size: 0.75em;"}
+> Serif fonts "have an extra flourish that makes it look pretty for many people, but can clutter what is on the page and that's what makes it harder to distinguish for people with visual disabilities than just having a very clean font with no extra bits and pieces around it."
+:::
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="35%"}
+![](images/times_vs_calibri.png)
+:::
+:::
+
+## Changing Font in `ggplot2`
+
+**Option 1:** Using your system's fonts
+
+::: columns
+::: {.column width="25%"}
+```{r}
+#| echo: true
+#| code-line-numbers: false
+windowsFonts()
+```
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="70%"}
+```{r}
+#| output-location: slide
+#| echo: true
+#| code-line-numbers: false
+#| warning: false
+ggplot(data = penguins, 
+       mapping = aes(x = bill_length_mm, 
+                     y = bill_depth_mm)) +
+  geom_point() +
+  labs(title = "Penguins from the Palmer Archipelago",
+       x = "Bill Length (mm)",
+       y = "Bill Depth (mm)") + 
+  theme(plot.title    = element_text(family = "sans", size = 28),,
+        axis.title.x  = element_text(family = "serif", size = 28), 
+        axis.title.y = element_text(family = "mono", size = 28)
+        )
+```
+:::
+:::
+
+## 
+
+**Option 2:** [**showtext** R package](https://r-graph-gallery.com/custom-fonts-in-R-and-ggplot2.html)
+
+```{r}
+#| echo: false
+#| eval: false
+## Need to run showtext_auto() before start plotting!
+library(showtext)
+showtext_auto()
+font_add_google("Gochi Hand", "gochi")
+font_add_google("Montserrat", "montserrat")
+```
+
+```{r}
+#| echo: true
+#| output-location: slide
+#| code-line-numbers: false
+library(showtext)
+showtext_auto()
+
+font_add_google("Gochi Hand", "gochi")
+font_add_google("Montserrat", "montserrat")
+
+ggplot(data = penguins, 
+       mapping = aes(x = bill_length_mm, 
+                     y = bill_depth_mm)) +
+  geom_point() +
+  labs(title = "Penguins from the Palmer Archipelago",
+       x = "Bill Length (mm)",
+       y = "Bill Depth (mm)") + 
+  theme(plot.title = element_text(family = "montserrat", size = 40),
+        axis.title.y = element_text(family = "gochi", size = 40),
+        axis.title.x = element_text(family = "gochi", size = 40)
+  )
+
+```
+
+
+# `dplyr`
+
+## `dplyr` verbs
+
+*"Grammar of Data Manipulation"*
+
+[`dplyr` cheatsheet](https://github.com/rstudio/cheatsheets/blob/main/data-transformation.pdf)
+
+:::: {.columns}
+
+::: {.column width="50%"}
++ `filter()`
++ `arrange()`
++ `select()`
++ `mutate()`
++ `summarize()`
++ Use `group_by()` to perform group wise operations
++ Use the pipe operator (`|>` or `%>%`) to chain together data wrangling operations
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| fig-cap: "Data wrangling by Allison Horst"
+knitr::include_graphics("https://raw.githubusercontent.com/allisonhorst/stats-illustrations/main/rstats-artwork/data_cowboy.png")
+```
+:::
+::::
+
+## Example Data set --  [Cereal](https://search.r-project.org/CRAN/refmans/liver/html/cereal.html)
+
+```{r}
+#| echo: true
+library(liver)
+data(cereal)
+```
+
+::: panel-tabset
+
+### Data Structure
+
+```{r}
+#| echo: true
+str(cereal, give.attr = FALSE)
+```
+
+### Data Head
+
+```{r}
+#| echo: true
+head(cereal)
+```
+
+### Data Summary
+
+```{r}
+#| echo: true
+summary(cereal)
+```
+
+:::
+
+# The Pipe Operator
+
+>No matter how complex and polished the individual operations are, it is often
+the quality of the glue that most directly determines the power of the system.
+>
+>— Hal Abelson
+
+## The Pipe Operator
+
++ Code should read **like a sentence**
+
++ The **data** is the primary object, so it should come first in your code.
+
+```{r}
+#| out-width: "50%"
+#| fig-align: center
+knitr::include_graphics("images/diagram_sentence.jpg")
+```
+
+## A Brief History of the Pipe
+
+The original pipe (`%>%`) was part of the `magrittr` package.
+
+`R` version 4.1.0 created the "native" pipe (`|>`)
+
+```{r}
+#| fig-align: center
+#| out-width: "30%"
+knitr::include_graphics("images/native_pipe.jpg")
+```
+
+## The Pipe Operator
+
+```{r}
+#| eval: false
+#| echo: true
+dr_robinson |>
+  do_a_dance()
+```
+
+## The Pipe Operator
+
+```{r}
+#| eval: false
+#| echo: true
+dr_robinson |>
+  do_a_dance()
+```
+
+<br>
+
+```{r}
+#| eval: false
+#| echo: true
+dr_robinson |>
+  put_on("cool hat") |>
+  do_a_dance(type = "macarena")
+```
+
+## The Pipe Operator: Data comes first!
+
++ `filter(data = cereal, ...)`
++ `select(data = cereal, ...)`
++ `mutate(data = cereal, ...)`
+
+```{r}
+#| echo: true
+#| eval: false
+summary(data = cereal)
+```
+
+is the same as
+
+```{r}
+#| echo: true
+#| eval: false
+cereal |> 
+  summary()
+```
+
+<br>
+
+The pipe operator is your friend! You can "pipe" manipulated data sets or summaries directly into your `ggplot2` code for plotting.
+
+# `filter()`
+
+```{r}
+#| fig-align: center
+#| fig-cap: "dplyr filter() by Allison Horst"
+knitr::include_graphics("https://github.com/allisonhorst/stats-illustrations/raw/main/rstats-artwork/dplyr_filter.jpg")
+```
+
+## `filter()`
+
+We filter to the rows (observations) we would like to keep in the data set.
+
+```{r}
+#| echo: true
+#| eval: false
+cereal |> 
+  filter(calories < 100)
+```
+
+```{r}
+#| echo: false
+#| eval: true
+cereal |> 
+  filter(calories < 100) |> 
+  knitr::kable() |> 
+  kableExtra::scroll_box(height = "400px")
+```
+
+We can add multiple filters to our data, to get a more specific subset!
+
+```{r}
+#| echo: true
+#| eval: false
+cereal |> 
+  filter(calories < 100,
+         type == "H")
+```
+
+## `filter()`: Handy Helpers!
+
++ `>` greater than
++ `<` less than
++ `==` equal to
++ `!` not
++ `%in%` identifies if an element belongs to a vector
++ `|` or
++ `is.na()` binary evaluation of missing values
+
+## `filter()`
+
+```{r}
+#| echo: true
+cereal |> 
+  filter(calories < 100,
+         type == "H")
+```
+
+<br>
+
+What if I wanted either "low calorie" cereals or hot cereals...
+
+```{r}
+#| echo: true
+#| eval: false
+#| code-fold: true
+cereal |> 
+  filter(calories < 100 |
+           type == "H")
+```
+
+## `filter()`: Characters and Factors
+
+Are you interested in observations included in a list of levels?
+
+```{r}
+#| echo: true
+cereal |> 
+  filter(name %in% c("Cheerios", "Cinnamon Toast Crunch", "Raisin Bran", "Cracklin' Oat Bran"))
+```
+
+# `arrange()`
+
+## `arrange()`
+
+We **arrange** the data set in order of a particular variable.
+
+```{r}
+#| echo: true
+cereal |> 
+  arrange(calories)
+```
+
+## `arrange()`
+
+We can arrange by **multiple** variables.
+
+```{r}
+#| echo: true
+#| eval: false
+cereal |> 
+  arrange(calories, sugars)
+```
+
+```{r}
+#| echo: false
+#| eval: true
+cereal |> 
+  arrange(calories, sugars) |> 
+  knitr::kable() |> 
+  kableExtra::scroll_box(height = "400px")
+```
+
+
+## `arrange()`: Descending Order
+
+Default is ascending order!
+
+```{r}
+#| echo: true
+#| eval: false
+cereal |> 
+  arrange(calories)
+```
+
+Need to add `desc()` to get descending order! 
+
+```{r, eval = FALSE}
+#| echo: true
+cereal |> 
+  arrange(desc(calories))
+```
+
+## `arrange()`: Related functions
+
++ `slice()`
++ `slice_min()`
++ `slice_max()`
++ `top_n()`
++ `bottom_n()`
+
+## `slice_max()`
+
+```{r}
+#| echo: true
+cereal |> 
+  slice_max(order_by = sugars, n = 3)
+```
+
+```{r}
+#| echo: true
+#| eval: false
+cereal |> 
+  slice_max(order_by = sugars, n = 3, with_ties = FALSE)
+```
+
+::: callout-tip
+It is good practice to specify the function arguments!
+:::
+
+# `select()`
+
+We **select** which variables we would like to remain in the dataset.
+
+```{r}
+#| eval: false
+#| echo: true
+cereal |> 
+  select(name, manuf, calories, cups)
+```
+
+```{r}
+#| echo: false
+cereal |> 
+  select(name, manuf, calories, cups)  |> 
+  knitr::kable() |> 
+  kableExtra::scroll_box(height = "250px")
+```
+
+You can use the `:` to select a sequence of columns! 
+
+```{r}
+#| echo: true
+#| eval: false
+cereal |> 
+  select(name:calories)
+```
+
+```{r}
+#| echo: false
+#| eval: true
+cereal |> 
+  select(name:calories)  |> 
+  knitr::kable() |> 
+  kableExtra::scroll_box(height = "250px")
+```
+
+## `select()`: Omitting Columns
+
+You can remove columns from the dataset using a `-`. 
+
+```{r}
+#| echo: true
+#| eval: false
+cereal |> 
+  select(-rating)
+```
+
+## `select()`: Reordering
+
+You can reorder the columns in the dataset inside of `select()`!
+
+```{r}
+#| echo: true
+#| eval: false
+cereal |> 
+  select(name, rating, manuf, type, calories, cups, weight, 
+         everything())
+```
+
+```{r}
+#| echo: false
+cereal |> 
+  select(name, rating, manuf, type, calories, cups, weight, 
+         everything()) |> 
+  knitr::kable() |> 
+  kableExtra::scroll_box(height = "400px")
+```
+
+
+## `select()`: Handy Helpers!
+
+- `everything()`
+- `starts_with()`
+- `ends_with()`
+- `contains()`
+
+## `rename()`
+
+- You can use `select()` to rename, but all columns not included will be deleted! 
+  * Using the `rename()` function is easier! 
+
+```{r}
+#| echo: true
+cereal |> 
+  rename(temp = type)
+```
+
+# `mutate()`
+
+```{r}
+#| fig-align: center
+#| fig-cap: "Mutate (by Allison Horst)"
+knitr::include_graphics("https://github.com/allisonhorst/stats-illustrations/raw/main/rstats-artwork/dplyr_mutate.png")
+```
+
+## `mutate()`
+
+The data set gets *mutated* to either
+
++ include a new variable
+
+```{r}
+#| eval: false
+#| echo: true
+cereal |> 
+  mutate(cal_per_cup = calories / cups)
+```
+
+```{r}
+#| eval: true
+#| echo: false
+cereal |> 
+  mutate(cal_per_cup = calories / cups)  |> 
+  knitr::kable() |> 
+  kableExtra::scroll_box(height = "200px")
+```
+
+<br>
+
++ revise an existing variable
+
+```{r}
+#| eval: false
+#| echo: true
+cereal |> 
+  mutate(shelf = as.factor(shelf))
+```
+
+## `mutate()`: Handy Helpers!
+
++ `if_else()` or `case_when()`
++ `as.factor()`, `as.numeric()`, etc.
++ `+`, `-`, `*`, `/`
++ `%%`
+
+# `group_by()`
+
+```{r}
+#| fig-align: center
+#| fig-cap: "The ungroup() command is just as important as the group_by() command! (by Allison Horst)"
+knitr::include_graphics("https://raw.githubusercontent.com/allisonhorst/stats-illustrations/main/rstats-blanks/ungroup_blank.png")
+```
+
+## `group_by()`
+
+Separating a **categorical** variable into its different levels. 
+
+```{r}
+#| echo: true
+cereal |> 
+  group_by(type)
+```
+
+# `summarize()`
+
+`group_by()` is almost always paired with `summarize()`!
+
+## `summarize()`
+
+We calculate different **summaries** of variables in the data set.
+
+```{r}
+#| echo: true
+#| eval: true
+cereal |> 
+  summarise(mean_calories = mean(calories))
+```
+
+Or *multiple* summaries.
+
+```{r}
+#| echo: true
+cereal |> 
+summarise(mean_calories = mean(calories),
+          num_cereals = n(),
+          mean_sugar = mean(sugars)
+          )
+```
+
+## `group_by() + summarize()` = Power!
+
+```{r}
+#| echo: true
+#| eval: true
+cereal |> 
+  group_by(manuf) |> 
+  summarise(mean_calories = mean(calories))
+```
+
+## `summarize()`: Handy Helpers!
+
+- `mean()`, `median()`, `sd()`, `sum()`
+- `n()`, `n_distinct()` 
+- `min()`, `max()`
+- `first()`, `last()`, `nth()`
+- `across()`
+
+## Glue it all together!
+
+```{r}
+#| echo: true
+cereal |> 
+  filter(type == "cold") |> 
+  mutate(cal_per_cup = calories / cups) |> 
+  group_by(manuf) |> 
+  summarise(mean_cal_per_cup = mean(cal_per_cup))
+```
+
+## Save your changes!
+
+When you make these changes, make sure you are assigning them to a data set!
+
+```{r}
+#| code-line-numbers: 1
+#| echo: true
+#| eval: false
+cereal_summary <- cereal |> 
+  filter(type == "cold") |> 
+  mutate(cal_per_cup = calories / cups) |> 
+  group_by(manuf) |> 
+  summarise(mean_cal_per_cup = mean(cal_per_cup))
+```
+
+## Formatting your code
+
+::: panel-tabset
+
+### Bad Practice
+
+```{r}
+#| echo: true
+#| eval: false
+cereal |> group_by(type) |> summarise(mean_calories = mean(calories), num_cereals = n(), mean_sugar = mean(sugars))
+```
+
+### Good Practice
+```{r}
+#| echo: true
+#| eval: false
+cereal |> 
+  group_by(type) |> 
+  summarise(mean_calories = mean(calories), 
+            num_cereals = n(),
+            mean_sugar = mean(sugars)
+            )
+```
+:::
+
+## [PA 3: Identify the Mystery College](https://earobinson95.github.io/stat331-calpoly/practice-activities/PA3-find-the-mystery-college)
+
+Today you will be using the dplyr package to clean a data set and then using that cleaned data set to figure out what college Ephelia has been accepted to.
+
+> Submit the full name of the college Ephelia will attend to the Canvas Quiz.
+
+```{r}
+#| fig-align: center
+knitr::include_graphics("https://news.winona.edu/wp-content/uploads/2019/01/45201097362_49075670b8_k.jpg")
+```
+
+## To do...
+
++ **PA 3: Identify the Mystery College**
+  + Due Wednesday 1/25 at 8:00am
+
+## Wednesday, January 25th
+
+Today we will...
+
++ Review PA 3: Identify the Mystery College
++ Extending `dplyr` verbs
+  + `across()`
+  + `if_else()`
+  + `case_when()`
++ Implication of Data Ethics
++ Lab 3: Hip Hop Lyrics
++ Challenge 3: Published Comparisons & Data Ethics
+
+# Extending `dplyr` verbs
+
+## Example Data set --  [Cereal](https://search.r-project.org/CRAN/refmans/liver/html/cereal.html)
+
+```{r}
+#| echo: true
+library(liver)
+data(cereal)
+```
+
+::: panel-tabset
+
+### Data Structure
+
+```{r}
+#| echo: true
+str(cereal, give.attr = FALSE)
+```
+
+### Data Head
+
+```{r}
+#| echo: true
+head(cereal)
+```
+
+### Data Summary
+
+```{r}
+#| echo: true
+summary(cereal)
+```
+
+:::
+
+## Summarize or mutate multiple columns with `across()`
+
+```{r}
+#| echo: true
+cereal |> 
+  group_by(type) |> 
+  summarise(across(.cols = calories:potass, .fns = mean))
+```
+
+## Discritize with `if_else()`
+
+```{r}
+#| echo: true
+cereal |> 
+  mutate(cal_cateory = if_else(calories < 100, "low", "high"), .after = calories)
+```
+
+## Re-leveling with `case_when()`
+
+```{r}
+#| echo: true
+cereal |> 
+  mutate(manuf = case_when(manuf == "A" ~ "American Home Food Products", 
+                           manuf == "G" ~ "General Mills", 
+                           manuf == "K" ~ "Kelloggs", 
+                           manuf == "N" ~ "Nabisco", 
+                           manuf == "P" ~ "Post", 
+                           manuf == "Q" ~ "Quaker Oats", 
+                           manuf == "R" ~ "Ralston Purina"
+                           )
+  )
+```
+
+
+## `group_by()` + `slice()`
+
+```{r}
+#| echo: true
+cereal |> 
+  group_by(manuf) |> 
+  slice_max(order_by = calories)
+```
+## Multiple Variables in `slice()`
+
+```{r}
+#| echo: true
+cereal |> 
+  arrange(calories, sugars) |> 
+  slice(n = 1:3)
+```
+
+## Piping into `ggplot()`
+
+```{r}
+#| output-location: slide
+#| echo: true
+#| code-line-numbers: false
+#| fig-align: center
+cereal |> 
+  mutate(manuf = case_when(manuf == "A" ~ "American Home Food Products", 
+                           manuf == "G" ~ "General Mills", 
+                           manuf == "K" ~ "Kelloggs", 
+                           manuf == "N" ~ "Nabisco", 
+                           manuf == "P" ~ "Post", 
+                           manuf == "Q" ~ "Quaker Oats", 
+                           manuf == "R" ~ "Ralston Purina"
+                           )
+  ) |> 
+  filter(type == "cold") |> 
+  mutate(cal_per_cup = calories / cups) |> 
+  group_by(manuf) |> 
+  summarise(mean_cal_per_cup = mean(cal_per_cup)) |> 
+  ggplot(aes(x = manuf, 
+             y = mean_cal_per_cup, 
+             shape = manuf)) +
+  geom_point(show.legend = FALSE,
+             size = 3) +
+  labs(x = "Manufacturer",
+       subtitle = "Calories per cup (mean)") +
+  theme_bw() +
+  theme(axis.title.y = element_blank(),
+        axis.title.x  = element_text(size = 32),
+        plot.subtitle = element_text(size = 32),
+        axis.text = element_text(size = 28)
+        )
+```
+
+# Implication of Data Ethics
+
+## Data Science Oath
+
+> I will not be ashamed to say, “I know not,” nor will I fail to call in my colleagues when the skills of another are needed for solving a problem.​
+
+> I will respect the privacy of my data subjects, for their data are not disclosed to me that the world may know, so I will tread with care in matters of privacy and security.
+
+> I will remember that my data are not just numbers without meaning or context, but represent real people and situations, and that my work may lead to unintended societal consequences, such as inequality, poverty, and disparities due to algorithmic bias.
+
+::: callout-note
++ [National Academy of Sciences](https://en.wikipedia.org/wiki/National_Academy_of_Sciences)
++ [Data Values and Principles](https://datapractices.org/manifesto/)
+:::
+
+## ASA Ethical Guidelines
+
+The American Statistical Association’s Ethical Guidelines for Statistical Practice are intended to help statistics practitioners make decisions ethically. Additionally, the ethical guidelines aim to promote accountability by informing those who rely on statistical analysis of the standards they should expect.
+
+>Visit [Ethical Guidelines for Statistical Practice](https://www.amstat.org/your-career/ethical-guidelines-for-statistical-practice) and discuss one of the guidelines with your partner. 
+>
+> + What surprises you? What did you learn? 
+> + What scenario might this come into play?
+
+## Institutional Review Board
+
+IRB reviews help to ensure that research participants are protected from research-related risks and treated ethically, a necessary prerequisite for maintaining the public’s trust in the research enterprise and allowing science to advance for the common good.
+
+::: callout-note
+[Watch a video about IRB](https://www.youtube.com/watch?v=U8fme1boEbE&ab_channel=U.S.DepartmentofHealthandHumanServices) to learn more.
+:::
+
+## [Weekly Lab + Challenge](https://earobinson95.github.io/stat331-calpoly/lab-assignments/Lab3-dplyr/lab3-hiphop-lyrics.html)
+
+![](../../lab-assignments/Lab3-dplyr/published-article.jpg)
+
+
+## To do...
+
++ **Lab 3: Hip Hop Lyrics**
+  + Due Friday, 1/27 at 11:59pm
+  
++ **Challenge 3: Published Comparisons & Data Ethics**
+  + Due Saturday, 1/28 at 11:59pm
+  
++ **Read Chapter 4: Data Joins and Transformations**
+  + **Concept Check 4.1 + 4.2** due Monday (1/30) at 8:00am
+  
