@@ -112,13 +112,13 @@ Remember to avoid "object junk" in your Environment!
 While a second course in statistics is a pre-requisite for this class, you may visit <https://moderndive.com/10-inference-for-regression.html> for a refresher on Simple Linear Regression with a single predictor.
 :::
 
-**6. Create a scatterplot showing the relationship between the Median household income expressed in 2018 dollars and the full-time median weekly price charged for Center-based childcare for an infant. Overlay a linear regression line (lm) to show the trend.**
+**6. Create a scatterplot showing the relationship between the Median household income expressed in 2018 dollars and the full-time median weekly price charged for Center-based childcare for an infant in California. Overlay a linear regression line (lm) to show the trend.**
 
 ```{r}
 # plot for scatterplot
 ```
 
-**7. Look up the documentation for `lm()` to fit a linear regression model (recall: y = mx+b) to the data. Identify the coefficient estimates from the model.**
+**7. Look up the documentation for `lm()` to fit a linear regression model (recall: y = mx+b) to the relationship shown above. Identify the coefficient estimates from the model.**
 
 ```{r}
 # complete the code provided
@@ -126,7 +126,7 @@ reg_mod1 <- lm()
 summary(reg_mod1)
 ```
 
-**8. Do you have evidence to conclude there is a relationship between the median household income and the median weekly cost of Center-based childcare for infants in CA? Cite values from your output for support.**
+**8. Do you have evidence to conclude there is a relationship between the median household income and the median weekly cost of Center-based childcare for infants in California? Cite values from your output for support.**
 
 
 ## Open-ended Essay (up to +21 FP)
@@ -141,7 +141,7 @@ You can delete any irrelevant parts of the above lab portion for this submission
 Dr. Robinson will be reading through these and providing feedback.
 :::
 
-**Investigate the full-time median price charged for childcare in a Center-based setting versus the full-time median price charged for childcare in a Family (in-home) setting for California. Pay close attention to the different developmental stages. Support your answer with at least one table of summary statistics and one visualization.**
+**Investigate the full-time median price charged for childcare in a Center-based setting versus the full-time median price charged for childcare in a Family (in-home) setting in California. Pay close attention to the different developmental stages. Support your answer with at least one table of summary statistics and one visualization.**
 
 ::: callout-tip
 + Aim for about 150-300 words.
