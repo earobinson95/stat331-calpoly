@@ -1,0 +1,148 @@
+---
+title: "Lab 4: Childcare Costs"
+author: "Your Name"
+format: 
+  html:
+    self-contained: true
+    code-tools: true
+    toc: true
+editor: source
+execute: 
+  error: true
+  echo: true
+  message: false
+  warning: false
+---
+
+::: {.callout-tip collapse="true"}
+I advise you to focus particularly on:
+
+-   Setting chunk options carefully.
+
+-   Making sure you don't print out more output than you need to.
+
+-   Making sure you don't assign more objects than necessary. Avoid "object junk" in your Environment.
+
+-   Making your code readable and nicely formatted.
+
+-   Thinking through your desired result **before** writing any code.
+:::
+
+[Download starter .qmd file](lab4-childcare-costs.qmd)
+
+## Data Set-up
+
+In this lab we're going to be looking at the median weekly cost of childcare.
+
+The data set comes to us from [TidyTuesday](https://github.com/rfordatascience/tidytuesday). A description of the data can be found [here](https://github.com/rfordatascience/tidytuesday/blob/master/data/2023/2023-05-09/readme.md).
+
+**0. Load the appropriate libraries and read in the data.**
+
+```{r}
+#| label: setup
+
+# load libraries
+
+# Import data
+childcare_costs <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-05-09/childcare_costs.csv')
+counties <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-05-09/counties.csv')
+```
+
+**1. Briefly describe the data set. What information does it contain?**
+
+## California Childcare Costs
+
+**2. Let's focus only on California for now, create a `ca_childcare` data set containing both the county information as well as all information from the `childcare_costs` data set.**
+
+**a. Sketch a "game plan" for completing this data task. Note you should be able to do all of this within one pipeline**
+
+```{r}
+#| echo: false
+knitr::include_graphics("")
+```
+
+**b. Implement/code your "game plan" to create the data set of childcare costs in California.** *(Checkpoint: There are 53 counties in CA and 11 years in the data set; you should have 53x11 = 638 observations)*
+
+```{r}
+# Code for Q2
+```
+
+**3. Using a function from the `forcats` package, categorize the counties in California into each of the 10 regions specified in <https://census.ca.gov/regions/>. Use the Region description, not the Region number.** 
+
+::: callout-tip
+Make sure to save this information to use later, but be cautious of how much "object junk" is in your Environment.
+
+This is probably a good place to use ChatGPT to reduce on tedious work. But you do need to know how to prompt ChatGPT to make it useful!
+:::
+
+```{r}
+# code for Q3
+```
+
+**4. Which California *region* had the lowest *median* full-time median weekly price charged for Center-based childcare for infants in 2018?**
+
+::: callout-warning
+The code should give me the EXACT answer. This means having the code output the exact row(s) and variable(s) necessary for providing the solution.
+:::
+
+```{r}
+# code for Q4
+```
+
+**5. The following plot shows, for all ten California regions, the change over time for the full-time median price charged for Center-based childcare for infants, toddlers, and preschoolers. Recreate the plot; you do not have to replicate the exact finishing touches - e.g., color, theme - but your plot should resemble the content of this plot, including the order of the facets and legend, reader-friendly labels, axes breaks, and a loess smoother.**
+
+::: callout-tip
+This will require transforming of your data! Sketch out what you want the data set to look like before you begin to code! You should be starting with your California data set containing the regions.
+
+Remember to avoid "object junk" in your Environment!
+:::
+
+![Plot to recreate](https://github.com/earobinson95/stat331-calpoly/blob/master/lab-assignments/lab4/ca-avocado-size-proportions.png?raw=true)
+
+```{r}
+# code for Q5
+```
+
+
+## Median Income vs Childcare Costs for Infants
+
+::: callout-tip
+
+:::
+
+**6. Create a scatterplot showing the relationship between the Median household income expressed in 2018 dollars and the full-time median weekly price charged for Center-based childcare for an infant. Overlay a linear regression line (lm) to show the trend.**
+
+```{r}
+# plot for scatterplot
+```
+
+**7. Look up the documentation for `lm()` to fit a linear regression model (recall: y = mx+b) to the data. Identify the coefficient estimates from the model.**
+
+```{r}
+# complete the code provided
+reg_mod1 <- lm()
+summary(reg_mod1)
+```
+
+**8. Do you have evidence to conclude there is a relationship between the median household income and the median weekly cost of Center-based childcare for infants in CA? Cite values from your output for support.**
+
+
+## Open-ended Essay (up to +21 FP)
+
+This is optional, but encouraged as it can earn you Flex Points as well as give you a taste of what to expect for the open-ended essay portion of the Midterm Exam.
+
+::: callout-caution
+If you elect to submit an answer for Flex Points, please upload your lab to both the Lab 4 Assignment and the Open-ended Essay Flex Point Assignment on Canvas.
+
+You can delete any irrelevant parts of the above lab portion for this submission. This means you might want to make a copy of your `.qmd` file.
+
+Dr. Robinson will be reading through these and providing feedback.
+:::
+
+**Investigate the full-time median price charged for childcare in a Center-based setting versus the full-time median price charged for childcare in a Family (in-home) setting for California. Pay close attention to the different developmental stages. Support your answer with at least one table of summary statistics and one visualization.**
+
+::: callout-tip
++ Aim for about 250-400 words.
++ This should read like a mini-report. I recommend using `#| code-fold: true` for readability.
++ Don't just have a summary table or plot show up "out of the blue" -- make sure to build up to them with text, describe what they show, and provide captions.
+:::
