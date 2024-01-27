@@ -1,6 +1,6 @@
 ---
 title: "PA 4: Governement Spending"
-subtitle: "Tidy Data with tidyr"
+subtitle: "Tidy Data with tidyr & Factor Ordering in Visualizations with forcats"
 format: 
   html:
     self-contained: true
@@ -54,18 +54,20 @@ Finally, `read_xlsx()` also has a `n_max` argument, where you specify the maximu
 
 **1. Modify the code below to read the military expenditures data into your work space.**
 
-```{r military-data}
-military <- read_xlsx(here::here("practice-activities",
-                                 "data", 
-                                 "gov_spending_per_capita.xlsx"), 
-                      sheet = , 
-                      skip  = , 
-                      n_max = )
-```
-
 ::: callout-warning
 If you have the excel file open on your computer while trying to import the data, you may get an error. Close the excel file and try running your code again.
 :::
+
+```{r military-data}
+military <- read_xlsx(here::here("practice-activities",
+                                 "data", 
+                                 "gov_spending_per_capita.xlsx"
+                                 ), 
+                      sheet = , 
+                      skip  = , 
+                      n_max = 
+                      )
+```
 
 ## Data Cleaning
 
@@ -123,44 +125,29 @@ Unfortunately, R doesn't come with a built-in `!%in%` function. However, a cleve
 
 **4. Use the `anti_join()` function to filter out the `Country` values we don't want in the `military_clean` data set. The `by` argument needs to be filled with the name(s) of the variables that the two data sets should be joined with.**
 
+::: callout-tip
+To join by different variables on `datasetX` and `datasetY`, use a named vector. For example, `by = join_by(a == b)` will match `datasetX$a` to `datasetY$b`.
+:::
+
 ```{r}
 # Code for Q4
 
 ```
 
-::: callout-tip
-To join by different variables on `datasetX` and `datasetY`, use a named vector. For example, `by = c("a" = "b")` will match `datasetX$a` to `datasetY$b`.
-:::
-
-
-::: callout-note
-### Canvas Q1
-
-**5. What four regions were NOT removed from the `military_clean` data set?** 
-
-:::
-
-::: callout-tip
-Think about what uniquely separates the rows for the regions from the rows for the countries.
-
-Useful functions: `filter()`, `across()`, `is.na`
-:::
-
-```{r}
-# Code for Q5
-
-```
-
-
 ## Data Organization
 
-The comparison I am interested in looking at is the military expenditures across every year in the data. 
+The comparison I am interested in looking at is the military expenditures between Countries in Eastern Europe. 
 Something like this:
 
-![Desired plot: synthetic data used for demonstration -- your plot will have different values.](https://github.com/earobinson95/stat331-calpoly/blob/master/practice-activities/government_spending_synthetic_plot.png?raw=true)
+```{r}
+#| echo: false
+#| fig-cap: "Desired plot: Countries from Central Asia used for demonstration -- your plot will have different countries and spending values."
+#| out-width: 50%
+knitr::include_graphics("https://github.com/earobinson95/stat331-calpoly/blob/master/practice-activities/military-expenditure.png?raw=true")
+```
 
 ::: callout-warning
-Unfortunately, this requires that every year is included in one column!
+Unfortunately, if we want a point representing the spending for every country and year, this requires that every year is included in one column!
 :::
 
 To tidy a data set like this, we need to pivot the columns of years from wide format to long format. To do this process we need three arguments:
@@ -173,42 +160,47 @@ To tidy a data set like this, we need to pivot the columns of years from wide fo
 
 Each of these pieces form the three required arguments to the `pivot_longer()` function.
 
-**6. Pivot the cleaned up `military` data set to a "longer" orientation. Save this new "long" version as a new data set called `military_long`.**
+**5. Pivot the cleaned up `military` data set to a "longer" orientation. Save this new "long" version as a new data set called `military_long`.**
+
+::: callout-caution
+**Do not** overwrite your cleaned up data set. Think about code organization.
+:::
 
 ```{r}
 # Code for Q6
 
 ```
 
-::: callout-caution
-**Do not** overwrite your cleaned up data set
-:::
+**6. Notice that when you pivoted the data set, the `Year` variable is a character data type. Convert this to numeric.**
+
+```{r}
+summary(military_long)
+
+# insert code for converting Year to numeric -- make sure to save this change to military long
+```
 
 ## Data Visualization Exploration
 
-Now that we've transformed the data, let's create a plot to explore the military spending across the years.
+**7. Create a plot to explore the military spending between the Eastern European Countries**
 
-**7. Create side-by-side box-plots of the military spending for each year.**
+```{r}
+# I have provided a list of the countries in Eastern Europe (in this data set) for you to use.
+eastern_europe <- c("Armenia", "Azerbaijan", "Belarus", 
+                    "Georgia", "Moldova", "Russia", "Ukraine"
+                    )
+
+# code for plot
+```
+
+**8. Modify your code above to order the countries from largest to smallest *median* military expenditure spending.**
 
 ::: callout-tip
-Place the `Year` variable on an axis that makes it easier to read the labels!
+Look at the function options from the `forcats` cheatsheet.
 :::
-
-```{r}
-# Code for Q7 plot
-
-```
 
 ::: callout-note
-### Canvas Q2 + Q3
+### Canvas Submission
 
-**8. What year was the second largest military expenditure? What country had this expenditure?**
+**9. Looking at the plot you created above, which Eastern European country had the second highest median military expenditure?**
 
 :::
-
-```{r}
-# Code for Q8
-
-```
-
-**9. Look up what is the reason for this large expenditure?**
