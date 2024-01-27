@@ -97,7 +97,7 @@ This will require transforming of your data! Sketch out what you want the data s
 Remember to avoid "object junk" in your Environment!
 :::
 
-![Plot to recreate](https://github.com/earobinson95/stat331-calpoly/blob/master/lab-assignments/lab4/ca-avocado-size-proportions.png?raw=true)
+![Plot to recreate](https://github.com/earobinson95/stat331-calpoly/blob/master/lab-assignments/lab4/lab4-recreate-the-plot.png?raw=true)
 
 ```{r}
 # code for Q5
@@ -107,7 +107,9 @@ Remember to avoid "object junk" in your Environment!
 ## Median Income vs Childcare Costs for Infants
 
 ::: callout-tip
+#### Refresher on Linear Regression
 
+While a second course in statistics is a pre-requisite for this class, you may visit <https://moderndive.com/10-inference-for-regression.html> for a refresher on Simple Linear Regression with a single predictor.
 :::
 
 **6. Create a scatterplot showing the relationship between the Median household income expressed in 2018 dollars and the full-time median weekly price charged for Center-based childcare for an infant. Overlay a linear regression line (lm) to show the trend.**
@@ -142,7 +144,7 @@ Dr. Robinson will be reading through these and providing feedback.
 **Investigate the full-time median price charged for childcare in a Center-based setting versus the full-time median price charged for childcare in a Family (in-home) setting for California. Pay close attention to the different developmental stages. Support your answer with at least one table of summary statistics and one visualization.**
 
 ::: callout-tip
-+ Aim for about 250-400 words.
++ Aim for about 150-300 words.
 + This should read like a mini-report. I recommend using `#| code-fold: true` for readability.
 + Don't just have a summary table or plot show up "out of the blue" -- make sure to build up to them with text, describe what they show, and provide captions.
 :::
