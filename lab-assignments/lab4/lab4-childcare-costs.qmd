@@ -94,6 +94,8 @@ The code should give me the EXACT answer. This means having the code output the 
 ::: callout-tip
 This will require transforming of your data! Sketch out what you want the data set to look like before you begin to code! You should be starting with your California data set containing the regions.
 
+You will also be required to use functions from `forcats` to change the ordering of your factor levels.
+
 Remember to avoid "object junk" in your Environment!
 :::
 
