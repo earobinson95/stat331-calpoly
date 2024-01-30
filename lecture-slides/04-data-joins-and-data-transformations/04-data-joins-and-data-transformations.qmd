@@ -14,140 +14,590 @@ library(tidyverse)
 library(palmerpenguins)
 ```
 
-## Monday, January 30th
+## Tuesday, January 30th
 
 Today we will...
 
-+ Review Lab 3
-+ [Tidyverse style guide -- on Canvas!](https://style.tidyverse.org/index.html)
-+ Mini lecture on text material
-  + "Messy" data
-  + Pivoting with `tidyr`
-  + Joining with `dplyr`
-+ [PA 4: Military Spending](https://earobinson95.github.io/stat331-calpoly/practice-activities/PA4-military-spending)
-+ [Bonus Challenge: Murdery Mystery in SQL City](https://earobinson95.github.io/stat331-calpoly/bonus-challenges/bonus-challenge-murder-sql-city)
+-   Review Lab 3: Teaching Evaluations
+-   New Material
+    -   Lambda functions
+    -   Factor Variables
+    -   Pivoting with `tidyr`
+    -   Joining with `dplyr`
+-   PA 4.1: Military Spending
 
-## Lab 3: Familiar Words -- Sketch it out!
+## Lambda Functions
 
-For each demographic group listed below, determine which word(s) in this study was(were) the most **and** least familiar on average.
+We know how to use `across()` to apply  built-in functions across many columns.
 
-![](https://github.com/earobinson95/stat331-calpoly/blob/master/lab-assignments/Lab3-dplyr/q11-q13-sketch.png?raw=true)
+```{r}
+library(liver)
+data(cereal)
+```
+
+```{r}
+#| echo: true
+cereal |> 
+  summarize(across(calories:potass, mean))
+```
+
+. . .
+
+But what if we want to pass **additional arguments** to a function?
+
++ E.g., we need to drop missing data (`na.rm = T`).
++ E.g., we need to calculate a **trimmed** mean (`trim = 0.1`).
+
+
+## Lambda Functions
+
+When you want to specify additional arguments, you need to use a **lambda function** rather than just the function name:
+
+<center>
+`~ <FUN_NAME>(.x, <ARGS>)`
+</center>
+
+. . .
+
+Calculate trimmed means, trimming 10% of the data on each end.
+
+```{r}
+#| echo: true
+cereal |> 
+  summarize(across(calories:potass, ~ mean(.x, trim = 0.1)))
+```
+
+# Factor Variables
+
+## What is a factor variable?
+
+Factors are used for
+
+1. categorical variables with a fixed and known set of possible values.
+  + E.g., `day_born` = Sunday, Monday, Tuesday, ..., Saturday
+2. displaying character vectors in non-alphabetical order.
+
+
+## Creating a Factor -- Base `R`
+
+```{r}
+#| echo: true
+word_data <- tibble(word = c("apple", "dog", "banana", "cat",
+                             "banana", "Queen Elizabeth", "dog")
+           )
+word_data
+```
+
+<br>
+
+. . .
+
+```{r}
+#| echo: true
+factor(word_data$word)
+```
+
+<br>
+
+. . .
+
+**What happened??**
+
+
+## Creating a Factor -- Base `R`
+
+When you create a factor variable from a vector...
+
++ Every unique element in the vector becomes a level.
++ The levels are ordered alphabetically.
++ The elements are no longer displayed in quotes.
+
+
+## Creating a Factor -- Base `R`
+
+You can **specify the order of the levels** with the `level` argument.
+
+```{r}
+#| echo: true
+factor(word_data$word, levels = c("banana","apple","cat",
+                             "dog", "Queen Elizabeth")
+       )
+```
+
+
+## `forcats`
+
+:::: {.columns}
+::: {.column width="80%"}
+**Common tasks**
+
++ Turn character variables into factors.
+
++ Make factors by discretizing numeric variables.
+
++ Rename or reorder the levels of an existing factor.
+:::
+::: {.column width="20%"}
+```{r}
+#| fig-align: center
+knitr::include_graphics("https://github.com/rstudio/hex-stickers/blob/main/thumbs/forcats.png?raw=true")
+```
+:::
+::::
+
+::: callout-note
+The packages `forcats` ("for categoricals") helps wrangle categorical variables.
+
+  + `forcats` loads with `tidyverse`!
+:::
+
+
+## Creating a Factor -- `forcats`
+
+```{r}
+#| echo: true
+word_data <- tibble(word = c("apple", "dog", "banana", "cat",
+                             "banana", "Queen Elizabeth", "dog")
+           )
+word_data |> 
+  pull(word)
+```
+
+```{r}
+#| echo: true
+word_data |> 
+  mutate(word = fct(x = word)) |> 
+  pull(word)
+```
+
++ With `forcats`, the levels are automatically ordered in the **order of first appearance**.
+
+
+## Creating a Factor -- `forcats`
+
+You can still **specify the order of the levels** with the `level` argument.
+
+```{r}
+#| echo: true
+word_data |> 
+  mutate(word = fct(x = word, 
+                    levels = c("apple", "banana", "cat",
+                               "dog", "Queen Elizabeth")
+                    )
+         ) |> 
+  pull(word)
+```
+
+You can also **specify non-present levels**.
+
+```{r}
+#| echo: true
+word_data |>
+  mutate(word = fct(x = word, 
+                    levels = c("apple", "banana", "cat", "dog",
+                               "Queen Elizabeth", "King Charles")
+                    )
+         ) |> 
+  pull(word)
+```
+
+
+## Re-coding a Factor -- `fct_recode`
+
+Change the existing levels with the syntax:
+
+`<new level> = <old level>`.
+
+```{r}
+#| echo: true
+word_data |> 
+  mutate(word = fct_recode(.f = word,
+                           "fruit" = "apple",
+                           "fruit" = "banana",
+                           "pet"   = "cat",
+                           "pet"   = "dog")
+         ) |> 
+  pull(word)
+```
+
+::: callout-note
+Queen Elizabeth is a "remaining" level that is not recoded.
+:::
+
+## Collapsing a Factor -- `fct_collapse`
+
+Collapse the existing levels with the syntax:
+
+`<new level> = c(<old levels>)`.
+
+
+```{r}
+#| echo: true
+word_data |> 
+  mutate(word = fct_collapse(.f = word,
+                           "fruit" = c("apple", "banana"),
+                           "pet"   = c("cat", "dog")
+                           )
+         ) |> 
+  pull(word)
+```
+
+::: callout-note
+Queen Elizabeth is a "remaining" level that is not recoded.
+:::
+
+## Re-leveling a Factor --`fct_relevel`
+
+```{r}
+#| include: false
+word_data <- word_data |> 
+  mutate(word = fct_collapse(.f = word,
+                           "fruit" = c("apple", "banana"),
+                           "pet"   = c("cat", "dog")
+                           )
+         )
+```
+
+Change the **order** of the levels of an existing factor.
+
+```{r}
+#| echo: true
+word_data |>
+  pull(word) |> 
+  levels()
+```
+
+```{r}
+#| echo: true
+word_data |> 
+  mutate(word = fct_relevel(.f = word,
+                            c("Queen Elizabeth", "pet", "fruit")
+                            )
+         ) |> 
+  pull(word) |> 
+  levels()
+```
+
+Unspecified levels will be in the same order at the **end** of the list.
+
+```{r}
+#| echo: true
+word_data |> 
+  mutate(word = fct_relevel(.f = word, 
+                            "pet")
+         ) |> 
+  pull(word) |> 
+  levels()
+```
+
+## Re-coding a Factor -- `fct_recode`
+
+::: panel-tabset
+### cereal
+
+```{r}
+#| echo: true
+library(liver)
+data(cereal)
+str(cereal$manuf)
+```
+
+### `case_when()`
+```{r}
+#| echo: true
+cereal |> 
+  mutate(manuf = case_when(manuf == "A" ~ "American Home Food Products", 
+                           manuf == "G" ~ "General Mills", 
+                           manuf == "K" ~ "Kelloggs", 
+                           manuf == "N" ~ "Nabisco", 
+                           manuf == "P" ~ "Post", 
+                           manuf == "Q" ~ "Quaker Oats", 
+                           manuf == "R" ~ "Ralston Purina"),
+         manuf = as.factor(manuf)) |> 
+  select(manuf) |> 
+  summary()
+```
+
+### `fct_recode()`
+
+```{r}
+#| echo: true
+cereal |> 
+  mutate(manuf = fct_recode(manuf, 
+                             "American Home Food Products" = "A", 
+                             "General Mills" = "G", 
+                             "Kelloggs" = "K", 
+                             "Nabisco" = "N", 
+                             "Post" = "P", 
+                             "Quaker Oats" = "Q", 
+                             "Ralston Purina" = "R")) |> 
+  select(manuf) |> 
+  summary()
+```
+
+:::
+
+
+## Re-ordering Factors in `ggplot2`
+
+```{r}
+cereal_recode <- cereal |> 
+  filter(manuf != "A") |> 
+  mutate(manuf = fct_recode(.f = manuf, 
+                             "General Mills" = "G", 
+                             "Kelloggs" = "K", 
+                             "Nabisco" = "N", 
+                             "Post" = "P", 
+                             "Quaker Oats" = "Q", 
+                             "Ralston Purina" = "R"
+                            )
+         )
+```
+
+::: panel-tabset
+
+### Original
+
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: "4"
+library(ggridges)
+cereal_recode |> 
+  ggplot(aes(x = sugars, 
+             y = manuf, 
+             fill = manuf)) +
+  geom_density_ridges() +
+  theme_minimal() +
+  theme(legend.position = "none")
+```
+
+### Plot
+
+```{r}
+#| echo: false
+library(ggridges)
+cereal_recode |> 
+  ggplot(aes(x = sugars, 
+             y = manuf, 
+             fill = manuf)) +
+  geom_density_ridges() +
+  theme_minimal() +
+  theme(legend.position = "none")
+```
+
+### `fct_reorder()`
+
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: "3-5"
+cereal_recode |> 
+  ggplot(aes(x = sugars, 
+             y = fct_reorder(.f = manuf, 
+                             .x = sugars,
+                             .fun = mean), 
+             fill = manuf)) +
+  geom_density_ridges() +
+  theme_minimal() +
+  theme(legend.position = "none")
+```
+
+We can reorder factor levels based on a summary value.
+
++ Note: default reordering function is the median.
+
+### Plot
+
+```{r}
+#| echo: false
+cereal_recode |> 
+  ggplot(aes(x = sugars, 
+             y = fct_reorder(.f = manuf, 
+                             .x = sugars,
+                             .fun = mean), 
+             fill = manuf)
+         ) +
+  geom_density_ridges() +
+  theme_minimal() +
+  theme(legend.position = "none") +
+  labs()
+```
+
+:::
+
+
+## Re-ordering Factors in `ggplot2`
+
+::: panel-tabset
+
+### Original
+
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: "6"
+cereal_recode |> 
+  group_by(manuf, shelf) |> 
+  summarise(avg_sugar = mean(sugars, na.rm = TRUE)) |> 
+  ggplot(aes(x = shelf, 
+             y = avg_sugar, 
+             color = manuf)) +
+  geom_line(size = 1.5) +
+  theme_minimal() +
+  labs(color = "Manuf.")
+```
+
+The order of the legend follows the order of the factor levels.
+
+### Plot
+
+```{r}
+#| echo: false
+cereal_recode |> 
+  group_by(manuf, shelf) |> 
+  summarise(avg_sugar = mean(sugars, na.rm = TRUE)) |> 
+  ggplot(aes(x = shelf, 
+             y = avg_sugar, 
+             color = manuf)) +
+  geom_line(size = 1.5) +
+  theme_minimal() +
+  labs(color = "Manuf.")
+```
+
+### `fct_reorder2()`
+
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: "6"
+cereal_recode |> 
+  group_by(manuf, shelf) |> 
+  summarise(avg_sugar = mean(sugars, na.rm = TRUE)) |> 
+  ggplot(aes(x = shelf, 
+             y = avg_sugar, 
+             color = fct_reorder2(manuf, .x = shelf, .y = avg_sugar))) +
+  geom_line(size = 1.5) +
+  theme_minimal() +
+  labs(color = "Manuf.")
+```
+
+We can reorder factor levels based on the y values associated with the largest x values.
+
++ The legend order will match the line order on the far right.
+
+### Plot
+
+```{r}
+#| echo: false
+cereal_recode |> 
+  group_by(manuf, shelf) |> 
+  summarise(avg_sugar = mean(sugars, na.rm = TRUE)) |> 
+  ggplot(aes(x = shelf, 
+             y = avg_sugar, 
+             color = fct_reorder2(manuf, .x = shelf, .y = avg_sugar))) +
+  geom_line(size = 1.5) +
+  theme_minimal() +
+  labs(color = "Manuf.")
+```
+
+::: 
+
+## Glamour of Graphics
+
++ See [Will Chase's 2020 RStudio Conference Presentation - Glamour of Graphics](https://www.youtube.com/watch?v=h5cTacaWE6I&ab_channel=PositPBC)
 
 # Data Layouts
 
 ## Tidy Data
 
-![Image source: R4DS](https://r4ds.hadley.nz/images/tidy-1.png)
+Tidy data...
 
-## Untidy "Messy" Data
+-   is rectangular.
+-   has observations as rows and variables as columns.
+-   **has different formats for different tasks.**
+
+![R4DS](https://r4ds.hadley.nz/images/tidy-1.png)
+
+
+## Consequences of Messy Data
 
 ![Illustration by Allison Horst](https://www.openscapes.org/img/blog/tidydata/tidydata_2.jpg)
 
-## Our tools!
+-   Tidy: use the same tools in similar ways for different datasets.
+-   Messy: create unique tools that are difficult to generalize.
 
-![Illustration by Allison Horst](https://www.openscapes.org/img/blog/tidydata/tidydata_3.jpg)
 
-## Collaboration with tidy data.
+## Creating Tidy Data
+
+We may need to **transform** our data to turn it into the **version of tidy** that is best for a task at hand.
 
 ![Illustration by Allison Horst](https://www.openscapes.org/img/blog/tidydata/tidydata_4.jpg)
 
-# Pivoting Data
 
-:::: columns
+## Creating Tidy Data
 
-::: column
-![](https://github.com/gadenbuie/tidyexplain/raw/main/images/static/png/original-dfs-tidy.png)
-:::
-::: column
-![Tidyexpalin animation by Kelsey Gonzalez](https://github.com/gadenbuie/tidyexplain/raw/main/images/tidyr-pivoting.gif)
-:::
-::::
+We want to look at `mean` **cereal nutrients** based on `shelf`.
 
-## Manual Method
-
-We can do the wide-to-long transition manually.
-
-Consider the table of daily rainfall observed in SLO in January 2023. This data is recorded in human-friendly form, in the approximate shape of a calendar. Each week has its own row, and each day has its own column.
-
-![](images/slo-rainfall.jpg)
-
-Talk to a neighbor about how you would convert this to long format. You may want to open up the [spreadsheet](2023-rainfall-slo.xlsx) containing this table on your computer.
-
-[Data source](cesanluisobispo.ucanr.edu)
-
-## Manual Method: Steps
-
-::: {.incremental}
-1. Create a new column: `Day_of_Week`.
-
-2. Create a `Rainfall` column to hold the daily rainfall values.
-
-3. Now we have three columns setup (`Week`, `Day_of_Week`, and `Rainfall`) -- start moving data over.
-
-4. Duplicate repeated data (`Week` 1-5) and copy Monday over.
-
-5. Duplicate repeated data (`Week` 1-5) and copy Tuesday over.
-
-6. Continue for the rest of the days of the week.
-
-7. You may want to `arrange()` the data by week to get chronological order of the rainfall values.
-:::
-
-## Computational Approach
-
-![](images/slo-rainfall-sketch.png)
-
-## `pivot_longer()`
++ The data are in a **wide** format -- a separate column for each nutrient.
++ Transforming the data will make plotting easier.
 
 ```{r}
 #| echo: true
-#| code-line-numbers: 8-10
-library(readxl)
-slo_rainfall <- read_xlsx("2023-rainfall-slo.xlsx")
-
-slo_rainfall_long <- slo_rainfall |> 
-  mutate(across(Sunday:Saturday, na_if, y = "NA"),
-         across(Sunday:Saturday, as.numeric)
-         ) |> 
-  pivot_longer(cols      = Sunday:Saturday,
-               names_to  = "Day_of_Week",
-               values_to = "Daily_Rainfall")
-slo_rainfall_long
-```
-
-## Why tidy data?
-
-::: panel-tabset
-## Cereal
-```{r}
-#| echo: true
+#| eval: false
 library(liver)
 data(cereal)
-str(cereal, hide.attr = TRUE)
+head(cereal)
 ```
 
-## Summary: Original
+```{r}
+#| eval: true
+#| echo: false
+library(liver)
+data(cereal)
+head(cereal) |> 
+  knitr::kable() |> 
+  kableExtra::scroll_box(height = "210px") |> 
+  kableExtra::kable_styling(font_size = 20)
+```
+
+
+## Creating Tidy Data
+
+::: panel-tabset
+
+## Wide
 
 ```{r}
 #| echo: true
-#| code-line-numbers: 2-3
-cereal_summary1 <- cereal |> 
+#| code-line-numbers: "2-3"
+#| code-fold: true
+cereal_wide <- cereal |> 
   group_by(shelf) |> 
   summarise(across(calories:vitamins, mean))
-cereal_summary1
 ```
 
-## Plot: Original
+```{r}
+#| eval: true
+#| echo: false
+cereal_wide|> 
+  knitr::kable() |> 
+  kableExtra::scroll_box(height = "210px") |> 
+  kableExtra::kable_styling(font_size = 20)
+```
+
+## Wide Plot
 
 ```{r}
 #| echo: true
-#| code-line-numbers: 5-8
-#| fig-height: 3
+#| code-line-numbers: "5-8"
+#| fig-height: 4
 #| fig-width: 6
 #| fig-align: center
+#| code-fold: true
 my_colors <- c("calories_col" = "steelblue", "sugars_col" = "orange3")
 
-cereal_summary1 |> 
+cereal_wide |> 
   ggplot() +
   geom_point(aes(x = shelf, y = calories, color = "calories_col")) +
   geom_line(aes(x = shelf, y = calories, color = "calories_col")) + 
@@ -157,29 +607,39 @@ cereal_summary1 |>
   labs(x = "Shelf", y = "", subtitle = "Mean Amount", color = "Nutrient")
 ```
 
-## Summary: Long
+## Long
 
 ```{r}
 #| echo: true
-
-cereal_summary2<- cereal |> 
+#| code-line-numbers: "5-6"
+#| code-fold: true
+cereal_long<- cereal |> 
   pivot_longer(cols = calories:vitamins,
                names_to = "Nutrient",
                values_to = "Amount") |> 
   group_by(shelf, Nutrient) |> 
   summarise(mean_amount = mean(Amount))
-cereal_summary2
 ```
 
-## Plot: Long
+```{r}
+#| eval: true
+#| echo: false
+cereal_long |> 
+  knitr::kable() |> 
+  kableExtra::scroll_box(height = "400px") |> 
+  kableExtra::kable_styling(font_size = 20)
+```
+
+## Long Plot
 
 ```{r}
 #| echo: true
-#| code-line-numbers: 2-4
+#| code-line-numbers: "2-4"
 #| fig-height: 4
 #| fig-width: 6
 #| fig-align: center
-cereal_summary2 |> 
+#| code-fold: true
+cereal_long |> 
   ggplot(aes(x = shelf, 
              y = mean_amount, 
              color = Nutrient)) +
@@ -187,31 +647,142 @@ cereal_summary2 |>
   geom_line() +
   labs(x = "Shelf", y = "", subtitle = "Mean Amount")
 ```
-
 :::
+
+
+# Pivoting Data
+
+::: columns
+::: column
+![Tidyexpalin animation by Kelsey Gonzalez](https://github.com/gadenbuie/tidyexplain/raw/main/images/static/png/original-dfs-tidy.png)
+:::
+
+::: column
+![](https://github.com/gadenbuie/tidyexplain/raw/main/images/tidyr-pivoting.gif)
+:::
+:::
+
+
+## Manual Method
+
+Consider daily rainfall observed in SLO in January 2023.
+
++ The data is in a human-friendly form (like a calendar).
++ Each week has a row, and each day has a column.
+
+![[Data source](cesanluisobispo.ucanr.edu)](images/slo-rainfall.jpg)
+
+How would you **manually** convert this to **long format**?
+
+
+## Manual Method: Steps
+
+::: incremental
+1.  Create a new column: `Day_of_Week`.
+2.  Create a new column: `Rainfall` (hold daily rainfall values).
+3.  Now we have three columns (`Week`, `Day_of_Week`, and `Rainfall`) -- start moving Sunday values over.
+4.  Duplicate `Week` 1-5 and copy Monday values over.
+5.  Duplicate `Week` 1-5 and copy Tuesday values over.
+6.  Continue for the rest of the days of the week.
+7.  You may want to `arrange()` by `Week` to get the rainfall values chronological order.
+:::
+
+
+## Computational Approach
+
+![](images/slo-rainfall-sketch.png)
+
+We can use `pivot_longer()` to turn a **wide** dataset into a **long(er)** dataset.
+
+
+## `pivot_longer()`
+
+Take a **wide** dataset and turn it into a **long** daaset.
+
++ `cols` -- specify the columns that should be pivoted.
+  + Do **not** include the names of ID columns (columns to not be pivoted).
++ `names_to` -- the name of the new column containing the old column names.
++ `values_to` -- the name of the new column containing the old  column values.
+
+
+## `pivot_longer()`
+
+```{r}
+#| echo: true
+#| code-line-numbers: "6-8"
+#| eval: false
+library(readxl)
+slo_rainfall <- read_xlsx("data/2023-rainfall-slo.xlsx")
+
+slo_rainfall |> 
+  mutate(across(Sunday:Saturday, as.numeric)) |> 
+  pivot_longer(cols      = Sunday:Saturday,
+               names_to  = "Day_of_Week",
+               values_to = "Daily_Rainfall")
+```
+
+```{r}
+#| eval: true
+#| echo: false
+library(readxl)
+slo_rainfall <- read_xlsx("data/2023-rainfall-slo.xlsx")
+
+slo_rainfall |> 
+  mutate(across(Sunday:Saturday, as.numeric)) |> 
+  pivot_longer(cols      = Sunday:Saturday,
+               names_to  = "Day_of_Week",
+               values_to = "Daily_Rainfall")|> 
+  knitr::kable() |> 
+  kableExtra::scroll_box(height = "400px") |> 
+  kableExtra::kable_styling(font_size = 20)
+```
+
 
 ## `pivot_wider()`
 
-:::: columns
-::: column
+Take a **long** dataset and turn it into a **wide** daaset.
+
++ `id_cols` -- specify the column(s) that contain the ID for unique rows in the wide dataset.
++ `names_from` -- the name of the column containing the new column names.
++ `values_from` -- the name of the column containing the new  column values.
+
+
+## `pivot_wider()`
+
+We calculate the mean amount of protein for cereals on each shelf and for each manufacturer.
+
 ```{r}
-#| echo = T
+#| echo: true
+#| eval: false
 mean_protein <- cereal |> 
   group_by(manuf, shelf) |> 
   summarize(mean_protein = mean(protein))
-mean_protein
 ```
-:::
 
-::: column
+```{r}
+#| eval: true
+#| echo: false
+mean_protein <- cereal |> 
+  group_by(manuf, shelf) |> 
+  summarize(mean_protein = mean(protein))
+
+mean_protein |> 
+  knitr::kable() |> 
+  kableExtra::scroll_box(height = "400px") |> 
+  kableExtra::kable_styling(font_size = 20)
+```
+
+
+## `pivot_wider()`
+
 ```{r}
 #| eval: false
 #| echo: true
-protein_wide <- mean_protein |> 
+mean_protein |> 
+  arrange(shelf) |> 
   pivot_wider(id_cols = manuf,
               names_from = shelf,
               values_from = mean_protein)
-protein_wide
 ```
 
 ```{r}
@@ -221,45 +792,53 @@ mean_protein |>
   arrange(shelf) |> 
   pivot_wider(id_cols = manuf,
               names_from = shelf,
-              values_from = mean_protein)
+              values_from = mean_protein) |> 
+  knitr::kable() |> 
+  kableExtra::scroll_box(height = "420px") |> 
+  kableExtra::kable_styling(font_size = 20)
 ```
-:::
-::::
+
 
 ## Better names in `pivot_wider()`
+
 
 ```{r}
 #| eval: false
 #| echo: true
-#| code-line-numbers: 5
-protein_wide <- mean_protein |> 
+#| code-line-numbers: "6"
+mean_protein |> 
+  arrange(shelf) |> 
   pivot_wider(id_cols = manuf,
               names_from = shelf,
               values_from = mean_protein,
-              names_prefix = "Shelf ")
-protein_wide
+              names_prefix = "Shelf_")
 ```
 
 ```{r}
 #| eval: true
 #| echo: false
-#| code-line-numbers: 5
-protein_wide <- mean_protein |> 
+mean_protein |> 
   arrange(shelf) |> 
   pivot_wider(id_cols = manuf,
               names_from = shelf,
               values_from = mean_protein,
-              names_prefix = "Shelf ")
-protein_wide
+              names_prefix = "Shelf_") |> 
+  knitr::kable() |> 
+  kableExtra::scroll_box(height = "420px") |> 
+  kableExtra::kable_styling(font_size = 20)
 ```
+
 
 # Data Joins
 
 ## Relational Data
 
-Multiple tables of data are called **relational data** because it is the *relations*, not just the individual data sets, that are important.
+Multiple, interconnected tables of data are called **relational**.
 
-![IMDb movie relational data](https://relational.fit.cvut.cz/assets/img/datasets-generated/imdb_ijs.svg)
++ It is the *relation* between data sets, not just the individual data sets themselves, that are important.
+
+![IMDb movie relational data](images/imdb-relational-data.svg)
+
 ```{r imdb-data}
 #| eval: false
 #| include: false
@@ -267,7 +846,7 @@ Multiple tables of data are called **relational data** because it is the *relati
 #| warning: false
 library(RMariaDB)
 library(dm)
-
+`
 # IMDb
 con <- dbConnect(
   drv = RMariaDB::MariaDB(), 
@@ -275,8 +854,7 @@ con <- dbConnect(
   password = "relational", 
   host = "relational.fit.cvut.cz", 
   port = 3306,
-  dbname = "imdb_small"
-)
+  dbname = "imdb_small")
 dbListTables(con)
 
 my_dm <- dm_from_src(con)
@@ -320,54 +898,70 @@ rm(con, my_dm)
 #| warning: false
 
 actors <- read_csv("data/actors.csv")
-
 directors <- read_csv("data/directors.csv")
-
 directors_genres <- read_csv("data/directors_genres.csv")
-
 movies <- read_csv("data/movies.csv")
-
 movies_directors <- read_csv("data/movies_directors.csv")
-
 movies_genres <- read_csv("data/movies_genres.csv")
-
 roles <- read_csv("data/roles.csv")
 ```
 
+
 ## Data Joins
 
-:::: columns
+We can **combine** (join) data tables based on their relations.
+
+::: columns
 ::: column
 **Mutating joins**
 
-Adds *information* from a new dataframe to observations in an existing dataframe
+Add *variables* from a new dataframe to observations in an existing dataframe.
 
 `full_join()`, `left_join()`, `right_join()`, `inner_join()`, `outer_join()`
 :::
+
 ::: column
 **Filtering Joins**
 
-Filters *observations* based on values in new dataframe
+Filter *observations* based on values in new dataframe.
 
 `semi_join()`, `anti_join()`
 :::
-::::
+:::
+
 
 ## Keys
 
-Uniquely identifies an observation in a data set
+A key uniquely identifies an observation in a data set.
 
-Relate data sets to each other
++ To combine (join) two datasets, the key needs to be present in both.
+
+. . .
 
 ![](images/imdb-keys.png)
 
+
 ## `inner_join()`
 
-Matches pairs of observations when "keys" are equal
+Keeps obsertvations when their keys are present in **both** datasets.
 
-![](images/inner_join.png)
+:::: {.columns}
+::: {.column width="50%"}
+```{r}
+#| out-width: 90%
+knitr::include_graphics("images/join_xy.png")
+```
+:::
+::: {.column width="50%"}
+```{r}
+#| out-width: 90%
+knitr::include_graphics("images/inner_join.png")
+```
+:::
+::::
 
-## Inner Join: IMDb Example
+
+## `inner_join()`: IMDb Example
 
 ```{r}
 directors_genres_subset <- directors_genres |>
@@ -383,120 +977,209 @@ directors_subset <- directors |>
 ```
 
 :::: {.columns}
-::: {.column width="29%"}
+::: {.column width="50%"}
+
 ```{r}
 #| eval: false
 #| echo: true
+#| code-line-numbers: false
 directors_genres
 ```
 
 ```{r}
-directors_genres_subset
+#| eval: true
+#| echo: false
+directors_genres_subset |> 
+  knitr::kable() |> 
+  kableExtra::scroll_box(height = "160px") |> 
+  kableExtra::kable_styling(font_size = 20)
 ```
 
-Directors: 429, **2931**, ~~**9247**~~, 11652, 14927, 15092
 :::
-::: {.column width="24%"}
+::: {.column width="50%"}
+
 ```{r}
 #| eval: false
 #| echo: true
+#| code-line-numbers: false
 movies_directors
 ```
 
 ```{r}
-movies_directors_subset
+#| eval: true
+#| echo: false
+movies_directors_subset |> 
+  knitr::kable() |> 
+  kableExtra::scroll_box(height = "160px") |> 
+  kableExtra::kable_styling(font_size = 20)
 ```
 
-Directors: 429, ~~**2931**~~, **9247**, 11652, 14927, 15092
 :::
+::::
 
-::: {.column width="47%"}
+<font size = 6>
+
+ID: 429, **2931**, 11652, 14927, 15092  &emsp; &emsp; &ensp;  ID: 429, **9247**, 11652, 14927, 15092
+
+</font>
+
+. . .
+
 ```{r}
 #| eval: false
 #| echo: true
+#| code-line-numbers: false
 inner_join(directors_genres, movies_directors)
 ```
 
 ```{r}
-inner_join(directors_genres_subset, movies_directors_subset)
+#| eval: true
+#| echo: false
+inner_join(directors_genres_subset, movies_directors_subset) |> 
+  knitr::kable() |> 
+  kableExtra::scroll_box(height = "160px") |> 
+  kableExtra::kable_styling(font_size = 20)
 ```
 
-Directors: 429, ~~**2931**~~, ~~**9247**~~, 11652, 14927, 15092
-:::
-::::
+<font size = 6>
 
-## Inner Join: IMDb Example
+ID: 429, ~~**2931**~~, ~~**9247**~~, 11652, 14927, 15092
 
-What if our *key* variable is not named the same?
+</font>
+
+
+## `inner_join()`: IMDb Example
+
+What if our **key** does not have the same name?
 
 :::: {.columns}
-::: {.column width="29%"}
+::: {.column width="50%"}
+
 ```{r}
 #| eval: false
 #| echo: true
+#| code-line-numbers: false
 directors_genres
 ```
 
 ```{r}
-directors_genres_subset
+#| eval: true
+#| echo: false
+directors_genres_subset |> 
+  knitr::kable() |> 
+  kableExtra::scroll_box(height = "170px") |> 
+  kableExtra::kable_styling(font_size = 20)
 ```
 
 :::
-::: {.column width="27%"}
+::: {.column width="50%"}
+
 ```{r}
 #| eval: false
 #| echo: true
+#| code-line-numbers: false
 directors
 ```
 
 ```{r}
-directors_subset
+#| eval: true
+#| echo: false
+directors_subset |> 
+  knitr::kable() |> 
+  kableExtra::scroll_box(height = "170px") |> 
+  kableExtra::kable_styling(font_size = 20)
 ```
-:::
 
-::: {.column width="44%"}
+:::
+::::
+
+. . .
+
+:::: {.columns}
+::: {.column width="60%"}
+
 ```{r}
 #| eval: false
 #| echo: true
-#| code-line-numbers: 3
+#| code-line-numbers: "3"
 inner_join(directors_genres, 
            directors, 
-           by = c("director_id" = "id")
-           )
+           by = join_by(director_id == id))
 ```
 
 ```{r}
-inner_join(directors_subset, directors_genres_subset, by = c("id" = "director_id"))
+#| eval: true
+#| echo: false
+inner_join(directors_subset,
+           directors_genres_subset,
+           join_by(id == director_id)) |> 
+  knitr::kable() |> 
+  kableExtra::scroll_box(height = "170px") |> 
+  kableExtra::kable_styling(font_size = 20)
 ```
+
+:::
+::: {.column width="40%"}
+<font size = 6>
+Join by different variables on `dataX` and `dataY`: `join_by(a == b)` will match `dataX$a` to `dataY$b`.
+
+</font>
 :::
 ::::
 
+## Piping Joins
+
+Remember: the dataset you pipe in becomes the **first argument** of the function you are piping into!
+
++ So if you are using a pipe, you will only be specifying the **right** dataset inside the `join` function.
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: false
+inner_join(directors_genres, movies_directors)
+```
+
+...is equivalent to...
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: false
+directors_genres |> 
+  inner_join(movies_directors)
+```
+
+
+
 ## Mutating Joins
 
-:::: columns
-::: column
-+ `left_join()` Everything is kept in the data set on the left
+-   `left_join()` -- keep only (and all) observations in the left data set
 
-+ `right_join()` Everything is kept in the data set on the right
+-   `right_join()` -- keep only (and all) observations in the right data set 
 
-+ `full_join()` Everything is kept in both data sets
-:::
-::: column
-![](images/joins.JPG)
-:::
-::::
+-   `full_join()` -- keep  all observations in both data sets
+
+<center>
+
+![](images/joins.png){width=70%}
+
+</center>
+
 
 ## Mutating Joins
 
-Discuss with a neighbor.
+Which directors would **remain** for each of the following?
 
-Which of the following directors would be kept in for each of:
+<font size = 6>
 
-+ `left_join(directors_genres, movies_directors)`
-+ `right_join(directors_genres, movies_directors)`
-+ `full_join(directors_genres, movies_directors)`
+-   `left_join(directors_genres, movies_directors)`
+-   `right_join(directors_genres, movies_directors)`
+-   `full_join(directors_genres, movies_directors)`
 
-:::: columns
+</font>
+
+::: columns
 ::: column
 ```{r}
 #| eval: false
@@ -506,11 +1189,18 @@ directors_genres |>
 ```
 
 ```{r}
+#| eval: true
+#| echo: false
 directors_genres_subset |> 
-  distinct(director_id)
+  distinct(director_id) |> 
+  knitr::kable() |> 
+  kableExtra::scroll_box(height = "320px") |> 
+  kableExtra::kable_styling(font_size = 20)
 ```
+
 :::
-:::column
+
+::: column
 ```{r}
 #| eval: false
 #| echo: true
@@ -519,533 +1209,539 @@ movies_directors |>
 ```
 
 ```{r}
+#| eval: true
+#| echo: false
 movies_directors_subset |> 
-  distinct(director_id)
+  distinct(director_id) |> 
+  knitr::kable() |> 
+  kableExtra::scroll_box(height = "320px") |> 
+  kableExtra::kable_styling(font_size = 20)
 ```
+:::
+:::
+
+
+## Filtering Joins: `semi_join()`
+
+Keeps observations when their keys are present in **both** datasets, **but only keeps variables from the first dataset**.
+
+:::: {.columns}
+::: {.column width="60%"}
+
+![](images/semi1.png)
+:::
+::: {.column width="15%"}
+
+<br>
+
+::: {.r-fit-text}
+&rarr; &emsp;
+:::
+
+:::
+::: {.column width="25%"}
+
+![](images/semi2.png)
+
 :::
 ::::
 
 
 ## Filtering Joins: `semi_join()`
 
-`semi_join()` Keeping observations
-
 ::: panel-tabset
-### Sketch
-
-```{r}
-#| fig-align: center
-#| out-width: "400%"
-knitr::include_graphics("images/semi_join.png")
-```
 
 ### `semi_join()`
 
 ```{r}
 #| echo: true
 #| eval: false
-semi_join(directors_genres, movies_directors)
+directors_genres |> 
+  semi_join(movies_directors)
 ```
 
 ```{r}
-semi_join(directors_genres_subset, movies_directors_subset)
+#| eval: true
+#| echo: false
+semi_join(directors_genres_subset, movies_directors_subset) |> 
+  knitr::kable() |> 
+  kableExtra::scroll_box(height = "320px") |> 
+  kableExtra::kable_styling(font_size = 20)
 ```
 
 Movie Directors: 429, ~~**2931**~~, 11652, 14927, 15092
 
-### Connection to Data Cleaning `%in%`
-
-<!-- Next time you teach this, use movie_directors$id instead of manually listing these out -->
-
-Including observations with `%in%`
+### Connection to `filter()`
 
 ```{r}
 #| echo: true
 #| eval: false
 directors_genres |>
-  filter(director_id %in% c(429, 9247, 11652, 14927, 15092))
+  filter(director_id %in% movies_directors$director_id)
 ```
 
 ```{r}
+#| eval: true
+#| echo: false
 directors_genres_subset |>
-  filter(director_id %in% c(429, 9247, 11652, 14927, 15092))
+  filter(director_id %in% movies_directors_subset$director_id) |> 
+  knitr::kable() |> 
+  kableExtra::scroll_box(height = "320px") |> 
+  kableExtra::kable_styling(font_size = 20)
 ```
 
-similar to `semi_join()`!
 :::
+
 
 ## Filtering Joins: `anti_join()`
 
-`anti_join()` Removing Observations
+**Removes** observations when their keys are present in **both** datasets, and **only keeps variables from the first dataset**.
+
+:::: {.columns}
+::: {.column width="60%"}
+
+![](images/semi1.png)
+:::
+::: {.column width="15%"}
+
+<br>
+
+::: {.r-fit-text}
+&rarr; &emsp;
+:::
+
+:::
+::: {.column width="25%"}
+
+<br>
+
+![](images/anti2.png)
+
+:::
+::::
+
+
+## Filtering Joins: `anti_join()`
 
 ::: panel-tabset
-### Sketch
-```{r}
-#| fig-align: center
-#| out-width: "400%"
-knitr::include_graphics("images/anti_join.png")
-```
 
 ### `anti_join()`
 
 ```{r}
 #| echo: true
 #| eval: false
-anti_join(directors_genres, movies_directors)
+directors_genres |> 
+  anti_join(movies_directors)
 ```
 
 ```{r}
-anti_join(directors_genres_subset, movies_directors_subset)
+#| eval: true
+#| echo: false
+anti_join(directors_genres_subset, movies_directors_subset) |> 
+  knitr::kable() |> 
+  kableExtra::scroll_box(height = "200px") |> 
+  kableExtra::kable_styling(font_size = 20)
 ```
 
 Movie Directors: ~~429~~, **2931**, ~~11652~~, ~~14927~~, ~~15092~~
 
-### Connection to Data Cleaning `!%in%`
-
-<!-- Next time you teach this, use movie_directors$id instead of manually listing these out -->
-
-Excluding observations with `!%in%`
+### Connection to `filter()`
 
 ```{r}
 #| echo: true
 #| eval: false
 directors_genres |>
-  filter(!director_id %in% c(429, 9247, 11652, 14927, 15092))
+  filter(!director_id %in% movies_directors$director_id)
 ```
 
 ```{r}
+#| eval: true
+#| echo: false
 directors_genres_subset |>
-  filter(!director_id %in% c(429, 9247, 11652, 14927, 15092))
+  filter(!director_id %in% movies_directors_subset$director_id) |> 
+  knitr::kable() |> 
+  kableExtra::scroll_box(height = "200px") |> 
+  kableExtra::kable_styling(font_size = 20)
 ```
 
-similar to `anti_join()`!
 :::
 
-## A note about piping joins
 
-```{r}
-#| eval: false
-#| echo: true
-inner_join(directors_genres, movies_directors)
+## [PA 4: Military Spending](https://earobinson95.github.io/stat331-calpoly/practice-activities/PA4-government-spending.html)
 
-directors_genres |> 
-  inner_join(movies_directors)
-```
-
-## [PA 4: Military Spending](https://earobinson95.github.io/stat331-calpoly/practice-activities/PA4-military-spending)
-
-Today you will be tidying untidy data to explore the relationship between countries of the world and military spending.
-
-**Due Wednesday, 2/1 at 8:00am**
-
-## [Bonus Challenge: Murder Mystery in SQL City](https://earobinson95.github.io/stat331-calpoly/bonus-challenges/bonus-challenge-murder-in-sql-city.html)
-
-For this challenge, you will be using table joins to solve a murder mystery.
-
-**Due Sunday, 2/12 at 11:59pm**
-
-![](images/sql-murder-relational-data.png)
-
+Today you will be tidying messy data to explore the relationship between countries of the world and military spending.
 
 ## To do...
 
-+ **PA 4: Military Spending**
-  + Due Wednesday 2/1 at 8:00am
+-   **PA 4: Military Spending**
+    -   Due Thursday, 2/1 at 8:00am
 
-+ **Bonus Challenge: Murder Mystery in SQL City**
-  + Due Sunday 2/12 at 11:59pm
-
-## Wednesday, January 25th
+## Thursday, February 2
 
 Today we will...
 
-+ Review PA 4: Military Spending
-+ Housekeeping items...
-  + Providing References in Labs + Challenges
-  + Clean variable names
-  + Lifecycle stages
-  + `dplyr` package updates
-  + Saving & Piping Data Joins
-+ Extensions to Relational Data
-+ Lab 4: Avocado Prices
-+ Challenge 3: Avocado Toast Ate My Mortgage
+-   Review Lab 4: Teacher Evaluations
+-   Miscellaneous...
+    -   Clean Variable Names
+    -   Lifecycle Stages
+-   Extensions to Relational Data
+-   Lab 4: Childcare Costs
 
-## Getting Help and using Chat GPT
+## Lab 3: Teacher Evaluations
 
-:::: columns
-::: column
-![](images/stack_overflow.PNG)
-<br>
-![](images/help.PNG)
++ The [`tidyverse`](https://www.tidyverse.org/packages/) package automatically loads `ggplot2`, `dplyr`, `readr`, etc. -- do not load these twice!
+
++ Do not use `mutate()` + `distinct()`, when you can use `summarize()`!
+
+
+## `mutate()` vs `summarise()`
+
+::: panel-tabset
+### `mutate()`
+
+![](images/mutate-sketch.JPG)
+
+### `summarise()`
+
+![](images/summarise-sketch.JPG){width=85%}
 :::
-::: column
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8">
-</script>
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">My cheating policy this quarter for #ChatGPT: Treat AI like a human tutor. <br><br>Asking a tutor to help explain a homework concept to you or help debug your code? <br>Totally fine! <br><br>Having a tutor do your homework for you? Talking to a tutor during an exam?<br> Not acceptable. <br><br>🤷‍♀️</p>&mdash; Kelly Bodwin (@KellyBodwin) <a href="https://twitter.com/KellyBodwin/status/1613112086925824000?ref_src=twsrc%5Etfw">January 11, 2023</a>
-</blockquote>
-:::
-::::
+## Game Plan: Rate My Professor
 
-## Lab 3: Distinct number of words
 
-<br>
-
-:::: columns
-::: column
-```{r}
-#| eval: false
-#| echo: true
-count(distinct(hiphop_clean, word))
-```
-
-<br>
-
-```{r}
-#| eval: false
-#| echo: true
-hiphop_clean |> 
-  distinct(word) |> 
-  count()
-```
-
-<br>
-
-$f(g(h(x)))$ 
-
-in piping syntax is 
-
-`x |> h() |> g() |> f()`
-:::
-::: column
-```{r}
-#| eval: false
-#| echo: true
-n_distinct(hiphop_clean$word)
-```
-
-<br>
-
-```{r}
-#| eval: false
-#| echo: true
-hiphop_clean |> 
-  pull(word) |> 
-  n_distinct()
-```
-:::
-::::
-
-## Clean variable names with [`library(janitor)`](https://sfirke.github.io/janitor/)
+## Clean Variable Names with [`janitor`](https://sfirke.github.io/janitor/)
 
 ```{r}
 #| include: false
 library(readxl)
 library(tidyverse)
-military <- read_xlsx(here::here("practice-activities",
-                                 "data", 
-                                 "gov_spending_per_capita.xlsx"), 
-                      sheet = "Share of Govt. spending", 
-                      skip  = 7, 
-                      n_max  = 191)
+military <- read_xlsx(here::here("practice-activities/data/gov_spending_per_capita.xlsx"), 
+                sheet = "Share of Govt. spending", 
+                skip  = 7, 
+                n_max  = 191)
 
 military_clean <- military |> 
-  mutate(across(`1988`:`2019`, ~ na_if(.x, y = ". .")),
-         across(`1988`:`2019`, ~ na_if(.x, y = "xxx"))
-         )
+  mutate(across(`1988`:`2019`,
+                ~ na_if(.x, y = ". .")),
+         across(`1988`:`2019`,
+                ~ na_if(.x, y = "xxx")))
 ```
 
-Converts all names of variables in a data set to *snake_case*.
+Data from external sources likely has variable names not ideally formatted for R.
+
+Names may...
+
++ contain spaces.
++ start with numbers.
++ start with a mix of capital and lower case letters.
 
 ```{r}
 #| eval: true
 #| echo: true
-#| code-line-numbers: 3-5
-names(military)
+names(military)[1:12]
+```
 
+
+## Clean Variable Names with [`janitor`](https://sfirke.github.io/janitor/)
+
+
+The `janitor` package converts all variable names in a dataset to *snake_case*.
+
+Names will...
+
++ start with a lower case letter.
++ have spaces filled in with `_`.
+
+```{r}
+#| eval: true
+#| echo: true
+#| code-line-numbers: "1,3-5"
 library(janitor)
 military_clean_names <- military |> 
   clean_names()
 
-names(military_clean_names)
+names(military_clean_names)[1:12]
 ```
 
-## Lifceycle stages
 
-[Learn more about lifecycle stages](https://lifecycle.r-lib.org/articles/stages.html) of packages, functions, function arguments in R.
+## Lifceycle Stages
 
-:::: columns
+As packages get updated, the functions and function arguments included in those packages will change.
 
-::: column
-```{r}
-#| fig-align: center
-#| out-width: 80%
-knitr::include_graphics("images/depreciated.PNG")
-knitr::include_graphics("images/superseded.png")
-```
-:::
++ The accepted syntax for a function may change.
++ A function/functionality may disappear.
 
-::: column
-```{r}
-#| fig-align: center
-#| fig-cap: "Image source: deanattali.com/blog/cranalerts/"
-#| out-width: "100%"
-knitr::include_graphics("https://deanattali.com/assets/img/blog/cranalerts/automation.png")
-```
-:::
-::::
+![[Learn more about lifecycle stages](https://lifecycle.r-lib.org/articles/stages.html) of packages, functions, function arguments in R.](images/lifecycle.png)
 
-## Deprecated Functions: Military Spending Example
+
+## Deprecated Functions
+
+A **deprecated** functionality has a better alternative available and is scheduled for removal.
+
++ You get a warning telling you what to use instead.
+
 
 ```{r}
 #| warning: true
 #| message: true
 #| echo: true
-#| code-line-numbers: 2
+#| code-line-numbers: "2"
 military_clean |> 
   filter(across(Notes:`2019`, is.na)) |> 
-  slice_head(n = 3)
+  slice_head(n = 3) |> 
+  select(1:8)
 ```
+
+
+## Deprecated Functions
+
+You **should not** use deprecated functions!
+
+Instead, we use...
 
 ```{r}
 #| echo: true
-#| code-line-numbers: 2
+#| code-line-numbers: "2"
 military_clean |>
   filter(if_all(Notes:`2019`, ~ is.na(.x))) |> 
-  slice_head(n = 3)
+  slice_head(n = 3) |> 
+  select(1:8)
 ```
 
-## `dplyr` updates
 
-There was an update to the `dplyr` package to Version 1.1.0 on Sunday 1/29/2023.
+## Superceded Functions
 
-[See changelog for updates](https://dplyr.tidyverse.org/news/index.html)
+A **superseded** functionality has a better alternative, but is not going away .
 
-![](images/dplyr-update.jpg)
++ This is a softer alternative to deprecation.
++ A superseded function will not give a warning (since there’s no risk if you keep using it), but the documentation will give you a recommendation.
 
-## `group_by()` vs `.by = ` argument
-
-![](images/groupby-dplyr-update.jpg)
-
-## `across()`
-
-![](images/across-dplyr-update.jpg)
-
-```{r}
-#| eval: false
-#| echo: true
-#| code-line-numbers: 6-7
-
-military |> 
-  mutate(across(`1988`:`2019`, na_if, y = ". ."))
-
-
-military |> 
-  mutate(across(`1988`:`2019`, ~ na_if(.x, y = ". .")))
-```
-
-## `join_by()`
-
-![](images/joins-dplyr-update.jpg)
-
-## Saving & Piping data joins
-
-```{r}
-#| eval: false
-#| echo: true
-genres_movies_joined <- inner_join(directors_genres, movies_directors)
-
-genres_movies_joined <- directors_genres |> 
-  inner_join(movies_directors)
-```
 
 # Extensions to Relational Data
 
+
+## Relational Data
+
+When we work with multiple tables of data, we say we are working with **relational data**.
+
++ It is the *relations*, not just the individual datasets, that are important.
+
+
+When we work with relational data, we rely on **keys**.
+
+-   A key uniquely identifies an observation in a dataset.
+-   A key allows us to relate datasets to each other
+
+
 ## IMDb Movies Data
 
-Multiple tables of data are called **relational data** because it is the *relations*, not just the individual data sets, that are important.
-
-**Keys:** 
-
-+ Uniquely identifies an observation in a data set
-+ Relate data sets to each other
-
 ![](images/imdb-keys.png)
+
+**How can we find each director's active years?**
+
 
 ## Joining Multiple Data Sets
 
 ::: panel-tabset
+### Data
 
-### movies_directors
-
+:::: {.columns}
+::: {.column width="50%"}
 ```{r}
 #| echo: true
-movies_directors
+directors[1:4,]
 ```
-
-### directors
-
+:::
+::: {.column width="50%"}
 ```{r}
 #| echo: true
-directors
+movies_directors[1:4,]
 ```
+:::
+::::
 
-### movies
+:::: {.columns}
+::: {.column width="25%"}
 
+:::
+::: {.column width="50%"}
 ```{r}
 #| echo: true
-movies
+movies[1:4,]
 ```
-### sketch
+:::
+::::
+
+### Sketch
 
 ```{r}
-#| out-width: "70%"
+#| out-width: "90%"
 #| fig-align: center
-knitr::include_graphics("images/imdb-multiple-joins.png")
+knitr::include_graphics("images/multiple_joins.png")
 ```
 
 ### 1st + 2nd
 
 ```{r}
 #| echo: true
-join_one_data <- movies_directors |> 
+#| eval: false
+movies_directors |> 
   inner_join(directors, 
-             by = c("director_id" = "id")
-             )
-join_one_data
+             join_by(director_id == id))
 ```
 
-If you update `dplyr`...
 
 ```{r}
-#| echo: true
-#| eval: false
-#| code-line-numbers: 3
-directors_movie_ids <- movies_directors |> 
+#| eval: true
+#| echo: false
+movies_directors |> 
   inner_join(directors, 
-             by = join_by(id == director_id)
-             )
+             join_by(director_id == id)) |> 
+  knitr::kable() |> 
+  kableExtra::scroll_box(height = "400px") |> 
+  kableExtra::kable_styling(font_size = 20)
 ```
 
 ### + 3rd
 
 ```{r}
 #| echo: true
-join_two_data <- movies_directors |> 
+#| eval: false
+movies_directors |> 
   inner_join(directors, 
-             by = c("director_id" = "id")
-             ) |> 
+             join_by(director_id == id)) |> 
   inner_join(movies,
-             by = c("movie_id" = "id")
-             ) |> 
+             join_by(movie_id == id)) |> 
   rename(movie_name = name)
-join_two_data
+```
+
+```{r}
+#| eval: true
+#| echo: false
+movies_directors |> 
+  inner_join(directors, 
+             join_by(director_id == id)) |> 
+  inner_join(movies,
+             join_by(movie_id == id)) |> 
+  rename(movie_name = name) |> 
+  knitr::kable() |> 
+  kableExtra::scroll_box(height = "300px") |> 
+  kableExtra::kable_styling(font_size = 20)
 ```
 
 :::
 
+
 ## Joining on Multiple Variables
 
-Using the hiphop data from Lab 3...
+Consider the `rodent` data from Lab 2.
+
++ We want to add `species_id` to the rodent measurements.
 
 ```{r}
-hiphop <- read_csv(here::here("lab-assignments", "Lab3-dplyr", "hiphop.csv"))
-music <- hiphop |> 
-  select(word, subj, folk:pop)
+rodent <- read_csv(here::here("lab-assignments/lab2-graphics/surveys.csv"))
+species <- rodent |> 
+  select(genus:taxa, species_id) |> 
+  distinct()
 
-familiarity <- hiphop |> 
-  select(word, subj, familiarity) |> 
-  rename(participant = subj)
+measurements <- rodent |> 
+  select(genus, species, sex:weight) |> 
+  rename(genus_name = genus)
 ```
 
 ::: panel-tabset
 
-## Music Taste
+## Species
 
 ```{r}
 #| echo: true
-music
-```
-
-## Word Familiarity
-
-```{r}
-#| echo: true
-familiarity
-```
-
-## Join by word + subj
-:::: {.columns}
-:::{.column  width="55%"}
-```{r}
-#| echo: true
-#| code-line-numbers: 3-4
-music_wordfam <- music |> 
-  full_join(familiarity,
-            by = c("word" = "word", 
-                   "subj" = "participant")
-            )
-music_wordfam 
-```
-:::
-:::{.column  width="45%"}
-if `dplyr` updated...
-```{r}
 #| eval: false
-#| echo: true
-#| code-line-numbers: 3-4
-music_wordfam <- music |> 
-  full_join(familiarity,
-            by = join_by(word == word, 
-                         subj == participant)
-            )
-music_wordfam 
+species
 ```
+
+```{r}
+#| eval: true
+#| echo: false
+species |> 
+  knitr::kable() |> 
+  kableExtra::scroll_box(height = "300px") |> 
+  kableExtra::kable_styling(font_size = 20)
+```
+
+## Measurements
+
+```{r}
+#| echo: true
+#| eval: false
+measurements
+```
+
+```{r}
+#| eval: true
+#| echo: false
+measurements[1:100,] |> 
+  knitr::kable() |> 
+  kableExtra::scroll_box(height = "300px") |> 
+  kableExtra::kable_styling(font_size = 20)
+```
+
+## Join by `species` + `genus`
+
+```{r}
+#| echo: true
+#| eval: false
+species |> 
+  full_join(measurements,
+            join_by(species == species, 
+                    genus == genus_name))
+```
+
+```{r}
+#| eval: true
+#| echo: false
+species |> 
+  full_join(measurements[1:100,],
+            join_by(species == species, 
+                    genus == genus_name)) |> 
+  knitr::kable() |> 
+  kableExtra::scroll_box(height = "200px") |> 
+  kableExtra::kable_styling(font_size = 20)
+```
+
 :::
-::::
-:::
 
 
-## Lab + Challenge
+## [Lab 4: Teacher Evaluations](https://earobinson95.github.io/stat331-calpoly/lab-assignments/lab4/lab4-childcare-costs.html)
 
-[Lab 4: Avocado Prices + Challenge 4: Avocado Toast Ate My Mortgage](https://earobinson95.github.io/stat331-calpoly/lab-assignments/lab4/lab4-avocado-prices.html)
-
-<br>
-**Handy Helpers**
-
-`rename()` -- Change names of columns
-
-`separate()` -- Separate values of a variable
-
-<br>
-**Filtering Joins**
+<br> **Filtering Joins**
 
 `semi_join()`: Keeps values found in another data set
 
-`anti_join()`: Keeps values not found in another data set
+`anti_join()`: Keeps values **not** found in another data set
+
 
 ## Workflow
 
-1. Load packages + read in original data
+1.  Load packages + read in data.
 
 ```{r}
 #| echo: true
 #| eval: false
 library(tidyverse)
-data_original <- read_csv(file = "path/to/datal.csv")
+data_original <- read_csv(file = "path/to/data.csv")
 ```
 
-2. Clean data -- save your changes! This is now your new "master" data set
+2.  Clean data and **save** changes -- use this data from now on!
 
 ```{r}
 #| echo: true
 #| eval: false
 data_clean <- data_original |> 
-  mutate(across(x1:x5, ~ as.factor(.x))) |> 
-  mutate(new_var <- if_else(...))
+  mutate(across(x1:x5, ~ as.factor(.x)),
+         new_var = if_else(...))
 ```
 
-3. If you need subsets, create those from your new "master" data for the specific tasks.
+3.  Create subsets from your cleaned data for specific tasks.
 
 ```{r}
 #| echo: true
@@ -1054,19 +1750,12 @@ demographics_subj <- data_clean |>
   distinct(subj, keep_all = TRUE)
 ```
 
-4. Output **only** the the information you want to include in your assignment.
+4.  Output **only** the the information you want in your report. Recall `#| include: false` and `#| output: false`
 
 ## To do...
 
-+ **Lab 4: Avocado Prices**
-  + Due Friday, 2/3 at 11:59pm
-  
-+ **Challenge 4: Avocado Toast Ate My Mortgage**
-  + Due Saturday, 2/4 at 11:59pm
-  
-+ **Read Chapter 5: Special Data Types**
-  + **Concept Check 5.1 + 5.2 + 5.3** due Monday (2/6) at 8:00am
-  
-+ [**Bonus Challenge: Murder Mystery in SQL City**](https://earobinson95.github.io/stat331-calpoly/bonus-challenges/bonus-challenge-murder-in-sql-city.html)
-  + Due Sunday 2/12 at 11:59pm
+-   **Lab 4: Childcare Costs**
+    -   Due Monday, 2/5 at 11:59pm
+-   **Read Chapter 5: Special Data Types**
+    -   **Check-in 5.1 - 5.2** due Tuesday (2/6) at 8:00am
   
