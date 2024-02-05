@@ -4,7 +4,7 @@ subtitle: "Joins and Summaries"
 author: "Your Name"
 format: 
   html:
-    self-contained: true
+    embed-resources: true
     code-tools: true
     toc: true
 editor: source
