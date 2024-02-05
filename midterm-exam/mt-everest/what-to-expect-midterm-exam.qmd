@@ -1,0 +1,104 @@
+---
+title: "What to Expect"
+subtitle: "Stat 331/531 Midterm Exam"
+format: 
+  html:
+    embed-resources: true
+    toc: true
+    number-sections: false
+theme:
+  light: flatly
+  dark: darkly
+editor: source
+execute: 
+  error: true
+  echo: true
+  message: false
+  warning: false
+---
+
+```{r setup}
+#| include: false
+library(tidyverse)
+library(lubridate)
+```
+
+## Exam Details {-}
+
+The exam is three-part:
+
+1. **General Questions** (20 points)
+  + This section will be completed in class, on paper, without any resources.
+  + This section *must* be completed first.
+2. **Short Answer** (30 points)
+  + This section will be completed in class, on your computer, with any non-human resources.
+  + You will submit both your .html and .qmd files.
+3. **Open-Ended Analysis** (50 points)
+  + This section will be started in class (finished outside of class), on your computer, with any non-human resources.
+  + You will submit both your .html and .qmd files.
+
+
+## Please note:
+
++ You will have **1 hour and 50 minutes** to complete the in-class portion of the exam.
+  + Late uploads will automatically be deducted 2 points per minute!
++ The take-home portion is due **24-hours** after the end of the in-class exam.
++ The problems on this exam do not necessarily need to be completed in order – if you cannot accomplish problem 1, you may still be able to accomplish problem 2.
++ Don’t spend too long on one question. Point allocations have been given to each problem to help you manage your time.
++ All questions should be answered **using R code**. Make sure your code prints out only the information that directly answers the question (e.g., Winona State University)  **Penalties will be given if your .html file has extra output beyond that which answers the question.**
++ If any questions arise during the exam, please do not hesitate to ask!
+
+## Resource Policies {-}
+
++ For parts 2 and 3, you may use any online resources, including anything posted on Canvas, in the text, or in your past assignments.
++ You may **NOT** contact anyone, inside or outside this class, during the course of the exam. This includes email, chat/messenger services, and posting on online forums and message boards.
++ You may **NOT** discuss the exam with any other students until after the exams have been returned to all students.
+  
+## The Data {-}
+
+Your data set for the exam, `everest.csv` can be downloaded [here](everest.csv).
+
+The data set contains records for expeditions that have climbed in the Nepal Himalaya from 1905 through Spring 2019. I previously subset the data to contain only Mount Everest ascents, but documentation for this data set can be found [here](https://www.kaggle.com/datasets/majunbajun/himalayan-climbing-expeditions).
+
+You may bring to the exam any pre-analysis you have done of this data.
+ 
+## General Questions  [20 points]
+
+You will be asked a series of five questions about R, RStudio, and performing operations with the `tidyverse`, etc. These will be multiple choice, fill in the blank, and select all that apply style -- similar to the check-ins.
+
+## Short Answer [30 points]
+
+You will be given a `.qmd` template similar to lab assignments and asked a series of short questions about the minimum wage data set, such as *"Which course(s) had the highest and lowest average rating for instructors with more than 6 years of experience?"* Each of these questions should be answered *exactly* using functions from the `tidyverse`.
+
+There will be at least one "sketch your game plan" question and at least one "create a plot" question.
+
+You will turn in your `.html` and `.qmd` files, but only your `.html` file will be graded. You will be graded on the correct output, as well as your code format and workflow.
+
+## Open-Ended Analysis [50 points]
+
+You will create your own `.qmd` file for this part. Make sure you know how to do this! 
+
+::: callout-caution
+Make sure the following quarto options are included in your YAML.
+
+`embed-resources: true`
+
+`echo: true`
+
+`code-tools: true`
+
+`code-fold: true`
+
+You may want to copy a YAML from a previous lab assignment.
+:::
+
+You will be asked one open-ended question about the mount Everest data set, such as "Make an argument about the price of avocados and housing prices". You will create a write-up of approximately 1 page (including one plot, foled/echoed code, and one summary table) that tells a clear story. Your write-up must include **exactly** one plot and **exactly** one table of summary statistics.
+
+You will turn in your `.html` and `.qmd` files; only your `.html` file will be
+graded. 
+
+::: callout-tip
+While this is not an English class, I will be looking for clear and concise
+communication. Make sure to frame your insight with a data description paragraph
+and explain your argument.
+:::
