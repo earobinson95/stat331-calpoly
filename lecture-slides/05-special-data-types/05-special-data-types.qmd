@@ -20,517 +20,60 @@ library(palmerpenguins)
 Today we will...
 
 + Final Project Group Formation
-+ Review Lab 4
-+ Mini lecture on text material
-  + Reordering Factor Variables
++ New Material
   + Working with Date & Time Variables
 + [PA 5.1: Zodiac Killer](https://earobinson95.github.io/stat331-calpoly/practice-activities/PA5_1-zodiac-killer.html)
 
 ## Final Project Group Formation
 
-You will be completing a final project in Stat 331/531 in teams of four. More details to come soon!
+You will be completing a final project in Stat 331/531 in teams of four.
 
-In general, coming up submissions to be aware of:
-
-+ **Group Formation Survey** due **Friday, 2/10 at 11:59pm**
-  + Meant to help me gather information about your preferences and work style in order to facilitate the team formation process.
-  + Your groupmates do not need to be in the same section as you, but you might find it useful for worktime during class.
++ **Group Formation Survey** due **Friday, 2/9 at 11:59pm**
+  + Help me gather information about your preferences and work styles to facilitate team formation.
+  + Your team does not all need to be in the same section, but you might find it useful for in-class work time.
 + Group Contracts
-  + Let's have an open conversation with our team to make things go smooth
-+ Project Proposal -- I will provide details on this!
-+ Final Project Deliverable
-  + Might be broken up into two steps since I know we like to procrastinate!
-
-## Lab 4: Tips
-
-**Don't include pages of output**
-
-Use the code chunk option
-
-`#| output: false`
-
-`#| results: false`
-
-<br>
-
-**Data Description Components**
-
-Make sure to include context when describing the data set as well as the data characteristics. 
-
-+ Where did the data come from? What years? Location? Source?
-+ What is the data being used for? 
-+ What are the variables (in context) and observations (in context)?
-
-## `mutate()` vs `summarise()`
-
-::: panel-tabset
-### `mutate()` preserve observations
-
-![](images/mutate-sketch.JPG)
-
-### `summarise()` collapse observations
-
-![](images/summarise-sketch.JPG)
-:::
-
-## Lab 4: Game Plans!
-
-:::: columns
-::: column
-
-**Read**
-
-Average
-
-Total
-
-Which or For Each
-
-Minimum
-
-Maximum
-
-Minimum and Maximum
-
-:::
-::: column
-
-**Think**
-
-`summarize(avg_var = mean())`
-
-`summarize(total = sum())`
-
-`group_by()`
-
-`slice_min()`
-
-`slice_max()`
-
-`arrange() |> slice(1,n())`
-
-:::
-::::
-
-## Lab 4: Better alternatives to bar plots
-
-```{r}
-library(tidyverse)
-avocado <- read_csv(here::here("lab-assignments", "lab4", "avocado-updated-2020.csv"))
-
-major_region <- c("California", "West", "South Central", "Great Lakes", "Midsouth", "Southeast", "Northeast", "Plains", "Total U.S.")
-
-avocado_clean <- avocado |> 
-  #rename PLU codes and tidy up data
-  rename(small_hass = "4046", 
-         large_hass = "4225", 
-         xlarge_hass = "4770") |> 
-  mutate(geography_type = if_else(geography %in% major_region, "Major", "Metro"),
-         across(c(type:geography_type), as.factor)
-         )
-
-avocado_california <- avocado_clean |> 
-  filter(geography %in% c("Los Angeles", "San Diego", "Sacramento", "San Francisco"))
-
-organic_price_diff <- avocado_california |> 
-  pivot_wider(id_cols = c(date, year, geography, geography_type),
-              names_from = type,
-              values_from = average_price
-              ) |> 
-  mutate(price_diff = organic - conventional) 
-
-# organic_price_diff |> 
-#   ggplot(aes(x = price_diff, 
-#              y = geography, 
-#              color = geography, 
-#              fill = geography,
-#              shape = geography)) +
-#   geom_jitter(alpha = 0.3, show.legend = F) +
-#   geom_boxplot(alpha = 0.5, show.legend = F) +
-#   geom_vline(xintercept = 0, linetype = "dashed") +
-#   theme_bw() +
-#   theme(legend.position = "none",
-#         axis.title.y = element_blank()) +
-#   labs(subtitle = "Year",
-#        x = "Difference in Price ($)\nOrganic - Conventional")
-```
-
-*Bar plots are typically reserved for displaying frequencies*
-
-::: panel-tabset
-
-### Summary Data
-```{r}
-diff_summary <- organic_price_diff |> 
-  group_by(geography) |> 
-  summarise(mean_price_diff = mean(price_diff),
-            sd_price_diff = sd(price_diff)
-            ) |> 
-  arrange(desc(mean_price_diff))
-diff_summary 
-```
-
-### Bar plots
-
-```{r}
-#| echo: true
-#| code-fold: true
-#| fig-height: 4
-#| fig-width: 6
-#| fig-align: center
-diff_summary  |> 
-  ggplot(aes(x = mean_price_diff, 
-             y = geography,
-             fill = geography)
-         ) +
-  geom_bar(stat = "identity") +
-  labs(subtitle = "Geography",
-       x = "Difference in Price ($)\nOrganic - Conventional",
-       y = "") +
-  theme_minimal() +
-  theme(legend.position = "none") +
-  scale_fill_brewer(palette = "Dark2")
-```
-
-### Cleveland Dot Plots
-
-Read more about [Cleveland Dot Plots](https://uc-r.github.io/cleveland-dot-plots)
-
-```{r}
-#| echo: true
-#| code-fold: true
-#| fig-height: 4
-#| fig-width: 6
-#| fig-align: center
-diff_summary |> 
-  arrange(desc(mean_price_diff)) |> 
-  ggplot(aes(x = mean_price_diff, 
-             y = geography,
-             fill = geography)
-         ) +
-  geom_segment(aes(xend = 0,
-                   yend = geography)
-  ) +
-  geom_point() +
-  labs(subtitle = "Geography",
-       x = "Difference in Price ($)\nOrganic - Conventional",
-       y = "") +
-  theme_minimal() +
-  theme(legend.position = "none") +
-  scale_fill_brewer(palette = "Dark2")
-```
-:::
-
-# Factor Variables
-
-## `library(forcats)` [cheatsheet](https://posit.co/wp-content/uploads/2022/10/factors-1.pdf)
-
-:::: columns
-::: column
-**Common tasks**
-
-+ Turn a `character` or `numeric` variable into a factor
-
-+ Make a factor by discritizing / "binning" a numeric variable
-
-+ Rename or reorder the `levels` of an existing `factor`
-:::
-::: column
-```{r}
-#| out-width: 50%
-#| fig-align: center
-knitr::include_graphics("https://github.com/rstudio/hex-stickers/blob/main/thumbs/forcats.png?raw=true")
-```
-:::
-::::
-
-::: callout-note
-The packages `forcats` ("for categoricals") gives nice shortcuts for
-wrangling categorical variables.
-
-  + `forcats` loads with the `tidyverse`!
-:::
-
-
-## Create a `factor`
-
-```{r}
-#| echo: true
-x <- c("apple", "dog", "banana", "cat", "banana", "Queen Elizabeth", "dog")
-x
-```
-
-<br>
-
-```{r}
-#| echo: true
-x <- factor(x)
-x
-```
-
-## What happened?
-
-```{r}
-#| fig-align: center
-knitr::include_graphics("images/factor_mapping.jpg")
-```
-
-<!-- :::: columns -->
-<!-- ::: column -->
-<!-- ```{r} -->
-<!-- #| echo: false -->
-<!-- x <- c(1,4,2,3,2,5,4) -->
-<!-- ``` -->
-
-<!-- ```{r} -->
-<!-- #| echo: true -->
-<!-- x -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- ::: column -->
-<!-- ```{r} -->
-<!-- x <- factor(c("apple", "dog", "banana", "cat", "banana", "Queen Elizabeth", "dog")) -->
-<!-- ``` -->
-
-<!-- ```{r} -->
-<!-- #| echo: true -->
-<!-- #| eval: false -->
-<!-- levels(x) -->
-<!-- ``` -->
-
-<!-- ```{r} -->
-<!-- #| echo: false -->
-<!-- levels(x) |>  -->
-<!--   knitr::kable() -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- :::: -->
-
-## `fct_recode()`
-
-new level = old level
-
-```{r}
-#| echo: true
-x <- fct_recode(x,
-                "fruit" = "apple",
-                "fruit" = "banana",
-                "pet"   = "cat",
-                "pet"   = "dog"
-                )
-x
-```
-
-::: callout-note
-Notice Queen Elizabeth is a "remaining" level that was never recoded.
-:::
-
-## `fct_relevel()`
-
-```{r}
-#| echo: true
-x <- fct_relevel(x, 
-                 levels = c("Queen Elizabeth", 
-                            "pet", 
-                            "fruit")
-)
-levels(x)
-```
-
-
-## Factors in the `tidyverse`
-
-::: panel-tabset
-### cereal
-
-```{r}
-#| echo: true
-library(liver)
-data(cereal)
-str(cereal)
-```
-
-### previously `case_when()`
-```{r}
-#| echo: true
-cereal_casewhen <- cereal |> 
-  mutate(manuf = case_when(manuf == "A" ~ "American Home Food Products", 
-                           manuf == "G" ~ "General Mills", 
-                           manuf == "K" ~ "Kelloggs", 
-                           manuf == "N" ~ "Nabisco", 
-                           manuf == "P" ~ "Post", 
-                           manuf == "Q" ~ "Quaker Oats", 
-                           manuf == "R" ~ "Ralston Purina"
-                           ),
-         manuf = as.factor(manuf)
-  )
-summary(cereal_casewhen$manuf)
-```
-
-### now `fct_recode`
-
-```{r}
-#| echo: true
-
-cereal_recode <- cereal |> 
-  mutate(manuf = fct_recode(manuf, 
-                             "American Home Food Products" = "A", 
-                             "General Mills" = "G", 
-                             "Kelloggs" = "K", 
-                             "Nabisco" = "N", 
-                             "Post" = "P", 
-                             "Quaker Oats" = "Q", 
-                             "Ralston Purina" = "R"
-                           )
-  )
-
-summary(cereal_recode$manuf)
-```
-:::
-
-<!-- cereal_relabel <- cereal |> -->
-<!--   mutate(manuf = fct_relabel(manuf, -->
-<!--                              A ~ "American Home Food Products", -->
-<!--                              G ~ "General Mills", -->
-<!--                              K ~ "Kelloggs", -->
-<!--                              N ~ "Nabisco", -->
-<!--                              P ~ "Post", -->
-<!--                              Q ~ "Quaker Oats", -->
-<!--                              R ~ "Ralston Purina" -->
-<!--                            ) -->
-<!--   ) -->
-
-## Factors in `ggplot2`
-
-Disclaimer: fix your axes and legend labels!
-
-::: panel-tabset
-### original
-
-```{r}
-#| echo: true
-#| code-fold: true
-#| code-line-numbers: 14
-library(ggridges)
-cereal_recode |> 
-  ggplot(aes(x = sugars, 
-             y = manuf, 
-             fill = manuf)) +
-  geom_density_ridges() +
-  theme_minimal() +
-  theme(legend.position = "none") +
-  labs()
-```
-
-### `fct_reorder()`
-
-Default reorders by the median value
-
-```{r}
-#| echo: true
-#| code-fold: true
-#| code-line-numbers: 3
-cereal_recode |> 
-  ggplot(aes(x = sugars, 
-             y = fct_reorder(.f = manuf, 
-                             .x = sugars,
-                             .fun = mean), 
-             fill = manuf)
-         ) +
-  geom_density_ridges() +
-  theme_minimal() +
-  theme(legend.position = "none") +
-  labs()
-```
-:::
-
-## Factors in `ggplot2`
-
-Disclaimer: fix your axes and legend labels!
-
-::: panel-tabset
-### Original
-
-```{r}
-#| echo: true
-#| code-fold: true
-#| code-line-numbers: 6
-cereal_recode |> 
-  group_by(manuf, shelf) |> 
-  summarise(avg_sugar = mean(sugars, na.rm = TRUE)) |> 
-  ggplot(aes(x = shelf, 
-             y = avg_sugar, 
-             color = manuf)
-         ) +
-  geom_line() +
-  theme_minimal() +
-  labs()
-```
-
-### `fct_reorder2()`
-
-```{r}
-#| echo: true
-#| code-fold: true
-#| code-line-numbers: 6
-cereal_recode |> 
-  group_by(manuf, shelf) |> 
-  summarise(avg_sugar = mean(sugars, na.rm = TRUE)) |> 
-  ggplot(aes(x = shelf, 
-             y = avg_sugar, 
-             color = fct_reorder2(manuf, .x = shelf, .y = avg_sugar))
-         ) +
-  geom_line() +
-  theme_minimal() +
-  labs()
-```
-
-::: 
-
-## [Lab 5: Factors in Data Visualizations](https://earobinson95.github.io/stat331-calpoly/lab-assignments/lab5/lab5-factors-in-visualizations.html)
-
-+ We will be working with the `survey.csv data` from *Lab 2: Exploring Rodents with ggplot2* to improve our plots!
-
-+ See [Will Chase's 2020 RStudio Conference Presentation - Glamour of Graphics](https://www.youtube.com/watch?v=h5cTacaWE6I&ab_channel=PositPBC)
-  + [slides](https://www.williamrchase.com/slides/assets/player/KeynoteDHTMLPlayer.html#0)
-
-+ You will be asked to "sketch your game plan" with [https://excalidraw.com/](https://excalidraw.com/).
-
-::: callout-caution
-
-You will be **required** to use functions from the {forcats} package! e.g. `reorder()` is a no go, use `fct_reorder` instead!
-
-:::
++ Project Proposal
++ Final Deliverable
 
 # Date + Time Variables
 
-# `library(lubridate)`
 
-:::: columns
-::: column
+## Why are dates and times tricky?
+
+When parsing dates and times, we have to consider complicating factors like...
+
++ Daylight Savings Time.
+  + One day a year is 23 hours; one day a year is 25 hours.
+  + Some places use it, some don't.
++ Leap years -- most years have 365 days, some have 366.
++ Time zones.
+
+
+## `lubridate`
+
+:::: {.columns}
+::: {.column width="80%"}
 **Common Tasks**
 
-+ Convert a date-like variable ("May 8, 1995") to a special DateTime Object.
++ Convert a date-like variable ("May 8, 1995") to a date or date-time object.
 
-+ Find the weekday, month, year, etc from a DateTime object
++ Find the weekday, month, year, etc from a date-time object.
 
-+ Convert between timezones
++ Convert between time zones.
 
 :::
-::: column
+::: {.column width="20%"}
+
 ```{r}
 #| fig-align: center
-#| out-width: 50%
 knitr::include_graphics("https://github.com/rstudio/hex-stickers/blob/main/thumbs/lubridate.png?raw=true")
 ```
+
 :::
 ::::
 
 ::: callout-note
-The package `lubridate` is AMAZING for this. 
-
-+ `lubridate` does not **load** with the `tidyverse` but it does **install**
-  with it.
+The `lubridate` package  **installs** with `tidyverse`, but does not **load**.
   
 ```{r}
 #| echo: true
@@ -538,63 +81,67 @@ library(lubridate)
 ```
 :::
 
-## `datetime` Objects
 
-There are actually three data types (classes) in R for dates and datetimes.
+## `date-time` Objects
 
-+ Date (duh)
+There are multiple **data types** for dates and times.
 
-+ POSIXlt (???)
 
-+ and POSIXct (???)
++ A date:
+  + `date` or `Date`
++ A date and a time (identifies a unique instant in time):
+  + `dtm`
+  + `POSIXlt` -- stores date-times as the number of seconds since January 1, 1970 ("Unix Epoch")
+  + `POSIXct` -- stores date-times as a list with elements for second, minute, hour, day, month, year, etc.
 
-## History of `POSIXlt` and `POSIXct`
 
-:::: columns
-::: column
-- `POSIXct` -- stores date/time values as the number of seconds since
-January 1, 1970 ("Unix Epoch")
+## Creating `date-time` Objects
 
-- `POSIXlt` -- stores date/time values as a list with elements for second,
-minute, hour, day, month, and year, among others. 
-:::
-::: column
-In the "old days", to make a Date or Datetime object, you'd have to get the
-format *just right*.
+Create a date from individual components:
 
-```{r}
-#| echo: true
-as.Date("1995-05-08") |>  str()
-as_datetime("1995-05-08") |>  str()
-```
-:::
-::::
-
-## Enter `lubridate`!
-
-:::: columns
-::: column
 ```{r}
 #| echo: true
 make_date(year = 1995, month = 05, day = 08)
-mdy("May 8, 1995")
-dmy("8-May-1995", tz = "America/Chicago")
 ```
-:::
-::: column
+
+. . .
+
+Create a date from a string:
+
 ```{r}
 #| echo: true
-parse_datetime("05/8/1995", format = "mdy")
-
-parse_datetime("5/8/1995", format = "%m/%d/%Y")
-
+mdy("May 8, 1995")
 ```
-:::
-::::
 
-## Common mistake with dates
+```{r}
+#| echo: true
+dmy("8-May-1995", tz = "America/Chicago")
+```
 
-*What is wrong with these two code chunks?*
+```{r}
+#| echo: true
+dmy_hms("8-May-1995 9:32:12", tz = "America/Chicago")
+```
+
+```{r}
+#| echo: true
+as_datetime("95-05-08", format = "%y-%m-%d")
+```
+
+```{r}
+#| echo: true
+parse_datetime("5/8/1995", format = "%m/%d/%Y")
+```
+
+
+## Creating `date-time` Objects
+
+![](images/date_symbols.png){width=80%}
+
+
+## Common Mistake with Dates
+
+*What's wrong here?*
 
 ```{r}
 #| echo: true
@@ -609,12 +156,20 @@ my_date <- 2023-02-6
 my_date
 ```
 
-## Components of dates
+<br>
 
+. . .
+
+Make sure you use quotes!
+
++ 2,015 seconds $\approx$ 33.5 minutes
+
+
+## Extracting `date-time` Components
 
 ```{r}
 #| echo: true
-bday <- ymd_hms("1995-05-8 6:32:12", tz = "America/Chicago")
+bday <- ymd_hms("1995-05-08 9:32:12", tz = "America/New_York")
 bday
 ```
 
@@ -633,33 +188,163 @@ day(bday)
 ```{r}
 #| echo: true
 wday(bday)
-
-wday(bday, label = TRUE)
-
-wday(bday, label = TRUE)
+wday(bday, label = TRUE, abbr = FALSE)
 ```
 :::
 ::::
 
-## When is my ______ birthday?
 
-<br>
+## Subtraction with  `date-time` Objects
 
-next birthday...
+Doing subtraction gives you a `difftime` object.
+
++ `difftime` objects do not always have the same units -- it depends on the scale of the objects you are working with.
+
+How old am I?
 
 ```{r}
 #| echo: true
-(bday + years(28)) |>  
-  wday(label = TRUE, abbr = FALSE)
+today() - mdy(05081995)
 ```
 
-<br>
-
-hundredth...
+How long did it take me to finish a typing challenge?
 
 ```{r}
 #| echo: true
-bday + years(100)
+begin  <- mdy_hms("3/1/2023 13:04:34")
+finish <- mdy_hms("3/1/2023 13:06:11")
+finish - begin
+```
+
+
+## Durations and Periods
+
+**Durations** will always give the time span in an **exact number of seconds**.
+
+```{r}
+#| echo: true
+as.duration(today() - mdy(05081995))
+```
+
+```{r}
+#| echo: true
+as.duration(finish - begin)
+```
+
+. . .
+
+**Periods** will give the time span in more approximate, but **human readable times**.
+
+```{r}
+#| echo: true
+as.period(today() - mdy(05081995))
+```
+
+```{r}
+#| echo: true
+as.period(finish - begin)
+```
+
+
+## Durations and Periods
+
+We can also **add** time:
+
++ `days()`, `years()`, etc. will add a **period** of time.
++ `ddays()`, `dyears()`, etc. will add a **duration** of time.
+
+. . .
+
+Because durations use the **exact** number of seconds to represent days and years, you might get unexpected results:
+
+When is is my 99th birthday?
+
+```{r}
+#| echo: true
+mdy(05081995) + years(99)
+```
+
+```{r}
+#| echo: true
+mdy(05081995) + dyears(99)
+```
+
+
+## Time Zones
+
+**Time zones are complicated!**
+
+Specify time zones in the form:
+
++ {continent}/{city} -- “America/New_York”, “Africa/Nairobi”
++ {ocean}/{city} -- “Pacific/Auckland”
+
+. . .
+
+What time zone does R think I'm in?
+
+```{r}
+#| echo: true
+Sys.timezone()
+```
+
+
+## Time Zones
+
+You can change the time zone of a date in two ways:
+
+```{r}
+#| echo: true
+x <- ymd_hms("2024-06-01 18:00:00", tz = "Europe/Copenhagen")
+```
+
+:::panel-tabset
+
+### `with_tz()`
+
+Keeps the instant in time the same, but changes the visual representation.
+
+```{r}
+#| echo: true
+x |> 
+  with_tz()
+x |> 
+  with_tz(tzone = "Asia/Kolkata")
+```
+
+### `force_tz()`
+
+Changes the instant in time by forcing a time zone change.
+
+```{r}
+#| echo: true
+x |> 
+  force_tz()
+x |> 
+  force_tz(tzone = "Asia/Kolkata")
+```
+
+:::
+
+
+## Common Mistake with Dates
+
+When you read data in or create a new date-time object, the default time zone (if not specified) is UTC.
+
++ UTC (Universal Time Coordinated) is the same as GMT (Greenwich Mean Time).
+
+Make sure you specify your desired time zone!
+
+```{r}
+#| echo: true
+x <- mdy("05/08/1995")
+tz(x)
+```
+
+```{r}
+#| echo: true
+x <- mdy("05/08/1995", tz = "America/Chicago")
+tz(x)
 ```
 
 ## [PA 5.1: Zodiac Killer](https://earobinson95.github.io/stat331-calpoly/practice-activities/PA5_1-zodiac-killer.html)
@@ -673,104 +358,46 @@ Unfortunately, the date and time of the murder is not known. You have been hired
 ## To do...
 
 + **PA 5.1: Zodiac Killer**
-  + Due Wednesday, 2/8 at 8:00am
-
-+ **Lab 5: Factors in Data Visualization**
-  + Due Friday, 2/10 at 11:59pm
+  + Due Thursday, 2/8 at 8:00am
   
 + **Final Project Group Formation Survey**
-  + Due Friday, 2/10 at 11:59pm
+  + Due Friday, 2/9 at 11:59pm
   
-## Wednesday, February 8th
++ [**Lab 5: Murder Mystery in SQL City**](https://earobinson95.github.io/stat331-calpoly/lab-assignments/lab5/murder-in-sql-city.html)
+  + Due Monday 2/12 at 11:59pm
+  
+## Thursday, February 8th
 
 Today we will...
 
-+ Review PA 5.1: Zodiac Killer
-+ Bonus Challenge: Save the Date
-+ Midterm Exam 2/15: What to Expect
-  + Example Game Plans
-  + Example Open-ended Analysis
-+ Mini lecture on text material
++ Review
+  + PA 5.1: Zodiac Killer
+  + Lab 4: Childcare Costs
++ Midterm Exam Thursday, 2/15: What to Expect
++ New Material
   + Strings
   + Regular Expressions
 + Example: "Messy" Covid Variants
 + [PA 5.2: Scrambled Message](https://earobinson95.github.io/stat331-calpoly/practice-activities/PA5_2-scrambled-message-regex.html)
 
-## [Bonus Challenge: Save the Date](https://earobinson95.github.io/stat331-calpoly/bonus-challenges/bonus-challenge-data-mishaps-night.html)
+## [Midterm Exam](https://earobinson95.github.io/stat331-calpoly/midterm-exam/mt-everest/what-to-expect-midterm-exam.html) -- Thursday, 2/15
 
-:::: {.columns}
-:::{.column  width="55%"}
-**What** [Data Mishaps Night](https://datamishapsnight.com/)
++ This is a three-part exam:
+  1. You will first complete a **General Questions** section on paper and **without your computer**.
+  2. After you turn that in, you will complete a **Short Answer** section **with your computer**.
+    + *You will have the one hour and 50 minute class period to complete the first two sections.*
+  3. The third section, **Open-Ended Analysis**, will be started in class and due **24 hours** after the end of class.
 
-**When** Thursday, February 23rd at 5pm PST
 
-**Where** Zoom!
-:::
-:::{.column  width="45%"}
-```{r}
-#| out-width: 70%
-#| fig-align: center
-knitr::include_graphics("https://datamishapsnight.files.wordpress.com/2021/01/data-mishaps_main_withtext-4.png?w=768")
-```
-:::
-::::
+## [Midterm Exam](https://earobinson95.github.io/stat331-calpoly/midterm-exam/mt-everest/what-to-expect-midterm-exam.html) -- Thursday, 2/15
+
++ The exam is worth a total of 100 points.
+  + Approx. 20 pts, 30 pts, and 50 pts for the three sections.
++ I will provide a `.qmd` template for the Short Answer.
++ You will create your own `.qmd` for the Open-Ended Analysis. **You are encouraged to create this ahead of time.**
 
 ::: callout-caution
-You must register for **free** [here](https://datamishapsnight.com/) to receive the link!
-:::
-
-+ Submit to canvas a "reflection" for each of the keynote and/or theme sessions you attend. 
-+ Each "reflection" gets you +2 challenge points (that is up to +8 for the whole night!)
-
-## [Midterm Exam](https://earobinson95.github.io/stat331-calpoly/midterm-exam/what-to-expect-midterm-exam.html) -- In-class Wednesday 2/15
-
-+ You will have one hour and 50 minutes to complete the exam on your own computer.
-+ The exam is worth a total of 100 points and consists of 3 sections: General Questions, Short Answer, and Open-Ended Analysis.
-+ I will bring paper copies of the exam questions 
-+ A `.qmd` starter file for the short answer will be unlocked at the start of each sections class.
-+ You will be creating your own `.qmd` file for the open-ended analysis. You may bring one already created on your computer.
-
-::: callout-caution
-While this is an open resource exam, you will likely get caught running out of time if you have to look everything up. Know what functions you might need to approach the problem and where to find documentation for implementing these functions.
-:::
-
-## Lab 4: Game Plans!
-
-Q2: Clean the data in any way you see fit.
-
-::: panel-tabset
-### version 1
-![](images/q1-game-plan-sketch.JPG)
-
-### 2
-![](images/q1-game-plan-sketch2.JPG)
-
-### 3
-![](images/q1-game-plan-sketch3.JPG)
-:::
-
-## Lab 4: Game Plans!
-
-Q3: Which major geographical region sold the most total organic, small Hass avocados in 2017?
-
-![](images/q3-game-plan-sketch.JPG)
-
-## Lab 4: Game Plans!
-
-Q8: The following plot shows, for all four California regions, the proportion of the average Hass avocado sales that are small, large, or extra large; conventional vs. organic. Recreate the plot.
-
-::: panel-tabset
-### version 1
-
-![](images/q8-game-plan-sketch-v2.JPG)
-
-### 2
-![](images/q8-game-plan-sketch-v1.JPG)
-
-
-### 3
-![](images/q8-game-plan-sketch-v3.JPG)
-
+While the coding tasks are open-resource, you will likely run out of time if you have to look everything up. Know what functions you might need and where to find documentation for implementing these functions.
 :::
 
 # `stringr`
@@ -1068,6 +695,12 @@ See the R package [`glue`](https://glue.tidyverse.org/)!
 
 ## Hints and Tips for Success
 
+```{r}
+#| echo: false
+library(liver)
+data(cereal)
+```
+
 + Refer to the [`stringr` cheatsheet](https://posit.co/wp-content/uploads/2022/10/strings-1.pdf)
 
 + Remember that `str_xxx` functions need the first argument to be a **vector of strings**, not a **data set**.
@@ -1364,41 +997,28 @@ str_subset(toung_twister3, pattern = "[?]")
 #| out-width: 80%
 knitr::include_graphics("images/backslashes.png")
 ```
+
 Use the [web app to test R regular expressions](https://spannbaueradam.shinyapps.io/r_regex_tester/)
 
 ## Tips for working with regex
 
 + Read the regular expressions out loud like a "request"
-
-. . .
-
-+ Test out your expressions on small examples first
-  + [Web app to test R regular expressions](https://spannbaueradam.shinyapps.io/r_regex_tester/)
-  + `str_view()` and `str_view_all()`
++ Test out your expressions on small examples first.
 
 ::: {.callout-note collapse="true"}  
-### `str_view()` and `str_view_all()`
+### `str_view()`
 ```{r}
 #| echo: true
-shells_str
-str_view(shells_str, "l+")
-str_view_all(shells_str, "l+")
+str_view(c("shes", "shels", "shells", "shellls", "shelllls"), "l+")
 ```
 :::
 
-## Tips for working with regex
++ I use the [`stringr` cheatsheet](https://posit.co/wp-content/uploads/2022/10/strings-1.pdf) more than any other package cheatsheet!
+
++ Be kind to yourself when working with regular expressions!
 
 + Read the regular expressions out loud like a "request"
 
-+ Test out your expressions on small examples first
-  + [Web app to test R regular expressions](https://spannbaueradam.shinyapps.io/r_regex_tester/)
-  + `str_view()` and `str_view_all()`
-
-+ I use the [`stringr` cheatsheet](https://posit.co/wp-content/uploads/2022/10/strings-1.pdf) more than any other package cheatsheet!
-
-. . .
-
-+ Everyone has a love-hate relationship with regular expressions. Be kind to yourself.
 
 # strings in the `tidyverse`
 
@@ -1412,6 +1032,54 @@ military <- read_xlsx(here::here("practice-activities",
                       sheet = "Share of Govt. spending", 
                       skip  = 7, 
                       n_max  = 191)
+```
+
+# Strings in the `tidyverse`
+
+## `stringr` functions + `dplyr` verbs!
+
+Find countries that start with an "A":
+
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: "2"
+military |> 
+  filter(str_detect(string  = Country, 
+                    pattern = "^A"
+                    )
+         ) |> 
+  distinct(Country)
+```
+
+```{r}
+#| eval: true
+#| echo: false
+military |> 
+  filter(str_detect(string = Country, 
+                    pattern = "^A"
+                    )
+         ) |> 
+  distinct(Country) |> 
+  knitr::kable() |> 
+  kableExtra::scroll_box(height = "125px") |> 
+  kableExtra::kable_styling(font_size = 20)
+```
+
+. . .
+
+Find the proportion of countries containing a compass direction:
+
+```{r}
+#| echo: true
+#| code-line-numbers: "3-4"
+military |> 
+  distinct(Country) |> 
+  summarize(prop = mean(str_detect(string = Country,
+                                   pattern = "[Nn]orth|[Ss]outh|[Ee]ast|[Ww]est"
+                                   )
+                        )
+            )
 ```
 
 ## `matches(pattern)`
@@ -1438,16 +1106,11 @@ military_clean <- military |>
 ### With regex
 ```{r}
 #| echo: true
-#| code-line-numbers: 3, 6 
 military_clean <- military |> 
-  mutate(
-         across(matches("[1-9][1-9][1-9][1-9]"), 
-                ~ na_if(.x, y = ". .")
-                ),
-         across(matches("[1-9][1-9][1-9][1-9]"), 
-                ~ na_if(.x, y = "xxx")
-                )
-         )
+  mutate(across(matches("[1-9]{4}"), 
+                ~ na_if(.x, y = ". .")),
+         across(matches("[1-9]{4}"), 
+                ~ na_if(.x, y = "xxx")))
 ```
 :::
 
@@ -1457,11 +1120,11 @@ I received this data from a grad school colleague the other day who asked if I k
 
 ![](images/covid-data-snip.JPG)
 
-What is that column?! `r emo::ji("wow")`
+What is that column?!
 
 `[{'variant': 'Other', 'cumWeeklySequenced': 2366843.0, 'newWeeklyPercentage': 4.59}, {'variant': 'V-20DEC-01 (Alpha)', 'cumWeeklySequenced': 0.0, 'newWeeklyPercentage': 0.0}, {'variant': 'V-21APR-02 (Delta B.1.617.2)', 'cumWeeklySequenced': 0.0, 'newWeeklyPercentage': 0.0}, {'variant': 'V-21OCT-01 (Delta AY 4.2)', 'cumWeeklySequenced': 0.0, 'newWeeklyPercentage': 0.0}, {'variant': 'V-22DEC-01 (Omicron CH.1.1)', 'cumWeeklySequenced': 2366843.0, 'newWeeklyPercentage': 24.56}, {'variant': 'V-22JUL-01 (Omicron BA.2.75)', 'cumWeeklySequenced': 2366843.0, 'newWeeklyPercentage': 8.93}, {'variant': 'V-22OCT-01 (Omicron BQ.1)', 'cumWeeklySequenced': 2366843.0, 'newWeeklyPercentage': 49.57}, {'variant': 'VOC-21NOV-01 (Omicron BA.1)', 'cumWeeklySequenced': 2366843.0, 'newWeeklyPercentage': 0.02}, {'variant': 'VOC-22APR-03 (Omicron BA.4)', 'cumWeeklySequenced': 2366843.0, 'newWeeklyPercentage': 0.08}, {'variant': 'VOC-22APR-04 (Omicron BA.5)', 'cumWeeklySequenced': 2366843.0, 'newWeeklyPercentage': 5.59}, {'variant': 'VOC-22JAN-01 (Omicron BA.2)', 'cumWeeklySequenced': 2366843.0, 'newWeeklyPercentage': 1.41}, {'variant': 'unclassified_variant', 'cumWeeklySequenced': 2366843.0, 'newWeeklyPercentage': 5.26}]`
 
-## Enter `stringr`! `r emo::ji("party")`
+## Enter `stringr`!
 
 Let's see how this works.
 
@@ -1475,38 +1138,44 @@ In this activity, you will be using regular expressions to decode a message.
 
 ```{r}
 #| echo: true
-toung_twister3
+x <- c("She", "sells", "seashells", "by", "the", "seashore!")
 ```
 
-  + You can grab the elements out of a vector with [] -- read "where"
+:::: {.columns}
+::: {.column width="50%"}
+
+  + Grab elements out of a vector with `[]`.
 
 ```{r}
 #| echo: true
-toung_twister3[c(3,6, 10,13)]
+x[c(1,4,5)]
 ```
 
-  + If you want to replace those elements or change those elements use the assignment arrow!
+:::
+::: {.column width="50%"}
+
+  + To replace those elements, use `<-` to assign new values.
 
 ```{r}
 #| echo: true
-toung_twister3[c(3,6, 10,13)] <- "WOOD!"
+x[c(1,4,5)] <- ""
 ```
+
+:::
+::::
 
 ## To do...
 
 + **PA 5.2: Scrambled Message**
-  + Due Friday, 2/10 at 8:00am
-
-+ **Lab 5: Factors in Data Visualization**
-  + Due Friday, 2/10 at 11:59pm
+  + Due Monday, 2/9 at 8:00am
 
 + **Final Project Group Formation Survey**
-  + Due Friday, 2/10 at 11:59pm
+  + Due Friday, 2/9 at 11:59pm
 
-+ [**Bonus Challenge: Murder Mystery in SQL City**](https://earobinson95.github.io/stat331-calpoly/bonus-challenges/bonus-challenge-murder-in-sql-city.html)
-  + Due Sunday 2/12 at 11:59pm
++ [**Lab 5: Murder Mystery in SQL City**](https://earobinson95.github.io/stat331-calpoly/lab-assignments/lab5/murder-in-sql-city.html)
+  + Due Monday 2/12 at 11:59pm
   
 + **Read Chapter 6: Version Control**
-  + **Concept Check 6.1 + 6.2** due Monday (2/13) at 8:00am
+  + **Concept Check 6.1 + 6.2** due Tuesday (2/13) at 8:00am
 
   
