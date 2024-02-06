@@ -169,7 +169,7 @@ Make sure you use quotes!
 
 ```{r}
 #| echo: true
-bday <- ymd_hms("1995-05-08 9:32:12", tz = "America/New_York")
+bday <- ymd_hms("1995-05-08 9:32:12", tz = "America/Chicago")
 bday
 ```
 
@@ -276,7 +276,7 @@ mdy(05081995) + dyears(99)
 
 Specify time zones in the form:
 
-+ {continent}/{city} -- “America/New_York”, “Africa/Nairobi”
++ {continent}/{city} -- “America/Chicago”, “Africa/Nairobi”
 + {ocean}/{city} -- “Pacific/Auckland”
 
 . . .
@@ -289,13 +289,13 @@ Sys.timezone()
 ```
 
 
-## Time Zones
+## Time Zones (Can Taylor Swift make it to the Superbowl?)
 
 You can change the time zone of a date in two ways:
 
 ```{r}
 #| echo: true
-x <- ymd_hms("2024-06-01 18:00:00", tz = "Europe/Copenhagen")
+x <- ymd_hms("2024-02-11 18:00:00", tz = "Asia/Tokyo")
 ```
 
 :::panel-tabset
@@ -309,7 +309,7 @@ Keeps the instant in time the same, but changes the visual representation.
 x |> 
   with_tz()
 x |> 
-  with_tz(tzone = "Asia/Kolkata")
+  with_tz(tzone = "America/Los_Angeles")
 ```
 
 ### `force_tz()`
@@ -321,7 +321,7 @@ Changes the instant in time by forcing a time zone change.
 x |> 
   force_tz()
 x |> 
-  force_tz(tzone = "Asia/Kolkata")
+  force_tz(tzone = "America/Los_Angeles")
 ```
 
 :::

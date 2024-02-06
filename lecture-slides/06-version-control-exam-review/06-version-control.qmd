@@ -14,17 +14,18 @@ self-contained: true
 library(tidyverse)
 ```
 
-## Monday, February 13th
+## Tuesday, February 13th
 
 Today we will...
 
-+ Questions on PA 5.2: Scrambled Message
-+ Questions on Lab 5: Factors in Data Visualization
-+ Mini Lecture on text material
++ Review
+  + PA 5.2: Scrambled Message
+  + Lab 5: Murder in SQL City
++ New Material
   + git/GitHub
-+ Connect GitHub to RStudio
+  + Connect GitHub to RStudio
 + PA 6: Merge Conflicts -- Collaborating within a GitHub Repo
-+ Discuss Group Contract
++ Group Contract
 + Any lingering questions about Midterm
 
 # git/GitHub Basics
@@ -597,16 +598,10 @@ You're going to rock this `r emo::ji("smile")`
 
 ## To do...
 
-+ **NO CLASS MONDAY, 2/20**
-
 + Read **Chapter 7: Writing Functions**
-  + Check-in 7.1 due Wednesday 2/22 at 8am
+  + Check-in 7.1 due Tuesday 2/22 at 8am
 
 + **Final Project Group Contract**
   + Due Wednesday 2/22 at 11:59pm
-  
-+ **Bonus Challenge - Data Mishaps Night**
-  + Reminder to Register
-  + February 23rd at 5pm PT
   
   

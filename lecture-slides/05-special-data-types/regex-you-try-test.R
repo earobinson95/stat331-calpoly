@@ -22,4 +22,4 @@ str_replace_all(test_vec, pattern = "[^xyz]", replace = "X")
 # British English words ending in ‘our’ usually end in ‘or’ in American English
 # Verbs in British English that can be spelled with either ‘ize’ or ‘ise’ at the end 
 # are always spelled with ‘ize’ at the end in American English:
-str_view_all(test_vec, pattern = "([a-zA-Z]+ise$|[a-zA-Z]+our$)")
+str_view_all(test_vec, pattern = "([:alpha:]+ise$|[:alpha:]+our$)")
