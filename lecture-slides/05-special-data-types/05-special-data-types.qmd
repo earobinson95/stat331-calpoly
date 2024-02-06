@@ -1020,7 +1020,7 @@ str_view(c("shes", "shels", "shells", "shellls", "shelllls"), "l+")
 + Read the regular expressions out loud like a "request"
 
 
-# strings in the `tidyverse`
+# Strings in the `tidyverse`
 
 ```{r}
 #| include: false
@@ -1033,8 +1033,6 @@ military <- read_xlsx(here::here("practice-activities",
                       skip  = 7, 
                       n_max  = 191)
 ```
-
-# Strings in the `tidyverse`
 
 ## `stringr` functions + `dplyr` verbs!
 
