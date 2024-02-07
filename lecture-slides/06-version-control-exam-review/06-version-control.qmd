@@ -21,12 +21,11 @@ Today we will...
 + Review
   + PA 5.2: Scrambled Message
   + Lab 5: Murder in SQL City
++ Group Contract
 + New Material
   + git/GitHub
   + Connect GitHub to RStudio
 + PA 6: Merge Conflicts -- Collaborating within a GitHub Repo
-+ Group Contract
-+ Any lingering questions about Midterm
 
 # git/GitHub Basics
 
@@ -547,61 +546,36 @@ Burn your local repo to the ground and clone again.
 knitr::include_graphics("https://t3.ftcdn.net/jpg/00/60/10/14/240_F_60101445_pT7VV0oc1OZHeyb4bjzsavtJbPk07kWn.jpg")
 ```
 
-# Final Project Group Contract
-
-# Questions about Midterm Exam?
-
 ## To do...
 
 + **PA 6: Merge Conflicts**
-  + Due Monday, 2/13 at 11:59pm
+  + Due Thursday, 2/15 at 8:00am
 
 + **Midterm Exam**
-  + In-class Wednesday 2/15
-  + Please grab the separators from the sides of class when you enter.
-  
-::: callout-note
-No individual office hours Friday this week.
+  + Thursday, 2/15
+  + Parts 1 & 2 completed during class, Part 3 completed 24 hours after end of class
 
-Office hours extended Tuesday from 10am - 12pm.
+::: callout-note
++ Office hours extended Wednesday from 1:10am - 3pm.
++ **No** office hours Thursday.
 :::
   
-+ **Group Contracts**
-  + Due Wednesday 1/22 at 11:59pm
++ **Final Project Group Contract**
+  + Due Thursday, 1/22 at 11:59pm
 
-## Wednesday, February 15th -- Midterm Exam
-
-+ Please grab separators from the sides of the room.
+## Thursday, February 15th -- Midterm Exam
 
 + I will pass out a sheet with instructions and questions.
++ Canvas will unlock online midterm material at the beginning of class.
 
-+ Canvas will unlock midterm material at the beginning of class.
+`r praise::praise()`
 
-You're going to rock this `r emo::ji("smile")`
-
-## Wednesday, February 15th -- Midterm Exam
-
-**Section 1: General Questions**
-
-+ Canvas Quiz -- multiple submissions allowed (will keep highest), but grade not displayed.
-+ Due at end of class.
-
-**Section 2: Short Answer**
-
-+ Download `.qmd` template from Canvas.
-+ Submit `.qmd` and `.html` file by the end of class.
-
-**Section 3: Open-ended Analysis**
-
-+ Create your own `.qmd` file.
-+ Submit `.qmd` and `.html` file by **Thursday, 1/16 at 11:59pm**
-
-## To do...
+**To do...**
 
 + Read **Chapter 7: Writing Functions**
-  + Check-in 7.1 due Tuesday 2/22 at 8am
+  + Check-in 7.1 due Tuesday 2/20 at 8am
 
 + **Final Project Group Contract**
-  + Due Wednesday 2/22 at 11:59pm
+  + Due Thursday 2/22 at 11:59pm
   
   
