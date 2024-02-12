@@ -298,6 +298,9 @@ ca_childcare |>
 
 ## Childcare Essays: Examples
 
++ [Example 1](https://earobinson95.github.io/stat331-calpoly/lab-assignments/lab4/examples/lab4-childcare-costs-example1.html)
++ [Example 2](https://earobinson95.github.io/stat331-calpoly/lab-assignments/lab4/examples/lab4-flexpoints-example2.html)
+
 # git/GitHub Basics
 
 ## Git vs GitHub
