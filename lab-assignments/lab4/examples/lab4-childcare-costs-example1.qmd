@@ -1,0 +1,103 @@
+---
+title: "Lab 4: Childcare Costs"
+author: "Example 1"
+format: 
+  html:
+    self-contained: true
+    code-tools: true
+    toc: true
+editor: source
+execute: 
+  error: true
+  echo: true
+  message: false
+  warning: false
+code-fold: true
+---
+
+```{r}
+#| label: setup
+
+# load libraries
+library(tidyverse)
+library(readr)
+library(knitr)
+
+# Import data
+childcare_costs <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-05-09/childcare_costs.csv')
+counties <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-05-09/counties.csv')
+```
+
+## California Childcare Costs: Center vs Family Care Setting
+
+```{r}
+# Code for Q2
+ca_childcare <- inner_join(childcare_costs, counties) |>
+  filter(state_abbreviation == "CA")
+```
+
+The data set has information of childcare costs and employment related data across genders and race on different counties. Each row in counties is the county and state it's in. Each row in ca_childcare contains the info on childcare costs and economic info in the given study year and county. 
+
+In investigating the full-time median price charged for childcare in a Center-based setting vs a Family (in-home) setting in California, I filtered the dataset for only rows with information on counties in California. Then, I also divided the data into the main groupings between center-based and family care and then further divided those groupings into the developmental stage the child is in (infant, toddler, preschool). According to the summary table, the median price for Center-based care across all developmental stages are greater than Family-based care. 
+
+```{r}
+data <- ca_childcare |>
+  select(study_year, county_name, mc_infant:mfcc_preschool) |>
+  pivot_longer(
+    cols = mc_infant:mfcc_preschool,
+    names_to = "type",
+    values_to = "weekly_med_price"
+  ) |>
+  mutate(
+    care = fct_collapse(
+      .f = type,
+      "Center-based"
+      = c("mc_infant", "mc_toddler", "mc_preschool"),
+      "Family"
+      = c("mfcc_infant", "mfcc_toddler", "mfcc_preschool"),
+      )) |>
+   mutate(
+    stage = fct_collapse(
+      .f = type,
+      "infant"
+      = c("mc_infant", "mfcc_infant"),
+      "toddler"
+      = c("mc_toddler", "mfcc_toddler"),
+      "preschool"
+      = c("mc_preschool", "mfcc_preschool"),
+      )) |>
+  mutate(stage = factor(stage, levels = c("infant", "toddler", "preschool")))
+
+data |>
+  group_by(care, stage) |>
+  mutate(stage = factor(stage, levels = c("infant", "toddler", "preschool"))) |>
+  summarize(med_price = median(weekly_med_price),
+            avg_price = mean(weekly_med_price),
+            sd = sd(weekly_med_price)
+            )
+```
+To more easily visualize the data, I also graphed it in different plots according to developmental stage and then color coded based on the care type. It is easier to see the range of prices in each care type from the data points from the various counties in California. We can see that although the prices can differ across counties, across the developmental stages, center-based care overall is more expensive. For infant care, center-based ranges from 200-500 dollars while family-based ranges from 100-300 dollars. We can also see that infant care is the most expensive in comparison to the other developmental stages.
+```{r}
+#| fig-width: 10
+#| fig-height: 4
+ggplot(data, aes(
+  x = study_year,
+  y = weekly_med_price,
+  color = fct_reorder2(care, .x = study_year, .y = weekly_med_price)
+)) +
+  geom_point() +
+  theme(aspect.ratio = 1) +
+  geom_smooth(method = loess, se = TRUE, alpha = 0.3) +
+  facet_wrap( ~ stage, scales = "fixed") +
+  theme(aspect.ratio = 1) +
+  scale_x_continuous(breaks = c(2008, 2010, 2012, 2014, 2016, 2018)) +
+  scale_y_continuous(limits = c(100, 500)) +
+  labs(
+    x = "Study Year",
+    y = "",
+    title = "Weekly Median Childcare Price ($)",
+    color = "Care Type"
+  )
+
+```
+Overall, it seems that center-based care is more expensive than family-based care in California and infant center-based care is the most expensive across the developmental stages. 

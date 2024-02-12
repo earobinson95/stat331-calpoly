@@ -1,0 +1,86 @@
+---
+title: "Lab 4: Childcare Costs"
+author: "Example 2"
+format: 
+  html:
+    self-contained: true
+    code-tools: true
+    code-fold: true
+    toc: true
+editor: source
+execute: 
+  error: true
+  echo: true
+  message: false
+  warning: false
+---
+
+```{r}
+#| label: setup
+
+# load libraries
+library(tidyverse)
+# Import data
+childcare_costs <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-05-09/childcare_costs.csv')
+counties <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-05-09/counties.csv')
+```
+
+```{r}
+# Code for Q2
+ca_childcare <- childcare_costs |>
+  left_join(counties) |>
+  filter(state_name == "California" )
+```
+
+```{r}
+# code for Q3
+ca_childcare <- ca_childcare |>
+  mutate( Region = fct_collapse(county_name,
+                                Region1 = c("Butte County","Colusa County","El Dorado County","Glenn County","Lassen County","Modoc County","Nevada County","Placer County","Plumas County","Sacramento County","Shasta County","Sierra County","Siskiyou County","Sutter County","Tehama County","Yolo County","Yuba County"),
+                                Region2 = c("Del Norte County","Humboldt County", "Lake County","Mendocino County","Napa County","Sonoma County","Trinity County"),
+                                Region3 = c("Alameda County","Contra Costa County","Marin County","San Francisco County","San Mateo County","Santa Clara County","Solano County"),
+                                Region4 = c("Alpine County","Amador County","Calaveras County","Madera County","Mariposa County","Merced County","Mono County","San Joaquin County","Stanislaus County","Tuolumne County"),
+                                Region5 = c("Monterey County", "San Benito County", "San Luis Obispo County", "Santa Barbara County", "Santa Cruz County", "Ventura County"),
+                                Region6 = c("Fresno County", "Inyo County", "Kern County", "Kings County", "Tulare County"),
+                                Region7 = c("Riverside County", "San Bernardino County"),
+                                Region8 = "Los Angeles County",
+                                Region9 = "Orange County",
+                                Region10 = c("Imperial County","San Diego County")))
+```
+
+## California Childcare: Center vs Family Setting 
+
+The childcare_costs data set includes various information on unemployment rates, poverty rates, labor force participation, and the weekly costs for different types of child care for different ages. The data comes from the National Database of Childcare Prices and each observation is a county in a single year from 2008-2018.
+
+We will be comparing the full-time median price charged for childcare ina center-based setting versus the full-time median price charged for childcare in a Family setting in California.
+First, we can look at the average prices charged between the different age groups and the different setting types.
+```{r} 
+#| code-fold: true
+ca_childcare |>
+  pivot_longer(mc_infant:mfcc_preschool,
+               names_to = "type_age",
+               values_to = "price")|>
+  group_by(type_age)|>
+  summarise(average_price = mean(price))
+```
+ From this table we can see that for both settings, the infants average price is higher, and the preschooler and toddler average prices are the same. Between the two groups, we can see that the center-based childcare has a higher average price than the family setting childcare for all three groups.
+Next, lets investigate a graph of the median prices charged for childcare across time.
+```{r}
+#| code-fold: true
+ca_childcare |>
+  pivot_longer(mc_infant:mfcc_preschool,
+               names_to = "type_age",
+               values_to = "prices")|>
+  separate(type_age, into = c("setting","age_group"), sep = "_")|>
+  ggplot(mapping = aes(x = study_year,
+                       y = prices,
+                       color = setting))+
+  geom_point(alpha = 0.1)+
+  geom_smooth(method = "lm")+
+  facet_grid(~age_group)+
+  labs(x = "Year",
+       y = "Median Price Charged",
+       title = "Median Childcare Prices across Time")+
+  scale_x_continuous(labels = scales::number_format(scale = 1, accuracy = 1))
+```
+From this graph, we can see that, again, the prices charged for center-based are higher than family based across all three age groups. We can also see that, over time the prices for family setting childcare increased much more than center-based setting childcare for the preschool and toddler age range. For the infant age range, however, center based and family setting prices seemed to increase fairly similarly over time. Lastly, we can see that the gap between center-based and family setting prices is much larger in the infant age range than for preschool and toddlers.
