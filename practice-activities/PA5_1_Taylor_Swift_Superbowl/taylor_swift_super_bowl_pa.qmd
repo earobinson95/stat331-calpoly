@@ -1,0 +1,148 @@
+---
+title: "Can Taylor Swift Make The SuperBowl Practice Activity "
+author: "Your-Name"
+format: 
+  html:
+    self-contained: true
+    code-tools: true
+    toc: true
+editor: source
+execute: 
+  error: true
+  echo: true
+  message: false
+  warning: false
+---
+
+## Download the starter Files:
+
+[Download starter .qmd file](taylor_swift_super_bowl_pa.qmd)
+
+[Download data -- `flight_data.csv`](Data/flight_data.csv)
+
+## Back-Story
+Taylor Swift, one of the world's most popular pop singers, has just been invited to sing at the Super Bowl. Unfortunately, Taylor has a very tight schedule with a concert in Tokyo Japan the night before, and her private jet has a technical issue, so she could not use it to bring her to Vegas.  She contacted you knowing that you are an expert flight tracker and data analyst in helping her find a route to attend the event so she would not disappoint her fans. You quickly query the GDS (the underlying database powering nearly all modern flight booking websites) which returns the following CSV file of all the available flights between Tokyo and Vegas for the Super Bowl weekend.  
+Use the following dataset and your knowledge of R data manipulation to find the shortest route for Taylor to take from her Tokyo concert to the Super Bowl in Las Vegas Nevada.
+
+
+:::callout-note
+## Goals
+<ul>
+
+  - Pivot Data to successfully calculate wanted information.
+  - Use the `lubridate` R package to retrieve data information from a CSV file.
+  - Perform date arithmetic with date and period objects.
+  - Understand how to work with time-zones and convert date objects between time-zones.
+
+</ul>
+:::
+
+## Importing Libraries
+```{r setup}
+#| output: FALSE
+library(tidyverse)
+```
+
+## Loading in the data
+```{r}
+#| output: FALSE
+flight_data <- read_csv(here::here("Week-6", "flight_data.csv"))
+```
+
+## Convert the Time Objects to Date objects
+R reads in all date objects by default as strings (type: `char`) so we need to convert these values into date and period objects. Don’t focus about the time zones right now, they are all over the place at the moment, and we will deal with them in a later step.
+
+::: {.callout-note collapse="true"}
+## Note
+All flight_duration and layover_duration are given in ***minutes***.
+:::
+
+```{r}
+
+```
+
+
+## Pivioting our Data to Find the Ideal Route
+Look at the current data, what does each row represent? Now think about the end goal, finding a flight or set of flights that would allow Taylor to make the trip from Tokyo to Vegas in the most efficient way possible.
+
+::: {.callout-tip collapse="true"}
+## Think about do you need all of that data
+While this data is already subsetted for you there's still a lot of information, some of which you don’t need.  For example, do you really need to know what aircraft type it is... Decisively selecting which columns may help you reduce column junk.
+:::
+
+```{r}
+
+```
+
+# Fixing Time Objects
+
+Great Now that we have all parts of the itinerary in the same place It is time to deal with those times. 🤔 Each arrival and departure time is set at the airport's locale, but R does not know that; so, as the current time and in the way we have imported all the time, they’re all set to UTC aka Greenwich Mean Time (GMT+0).  There are no direct flights between Tokyo and Vegas and unfortunately, R does not have some sort of magic function that takes in a city and spits out its corresponding time zone, so instead to find the correct arrival times, we will need to do some time arithmetic.
+
+One thing we can be sure of is the first departure airport. It will either be one of two of Tokyo's main international airports: Narita and Haneda, both of which use JST (Japan Standard Time).  Set all departure_1 time to their correct time zones.
+
+
+```{r}
+```
+
+Great! Now it’s time to update all the new arrival times based on JST
+We are given a flight duration (in minutes) Use that information and the original time to update arrival_1.
+
+```{r}
+```
+
+Awesome! Let’s update departure_2 now.  The departure time of the connecting flight can be adding the arrival_time + the layover duration. Update the departure_2 to the correct time in JST.
+
+```{r}
+```
+
+Now, all we have to do is repeat this step for arrival_2,departure_3... etc
+There are at most 3 connections (4 flights) but not all routes will have 3 connections, some may only have 1 or 2.  For those set the departure & arrival_times to be the same as the previous.
+
+::: {.callout-tip collapse="true"}
+## Tip
+This is a great time to use the `if_else()` & `is.na()` functions to replace those values
+Note though these functions will return you a int or double so you will need to reconvert the times back to a period.
+:::
+
+
+```{r}
+
+```
+
+Cool!.  Now all departure and arrival times are in the same time zones, but what about our final arrival time arrival_4. Wouldn't that be a lot more useful in Las Vegas time? Convert arrival_time_4 to the correct time zone.  (Las Vegas uses Pacific Standard Time PST) 
+
+```{r}
+
+```
+
+## Filtering all Valid Results
+
+Time to filter out all the viable flights.  Filter our data set to give results based on the following requirements:
+<ul>
+
+  - Taylor's concert starts at 6 PM JST and runs for 5 hours.
+  - The Superbowl begins at 3:30 PST.
+  - Narita is 60 minutes away from Downtown Tokyo.
+  - Haneda is 20 minutes from Downtown Tokyo.
+  - Security in each takes 15 minutes.
+  - It takes 30 minutes to exit the airport and arrive at the stadium in Vegas.
+  - Assume all plans and flights run on time and are not delayed.
+
+</ul>
+
+  
+```{r}
+
+```
+
+Out of all possible flights Taylor of course would pick the one that has the shortest total duration. What is that plan?
+
+```{r}
+
+```
+
+::: callout-note
+### Canvas Submission
+
+**What is the most ideal itinerary for Taylor Swift to take to get to Las Vegas on time for the Super Bowl? Enter the itinerary number on the Canvas Quiz!***
+:::

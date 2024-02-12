@@ -1,0 +1,181 @@
+---
+title: "Can Taylor Swift Make The SuperBowl Practice Activity "
+author: "Kwong Brian"
+format: 
+  html:
+    self-contained: true
+    code-tools: true
+    toc: true
+    theme: Minty
+editor: source
+execute: 
+  error: true
+  echo: true
+  message: false
+  warning: false
+---
+
+## Download the starter Files:
+
+[Download starter .qmd file](taylor_swift_super_bowl_pa.qmd)
+
+[Download data -- `flight_data.csv`](Data/flight_data.csv)
+
+
+## Back-Story
+Taylor Swift, one of the world's most popular pop singers, has just been invited to sing at the Super Bowl. Unfortunately, Taylor has a very tight schedule with a concert in Tokyo Japan the night before, and her private jet has a technical issue, so she could not use it to bring her to Vegas.  She contacted you knowing that you are an expert flight tracker and data analyst in helping her find a route to attend the event so she would not disappoint her fans. You quickly query the GDS (the underlying database powering nearly all modern flight booking websites) which returns the following CSV file of all the available flights between Tokyo and Vegas for the Super Bowl weekend.  
+Use the following dataset and your knowledge of R data manipulation to find the shortest route for Taylor to take from her Tokyo concert to the Super Bowl in Las Vegas Nevada.
+
+
+:::callout-note
+## Goals
+<ul>
+
+  - Pivot Data to successfully calculate wanted information.
+  - Use the `lubridate` R package to retrieve data information from a CSV file.
+  - Perform date arithmetic with date and period objects.
+  - Understand how to work with time-zones and convert date objects between time-zones.
+
+</ul>
+:::
+
+## Importing Libraries
+```{r setup}
+#| output: FALSE
+library(tidyverse)
+```
+
+## Loading in the data
+```{r}
+#| output: FALSE
+flight_data <- read_csv(here::here("Week-6", "flight_data.csv"))
+```
+
+## Convert the Time Objects to Date objects
+R reads in all date objects by default as strings (type: `char`) so we need to convert these values into date and period objects. Don’t focus about the time zones right now, they are all over the place at the moment, and we will deal with them in a later step.
+
+::: {.callout-note collapse="true"}
+## Note
+All flight_duration and layover_duration are given in ***minutes***.
+:::
+
+```{r}
+flight_data <- flight_data |>
+  mutate(across(.cols = c(Departure_Time, Arrival_Time), .fns = ~ ymd_hm(.x))) |>
+  mutate(across(.cols = c(Flight_Duration, Layover_Duration), .fns = ~ minutes(.x)))
+```
+
+
+## Pivioting our Data to Find the Ideal Route
+Look at the current data, what does each row represent? Now think about the end goal, finding a flight or set of flights that would allow Taylor to make the trip from Tokyo to Vegas in the most efficient way possible.
+
+::: {.callout-tip collapse="true"}
+## Think about do you need all of that data
+While this data is already subsetted for you there's still a lot of information, some of which you don’t need.  For example, do you really need to know what aircraft type it is... Decisively selecting which columns may help you reduce column junk.
+:::
+
+```{r}
+# Note I have kept the departure, arrival airports,and flight numbers just for funs in reality you wont really need it
+flight_data <- flight_data |>
+  select(Itinerary, Leg, Departure_Airport, Arrival_Airport, Departure_Time, Arrival_Time, Flight_Duration, Layover_Duration, Flight_Number) |>
+  pivot_wider(id_cols = Itinerary, names_from = Leg, values_from = c(Departure_Airport:Layover_Duration))
+```
+
+# Fixing Time Objects
+
+Great Now that we have all parts of the itinerary in the same place It is time to deal with those times. 🤔 Each arrival and departure time is set at the airport's locale, but R does not know that; so, as the current time and in the way we have imported all the time, they’re all set to UTC aka Greenwich Mean Time (GMT+0).  There are no direct flights between Tokyo and Vegas and unfortunately, R does not have some sort of magic function that takes in a city and spits out its corresponding time zone, so instead to find the correct arrival times, we will need to do some time arithmetic.
+
+One thing we can be sure of is the first departure airport. It will either be one of two of Tokyo's main international airports: Narita and Haneda, both of which use JST (Japan Standard Time).  Set all departure_1 time to their correct time zones.
+
+
+```{r}
+flight_data <- flight_data |> mutate(Departure_Time_1 = force_tz(Departure_Time_1, "Asia/Tokyo"))
+```
+
+Great! Now it’s time to update all the new arrival times based on JST
+We are given a flight duration (in minutes) Use that information and the original time to update arrival_1.
+
+```{r}
+flight_data <- flight_data |> mutate(Arrival_Time_1 = Departure_Time_1 + Flight_Duration_1)
+```
+
+Awesome! Let’s update departure_2 now.  The departure time of the connecting flight can be adding the arrival_time + the layover duration. Update the departure_2 to the correct time in JST.
+
+```{r}
+flight_data <- flight_data |> mutate(Departure_Time_2 = Arrival_Time_1 + Layover_Duration_1)
+```
+
+Now, all we have to do is repeat this step for arrival_2,departure_3... etc
+There are at most 3 connections (4 flights) but not all routes will have 3 connections, some may only have 1 or 2.  For those set the departure & arrival_times to be the same as the previous.
+
+::: {.callout-tip collapse="true"}
+## Tip
+This is a great time to use the `if_else()` & `is.na()` functions to replace those values
+Note though these functions will return you a int or double so you will need to reconvert the times back to a period.
+:::
+
+
+```{r}
+# Updates all the NA Time Duration to 0
+
+flight_data <- flight_data |>
+  mutate(across(.cols = c(Flight_Duration_3, Layover_Duration_2, Flight_Duration_4, Layover_Duration_3, Layover_Duration_4), .fns = ~ ifelse(is.na(.x), 0, .x))) |>
+  mutate(across(.cols = c(Flight_Duration_3, Layover_Duration_2, Flight_Duration_4, Layover_Duration_3, Layover_Duration_4), .fns = ~ minutes(.x)))
+
+# Updates the Remaining Departure and Arrival Times
+
+flight_data <- flight_data |>
+  mutate(Arrival_Time_2 = Departure_Time_2 + Flight_Duration_2) |>
+  mutate(Departure_Time_3 = Arrival_Time_2 + Layover_Duration_2) |>
+  mutate(Arrival_Time_3 = Departure_Time_3 + Flight_Duration_3) |>
+  mutate(Departure_Time_4 = Arrival_Time_3 + Layover_Duration_3) |>
+  mutate(Arrival_Time_4 = Departure_Time_4 + Flight_Duration_4)
+```
+
+Cool!.  Now all departure and arrival times are in the same time zones, but what about our final arrival time arrival_4. Wouldn't that be a lot more useful in Las Vegas time? Convert arrival_time_4 to the correct time zone.  (Las Vegas uses Pacific Standard Time PST) 
+
+```{r}
+flight_data <- flight_data |> mutate(Arrival_Time_4 = with_tz(Arrival_Time_4, "America/Los_Angeles"))
+```
+
+## Filtering all Valid Results
+
+Time to filter out all the viable flights.  Filter our data set to give results based on the following requirements:
+<ul>
+
+  - Taylor's concert starts at 6 PM JST and runs for 5 hours.
+  - The Superbowl begins at 3:30 PST.
+  - Narita is 60 minutes away from Downtown Tokyo.
+  - Haneda is 20 minutes from Downtown Tokyo.
+  - Security in each takes 15 minutes.
+  - It takes 30 minutes to exit the airport and arrive at the stadium in Vegas.
+  - Assume all plans and flights run on time and are not delayed.
+
+</ul>
+
+  
+```{r}
+# Just to be explicit on what times
+earliest_depature_time <- ymd_hm("2024-02-10 18:00", tz = "Asia/Tokyo") + hours(5)
+latest_arrival_time <- ymd_hm("2024-02-11 15:30", tz = "America/Los_Angeles") - minutes(30)
+
+flight_data <- flight_data |>
+  filter(((Departure_Time_1 >= earliest_depature_time + minutes(60 + 15)) & (Departure_Airport_1 == "Narita International Airport (NRT)")) | ((Departure_Time_1 >= earliest_depature_time + minutes(20 + 15)) & (Departure_Airport_1 == "Haneda Airport"))) |>
+  filter(Arrival_Time_4 < latest_arrival_time)
+```
+
+Out of all possible flights Taylor of course would pick the one that has the shortest total duration. What is that plan?
+
+```{r}
+flight_data |>
+  pivot_longer(cols = Flight_Duration_1:Layover_Duration_4, names_to = "Leg", values_to = "Time") |>
+  group_by(Itinerary) |>
+  summarise(Total_Trip_Time = sum(period_to_seconds(Time))) |>
+  slice_min(Total_Trip_Time)
+```
+
+::: callout-note
+### Canvas Submission
+
+**What is the most ideal itinerary for Taylor Swift to take to get to Las Vegas on time for the Super Bowl? Enter the itinerary number on the Canvas Quiz!***
+:::

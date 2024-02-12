@@ -1,0 +1,1162 @@
+Itinerary,Leg,Departure_Airport,Departure_Airport_IATA_Abbrv,Departure_Time,Arrival_Airport,Arrival_Airport_IATA_Abbrv,Arrival_Time,Flight_Duration,Aircraft,Airline,Flight_Number,Flight_Overnight,Layover_Duration
+1,1,Narita International Airport (NRT),NRT,2024-02-10 18:55,Vancouver International Airport (YVR),YVR,2024-02-10 10:40,525,Boeing 777,Air Canada,AC 4,TRUE,630
+1,2,Vancouver International Airport (YVR),YVR,2024-02-10 21:10,Harry Reid International Airport,LAS,2024-02-10 23:58,168,Boeing 737MAX 8 Passenger,Air Canada,AC 1060,FALSE,0
+2,1,Narita International Airport (NRT),NRT,2024-02-10 19:55,Daniel K. Inouye International Airport,HNL,2024-02-10 7:40,405,Airbus A330,Hawaiian,HA 822,TRUE,950
+2,2,Daniel K. Inouye International Airport,HNL,2024-02-10 23:30,Harry Reid International Airport,LAS,2024-02-11 7:10,340,Airbus A330,Hawaiian,HA 8,TRUE,0
+3,1,Narita International Airport (NRT),NRT,2024-02-10 17:55,Los Angeles International Airport,LAX,2024-02-10 10:50,595,Boeing 787-10,United,UA 33,TRUE,355
+3,2,Los Angeles International Airport,LAX,2024-02-10 16:45,Harry Reid International Airport,LAS,2024-02-10 17:58,73,Boeing 737,United,UA 1062,FALSE,0
+4,1,Narita International Airport (NRT),NRT,2024-02-10 17:55,Los Angeles International Airport,LAX,2024-02-10 10:50,595,Boeing 787-10,United,UA 33,TRUE,565
+4,2,Los Angeles International Airport,LAX,2024-02-10 20:15,Harry Reid International Airport,LAS,2024-02-10 21:28,73,Boeing 737,United,UA 1960,FALSE,0
+5,1,Narita International Airport (NRT),NRT,2024-02-10 17:55,Los Angeles International Airport,LAX,2024-02-10 10:50,595,Boeing 787-10,United,UA 33,TRUE,1303
+5,2,Los Angeles International Airport,LAX,2024-02-11 8:33,Harry Reid International Airport,LAS,2024-02-11 9:46,73,Boeing 737MAX 8 Passenger,United,UA 1006,FALSE,0
+6,1,Narita International Airport (NRT),NRT,2024-02-10 17:55,Los Angeles International Airport,LAX,2024-02-10 10:50,595,Boeing 787-10,United,UA 33,TRUE,485
+6,2,Los Angeles International Airport,LAX,2024-02-10 18:55,San Francisco International Airport,SFO,2024-02-10 20:28,93,Airbus A320,United,UA 1727,FALSE,132
+6,3,San Francisco International Airport,SFO,2024-02-10 22:40,Harry Reid International Airport,LAS,2024-02-11 0:25,105,Boeing 737,United,UA 2366,FALSE,0
+7,1,Narita International Airport (NRT),NRT,2024-02-10 17:55,Los Angeles International Airport,LAX,2024-02-10 10:50,595,Boeing 787-10,United,UA 33,TRUE,325
+7,2,Los Angeles International Airport,LAX,2024-02-10 16:15,San Francisco International Airport,SFO,2024-02-10 17:48,93,Boeing 757,United,UA 1705,FALSE,82
+7,3,San Francisco International Airport,SFO,2024-02-10 19:10,Harry Reid International Airport,LAS,2024-02-10 20:55,105,Boeing 737,United,UA 1847,FALSE,0
+8,1,Narita International Airport (NRT),NRT,2024-02-10 18:55,Vancouver International Airport (YVR),YVR,2024-02-10 10:40,525,Boeing 777,Air Canada,AC 4,TRUE,170
+8,2,Vancouver International Airport (YVR),YVR,2024-02-10 13:30,San Francisco International Airport,SFO,2024-02-10 15:55,145,Boeing 737MAX 8 Passenger,Air Canada,AC 566,FALSE,210
+8,3,San Francisco International Airport,SFO,2024-02-10 19:25,Harry Reid International Airport,LAS,2024-02-10 21:00,95,Boeing 737MAX 9 Passenger,Alaska,AS 740,FALSE,0
+9,1,Narita International Airport (NRT),NRT,2024-02-10 17:55,Los Angeles International Airport,LAX,2024-02-10 10:50,595,Boeing 787-10,United,UA 33,TRUE,325
+9,2,Los Angeles International Airport,LAX,2024-02-10 16:15,San Francisco International Airport,SFO,2024-02-10 17:48,93,Boeing 757,United,UA 1705,FALSE,292
+9,3,San Francisco International Airport,SFO,2024-02-10 22:40,Harry Reid International Airport,LAS,2024-02-11 0:25,105,Boeing 737,United,UA 2366,FALSE,0
+10,1,Narita International Airport (NRT),NRT,2024-02-10 17:55,Los Angeles International Airport,LAX,2024-02-10 10:50,595,Boeing 787-10,United,UA 33,TRUE,145
+10,2,Los Angeles International Airport,LAX,2024-02-10 13:15,San Francisco International Airport,SFO,2024-02-10 14:48,93,Boeing 737MAX 8 Passenger,United,UA 1706,FALSE,472
+10,3,San Francisco International Airport,SFO,2024-02-10 22:40,Harry Reid International Airport,LAS,2024-02-11 0:25,105,Boeing 737,United,UA 2366,FALSE,0
+11,1,Narita International Airport (NRT),NRT,2024-02-10 17:55,Los Angeles International Airport,LAX,2024-02-10 10:50,595,Boeing 787-10,United,UA 33,TRUE,145
+11,2,Los Angeles International Airport,LAX,2024-02-10 13:15,San Francisco International Airport,SFO,2024-02-10 14:48,93,Boeing 737MAX 8 Passenger,United,UA 1706,FALSE,262
+11,3,San Francisco International Airport,SFO,2024-02-10 19:10,Harry Reid International Airport,LAS,2024-02-10 20:55,105,Boeing 737,United,UA 1847,FALSE,0
+12,1,Narita International Airport (NRT),NRT,2024-02-10 16:55,San Francisco International Airport,SFO,2024-02-10 9:15,560,Boeing 777,United,UA 838,TRUE,254
+12,2,San Francisco International Airport,SFO,2024-02-10 13:29,Los Angeles International Airport,LAX,2024-02-10 15:01,92,Boeing 737,United,UA 1312,FALSE,104
+12,3,Los Angeles International Airport,LAX,2024-02-10 16:45,Harry Reid International Airport,LAS,2024-02-10 17:58,73,Boeing 737,United,UA 1062,FALSE,0
+13,1,Narita International Airport (NRT),NRT,2024-02-10 16:55,San Francisco International Airport,SFO,2024-02-10 9:15,560,Boeing 777,United,UA 838,TRUE,415
+13,2,San Francisco International Airport,SFO,2024-02-10 16:10,Los Angeles International Airport,LAX,2024-02-10 17:42,92,Boeing 757,United,UA 1413,FALSE,153
+13,3,Los Angeles International Airport,LAX,2024-02-10 20:15,Harry Reid International Airport,LAS,2024-02-10 21:28,73,Boeing 737,United,UA 1960,FALSE,0
+14,1,Narita International Airport (NRT),NRT,2024-02-10 17:55,Los Angeles International Airport,LAX,2024-02-10 10:50,595,Boeing 787-10,United,UA 33,TRUE,145
+14,2,Los Angeles International Airport,LAX,2024-02-10 13:15,San Francisco International Airport,SFO,2024-02-10 14:48,93,Boeing 737MAX 8 Passenger,United,UA 1706,FALSE,162
+14,3,San Francisco International Airport,SFO,2024-02-10 17:30,Harry Reid International Airport,LAS,2024-02-10 19:15,105,Boeing 737MAX 9 Passenger,United,UA 1896,FALSE,0
+15,1,Narita International Airport (NRT),NRT,2024-02-10 16:55,San Francisco International Airport,SFO,2024-02-10 9:15,560,Boeing 777,United,UA 838,TRUE,80
+15,2,San Francisco International Airport,SFO,2024-02-10 10:35,Los Angeles International Airport,LAX,2024-02-10 12:10,95,Boeing 737MAX 8 Passenger,United,UA 1897,FALSE,275
+15,3,Los Angeles International Airport,LAX,2024-02-10 16:45,Harry Reid International Airport,LAS,2024-02-10 17:58,73,Boeing 737,United,UA 1062,FALSE,0
+16,1,Narita International Airport (NRT),NRT,2024-02-10 16:55,San Francisco International Airport,SFO,2024-02-10 9:15,560,Boeing 777,United,UA 838,TRUE,254
+16,2,San Francisco International Airport,SFO,2024-02-10 13:29,Los Angeles International Airport,LAX,2024-02-10 15:01,92,Boeing 737,United,UA 1312,FALSE,314
+16,3,Los Angeles International Airport,LAX,2024-02-10 20:15,Harry Reid International Airport,LAS,2024-02-10 21:28,73,Boeing 737,United,UA 1960,FALSE,0
+17,1,Narita International Airport (NRT),NRT,2024-02-10 16:55,San Francisco International Airport,SFO,2024-02-10 9:15,560,Boeing 777,United,UA 838,TRUE,80
+17,2,San Francisco International Airport,SFO,2024-02-10 10:35,Los Angeles International Airport,LAX,2024-02-10 12:10,95,Boeing 737MAX 8 Passenger,United,UA 1897,FALSE,485
+17,3,Los Angeles International Airport,LAX,2024-02-10 20:15,Harry Reid International Airport,LAS,2024-02-10 21:28,73,Boeing 737,United,UA 1960,FALSE,0
+18,1,Narita International Airport (NRT),NRT,2024-02-10 19:55,Daniel K. Inouye International Airport,HNL,2024-02-10 7:40,405,Airbus A330,Hawaiian,HA 822,TRUE,246
+18,2,Daniel K. Inouye International Airport,HNL,2024-02-10 11:46,Kahului Airport,OGG,2024-02-10 12:30,44,Boeing 717,Hawaiian,HA 266,FALSE,230
+18,3,Kahului Airport,OGG,2024-02-10 16:20,Harry Reid International Airport,LAS,2024-02-10 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+19,1,Narita International Airport (NRT),NRT,2024-02-10 19:55,Daniel K. Inouye International Airport,HNL,2024-02-10 7:40,405,Airbus A330,Hawaiian,HA 822,TRUE,270
+19,2,Daniel K. Inouye International Airport,HNL,2024-02-10 12:10,Kahului Airport,OGG,2024-02-10 12:54,44,Boeing 717,Hawaiian,HA 286,FALSE,206
+19,3,Kahului Airport,OGG,2024-02-10 16:20,Harry Reid International Airport,LAS,2024-02-10 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+20,1,Narita International Airport (NRT),NRT,2024-02-10 19:55,Daniel K. Inouye International Airport,HNL,2024-02-10 7:40,405,Airbus A330,Hawaiian,HA 822,TRUE,410
+20,2,Daniel K. Inouye International Airport,HNL,2024-02-10 14:30,Kahului Airport,OGG,2024-02-10 15:15,45,Boeing 717,Hawaiian,HA 326,FALSE,65
+20,3,Kahului Airport,OGG,2024-02-10 16:20,Harry Reid International Airport,LAS,2024-02-10 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+21,1,Narita International Airport (NRT),NRT,2024-02-10 19:55,Daniel K. Inouye International Airport,HNL,2024-02-10 7:40,405,Airbus A330,Hawaiian,HA 822,TRUE,378
+21,2,Daniel K. Inouye International Airport,HNL,2024-02-10 13:58,Kahului Airport,OGG,2024-02-10 14:42,44,Boeing 717,Hawaiian,HA 306,FALSE,98
+21,3,Kahului Airport,OGG,2024-02-10 16:20,Harry Reid International Airport,LAS,2024-02-10 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+22,1,Narita International Airport (NRT),NRT,2024-02-10 19:55,Daniel K. Inouye International Airport,HNL,2024-02-10 7:40,405,Airbus A330,Hawaiian,HA 822,TRUE,1450
+22,2,Daniel K. Inouye International Airport,HNL,2024-02-11 7:50,Harry Reid International Airport,LAS,2024-02-11 15:35,345,Airbus A330,Hawaiian,HA 6,FALSE,0
+23,1,Narita International Airport (NRT),NRT,2024-02-10 19:55,Daniel K. Inouye International Airport,HNL,2024-02-10 7:40,405,Airbus A330,Hawaiian,HA 822,TRUE,465
+23,2,Daniel K. Inouye International Airport,HNL,2024-02-10 15:25,Harry Reid International Airport,LAS,2024-02-10 23:10,345,Airbus A330,Hawaiian,HA 18,FALSE,0
+24,1,Narita International Airport (NRT),NRT,2024-02-10 19:55,Daniel K. Inouye International Airport,HNL,2024-02-10 7:40,405,Airbus A330,Hawaiian,HA 822,TRUE,223
+24,2,Daniel K. Inouye International Airport,HNL,2024-02-10 11:23,Kahului Airport,OGG,2024-02-10 12:07,44,Boeing 717,Hawaiian,HA 246,FALSE,253
+24,3,Kahului Airport,OGG,2024-02-10 16:20,Harry Reid International Airport,LAS,2024-02-10 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+25,1,Narita International Airport (NRT),NRT,2024-02-10 19:55,Daniel K. Inouye International Airport,HNL,2024-02-10 7:40,405,Airbus A330,Hawaiian,HA 822,TRUE,200
+25,2,Daniel K. Inouye International Airport,HNL,2024-02-10 11:00,Kahului Airport,OGG,2024-02-10 11:44,44,Boeing 717,Hawaiian,HA 236,FALSE,276
+25,3,Kahului Airport,OGG,2024-02-10 16:20,Harry Reid International Airport,LAS,2024-02-10 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+26,1,Narita International Airport (NRT),NRT,2024-02-10 19:55,Daniel K. Inouye International Airport,HNL,2024-02-10 7:40,405,Airbus A330,Hawaiian,HA 822,TRUE,155
+26,2,Daniel K. Inouye International Airport,HNL,2024-02-10 10:15,Kahului Airport,OGG,2024-02-10 10:57,42,Boeing 717,Hawaiian,HA 226,FALSE,323
+26,3,Kahului Airport,OGG,2024-02-10 16:20,Harry Reid International Airport,LAS,2024-02-10 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+27,1,Narita International Airport (NRT),NRT,2024-02-10 19:55,Daniel K. Inouye International Airport,HNL,2024-02-10 7:40,405,Airbus A330,Hawaiian,HA 822,TRUE,130
+27,2,Daniel K. Inouye International Airport,HNL,2024-02-10 9:50,Kahului Airport,OGG,2024-02-10 10:31,41,Boeing 717,Hawaiian,HA 206,FALSE,349
+27,3,Kahului Airport,OGG,2024-02-10 16:20,Harry Reid International Airport,LAS,2024-02-10 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+28,1,Narita International Airport (NRT),NRT,2024-02-10 18:55,Vancouver International Airport (YVR),YVR,2024-02-10 10:40,525,Boeing 777,Air Canada,AC 4,TRUE,325
+28,2,Vancouver International Airport (YVR),YVR,2024-02-10 16:05,Portland International Airport,PDX,2024-02-10 17:21,76,De Havilland-Bombardier Dash-8,Air Canada,AC 8654,FALSE,233
+28,3,Portland International Airport,PDX,2024-02-10 21:14,Harry Reid International Airport,LAS,2024-02-10 23:23,129,Embraer 175,Alaska,AS 3319,FALSE,0
+29,1,Narita International Airport (NRT),NRT,2024-02-10 18:15,Los Angeles International Airport,LAX,2024-02-10 11:15,600,Boeing 777,Singapore Airlines,SQ 12,TRUE,1185
+29,2,Los Angeles International Airport,LAX,2024-02-11 7:00,Harry Reid International Airport,LAS,2024-02-11 8:18,78,Boeing 737,Alaska,AS 702,FALSE,0
+30,1,Narita International Airport (NRT),NRT,2024-02-10 18:15,Los Angeles International Airport,LAX,2024-02-10 11:15,600,Boeing 777,Singapore Airlines,SQ 12,TRUE,1853
+30,2,Los Angeles International Airport,LAX,2024-02-11 18:08,Harry Reid International Airport,LAS,2024-02-11 19:22,74,Boeing 737,Alaska,AS 708,FALSE,0
+31,1,Narita International Airport (NRT),NRT,2024-02-10 19:55,Daniel K. Inouye International Airport,HNL,2024-02-10 7:40,405,Airbus A330,Hawaiian,HA 822,TRUE,320
+31,2,Daniel K. Inouye International Airport,HNL,2024-02-10 13:00,Kahului Airport,OGG,2024-02-10 13:44,44,Boeing 717,Hawaiian,HA 296,FALSE,156
+31,3,Kahului Airport,OGG,2024-02-10 16:20,Harry Reid International Airport,LAS,2024-02-10 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+32,1,Narita International Airport (NRT),NRT,2024-02-10 17:55,Los Angeles International Airport,LAX,2024-02-10 10:50,595,Boeing 787-10,United,UA 33,TRUE,135
+32,2,Los Angeles International Airport,LAX,2024-02-10 13:05,Denver International Airport,DEN,2024-02-10 16:29,144,Boeing 757,United,UA 1532,FALSE,181
+32,3,Denver International Airport,DEN,2024-02-10 19:30,Harry Reid International Airport,LAS,2024-02-10 20:35,125,Boeing 737MAX 8 Passenger,United,UA 655,FALSE,0
+33,1,Narita International Airport (NRT),NRT,2024-02-10 17:55,Los Angeles International Airport,LAX,2024-02-10 10:50,595,Boeing 787-10,United,UA 33,TRUE,220
+33,2,Los Angeles International Airport,LAX,2024-02-10 14:30,Denver International Airport,DEN,2024-02-10 17:54,144,Boeing 737MAX 9 Passenger,United,UA 1554,FALSE,96
+33,3,Denver International Airport,DEN,2024-02-10 19:30,Harry Reid International Airport,LAS,2024-02-10 20:35,125,Boeing 737MAX 8 Passenger,United,UA 655,FALSE,0
+34,1,Narita International Airport (NRT),NRT,2024-02-10 17:55,Los Angeles International Airport,LAX,2024-02-10 10:50,595,Boeing 787-10,United,UA 33,TRUE,149
+34,2,Los Angeles International Airport,LAX,2024-02-10 13:19,George Bush Intercontinental Airport,IAH,2024-02-10 18:35,196,Boeing 757,United,UA 2495,FALSE,78
+34,3,George Bush Intercontinental Airport,IAH,2024-02-10 19:53,Harry Reid International Airport,LAS,2024-02-10 21:22,209,Boeing 737,United,UA 2086,FALSE,0
+35,1,Narita International Airport (NRT),NRT,2024-02-10 17:55,Los Angeles International Airport,LAX,2024-02-10 10:50,595,Boeing 787-10,United,UA 33,TRUE,79
+35,2,Los Angeles International Airport,LAX,2024-02-10 12:09,George Bush Intercontinental Airport,IAH,2024-02-10 17:25,196,Boeing 737MAX 9 Passenger,United,UA 2657,FALSE,148
+35,3,George Bush Intercontinental Airport,IAH,2024-02-10 19:53,Harry Reid International Airport,LAS,2024-02-10 21:22,209,Boeing 737,United,UA 2086,FALSE,0
+36,1,Narita International Airport (NRT),NRT,2024-02-10 13:20,Incheon International Airport,ICN,2024-02-10 15:55,155,Airbus A380,Asiana,OZ 101,FALSE,140
+36,2,Incheon International Airport,ICN,2024-02-10 18:15,Seattle-Tacoma International Airport,SEA,2024-02-10 11:00,585,Airbus A350,Asiana,OZ 272,TRUE,101
+36,3,Seattle-Tacoma International Airport,SEA,2024-02-10 12:41,Harry Reid International Airport,LAS,2024-02-10 15:15,154,Boeing 737,Alaska,AS 678,FALSE,0
+37,1,Narita International Airport (NRT),NRT,2024-02-10 17:55,Los Angeles International Airport,LAX,2024-02-10 10:50,595,Boeing 787-10,United,UA 33,TRUE,135
+37,2,Los Angeles International Airport,LAX,2024-02-10 13:05,Denver International Airport,DEN,2024-02-10 16:29,144,Boeing 757,United,UA 1532,FALSE,81
+37,3,Denver International Airport,DEN,2024-02-10 17:50,Harry Reid International Airport,LAS,2024-02-10 18:55,125,Boeing 737MAX 8 Passenger,United,UA 679,FALSE,0
+38,1,Narita International Airport (NRT),NRT,2024-02-10 18:55,Vancouver International Airport (YVR),YVR,2024-02-10 10:40,525,Boeing 777,Air Canada,AC 4,TRUE,265
+38,2,Vancouver International Airport (YVR),YVR,2024-02-10 15:05,Harry Reid International Airport,LAS,2024-02-10 17:53,168,Boeing 737MAX 8 Passenger,Air Canada,AC 1058,FALSE,0
+39,1,Narita International Airport (NRT),NRT,2024-02-10 17:55,Los Angeles International Airport,LAX,2024-02-10 10:50,595,Boeing 787-10,United,UA 33,TRUE,126
+39,2,Los Angeles International Airport,LAX,2024-02-10 12:56,Harry Reid International Airport,LAS,2024-02-10 14:09,73,Boeing 737,United,UA 2449,FALSE,0
+40,1,Narita International Airport (NRT),NRT,2024-02-10 15:50,Incheon International Airport,ICN,2024-02-10 18:40,170,Boeing 777,Asiana,OZ 103,FALSE,130
+40,2,Incheon International Airport,ICN,2024-02-10 20:50,San Francisco International Airport,SFO,2024-02-10 14:00,610,Airbus A350,Asiana,OZ 212,TRUE,157
+40,3,San Francisco International Airport,SFO,2024-02-10 16:37,Harry Reid International Airport,LAS,2024-02-10 18:12,95,Boeing 737,Alaska,AS 706,FALSE,0
+41,1,Narita International Airport (NRT),NRT,2024-02-10 16:55,San Francisco International Airport,SFO,2024-02-10 9:15,560,Boeing 777,United,UA 838,TRUE,105
+41,2,San Francisco International Airport,SFO,2024-02-10 11:00,Harry Reid International Airport,LAS,2024-02-10 12:45,105,Boeing 737,United,UA 470,FALSE,0
+42,1,Narita International Airport (NRT),NRT,2024-02-10 16:55,San Francisco International Airport,SFO,2024-02-10 9:15,560,Boeing 777,United,UA 838,TRUE,80
+42,2,San Francisco International Airport,SFO,2024-02-10 10:35,Los Angeles International Airport,LAX,2024-02-10 12:10,95,Boeing 737MAX 8 Passenger,United,UA 1897,FALSE,46
+42,3,Los Angeles International Airport,LAX,2024-02-10 12:56,Harry Reid International Airport,LAS,2024-02-10 14:09,73,Boeing 737,United,UA 2449,FALSE,0
+43,1,Narita International Airport (NRT),NRT,2024-02-10 16:55,San Francisco International Airport,SFO,2024-02-10 9:15,560,Boeing 777,United,UA 838,TRUE,229
+43,2,San Francisco International Airport,SFO,2024-02-10 13:04,Harry Reid International Airport,LAS,2024-02-10 14:49,105,Boeing 737,United,UA 305,FALSE,0
+44,1,Narita International Airport (NRT),NRT,2024-02-10 16:55,San Francisco International Airport,SFO,2024-02-10 9:15,560,Boeing 777,United,UA 838,TRUE,95
+44,2,San Francisco International Airport,SFO,2024-02-10 10:50,Denver International Airport,DEN,2024-02-10 14:29,159,Boeing 757,United,UA 246,FALSE,96
+44,3,Denver International Airport,DEN,2024-02-10 16:05,Harry Reid International Airport,LAS,2024-02-10 17:10,125,Boeing 737,United,UA 517,FALSE,0
+45,1,Narita International Airport (NRT),NRT,2024-02-10 16:55,San Francisco International Airport,SFO,2024-02-10 9:15,560,Boeing 777,United,UA 838,TRUE,220
+45,2,San Francisco International Airport,SFO,2024-02-10 12:55,Denver International Airport,DEN,2024-02-10 16:37,162,Boeing 757,United,UA 1374,FALSE,73
+45,3,Denver International Airport,DEN,2024-02-10 17:50,Harry Reid International Airport,LAS,2024-02-10 18:55,125,Boeing 737MAX 8 Passenger,United,UA 679,FALSE,0
+46,1,Narita International Airport (NRT),NRT,2024-02-10 16:55,San Francisco International Airport,SFO,2024-02-10 9:15,560,Boeing 777,United,UA 838,TRUE,95
+46,2,San Francisco International Airport,SFO,2024-02-10 10:50,Denver International Airport,DEN,2024-02-10 14:29,159,Boeing 757,United,UA 246,FALSE,201
+46,3,Denver International Airport,DEN,2024-02-10 17:50,Harry Reid International Airport,LAS,2024-02-10 18:55,125,Boeing 737MAX 8 Passenger,United,UA 679,FALSE,0
+47,1,Narita International Airport (NRT),NRT,2024-02-10 16:55,San Francisco International Airport,SFO,2024-02-10 9:15,560,Boeing 777,United,UA 838,TRUE,495
+47,2,San Francisco International Airport,SFO,2024-02-10 17:30,Harry Reid International Airport,LAS,2024-02-10 19:15,105,Boeing 737MAX 9 Passenger,United,UA 1896,FALSE,0
+48,1,Narita International Airport (NRT),NRT,2024-02-10 16:55,San Francisco International Airport,SFO,2024-02-10 9:15,560,Boeing 777,United,UA 838,TRUE,595
+48,2,San Francisco International Airport,SFO,2024-02-10 19:10,Harry Reid International Airport,LAS,2024-02-10 20:55,105,Boeing 737,United,UA 1847,FALSE,0
+49,1,Narita International Airport (NRT),NRT,2024-02-10 16:55,San Francisco International Airport,SFO,2024-02-10 9:15,560,Boeing 777,United,UA 838,TRUE,805
+49,2,San Francisco International Airport,SFO,2024-02-10 22:40,Harry Reid International Airport,LAS,2024-02-11 0:25,105,Boeing 737,United,UA 2366,FALSE,0
+50,1,Narita International Airport (NRT),NRT,2024-02-10 17:35,Denver International Airport,DEN,2024-02-10 12:05,630,Boeing 787,United,UA 142,TRUE,240
+50,2,Denver International Airport,DEN,2024-02-10 16:05,Harry Reid International Airport,LAS,2024-02-10 17:10,125,Boeing 737,United,UA 517,FALSE,0
+51,1,Narita International Airport (NRT),NRT,2024-02-10 17:35,Denver International Airport,DEN,2024-02-10 12:05,630,Boeing 787,United,UA 142,TRUE,345
+51,2,Denver International Airport,DEN,2024-02-10 17:50,Harry Reid International Airport,LAS,2024-02-10 18:55,125,Boeing 737MAX 8 Passenger,United,UA 679,FALSE,0
+52,1,Narita International Airport (NRT),NRT,2024-02-10 17:35,Denver International Airport,DEN,2024-02-10 12:05,630,Boeing 787,United,UA 142,TRUE,445
+52,2,Denver International Airport,DEN,2024-02-10 19:30,Harry Reid International Airport,LAS,2024-02-10 20:35,125,Boeing 737MAX 8 Passenger,United,UA 655,FALSE,0
+53,1,Narita International Airport (NRT),NRT,2024-02-10 17:35,Denver International Airport,DEN,2024-02-10 12:05,630,Boeing 787,United,UA 142,TRUE,1180
+53,2,Denver International Airport,DEN,2024-02-11 7:45,Harry Reid International Airport,LAS,2024-02-11 8:48,123,Boeing 737,United,UA 1005,FALSE,0
+54,1,Narita International Airport (NRT),NRT,2024-02-10 9:15,Incheon International Airport,ICN,2024-02-10 12:00,165,Airbus A321neo,Korean Air,KE 706,FALSE,540
+54,2,Incheon International Airport,ICN,2024-02-10 21:00,Harry Reid International Airport,LAS,2024-02-10 15:15,675,Boeing 777,Korean Air,KE 8005,TRUE,0
+55,1,Narita International Airport (NRT),NRT,2024-02-10 17:00,Incheon International Airport,ICN,2024-02-10 19:50,170,Airbus A330,Korean Air,KE 712,FALSE,70
+55,2,Incheon International Airport,ICN,2024-02-10 21:00,Harry Reid International Airport,LAS,2024-02-10 15:15,675,Boeing 777,Korean Air,KE 8005,TRUE,0
+56,1,Narita International Airport (NRT),NRT,2024-02-10 18:55,Vancouver International Airport (YVR),YVR,2024-02-10 10:40,525,Boeing 777,Air Canada,AC 4,TRUE,170
+56,2,Vancouver International Airport (YVR),YVR,2024-02-10 13:30,San Francisco International Airport,SFO,2024-02-10 15:55,145,Boeing 737MAX 8 Passenger,Air Canada,AC 566,FALSE,95
+56,3,San Francisco International Airport,SFO,2024-02-10 17:30,Harry Reid International Airport,LAS,2024-02-10 19:15,105,Boeing 737MAX 9 Passenger,United,UA 1896,FALSE,0
+57,1,Narita International Airport (NRT),NRT,2024-02-10 9:00,Incheon International Airport,ICN,2024-02-10 11:40,160,Boeing 777,Asiana,OZ 107,FALSE,180
+57,2,Incheon International Airport,ICN,2024-02-10 14:40,Los Angeles International Airport,LAX,2024-02-10 8:40,660,Airbus A380,Asiana,OZ 202,TRUE,256
+57,3,Los Angeles International Airport,LAX,2024-02-10 12:56,Harry Reid International Airport,LAS,2024-02-10 14:09,73,Boeing 737,United,UA 2449,FALSE,0
+58,1,Narita International Airport (NRT),NRT,2024-02-10 13:20,Incheon International Airport,ICN,2024-02-10 15:55,155,Airbus A380,Asiana,OZ 101,FALSE,125
+58,2,Incheon International Airport,ICN,2024-02-10 18:00,San Francisco International Airport,SFO,2024-02-10 11:35,635,Boeing 787,United,UA 892,TRUE,89
+58,3,San Francisco International Airport,SFO,2024-02-10 13:04,Harry Reid International Airport,LAS,2024-02-10 14:49,105,Boeing 737,United,UA 305,FALSE,0
+59,1,Narita International Airport (NRT),NRT,2024-02-10 15:50,Incheon International Airport,ICN,2024-02-10 18:40,170,Boeing 777,Asiana,OZ 103,FALSE,130
+59,2,Incheon International Airport,ICN,2024-02-10 20:50,San Francisco International Airport,SFO,2024-02-10 14:00,610,Airbus A350,Asiana,OZ 212,TRUE,210
+59,3,San Francisco International Airport,SFO,2024-02-10 17:30,Harry Reid International Airport,LAS,2024-02-10 19:15,105,Boeing 737,United,UA 1896,FALSE,0
+60,1,Narita International Airport (NRT),NRT,2024-02-10 18:55,Vancouver International Airport (YVR),YVR,2024-02-10 10:40,525,Boeing 777,Air Canada,AC 4,TRUE,260
+60,2,Vancouver International Airport (YVR),YVR,2024-02-10 15:00,San Francisco International Airport,SFO,2024-02-10 17:25,145,Boeing 737,United,UA 1230,FALSE,105
+60,3,San Francisco International Airport,SFO,2024-02-10 19:10,Harry Reid International Airport,LAS,2024-02-10 20:55,105,Boeing 737,United,UA 1847,FALSE,0
+61,1,Narita International Airport (NRT),NRT,2024-02-10 18:55,Vancouver International Airport (YVR),YVR,2024-02-10 10:40,525,Boeing 777,Air Canada,AC 4,TRUE,515
+61,2,Vancouver International Airport (YVR),YVR,2024-02-10 19:15,San Francisco International Airport,SFO,2024-02-10 21:40,145,Boeing 737,United,UA 2423,FALSE,60
+61,3,San Francisco International Airport,SFO,2024-02-10 22:40,Harry Reid International Airport,LAS,2024-02-11 0:25,105,Boeing 737,United,UA 2366,FALSE,0
+62,1,Narita International Airport (NRT),NRT,2024-02-10 18:55,Vancouver International Airport (YVR),YVR,2024-02-10 10:40,525,Boeing 777,Air Canada,AC 4,TRUE,124
+62,2,Vancouver International Airport (YVR),YVR,2024-02-10 12:44,Denver International Airport,DEN,2024-02-10 16:36,172,Boeing 737MAX 8 Passenger,United,UA 1036,FALSE,74
+62,3,Denver International Airport,DEN,2024-02-10 17:50,Harry Reid International Airport,LAS,2024-02-10 18:55,125,Boeing 737MAX 8 Passenger,United,UA 679,FALSE,0
+63,1,Narita International Airport (NRT),NRT,2024-02-10 18:55,Vancouver International Airport (YVR),YVR,2024-02-10 10:40,525,Boeing 777,Air Canada,AC 4,TRUE,250
+63,2,Vancouver International Airport (YVR),YVR,2024-02-10 14:50,Los Angeles International Airport,LAX,2024-02-10 17:47,177,Boeing 737MAX 8 Passenger,United,UA 387,FALSE,148
+63,3,Los Angeles International Airport,LAX,2024-02-10 20:15,Harry Reid International Airport,LAS,2024-02-10 21:28,73,Boeing 737,United,UA 1960,FALSE,0
+64,1,Narita International Airport (NRT),NRT,2024-02-10 18:55,Vancouver International Airport (YVR),YVR,2024-02-10 10:40,525,Boeing 777,Air Canada,AC 4,TRUE,205
+64,2,Vancouver International Airport (YVR),YVR,2024-02-10 14:05,Denver International Airport,DEN,2024-02-10 17:57,172,Airbus A319,Air Canada,AC 572,FALSE,93
+64,3,Denver International Airport,DEN,2024-02-10 19:30,Harry Reid International Airport,LAS,2024-02-10 20:35,125,Boeing 737MAX 8 Passenger,United,UA 655,FALSE,0
+65,1,Narita International Airport (NRT),NRT,2024-02-10 18:55,Vancouver International Airport (YVR),YVR,2024-02-10 10:40,525,Boeing 777,Air Canada,AC 4,TRUE,124
+65,2,Vancouver International Airport (YVR),YVR,2024-02-10 12:44,Denver International Airport,DEN,2024-02-10 16:36,172,Boeing 737MAX 8 Passenger,United,UA 1036,FALSE,174
+65,3,Denver International Airport,DEN,2024-02-10 19:30,Harry Reid International Airport,LAS,2024-02-10 20:35,125,Boeing 737MAX 8 Passenger,United,UA 655,FALSE,0
+66,1,Narita International Airport (NRT),NRT,2024-02-10 18:55,Vancouver International Airport (YVR),YVR,2024-02-10 10:40,525,Boeing 777,Air Canada,AC 4,TRUE,170
+66,2,Vancouver International Airport (YVR),YVR,2024-02-10 13:30,San Francisco International Airport,SFO,2024-02-10 15:55,145,Boeing 737MAX 8 Passenger,Air Canada,AC 566,FALSE,195
+66,3,San Francisco International Airport,SFO,2024-02-10 19:10,Harry Reid International Airport,LAS,2024-02-10 20:55,105,Boeing 737,United,UA 1847,FALSE,0
+67,1,Narita International Airport (NRT),NRT,2024-02-10 18:25,Dallas Fort Worth International Airport,DFW,2024-02-10 14:50,685,Boeing 787,American,AA 60,TRUE,130
+67,2,Dallas Fort Worth International Airport,DFW,2024-02-10 17:00,Los Angeles International Airport,LAX,2024-02-10 18:38,218,Airbus A321,American,AA 1672,FALSE,82
+67,3,Los Angeles International Airport,LAX,2024-02-10 20:00,Harry Reid International Airport,LAS,2024-02-10 21:14,74,Airbus A321,American,AA 2785,FALSE,0
+68,1,Narita International Airport (NRT),NRT,2024-02-10 13:50,Shanghai Pudong International Airport,PVG,2024-02-10 16:30,220,Airbus A350,China Eastern,MU 524,FALSE,1310
+68,2,Shanghai Pudong International Airport,PVG,2024-02-11 14:20,San Francisco International Airport,SFO,2024-02-11 9:30,670,Boeing 777,China Eastern,MU 589,TRUE,214
+68,3,San Francisco International Airport,SFO,2024-02-11 13:04,Harry Reid International Airport,LAS,2024-02-11 14:49,105,Boeing 737,United,UA 305,FALSE,0
+69,1,Narita International Airport (NRT),NRT,2024-02-10 15:25,Shanghai Pudong International Airport,PVG,2024-02-10 18:20,235,Boeing 777,China Eastern,MU 522,FALSE,1200
+69,2,Shanghai Pudong International Airport,PVG,2024-02-11 14:20,San Francisco International Airport,SFO,2024-02-11 9:30,670,Boeing 777,China Eastern,MU 589,TRUE,214
+69,3,San Francisco International Airport,SFO,2024-02-11 13:04,Harry Reid International Airport,LAS,2024-02-11 14:49,105,Boeing 737,United,UA 305,FALSE,0
+70,1,Narita International Airport (NRT),NRT,2024-02-10 19:55,Daniel K. Inouye International Airport,HNL,2024-02-10 7:40,405,Airbus A330,Hawaiian,HA 822,TRUE,405
+70,2,Daniel K. Inouye International Airport,HNL,2024-02-10 14:25,San Francisco International Airport,SFO,2024-02-10 21:29,304,Boeing 777,United,UA 1141,FALSE,71
+70,3,San Francisco International Airport,SFO,2024-02-10 22:40,Harry Reid International Airport,LAS,2024-02-11 0:25,105,Boeing 737,United,UA 2366,FALSE,0
+71,1,Narita International Airport (NRT),NRT,2024-02-10 13:20,Incheon International Airport,ICN,2024-02-10 15:55,155,Airbus A380,Asiana,OZ 101,FALSE,305
+71,2,Incheon International Airport,ICN,2024-02-10 21:00,Harry Reid International Airport,LAS,2024-02-10 15:15,675,Boeing 777,Korean Air,KE 8005,TRUE,0
+72,1,Narita International Airport (NRT),NRT,2024-02-10 15:50,Incheon International Airport,ICN,2024-02-10 18:40,170,Boeing 777,Asiana,OZ 103,FALSE,140
+72,2,Incheon International Airport,ICN,2024-02-10 21:00,Harry Reid International Airport,LAS,2024-02-10 15:15,675,Boeing 777,Korean Air,KE 8005,TRUE,0
+73,1,Narita International Airport (NRT),NRT,2024-02-10 9:00,Incheon International Airport,ICN,2024-02-10 11:40,160,Boeing 777,Asiana,OZ 107,FALSE,560
+73,2,Incheon International Airport,ICN,2024-02-10 21:00,Harry Reid International Airport,LAS,2024-02-10 15:15,675,Boeing 777,Korean Air,KE 8005,TRUE,0
+74,1,Narita International Airport (NRT),NRT,2024-02-10 20:35,Daniel K. Inouye International Airport,HNL,2024-02-10 8:25,410,Airbus A380,ANA,NH 184,TRUE,360
+74,2,Daniel K. Inouye International Airport,HNL,2024-02-10 14:25,San Francisco International Airport,SFO,2024-02-10 21:29,304,Boeing 777,United,UA 1141,FALSE,71
+74,3,San Francisco International Airport,SFO,2024-02-10 22:40,Harry Reid International Airport,LAS,2024-02-11 0:25,105,Boeing 737,United,UA 2366,FALSE,0
+75,1,Narita International Airport (NRT),NRT,2024-02-10 21:30,Daniel K. Inouye International Airport,HNL,2024-02-10 9:20,410,Airbus A380,ANA,NH 182,TRUE,305
+75,2,Daniel K. Inouye International Airport,HNL,2024-02-10 14:25,San Francisco International Airport,SFO,2024-02-10 21:29,304,Boeing 777,United,UA 1141,FALSE,71
+75,3,San Francisco International Airport,SFO,2024-02-10 22:40,Harry Reid International Airport,LAS,2024-02-11 0:25,105,Boeing 737,United,UA 2366,FALSE,0
+76,1,Narita International Airport (NRT),NRT,2024-02-10 14:00,Incheon International Airport,ICN,2024-02-10 16:50,170,Boeing 777,Korean Air,KE 704,FALSE,170
+76,2,Incheon International Airport,ICN,2024-02-10 19:40,Los Angeles International Airport,LAX,2024-02-10 13:40,660,Airbus A380,Korean Air,KE 11,TRUE,120
+76,3,Los Angeles International Airport,LAX,2024-02-10 15:40,Harry Reid International Airport,LAS,2024-02-10 16:55,75,Airbus A319,Delta,DL 2444,FALSE,0
+77,1,Narita International Airport (NRT),NRT,2024-02-10 17:10,Los Angeles International Airport,LAX,2024-02-10 9:50,580,Boeing 787,JAL,JL 62,TRUE,137
+77,2,Los Angeles International Airport,LAX,2024-02-10 12:07,Harry Reid International Airport,LAS,2024-02-10 13:17,70,Boeing 737,American,AA 2388,FALSE,0
+78,1,Narita International Airport (NRT),NRT,2024-02-10 18:25,Dallas Fort Worth International Airport,DFW,2024-02-10 14:50,685,Boeing 787,American,AA 60,TRUE,126
+78,2,Dallas Fort Worth International Airport,DFW,2024-02-10 16:56,Harry Reid International Airport,LAS,2024-02-10 18:02,186,Airbus A321,American,AA 2864,FALSE,0
+79,1,Narita International Airport (NRT),NRT,2024-02-10 18:25,Dallas Fort Worth International Airport,DFW,2024-02-10 14:50,685,Boeing 787,American,AA 60,TRUE,190
+79,2,Dallas Fort Worth International Airport,DFW,2024-02-10 18:00,Harry Reid International Airport,LAS,2024-02-10 19:02,182,Boeing 737,American,AA 1880,FALSE,0
+80,1,Narita International Airport (NRT),NRT,2024-02-10 18:25,Dallas Fort Worth International Airport,DFW,2024-02-10 14:50,685,Boeing 787,American,AA 60,TRUE,245
+80,2,Dallas Fort Worth International Airport,DFW,2024-02-10 18:55,Harry Reid International Airport,LAS,2024-02-10 20:00,185,Airbus A321,American,AA 884,FALSE,0
+81,1,Narita International Airport (NRT),NRT,2024-02-10 17:00,San Francisco International Airport,SFO,2024-02-10 9:15,555,Boeing 777,ANA,NH 8,TRUE,805
+81,2,San Francisco International Airport,SFO,2024-02-10 22:40,Harry Reid International Airport,LAS,2024-02-11 0:25,105,Boeing 737,United,UA 2366,FALSE,0
+82,1,Narita International Airport (NRT),NRT,2024-02-10 17:00,San Francisco International Airport,SFO,2024-02-10 9:15,555,Boeing 777,ANA,NH 8,TRUE,105
+82,2,San Francisco International Airport,SFO,2024-02-10 11:00,Harry Reid International Airport,LAS,2024-02-10 12:45,105,Boeing 737,United,UA 470,FALSE,0
+83,1,Narita International Airport (NRT),NRT,2024-02-10 17:00,San Francisco International Airport,SFO,2024-02-10 9:15,555,Boeing 777,ANA,NH 8,TRUE,229
+83,2,San Francisco International Airport,SFO,2024-02-10 13:04,Harry Reid International Airport,LAS,2024-02-10 14:49,105,Boeing 737,United,UA 305,FALSE,0
+84,1,Narita International Airport (NRT),NRT,2024-02-10 17:10,Los Angeles International Airport,LAX,2024-02-10 9:50,580,Boeing 787,JAL,JL 62,TRUE,610
+84,2,Los Angeles International Airport,LAX,2024-02-10 20:00,Harry Reid International Airport,LAS,2024-02-10 21:14,74,Airbus A321,American,AA 2785,FALSE,0
+85,1,Narita International Airport (NRT),NRT,2024-02-10 17:25,Seattle-Tacoma International Airport,SEA,2024-02-10 9:20,535,Boeing 787,JAL,JL 68,TRUE,201
+85,2,Seattle-Tacoma International Airport,SEA,2024-02-10 12:41,Harry Reid International Airport,LAS,2024-02-10 15:15,154,Boeing 737,Alaska,AS 678,FALSE,0
+86,1,Narita International Airport (NRT),NRT,2024-02-10 18:40,Vancouver International Airport (YVR),YVR,2024-02-10 10:55,555,Boeing 767,JAL,JL 18,TRUE,1330
+86,2,Vancouver International Airport (YVR),YVR,2024-02-11 9:05,Harry Reid International Airport,LAS,2024-02-11 11:55,170,Boeing 737MAX 8 Passenger,WestJet,WS 1788,FALSE,0
+87,1,Narita International Airport (NRT),NRT,2024-02-10 18:15,Los Angeles International Airport,LAX,2024-02-10 11:15,600,Boeing 777,Singapore Airlines,SQ 12,TRUE,180
+87,2,Los Angeles International Airport,LAX,2024-02-10 14:15,San Francisco International Airport,SFO,2024-02-10 15:44,89,Embraer 175,Alaska,AS 3424,FALSE,221
+87,3,San Francisco International Airport,SFO,2024-02-10 19:25,Harry Reid International Airport,LAS,2024-02-10 21:00,95,Boeing 737MAX 9 Passenger,Alaska,AS 740,FALSE,0
+88,1,Narita International Airport (NRT),NRT,2024-02-10 18:40,Vancouver International Airport (YVR),YVR,2024-02-10 10:55,555,Boeing 767,JAL,JL 18,TRUE,1835
+88,2,Vancouver International Airport (YVR),YVR,2024-02-11 17:30,Harry Reid International Airport,LAS,2024-02-11 20:15,165,Boeing 737,WestJet,WS 1790,FALSE,0
+89,1,Narita International Airport (NRT),NRT,2024-02-10 18:15,Los Angeles International Airport,LAX,2024-02-10 11:15,600,Boeing 777,Singapore Airlines,SQ 12,TRUE,315
+89,2,Los Angeles International Airport,LAX,2024-02-10 16:30,San Francisco International Airport,SFO,2024-02-10 17:59,89,Embraer 175,Alaska,AS 3391,FALSE,86
+89,3,San Francisco International Airport,SFO,2024-02-10 19:25,Harry Reid International Airport,LAS,2024-02-10 21:00,95,Boeing 737MAX 9 Passenger,Alaska,AS 740,FALSE,0
+90,1,Narita International Airport (NRT),NRT,2024-02-10 18:40,Vancouver International Airport (YVR),YVR,2024-02-10 10:55,555,Boeing 767,JAL,JL 18,TRUE,270
+90,2,Vancouver International Airport (YVR),YVR,2024-02-10 15:25,Seattle-Tacoma International Airport,SEA,2024-02-10 16:33,68,Embraer 175,Delta,DL 3941,FALSE,72
+90,3,Seattle-Tacoma International Airport,SEA,2024-02-10 17:45,Harry Reid International Airport,LAS,2024-02-10 20:08,143,Boeing 737,Delta,DL 2291,FALSE,0
+91,1,Narita International Airport (NRT),NRT,2024-02-10 18:15,Los Angeles International Airport,LAX,2024-02-10 11:15,600,Boeing 777,Singapore Airlines,SQ 12,TRUE,155
+91,2,Los Angeles International Airport,LAX,2024-02-10 13:50,Seattle-Tacoma International Airport,SEA,2024-02-10 16:44,174,Boeing 737MAX 9 Passenger,Alaska,AS 1083,FALSE,61
+91,3,Seattle-Tacoma International Airport,SEA,2024-02-10 17:45,Harry Reid International Airport,LAS,2024-02-10 20:14,149,Boeing 737,Alaska,AS 730,FALSE,0
+92,1,Narita International Airport (NRT),NRT,2024-02-10 18:40,Vancouver International Airport (YVR),YVR,2024-02-10 10:55,555,Boeing 767,JAL,JL 18,TRUE,95
+92,2,Vancouver International Airport (YVR),YVR,2024-02-10 12:30,Calgary International Airport,YYC,2024-02-10 14:55,85,Boeing 737,WestJet,WS 112,FALSE,185
+92,3,Calgary International Airport,YYC,2024-02-10 18:00,Harry Reid International Airport,LAS,2024-02-10 19:55,175,Boeing 737MAX 8 Passenger,WestJet,WS 1400,FALSE,0
+93,1,Narita International Airport (NRT),NRT,2024-02-10 20:35,Daniel K. Inouye International Airport,HNL,2024-02-10 8:25,410,Airbus A380,ANA,NH 184,TRUE,333
+93,2,Daniel K. Inouye International Airport,HNL,2024-02-10 13:58,Kahului Airport,OGG,2024-02-10 14:42,44,Boeing 717,Hawaiian,HA 306,FALSE,98
+93,3,Kahului Airport,OGG,2024-02-10 16:20,Harry Reid International Airport,LAS,2024-02-10 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+94,1,Narita International Airport (NRT),NRT,2024-02-10 20:35,Daniel K. Inouye International Airport,HNL,2024-02-10 8:25,410,Airbus A380,ANA,NH 184,TRUE,201
+94,2,Daniel K. Inouye International Airport,HNL,2024-02-10 11:46,Kahului Airport,OGG,2024-02-10 12:30,44,Boeing 717,Hawaiian,HA 266,FALSE,230
+94,3,Kahului Airport,OGG,2024-02-10 16:20,Harry Reid International Airport,LAS,2024-02-10 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+95,1,Narita International Airport (NRT),NRT,2024-02-10 20:35,Daniel K. Inouye International Airport,HNL,2024-02-10 8:25,410,Airbus A380,ANA,NH 184,TRUE,365
+95,2,Daniel K. Inouye International Airport,HNL,2024-02-10 14:30,Kahului Airport,OGG,2024-02-10 15:15,45,Boeing 717,Hawaiian,HA 326,FALSE,65
+95,3,Kahului Airport,OGG,2024-02-10 16:20,Harry Reid International Airport,LAS,2024-02-10 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+96,1,Narita International Airport (NRT),NRT,2024-02-10 20:35,Daniel K. Inouye International Airport,HNL,2024-02-10 8:25,410,Airbus A380,ANA,NH 184,TRUE,905
+96,2,Daniel K. Inouye International Airport,HNL,2024-02-10 23:30,Harry Reid International Airport,LAS,2024-02-11 7:10,340,Airbus A330,Hawaiian,HA 8,TRUE,0
+97,1,Narita International Airport (NRT),NRT,2024-02-10 21:30,Daniel K. Inouye International Airport,HNL,2024-02-10 9:20,410,Airbus A380,ANA,NH 182,TRUE,310
+97,2,Daniel K. Inouye International Airport,HNL,2024-02-10 14:30,Kahului Airport,OGG,2024-02-10 15:15,45,Boeing 717,Hawaiian,HA 326,FALSE,65
+97,3,Kahului Airport,OGG,2024-02-10 16:20,Harry Reid International Airport,LAS,2024-02-10 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+98,1,Narita International Airport (NRT),NRT,2024-02-10 21:30,Daniel K. Inouye International Airport,HNL,2024-02-10 9:20,410,Airbus A380,ANA,NH 182,TRUE,146
+98,2,Daniel K. Inouye International Airport,HNL,2024-02-10 11:46,Kahului Airport,OGG,2024-02-10 12:30,44,Boeing 717,Hawaiian,HA 266,FALSE,230
+98,3,Kahului Airport,OGG,2024-02-10 16:20,Harry Reid International Airport,LAS,2024-02-10 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+99,1,Narita International Airport (NRT),NRT,2024-02-10 21:30,Daniel K. Inouye International Airport,HNL,2024-02-10 9:20,410,Airbus A380,ANA,NH 182,TRUE,278
+99,2,Daniel K. Inouye International Airport,HNL,2024-02-10 13:58,Kahului Airport,OGG,2024-02-10 14:42,44,Boeing 717,Hawaiian,HA 306,FALSE,98
+99,3,Kahului Airport,OGG,2024-02-10 16:20,Harry Reid International Airport,LAS,2024-02-10 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+100,1,Narita International Airport (NRT),NRT,2024-02-10 21:30,Daniel K. Inouye International Airport,HNL,2024-02-10 9:20,410,Airbus A380,ANA,NH 182,TRUE,850
+100,2,Daniel K. Inouye International Airport,HNL,2024-02-10 23:30,Harry Reid International Airport,LAS,2024-02-11 7:10,340,Airbus A330,Hawaiian,HA 8,TRUE,0
+101,1,Narita International Airport (NRT),NRT,2024-02-10 20:35,Daniel K. Inouye International Airport,HNL,2024-02-10 8:25,410,Airbus A380,ANA,NH 184,TRUE,420
+101,2,Daniel K. Inouye International Airport,HNL,2024-02-10 15:25,Harry Reid International Airport,LAS,2024-02-10 23:10,345,Airbus A330,Hawaiian,HA 18,FALSE,0
+102,1,Narita International Airport (NRT),NRT,2024-02-10 21:30,Daniel K. Inouye International Airport,HNL,2024-02-10 9:20,410,Airbus A380,ANA,NH 182,TRUE,365
+102,2,Daniel K. Inouye International Airport,HNL,2024-02-10 15:25,Harry Reid International Airport,LAS,2024-02-10 23:10,345,Airbus A330,Hawaiian,HA 18,FALSE,0
+103,1,Narita International Airport (NRT),NRT,2024-02-10 10:35,Hong Kong International Airport,HKG,2024-02-10 15:00,325,Airbus A350,Cathay Pacific,CX 501,FALSE,100
+103,2,Hong Kong International Airport,HKG,2024-02-10 16:40,Los Angeles International Airport,LAX,2024-02-10 13:20,760,Boeing 777,Cathay Pacific,CX 882,TRUE,205
+103,3,Los Angeles International Airport,LAX,2024-02-10 16:45,Harry Reid International Airport,LAS,2024-02-10 17:58,73,Boeing 737,United,UA 1062,FALSE,0
+104,1,Narita International Airport (NRT),NRT,2024-02-10 14:20,Hong Kong International Airport,HKG,2024-02-10 18:55,335,Boeing 777,Cathay Pacific,CX 527,FALSE,65
+104,2,Hong Kong International Airport,HKG,2024-02-10 20:00,San Francisco International Airport,SFO,2024-02-10 16:20,740,Airbus A350,Cathay Pacific,CX 892,TRUE,185
+104,3,San Francisco International Airport,SFO,2024-02-10 19:25,Harry Reid International Airport,LAS,2024-02-10 21:00,95,Boeing 737MAX 9 Passenger,Alaska,AS 740,FALSE,0
+105,1,Narita International Airport (NRT),NRT,2024-02-10 21:30,Daniel K. Inouye International Airport,HNL,2024-02-10 9:15,405,Boeing 767,JAL,JL 784,TRUE,855
+105,2,Daniel K. Inouye International Airport,HNL,2024-02-10 23:30,Harry Reid International Airport,LAS,2024-02-11 7:10,340,Airbus A330,Hawaiian,HA 8,TRUE,0
+106,1,Narita International Airport (NRT),NRT,2024-02-10 14:00,Incheon International Airport,ICN,2024-02-10 16:50,170,Boeing 777,Korean Air,KE 704,FALSE,250
+106,2,Incheon International Airport,ICN,2024-02-10 21:00,Harry Reid International Airport,LAS,2024-02-10 15:15,675,Boeing 777,Korean Air,KE 8005,TRUE,0
+107,1,Narita International Airport (NRT),NRT,2024-02-10 18:55,Vancouver International Airport (YVR),YVR,2024-02-10 10:40,525,Boeing 777,Air Canada,AC 4,TRUE,630
+107,2,Vancouver International Airport (YVR),YVR,2024-02-10 21:10,Harry Reid International Airport,LAS,2024-02-10 23:58,168,Boeing 737MAX 8 Passenger,Air Canada,AC 1060,FALSE,0
+108,1,Narita International Airport (NRT),NRT,2024-02-10 19:55,Daniel K. Inouye International Airport,HNL,2024-02-10 7:40,405,Airbus A330,Hawaiian,HA 822,TRUE,950
+108,2,Daniel K. Inouye International Airport,HNL,2024-02-10 23:30,Harry Reid International Airport,LAS,2024-02-11 7:10,340,Airbus A330,Hawaiian,HA 8,TRUE,0
+109,1,Narita International Airport (NRT),NRT,2024-02-10 17:55,Los Angeles International Airport,LAX,2024-02-10 10:50,595,Boeing 787-10,United,UA 33,TRUE,355
+109,2,Los Angeles International Airport,LAX,2024-02-10 16:45,Harry Reid International Airport,LAS,2024-02-10 17:58,73,Boeing 737,United,UA 1062,FALSE,0
+110,1,Narita International Airport (NRT),NRT,2024-02-10 17:55,Los Angeles International Airport,LAX,2024-02-10 10:50,595,Boeing 787-10,United,UA 33,TRUE,565
+110,2,Los Angeles International Airport,LAX,2024-02-10 20:15,Harry Reid International Airport,LAS,2024-02-10 21:28,73,Boeing 737,United,UA 1960,FALSE,0
+111,1,Narita International Airport (NRT),NRT,2024-02-10 17:55,Los Angeles International Airport,LAX,2024-02-10 10:50,595,Boeing 787-10,United,UA 33,TRUE,1303
+111,2,Los Angeles International Airport,LAX,2024-02-11 8:33,Harry Reid International Airport,LAS,2024-02-11 9:46,73,Boeing 737MAX 8 Passenger,United,UA 1006,FALSE,0
+112,1,Narita International Airport (NRT),NRT,2024-02-10 17:55,Los Angeles International Airport,LAX,2024-02-10 10:50,595,Boeing 787-10,United,UA 33,TRUE,485
+112,2,Los Angeles International Airport,LAX,2024-02-10 18:55,San Francisco International Airport,SFO,2024-02-10 20:28,93,Airbus A320,United,UA 1727,FALSE,132
+112,3,San Francisco International Airport,SFO,2024-02-10 22:40,Harry Reid International Airport,LAS,2024-02-11 0:25,105,Boeing 737,United,UA 2366,FALSE,0
+113,1,Narita International Airport (NRT),NRT,2024-02-10 17:55,Los Angeles International Airport,LAX,2024-02-10 10:50,595,Boeing 787-10,United,UA 33,TRUE,325
+113,2,Los Angeles International Airport,LAX,2024-02-10 16:15,San Francisco International Airport,SFO,2024-02-10 17:48,93,Boeing 757,United,UA 1705,FALSE,82
+113,3,San Francisco International Airport,SFO,2024-02-10 19:10,Harry Reid International Airport,LAS,2024-02-10 20:55,105,Boeing 737,United,UA 1847,FALSE,0
+114,1,Narita International Airport (NRT),NRT,2024-02-10 18:55,Vancouver International Airport (YVR),YVR,2024-02-10 10:40,525,Boeing 777,Air Canada,AC 4,TRUE,170
+114,2,Vancouver International Airport (YVR),YVR,2024-02-10 13:30,San Francisco International Airport,SFO,2024-02-10 15:55,145,Boeing 737MAX 8 Passenger,Air Canada,AC 566,FALSE,210
+114,3,San Francisco International Airport,SFO,2024-02-10 19:25,Harry Reid International Airport,LAS,2024-02-10 21:00,95,Boeing 737MAX 9 Passenger,Alaska,AS 740,FALSE,0
+115,1,Narita International Airport (NRT),NRT,2024-02-10 17:55,Los Angeles International Airport,LAX,2024-02-10 10:50,595,Boeing 787-10,United,UA 33,TRUE,325
+115,2,Los Angeles International Airport,LAX,2024-02-10 16:15,San Francisco International Airport,SFO,2024-02-10 17:48,93,Boeing 757,United,UA 1705,FALSE,292
+115,3,San Francisco International Airport,SFO,2024-02-10 22:40,Harry Reid International Airport,LAS,2024-02-11 0:25,105,Boeing 737,United,UA 2366,FALSE,0
+116,1,Narita International Airport (NRT),NRT,2024-02-10 17:55,Los Angeles International Airport,LAX,2024-02-10 10:50,595,Boeing 787-10,United,UA 33,TRUE,145
+116,2,Los Angeles International Airport,LAX,2024-02-10 13:15,San Francisco International Airport,SFO,2024-02-10 14:48,93,Boeing 737MAX 8 Passenger,United,UA 1706,FALSE,472
+116,3,San Francisco International Airport,SFO,2024-02-10 22:40,Harry Reid International Airport,LAS,2024-02-11 0:25,105,Boeing 737,United,UA 2366,FALSE,0
+117,1,Narita International Airport (NRT),NRT,2024-02-10 17:55,Los Angeles International Airport,LAX,2024-02-10 10:50,595,Boeing 787-10,United,UA 33,TRUE,145
+117,2,Los Angeles International Airport,LAX,2024-02-10 13:15,San Francisco International Airport,SFO,2024-02-10 14:48,93,Boeing 737MAX 8 Passenger,United,UA 1706,FALSE,262
+117,3,San Francisco International Airport,SFO,2024-02-10 19:10,Harry Reid International Airport,LAS,2024-02-10 20:55,105,Boeing 737,United,UA 1847,FALSE,0
+118,1,Narita International Airport (NRT),NRT,2024-02-10 16:55,San Francisco International Airport,SFO,2024-02-10 9:15,560,Boeing 777,United,UA 838,TRUE,254
+118,2,San Francisco International Airport,SFO,2024-02-10 13:29,Los Angeles International Airport,LAX,2024-02-10 15:01,92,Boeing 737,United,UA 1312,FALSE,104
+118,3,Los Angeles International Airport,LAX,2024-02-10 16:45,Harry Reid International Airport,LAS,2024-02-10 17:58,73,Boeing 737,United,UA 1062,FALSE,0
+119,1,Narita International Airport (NRT),NRT,2024-02-10 16:55,San Francisco International Airport,SFO,2024-02-10 9:15,560,Boeing 777,United,UA 838,TRUE,415
+119,2,San Francisco International Airport,SFO,2024-02-10 16:10,Los Angeles International Airport,LAX,2024-02-10 17:42,92,Boeing 757,United,UA 1413,FALSE,153
+119,3,Los Angeles International Airport,LAX,2024-02-10 20:15,Harry Reid International Airport,LAS,2024-02-10 21:28,73,Boeing 737,United,UA 1960,FALSE,0
+120,1,Narita International Airport (NRT),NRT,2024-02-10 17:55,Los Angeles International Airport,LAX,2024-02-10 10:50,595,Boeing 787-10,United,UA 33,TRUE,145
+120,2,Los Angeles International Airport,LAX,2024-02-10 13:15,San Francisco International Airport,SFO,2024-02-10 14:48,93,Boeing 737MAX 8 Passenger,United,UA 1706,FALSE,162
+120,3,San Francisco International Airport,SFO,2024-02-10 17:30,Harry Reid International Airport,LAS,2024-02-10 19:15,105,Boeing 737MAX 9 Passenger,United,UA 1896,FALSE,0
+121,1,Narita International Airport (NRT),NRT,2024-02-10 16:55,San Francisco International Airport,SFO,2024-02-10 9:15,560,Boeing 777,United,UA 838,TRUE,80
+121,2,San Francisco International Airport,SFO,2024-02-10 10:35,Los Angeles International Airport,LAX,2024-02-10 12:10,95,Boeing 737MAX 8 Passenger,United,UA 1897,FALSE,275
+121,3,Los Angeles International Airport,LAX,2024-02-10 16:45,Harry Reid International Airport,LAS,2024-02-10 17:58,73,Boeing 737,United,UA 1062,FALSE,0
+122,1,Narita International Airport (NRT),NRT,2024-02-10 16:55,San Francisco International Airport,SFO,2024-02-10 9:15,560,Boeing 777,United,UA 838,TRUE,254
+122,2,San Francisco International Airport,SFO,2024-02-10 13:29,Los Angeles International Airport,LAX,2024-02-10 15:01,92,Boeing 737,United,UA 1312,FALSE,314
+122,3,Los Angeles International Airport,LAX,2024-02-10 20:15,Harry Reid International Airport,LAS,2024-02-10 21:28,73,Boeing 737,United,UA 1960,FALSE,0
+123,1,Narita International Airport (NRT),NRT,2024-02-10 16:55,San Francisco International Airport,SFO,2024-02-10 9:15,560,Boeing 777,United,UA 838,TRUE,80
+123,2,San Francisco International Airport,SFO,2024-02-10 10:35,Los Angeles International Airport,LAX,2024-02-10 12:10,95,Boeing 737MAX 8 Passenger,United,UA 1897,FALSE,485
+123,3,Los Angeles International Airport,LAX,2024-02-10 20:15,Harry Reid International Airport,LAS,2024-02-10 21:28,73,Boeing 737,United,UA 1960,FALSE,0
+124,1,Narita International Airport (NRT),NRT,2024-02-10 19:55,Daniel K. Inouye International Airport,HNL,2024-02-10 7:40,405,Airbus A330,Hawaiian,HA 822,TRUE,246
+124,2,Daniel K. Inouye International Airport,HNL,2024-02-10 11:46,Kahului Airport,OGG,2024-02-10 12:30,44,Boeing 717,Hawaiian,HA 266,FALSE,230
+124,3,Kahului Airport,OGG,2024-02-10 16:20,Harry Reid International Airport,LAS,2024-02-10 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+125,1,Narita International Airport (NRT),NRT,2024-02-10 19:55,Daniel K. Inouye International Airport,HNL,2024-02-10 7:40,405,Airbus A330,Hawaiian,HA 822,TRUE,270
+125,2,Daniel K. Inouye International Airport,HNL,2024-02-10 12:10,Kahului Airport,OGG,2024-02-10 12:54,44,Boeing 717,Hawaiian,HA 286,FALSE,206
+125,3,Kahului Airport,OGG,2024-02-10 16:20,Harry Reid International Airport,LAS,2024-02-10 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+126,1,Narita International Airport (NRT),NRT,2024-02-10 19:55,Daniel K. Inouye International Airport,HNL,2024-02-10 7:40,405,Airbus A330,Hawaiian,HA 822,TRUE,410
+126,2,Daniel K. Inouye International Airport,HNL,2024-02-10 14:30,Kahului Airport,OGG,2024-02-10 15:15,45,Boeing 717,Hawaiian,HA 326,FALSE,65
+126,3,Kahului Airport,OGG,2024-02-10 16:20,Harry Reid International Airport,LAS,2024-02-10 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+127,1,Narita International Airport (NRT),NRT,2024-02-10 19:55,Daniel K. Inouye International Airport,HNL,2024-02-10 7:40,405,Airbus A330,Hawaiian,HA 822,TRUE,378
+127,2,Daniel K. Inouye International Airport,HNL,2024-02-10 13:58,Kahului Airport,OGG,2024-02-10 14:42,44,Boeing 717,Hawaiian,HA 306,FALSE,98
+127,3,Kahului Airport,OGG,2024-02-10 16:20,Harry Reid International Airport,LAS,2024-02-10 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+128,1,Narita International Airport (NRT),NRT,2024-02-10 19:55,Daniel K. Inouye International Airport,HNL,2024-02-10 7:40,405,Airbus A330,Hawaiian,HA 822,TRUE,1450
+128,2,Daniel K. Inouye International Airport,HNL,2024-02-11 7:50,Harry Reid International Airport,LAS,2024-02-11 15:35,345,Airbus A330,Hawaiian,HA 6,FALSE,0
+129,1,Narita International Airport (NRT),NRT,2024-02-10 19:55,Daniel K. Inouye International Airport,HNL,2024-02-10 7:40,405,Airbus A330,Hawaiian,HA 822,TRUE,465
+129,2,Daniel K. Inouye International Airport,HNL,2024-02-10 15:25,Harry Reid International Airport,LAS,2024-02-10 23:10,345,Airbus A330,Hawaiian,HA 18,FALSE,0
+130,1,Narita International Airport (NRT),NRT,2024-02-10 19:55,Daniel K. Inouye International Airport,HNL,2024-02-10 7:40,405,Airbus A330,Hawaiian,HA 822,TRUE,223
+130,2,Daniel K. Inouye International Airport,HNL,2024-02-10 11:23,Kahului Airport,OGG,2024-02-10 12:07,44,Boeing 717,Hawaiian,HA 246,FALSE,253
+130,3,Kahului Airport,OGG,2024-02-10 16:20,Harry Reid International Airport,LAS,2024-02-10 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+131,1,Narita International Airport (NRT),NRT,2024-02-10 19:55,Daniel K. Inouye International Airport,HNL,2024-02-10 7:40,405,Airbus A330,Hawaiian,HA 822,TRUE,200
+131,2,Daniel K. Inouye International Airport,HNL,2024-02-10 11:00,Kahului Airport,OGG,2024-02-10 11:44,44,Boeing 717,Hawaiian,HA 236,FALSE,276
+131,3,Kahului Airport,OGG,2024-02-10 16:20,Harry Reid International Airport,LAS,2024-02-10 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+132,1,Narita International Airport (NRT),NRT,2024-02-10 19:55,Daniel K. Inouye International Airport,HNL,2024-02-10 7:40,405,Airbus A330,Hawaiian,HA 822,TRUE,155
+132,2,Daniel K. Inouye International Airport,HNL,2024-02-10 10:15,Kahului Airport,OGG,2024-02-10 10:57,42,Boeing 717,Hawaiian,HA 226,FALSE,323
+132,3,Kahului Airport,OGG,2024-02-10 16:20,Harry Reid International Airport,LAS,2024-02-10 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+133,1,Narita International Airport (NRT),NRT,2024-02-10 19:55,Daniel K. Inouye International Airport,HNL,2024-02-10 7:40,405,Airbus A330,Hawaiian,HA 822,TRUE,130
+133,2,Daniel K. Inouye International Airport,HNL,2024-02-10 9:50,Kahului Airport,OGG,2024-02-10 10:31,41,Boeing 717,Hawaiian,HA 206,FALSE,349
+133,3,Kahului Airport,OGG,2024-02-10 16:20,Harry Reid International Airport,LAS,2024-02-10 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+134,1,Narita International Airport (NRT),NRT,2024-02-10 18:55,Vancouver International Airport (YVR),YVR,2024-02-10 10:40,525,Boeing 777,Air Canada,AC 4,TRUE,325
+134,2,Vancouver International Airport (YVR),YVR,2024-02-10 16:05,Portland International Airport,PDX,2024-02-10 17:21,76,De Havilland-Bombardier Dash-8,Air Canada,AC 8654,FALSE,233
+134,3,Portland International Airport,PDX,2024-02-10 21:14,Harry Reid International Airport,LAS,2024-02-10 23:23,129,Embraer 175,Alaska,AS 3319,FALSE,0
+135,1,Narita International Airport (NRT),NRT,2024-02-10 18:15,Los Angeles International Airport,LAX,2024-02-10 11:15,600,Boeing 777,Singapore Airlines,SQ 12,TRUE,1185
+135,2,Los Angeles International Airport,LAX,2024-02-11 7:00,Harry Reid International Airport,LAS,2024-02-11 8:18,78,Boeing 737,Alaska,AS 702,FALSE,0
+136,1,Narita International Airport (NRT),NRT,2024-02-10 18:15,Los Angeles International Airport,LAX,2024-02-10 11:15,600,Boeing 777,Singapore Airlines,SQ 12,TRUE,1853
+136,2,Los Angeles International Airport,LAX,2024-02-11 18:08,Harry Reid International Airport,LAS,2024-02-11 19:22,74,Boeing 737,Alaska,AS 708,FALSE,0
+137,1,Narita International Airport (NRT),NRT,2024-02-10 19:55,Daniel K. Inouye International Airport,HNL,2024-02-10 7:40,405,Airbus A330,Hawaiian,HA 822,TRUE,320
+137,2,Daniel K. Inouye International Airport,HNL,2024-02-10 13:00,Kahului Airport,OGG,2024-02-10 13:44,44,Boeing 717,Hawaiian,HA 296,FALSE,156
+137,3,Kahului Airport,OGG,2024-02-10 16:20,Harry Reid International Airport,LAS,2024-02-10 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+138,1,Narita International Airport (NRT),NRT,2024-02-10 17:55,Los Angeles International Airport,LAX,2024-02-10 10:50,595,Boeing 787-10,United,UA 33,TRUE,135
+138,2,Los Angeles International Airport,LAX,2024-02-10 13:05,Denver International Airport,DEN,2024-02-10 16:29,144,Boeing 757,United,UA 1532,FALSE,181
+138,3,Denver International Airport,DEN,2024-02-10 19:30,Harry Reid International Airport,LAS,2024-02-10 20:35,125,Boeing 737MAX 8 Passenger,United,UA 655,FALSE,0
+139,1,Narita International Airport (NRT),NRT,2024-02-10 17:55,Los Angeles International Airport,LAX,2024-02-10 10:50,595,Boeing 787-10,United,UA 33,TRUE,220
+139,2,Los Angeles International Airport,LAX,2024-02-10 14:30,Denver International Airport,DEN,2024-02-10 17:54,144,Boeing 737MAX 9 Passenger,United,UA 1554,FALSE,96
+139,3,Denver International Airport,DEN,2024-02-10 19:30,Harry Reid International Airport,LAS,2024-02-10 20:35,125,Boeing 737MAX 8 Passenger,United,UA 655,FALSE,0
+140,1,Narita International Airport (NRT),NRT,2024-02-10 17:55,Los Angeles International Airport,LAX,2024-02-10 10:50,595,Boeing 787-10,United,UA 33,TRUE,149
+140,2,Los Angeles International Airport,LAX,2024-02-10 13:19,George Bush Intercontinental Airport,IAH,2024-02-10 18:35,196,Boeing 757,United,UA 2495,FALSE,78
+140,3,George Bush Intercontinental Airport,IAH,2024-02-10 19:53,Harry Reid International Airport,LAS,2024-02-10 21:22,209,Boeing 737,United,UA 2086,FALSE,0
+141,1,Narita International Airport (NRT),NRT,2024-02-10 17:55,Los Angeles International Airport,LAX,2024-02-10 10:50,595,Boeing 787-10,United,UA 33,TRUE,79
+141,2,Los Angeles International Airport,LAX,2024-02-10 12:09,George Bush Intercontinental Airport,IAH,2024-02-10 17:25,196,Boeing 737MAX 9 Passenger,United,UA 2657,FALSE,148
+141,3,George Bush Intercontinental Airport,IAH,2024-02-10 19:53,Harry Reid International Airport,LAS,2024-02-10 21:22,209,Boeing 737,United,UA 2086,FALSE,0
+142,1,Narita International Airport (NRT),NRT,2024-02-10 13:20,Incheon International Airport,ICN,2024-02-10 15:55,155,Airbus A380,Asiana,OZ 101,FALSE,140
+142,2,Incheon International Airport,ICN,2024-02-10 18:15,Seattle-Tacoma International Airport,SEA,2024-02-10 11:00,585,Airbus A350,Asiana,OZ 272,TRUE,101
+142,3,Seattle-Tacoma International Airport,SEA,2024-02-10 12:41,Harry Reid International Airport,LAS,2024-02-10 15:15,154,Boeing 737,Alaska,AS 678,FALSE,0
+143,1,Narita International Airport (NRT),NRT,2024-02-10 17:55,Los Angeles International Airport,LAX,2024-02-10 10:50,595,Boeing 787-10,United,UA 33,TRUE,135
+143,2,Los Angeles International Airport,LAX,2024-02-10 13:05,Denver International Airport,DEN,2024-02-10 16:29,144,Boeing 757,United,UA 1532,FALSE,81
+143,3,Denver International Airport,DEN,2024-02-10 17:50,Harry Reid International Airport,LAS,2024-02-10 18:55,125,Boeing 737MAX 8 Passenger,United,UA 679,FALSE,0
+144,1,Narita International Airport (NRT),NRT,2024-02-10 18:55,Vancouver International Airport (YVR),YVR,2024-02-10 10:40,525,Boeing 777,Air Canada,AC 4,TRUE,265
+144,2,Vancouver International Airport (YVR),YVR,2024-02-10 15:05,Harry Reid International Airport,LAS,2024-02-10 17:53,168,Boeing 737MAX 8 Passenger,Air Canada,AC 1058,FALSE,0
+145,1,Narita International Airport (NRT),NRT,2024-02-10 17:55,Los Angeles International Airport,LAX,2024-02-10 10:50,595,Boeing 787-10,United,UA 33,TRUE,126
+145,2,Los Angeles International Airport,LAX,2024-02-10 12:56,Harry Reid International Airport,LAS,2024-02-10 14:09,73,Boeing 737,United,UA 2449,FALSE,0
+146,1,Narita International Airport (NRT),NRT,2024-02-10 15:50,Incheon International Airport,ICN,2024-02-10 18:40,170,Boeing 777,Asiana,OZ 103,FALSE,130
+146,2,Incheon International Airport,ICN,2024-02-10 20:50,San Francisco International Airport,SFO,2024-02-10 14:00,610,Airbus A350,Asiana,OZ 212,TRUE,157
+146,3,San Francisco International Airport,SFO,2024-02-10 16:37,Harry Reid International Airport,LAS,2024-02-10 18:12,95,Boeing 737,Alaska,AS 706,FALSE,0
+147,1,Narita International Airport (NRT),NRT,2024-02-10 16:55,San Francisco International Airport,SFO,2024-02-10 9:15,560,Boeing 777,United,UA 838,TRUE,105
+147,2,San Francisco International Airport,SFO,2024-02-10 11:00,Harry Reid International Airport,LAS,2024-02-10 12:45,105,Boeing 737,United,UA 470,FALSE,0
+148,1,Narita International Airport (NRT),NRT,2024-02-10 16:55,San Francisco International Airport,SFO,2024-02-10 9:15,560,Boeing 777,United,UA 838,TRUE,80
+148,2,San Francisco International Airport,SFO,2024-02-10 10:35,Los Angeles International Airport,LAX,2024-02-10 12:10,95,Boeing 737MAX 8 Passenger,United,UA 1897,FALSE,46
+148,3,Los Angeles International Airport,LAX,2024-02-10 12:56,Harry Reid International Airport,LAS,2024-02-10 14:09,73,Boeing 737,United,UA 2449,FALSE,0
+149,1,Narita International Airport (NRT),NRT,2024-02-10 16:55,San Francisco International Airport,SFO,2024-02-10 9:15,560,Boeing 777,United,UA 838,TRUE,229
+149,2,San Francisco International Airport,SFO,2024-02-10 13:04,Harry Reid International Airport,LAS,2024-02-10 14:49,105,Boeing 737,United,UA 305,FALSE,0
+150,1,Narita International Airport (NRT),NRT,2024-02-10 16:55,San Francisco International Airport,SFO,2024-02-10 9:15,560,Boeing 777,United,UA 838,TRUE,95
+150,2,San Francisco International Airport,SFO,2024-02-10 10:50,Denver International Airport,DEN,2024-02-10 14:29,159,Boeing 757,United,UA 246,FALSE,96
+150,3,Denver International Airport,DEN,2024-02-10 16:05,Harry Reid International Airport,LAS,2024-02-10 17:10,125,Boeing 737,United,UA 517,FALSE,0
+151,1,Narita International Airport (NRT),NRT,2024-02-10 16:55,San Francisco International Airport,SFO,2024-02-10 9:15,560,Boeing 777,United,UA 838,TRUE,220
+151,2,San Francisco International Airport,SFO,2024-02-10 12:55,Denver International Airport,DEN,2024-02-10 16:37,162,Boeing 757,United,UA 1374,FALSE,73
+151,3,Denver International Airport,DEN,2024-02-10 17:50,Harry Reid International Airport,LAS,2024-02-10 18:55,125,Boeing 737MAX 8 Passenger,United,UA 679,FALSE,0
+152,1,Narita International Airport (NRT),NRT,2024-02-10 16:55,San Francisco International Airport,SFO,2024-02-10 9:15,560,Boeing 777,United,UA 838,TRUE,95
+152,2,San Francisco International Airport,SFO,2024-02-10 10:50,Denver International Airport,DEN,2024-02-10 14:29,159,Boeing 757,United,UA 246,FALSE,201
+152,3,Denver International Airport,DEN,2024-02-10 17:50,Harry Reid International Airport,LAS,2024-02-10 18:55,125,Boeing 737MAX 8 Passenger,United,UA 679,FALSE,0
+153,1,Narita International Airport (NRT),NRT,2024-02-10 16:55,San Francisco International Airport,SFO,2024-02-10 9:15,560,Boeing 777,United,UA 838,TRUE,495
+153,2,San Francisco International Airport,SFO,2024-02-10 17:30,Harry Reid International Airport,LAS,2024-02-10 19:15,105,Boeing 737MAX 9 Passenger,United,UA 1896,FALSE,0
+154,1,Narita International Airport (NRT),NRT,2024-02-10 16:55,San Francisco International Airport,SFO,2024-02-10 9:15,560,Boeing 777,United,UA 838,TRUE,595
+154,2,San Francisco International Airport,SFO,2024-02-10 19:10,Harry Reid International Airport,LAS,2024-02-10 20:55,105,Boeing 737,United,UA 1847,FALSE,0
+155,1,Narita International Airport (NRT),NRT,2024-02-10 16:55,San Francisco International Airport,SFO,2024-02-10 9:15,560,Boeing 777,United,UA 838,TRUE,805
+155,2,San Francisco International Airport,SFO,2024-02-10 22:40,Harry Reid International Airport,LAS,2024-02-11 0:25,105,Boeing 737,United,UA 2366,FALSE,0
+156,1,Narita International Airport (NRT),NRT,2024-02-10 17:35,Denver International Airport,DEN,2024-02-10 12:05,630,Boeing 787,United,UA 142,TRUE,240
+156,2,Denver International Airport,DEN,2024-02-10 16:05,Harry Reid International Airport,LAS,2024-02-10 17:10,125,Boeing 737,United,UA 517,FALSE,0
+157,1,Narita International Airport (NRT),NRT,2024-02-10 17:35,Denver International Airport,DEN,2024-02-10 12:05,630,Boeing 787,United,UA 142,TRUE,345
+157,2,Denver International Airport,DEN,2024-02-10 17:50,Harry Reid International Airport,LAS,2024-02-10 18:55,125,Boeing 737MAX 8 Passenger,United,UA 679,FALSE,0
+158,1,Narita International Airport (NRT),NRT,2024-02-10 17:35,Denver International Airport,DEN,2024-02-10 12:05,630,Boeing 787,United,UA 142,TRUE,445
+158,2,Denver International Airport,DEN,2024-02-10 19:30,Harry Reid International Airport,LAS,2024-02-10 20:35,125,Boeing 737MAX 8 Passenger,United,UA 655,FALSE,0
+159,1,Narita International Airport (NRT),NRT,2024-02-10 17:35,Denver International Airport,DEN,2024-02-10 12:05,630,Boeing 787,United,UA 142,TRUE,1180
+159,2,Denver International Airport,DEN,2024-02-11 7:45,Harry Reid International Airport,LAS,2024-02-11 8:48,123,Boeing 737,United,UA 1005,FALSE,0
+160,1,Narita International Airport (NRT),NRT,2024-02-10 9:15,Incheon International Airport,ICN,2024-02-10 12:00,165,Airbus A321neo,Korean Air,KE 706,FALSE,540
+160,2,Incheon International Airport,ICN,2024-02-10 21:00,Harry Reid International Airport,LAS,2024-02-10 15:15,675,Boeing 777,Korean Air,KE 8005,TRUE,0
+161,1,Narita International Airport (NRT),NRT,2024-02-10 17:00,Incheon International Airport,ICN,2024-02-10 19:50,170,Airbus A330,Korean Air,KE 712,FALSE,70
+161,2,Incheon International Airport,ICN,2024-02-10 21:00,Harry Reid International Airport,LAS,2024-02-10 15:15,675,Boeing 777,Korean Air,KE 8005,TRUE,0
+162,1,Narita International Airport (NRT),NRT,2024-02-10 18:55,Vancouver International Airport (YVR),YVR,2024-02-10 10:40,525,Boeing 777,Air Canada,AC 4,TRUE,170
+162,2,Vancouver International Airport (YVR),YVR,2024-02-10 13:30,San Francisco International Airport,SFO,2024-02-10 15:55,145,Boeing 737MAX 8 Passenger,Air Canada,AC 566,FALSE,95
+162,3,San Francisco International Airport,SFO,2024-02-10 17:30,Harry Reid International Airport,LAS,2024-02-10 19:15,105,Boeing 737MAX 9 Passenger,United,UA 1896,FALSE,0
+163,1,Narita International Airport (NRT),NRT,2024-02-10 9:00,Incheon International Airport,ICN,2024-02-10 11:40,160,Boeing 777,Asiana,OZ 107,FALSE,180
+163,2,Incheon International Airport,ICN,2024-02-10 14:40,Los Angeles International Airport,LAX,2024-02-10 8:40,660,Airbus A380,Asiana,OZ 202,TRUE,256
+163,3,Los Angeles International Airport,LAX,2024-02-10 12:56,Harry Reid International Airport,LAS,2024-02-10 14:09,73,Boeing 737,United,UA 2449,FALSE,0
+164,1,Narita International Airport (NRT),NRT,2024-02-10 13:20,Incheon International Airport,ICN,2024-02-10 15:55,155,Airbus A380,Asiana,OZ 101,FALSE,125
+164,2,Incheon International Airport,ICN,2024-02-10 18:00,San Francisco International Airport,SFO,2024-02-10 11:35,635,Boeing 787,United,UA 892,TRUE,89
+164,3,San Francisco International Airport,SFO,2024-02-10 13:04,Harry Reid International Airport,LAS,2024-02-10 14:49,105,Boeing 737,United,UA 305,FALSE,0
+165,1,Narita International Airport (NRT),NRT,2024-02-10 15:50,Incheon International Airport,ICN,2024-02-10 18:40,170,Boeing 777,Asiana,OZ 103,FALSE,130
+165,2,Incheon International Airport,ICN,2024-02-10 20:50,San Francisco International Airport,SFO,2024-02-10 14:00,610,Airbus A350,Asiana,OZ 212,TRUE,210
+165,3,San Francisco International Airport,SFO,2024-02-10 17:30,Harry Reid International Airport,LAS,2024-02-10 19:15,105,Boeing 737,United,UA 1896,FALSE,0
+166,1,Narita International Airport (NRT),NRT,2024-02-10 18:55,Vancouver International Airport (YVR),YVR,2024-02-10 10:40,525,Boeing 777,Air Canada,AC 4,TRUE,260
+166,2,Vancouver International Airport (YVR),YVR,2024-02-10 15:00,San Francisco International Airport,SFO,2024-02-10 17:25,145,Boeing 737,United,UA 1230,FALSE,105
+166,3,San Francisco International Airport,SFO,2024-02-10 19:10,Harry Reid International Airport,LAS,2024-02-10 20:55,105,Boeing 737,United,UA 1847,FALSE,0
+167,1,Narita International Airport (NRT),NRT,2024-02-10 18:55,Vancouver International Airport (YVR),YVR,2024-02-10 10:40,525,Boeing 777,Air Canada,AC 4,TRUE,515
+167,2,Vancouver International Airport (YVR),YVR,2024-02-10 19:15,San Francisco International Airport,SFO,2024-02-10 21:40,145,Boeing 737,United,UA 2423,FALSE,60
+167,3,San Francisco International Airport,SFO,2024-02-10 22:40,Harry Reid International Airport,LAS,2024-02-11 0:25,105,Boeing 737,United,UA 2366,FALSE,0
+168,1,Narita International Airport (NRT),NRT,2024-02-10 18:55,Vancouver International Airport (YVR),YVR,2024-02-10 10:40,525,Boeing 777,Air Canada,AC 4,TRUE,124
+168,2,Vancouver International Airport (YVR),YVR,2024-02-10 12:44,Denver International Airport,DEN,2024-02-10 16:36,172,Boeing 737MAX 8 Passenger,United,UA 1036,FALSE,74
+168,3,Denver International Airport,DEN,2024-02-10 17:50,Harry Reid International Airport,LAS,2024-02-10 18:55,125,Boeing 737MAX 8 Passenger,United,UA 679,FALSE,0
+169,1,Narita International Airport (NRT),NRT,2024-02-10 18:55,Vancouver International Airport (YVR),YVR,2024-02-10 10:40,525,Boeing 777,Air Canada,AC 4,TRUE,250
+169,2,Vancouver International Airport (YVR),YVR,2024-02-10 14:50,Los Angeles International Airport,LAX,2024-02-10 17:47,177,Boeing 737MAX 8 Passenger,United,UA 387,FALSE,148
+169,3,Los Angeles International Airport,LAX,2024-02-10 20:15,Harry Reid International Airport,LAS,2024-02-10 21:28,73,Boeing 737,United,UA 1960,FALSE,0
+170,1,Narita International Airport (NRT),NRT,2024-02-10 18:55,Vancouver International Airport (YVR),YVR,2024-02-10 10:40,525,Boeing 777,Air Canada,AC 4,TRUE,205
+170,2,Vancouver International Airport (YVR),YVR,2024-02-10 14:05,Denver International Airport,DEN,2024-02-10 17:57,172,Airbus A319,Air Canada,AC 572,FALSE,93
+170,3,Denver International Airport,DEN,2024-02-10 19:30,Harry Reid International Airport,LAS,2024-02-10 20:35,125,Boeing 737MAX 8 Passenger,United,UA 655,FALSE,0
+171,1,Narita International Airport (NRT),NRT,2024-02-10 18:55,Vancouver International Airport (YVR),YVR,2024-02-10 10:40,525,Boeing 777,Air Canada,AC 4,TRUE,124
+171,2,Vancouver International Airport (YVR),YVR,2024-02-10 12:44,Denver International Airport,DEN,2024-02-10 16:36,172,Boeing 737MAX 8 Passenger,United,UA 1036,FALSE,174
+171,3,Denver International Airport,DEN,2024-02-10 19:30,Harry Reid International Airport,LAS,2024-02-10 20:35,125,Boeing 737MAX 8 Passenger,United,UA 655,FALSE,0
+172,1,Narita International Airport (NRT),NRT,2024-02-10 18:55,Vancouver International Airport (YVR),YVR,2024-02-10 10:40,525,Boeing 777,Air Canada,AC 4,TRUE,170
+172,2,Vancouver International Airport (YVR),YVR,2024-02-10 13:30,San Francisco International Airport,SFO,2024-02-10 15:55,145,Boeing 737MAX 8 Passenger,Air Canada,AC 566,FALSE,195
+172,3,San Francisco International Airport,SFO,2024-02-10 19:10,Harry Reid International Airport,LAS,2024-02-10 20:55,105,Boeing 737,United,UA 1847,FALSE,0
+173,1,Narita International Airport (NRT),NRT,2024-02-10 18:25,Dallas Fort Worth International Airport,DFW,2024-02-10 14:50,685,Boeing 787,American,AA 60,TRUE,130
+173,2,Dallas Fort Worth International Airport,DFW,2024-02-10 17:00,Los Angeles International Airport,LAX,2024-02-10 18:38,218,Airbus A321,American,AA 1672,FALSE,82
+173,3,Los Angeles International Airport,LAX,2024-02-10 20:00,Harry Reid International Airport,LAS,2024-02-10 21:14,74,Airbus A321,American,AA 2785,FALSE,0
+174,1,Narita International Airport (NRT),NRT,2024-02-10 13:50,Shanghai Pudong International Airport,PVG,2024-02-10 16:30,220,Airbus A350,China Eastern,MU 524,FALSE,1310
+174,2,Shanghai Pudong International Airport,PVG,2024-02-11 14:20,San Francisco International Airport,SFO,2024-02-11 9:30,670,Boeing 777,China Eastern,MU 589,TRUE,214
+174,3,San Francisco International Airport,SFO,2024-02-11 13:04,Harry Reid International Airport,LAS,2024-02-11 14:49,105,Boeing 737,United,UA 305,FALSE,0
+175,1,Narita International Airport (NRT),NRT,2024-02-10 15:25,Shanghai Pudong International Airport,PVG,2024-02-10 18:20,235,Boeing 777,China Eastern,MU 522,FALSE,1200
+175,2,Shanghai Pudong International Airport,PVG,2024-02-11 14:20,San Francisco International Airport,SFO,2024-02-11 9:30,670,Boeing 777,China Eastern,MU 589,TRUE,214
+175,3,San Francisco International Airport,SFO,2024-02-11 13:04,Harry Reid International Airport,LAS,2024-02-11 14:49,105,Boeing 737,United,UA 305,FALSE,0
+176,1,Narita International Airport (NRT),NRT,2024-02-10 19:55,Daniel K. Inouye International Airport,HNL,2024-02-10 7:40,405,Airbus A330,Hawaiian,HA 822,TRUE,405
+176,2,Daniel K. Inouye International Airport,HNL,2024-02-10 14:25,San Francisco International Airport,SFO,2024-02-10 21:29,304,Boeing 777,United,UA 1141,FALSE,71
+176,3,San Francisco International Airport,SFO,2024-02-10 22:40,Harry Reid International Airport,LAS,2024-02-11 0:25,105,Boeing 737,United,UA 2366,FALSE,0
+177,1,Narita International Airport (NRT),NRT,2024-02-10 13:20,Incheon International Airport,ICN,2024-02-10 15:55,155,Airbus A380,Asiana,OZ 101,FALSE,305
+177,2,Incheon International Airport,ICN,2024-02-10 21:00,Harry Reid International Airport,LAS,2024-02-10 15:15,675,Boeing 777,Korean Air,KE 8005,TRUE,0
+178,1,Narita International Airport (NRT),NRT,2024-02-10 15:50,Incheon International Airport,ICN,2024-02-10 18:40,170,Boeing 777,Asiana,OZ 103,FALSE,140
+178,2,Incheon International Airport,ICN,2024-02-10 21:00,Harry Reid International Airport,LAS,2024-02-10 15:15,675,Boeing 777,Korean Air,KE 8005,TRUE,0
+179,1,Narita International Airport (NRT),NRT,2024-02-10 9:00,Incheon International Airport,ICN,2024-02-10 11:40,160,Boeing 777,Asiana,OZ 107,FALSE,560
+179,2,Incheon International Airport,ICN,2024-02-10 21:00,Harry Reid International Airport,LAS,2024-02-10 15:15,675,Boeing 777,Korean Air,KE 8005,TRUE,0
+180,1,Narita International Airport (NRT),NRT,2024-02-10 20:35,Daniel K. Inouye International Airport,HNL,2024-02-10 8:25,410,Airbus A380,ANA,NH 184,TRUE,360
+180,2,Daniel K. Inouye International Airport,HNL,2024-02-10 14:25,San Francisco International Airport,SFO,2024-02-10 21:29,304,Boeing 777,United,UA 1141,FALSE,71
+180,3,San Francisco International Airport,SFO,2024-02-10 22:40,Harry Reid International Airport,LAS,2024-02-11 0:25,105,Boeing 737,United,UA 2366,FALSE,0
+181,1,Narita International Airport (NRT),NRT,2024-02-10 21:30,Daniel K. Inouye International Airport,HNL,2024-02-10 9:20,410,Airbus A380,ANA,NH 182,TRUE,305
+181,2,Daniel K. Inouye International Airport,HNL,2024-02-10 14:25,San Francisco International Airport,SFO,2024-02-10 21:29,304,Boeing 777,United,UA 1141,FALSE,71
+181,3,San Francisco International Airport,SFO,2024-02-10 22:40,Harry Reid International Airport,LAS,2024-02-11 0:25,105,Boeing 737,United,UA 2366,FALSE,0
+182,1,Narita International Airport (NRT),NRT,2024-02-10 14:00,Incheon International Airport,ICN,2024-02-10 16:50,170,Boeing 777,Korean Air,KE 704,FALSE,170
+182,2,Incheon International Airport,ICN,2024-02-10 19:40,Los Angeles International Airport,LAX,2024-02-10 13:40,660,Airbus A380,Korean Air,KE 11,TRUE,120
+182,3,Los Angeles International Airport,LAX,2024-02-10 15:40,Harry Reid International Airport,LAS,2024-02-10 16:55,75,Airbus A319,Delta,DL 2444,FALSE,0
+183,1,Narita International Airport (NRT),NRT,2024-02-10 17:10,Los Angeles International Airport,LAX,2024-02-10 9:50,580,Boeing 787,JAL,JL 62,TRUE,137
+183,2,Los Angeles International Airport,LAX,2024-02-10 12:07,Harry Reid International Airport,LAS,2024-02-10 13:17,70,Boeing 737,American,AA 2388,FALSE,0
+184,1,Narita International Airport (NRT),NRT,2024-02-10 18:25,Dallas Fort Worth International Airport,DFW,2024-02-10 14:50,685,Boeing 787,American,AA 60,TRUE,126
+184,2,Dallas Fort Worth International Airport,DFW,2024-02-10 16:56,Harry Reid International Airport,LAS,2024-02-10 18:02,186,Airbus A321,American,AA 2864,FALSE,0
+185,1,Narita International Airport (NRT),NRT,2024-02-10 18:25,Dallas Fort Worth International Airport,DFW,2024-02-10 14:50,685,Boeing 787,American,AA 60,TRUE,190
+185,2,Dallas Fort Worth International Airport,DFW,2024-02-10 18:00,Harry Reid International Airport,LAS,2024-02-10 19:02,182,Boeing 737,American,AA 1880,FALSE,0
+186,1,Narita International Airport (NRT),NRT,2024-02-10 18:25,Dallas Fort Worth International Airport,DFW,2024-02-10 14:50,685,Boeing 787,American,AA 60,TRUE,245
+186,2,Dallas Fort Worth International Airport,DFW,2024-02-10 18:55,Harry Reid International Airport,LAS,2024-02-10 20:00,185,Airbus A321,American,AA 884,FALSE,0
+187,1,Narita International Airport (NRT),NRT,2024-02-10 17:00,San Francisco International Airport,SFO,2024-02-10 9:15,555,Boeing 777,ANA,NH 8,TRUE,805
+187,2,San Francisco International Airport,SFO,2024-02-10 22:40,Harry Reid International Airport,LAS,2024-02-11 0:25,105,Boeing 737,United,UA 2366,FALSE,0
+188,1,Narita International Airport (NRT),NRT,2024-02-10 17:00,San Francisco International Airport,SFO,2024-02-10 9:15,555,Boeing 777,ANA,NH 8,TRUE,105
+188,2,San Francisco International Airport,SFO,2024-02-10 11:00,Harry Reid International Airport,LAS,2024-02-10 12:45,105,Boeing 737,United,UA 470,FALSE,0
+189,1,Narita International Airport (NRT),NRT,2024-02-10 17:00,San Francisco International Airport,SFO,2024-02-10 9:15,555,Boeing 777,ANA,NH 8,TRUE,229
+189,2,San Francisco International Airport,SFO,2024-02-10 13:04,Harry Reid International Airport,LAS,2024-02-10 14:49,105,Boeing 737,United,UA 305,FALSE,0
+190,1,Narita International Airport (NRT),NRT,2024-02-10 17:10,Los Angeles International Airport,LAX,2024-02-10 9:50,580,Boeing 787,JAL,JL 62,TRUE,610
+190,2,Los Angeles International Airport,LAX,2024-02-10 20:00,Harry Reid International Airport,LAS,2024-02-10 21:14,74,Airbus A321,American,AA 2785,FALSE,0
+191,1,Narita International Airport (NRT),NRT,2024-02-10 17:25,Seattle-Tacoma International Airport,SEA,2024-02-10 9:20,535,Boeing 787,JAL,JL 68,TRUE,201
+191,2,Seattle-Tacoma International Airport,SEA,2024-02-10 12:41,Harry Reid International Airport,LAS,2024-02-10 15:15,154,Boeing 737,Alaska,AS 678,FALSE,0
+192,1,Narita International Airport (NRT),NRT,2024-02-10 18:40,Vancouver International Airport (YVR),YVR,2024-02-10 10:55,555,Boeing 767,JAL,JL 18,TRUE,1330
+192,2,Vancouver International Airport (YVR),YVR,2024-02-11 9:05,Harry Reid International Airport,LAS,2024-02-11 11:55,170,Boeing 737MAX 8 Passenger,WestJet,WS 1788,FALSE,0
+193,1,Narita International Airport (NRT),NRT,2024-02-10 18:15,Los Angeles International Airport,LAX,2024-02-10 11:15,600,Boeing 777,Singapore Airlines,SQ 12,TRUE,180
+193,2,Los Angeles International Airport,LAX,2024-02-10 14:15,San Francisco International Airport,SFO,2024-02-10 15:44,89,Embraer 175,Alaska,AS 3424,FALSE,221
+193,3,San Francisco International Airport,SFO,2024-02-10 19:25,Harry Reid International Airport,LAS,2024-02-10 21:00,95,Boeing 737MAX 9 Passenger,Alaska,AS 740,FALSE,0
+194,1,Narita International Airport (NRT),NRT,2024-02-10 18:40,Vancouver International Airport (YVR),YVR,2024-02-10 10:55,555,Boeing 767,JAL,JL 18,TRUE,1835
+194,2,Vancouver International Airport (YVR),YVR,2024-02-11 17:30,Harry Reid International Airport,LAS,2024-02-11 20:15,165,Boeing 737,WestJet,WS 1790,FALSE,0
+195,1,Narita International Airport (NRT),NRT,2024-02-10 18:15,Los Angeles International Airport,LAX,2024-02-10 11:15,600,Boeing 777,Singapore Airlines,SQ 12,TRUE,315
+195,2,Los Angeles International Airport,LAX,2024-02-10 16:30,San Francisco International Airport,SFO,2024-02-10 17:59,89,Embraer 175,Alaska,AS 3391,FALSE,86
+195,3,San Francisco International Airport,SFO,2024-02-10 19:25,Harry Reid International Airport,LAS,2024-02-10 21:00,95,Boeing 737MAX 9 Passenger,Alaska,AS 740,FALSE,0
+196,1,Narita International Airport (NRT),NRT,2024-02-10 18:40,Vancouver International Airport (YVR),YVR,2024-02-10 10:55,555,Boeing 767,JAL,JL 18,TRUE,270
+196,2,Vancouver International Airport (YVR),YVR,2024-02-10 15:25,Seattle-Tacoma International Airport,SEA,2024-02-10 16:33,68,Embraer 175,Delta,DL 3941,FALSE,72
+196,3,Seattle-Tacoma International Airport,SEA,2024-02-10 17:45,Harry Reid International Airport,LAS,2024-02-10 20:08,143,Boeing 737,Delta,DL 2291,FALSE,0
+197,1,Narita International Airport (NRT),NRT,2024-02-10 18:15,Los Angeles International Airport,LAX,2024-02-10 11:15,600,Boeing 777,Singapore Airlines,SQ 12,TRUE,155
+197,2,Los Angeles International Airport,LAX,2024-02-10 13:50,Seattle-Tacoma International Airport,SEA,2024-02-10 16:44,174,Boeing 737MAX 9 Passenger,Alaska,AS 1083,FALSE,61
+197,3,Seattle-Tacoma International Airport,SEA,2024-02-10 17:45,Harry Reid International Airport,LAS,2024-02-10 20:14,149,Boeing 737,Alaska,AS 730,FALSE,0
+198,1,Narita International Airport (NRT),NRT,2024-02-10 18:40,Vancouver International Airport (YVR),YVR,2024-02-10 10:55,555,Boeing 767,JAL,JL 18,TRUE,95
+198,2,Vancouver International Airport (YVR),YVR,2024-02-10 12:30,Calgary International Airport,YYC,2024-02-10 14:55,85,Boeing 737,WestJet,WS 112,FALSE,185
+198,3,Calgary International Airport,YYC,2024-02-10 18:00,Harry Reid International Airport,LAS,2024-02-10 19:55,175,Boeing 737MAX 8 Passenger,WestJet,WS 1400,FALSE,0
+199,1,Narita International Airport (NRT),NRT,2024-02-10 20:35,Daniel K. Inouye International Airport,HNL,2024-02-10 8:25,410,Airbus A380,ANA,NH 184,TRUE,333
+199,2,Daniel K. Inouye International Airport,HNL,2024-02-10 13:58,Kahului Airport,OGG,2024-02-10 14:42,44,Boeing 717,Hawaiian,HA 306,FALSE,98
+199,3,Kahului Airport,OGG,2024-02-10 16:20,Harry Reid International Airport,LAS,2024-02-10 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+200,1,Narita International Airport (NRT),NRT,2024-02-10 20:35,Daniel K. Inouye International Airport,HNL,2024-02-10 8:25,410,Airbus A380,ANA,NH 184,TRUE,201
+200,2,Daniel K. Inouye International Airport,HNL,2024-02-10 11:46,Kahului Airport,OGG,2024-02-10 12:30,44,Boeing 717,Hawaiian,HA 266,FALSE,230
+200,3,Kahului Airport,OGG,2024-02-10 16:20,Harry Reid International Airport,LAS,2024-02-10 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+201,1,Narita International Airport (NRT),NRT,2024-02-10 20:35,Daniel K. Inouye International Airport,HNL,2024-02-10 8:25,410,Airbus A380,ANA,NH 184,TRUE,365
+201,2,Daniel K. Inouye International Airport,HNL,2024-02-10 14:30,Kahului Airport,OGG,2024-02-10 15:15,45,Boeing 717,Hawaiian,HA 326,FALSE,65
+201,3,Kahului Airport,OGG,2024-02-10 16:20,Harry Reid International Airport,LAS,2024-02-10 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+202,1,Narita International Airport (NRT),NRT,2024-02-10 20:35,Daniel K. Inouye International Airport,HNL,2024-02-10 8:25,410,Airbus A380,ANA,NH 184,TRUE,905
+202,2,Daniel K. Inouye International Airport,HNL,2024-02-10 23:30,Harry Reid International Airport,LAS,2024-02-11 7:10,340,Airbus A330,Hawaiian,HA 8,TRUE,0
+203,1,Narita International Airport (NRT),NRT,2024-02-10 21:30,Daniel K. Inouye International Airport,HNL,2024-02-10 9:20,410,Airbus A380,ANA,NH 182,TRUE,310
+203,2,Daniel K. Inouye International Airport,HNL,2024-02-10 14:30,Kahului Airport,OGG,2024-02-10 15:15,45,Boeing 717,Hawaiian,HA 326,FALSE,65
+203,3,Kahului Airport,OGG,2024-02-10 16:20,Harry Reid International Airport,LAS,2024-02-10 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+204,1,Narita International Airport (NRT),NRT,2024-02-10 21:30,Daniel K. Inouye International Airport,HNL,2024-02-10 9:20,410,Airbus A380,ANA,NH 182,TRUE,146
+204,2,Daniel K. Inouye International Airport,HNL,2024-02-10 11:46,Kahului Airport,OGG,2024-02-10 12:30,44,Boeing 717,Hawaiian,HA 266,FALSE,230
+204,3,Kahului Airport,OGG,2024-02-10 16:20,Harry Reid International Airport,LAS,2024-02-10 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+205,1,Narita International Airport (NRT),NRT,2024-02-10 21:30,Daniel K. Inouye International Airport,HNL,2024-02-10 9:20,410,Airbus A380,ANA,NH 182,TRUE,278
+205,2,Daniel K. Inouye International Airport,HNL,2024-02-10 13:58,Kahului Airport,OGG,2024-02-10 14:42,44,Boeing 717,Hawaiian,HA 306,FALSE,98
+205,3,Kahului Airport,OGG,2024-02-10 16:20,Harry Reid International Airport,LAS,2024-02-10 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+206,1,Narita International Airport (NRT),NRT,2024-02-10 21:30,Daniel K. Inouye International Airport,HNL,2024-02-10 9:20,410,Airbus A380,ANA,NH 182,TRUE,850
+206,2,Daniel K. Inouye International Airport,HNL,2024-02-10 23:30,Harry Reid International Airport,LAS,2024-02-11 7:10,340,Airbus A330,Hawaiian,HA 8,TRUE,0
+207,1,Narita International Airport (NRT),NRT,2024-02-10 20:35,Daniel K. Inouye International Airport,HNL,2024-02-10 8:25,410,Airbus A380,ANA,NH 184,TRUE,420
+207,2,Daniel K. Inouye International Airport,HNL,2024-02-10 15:25,Harry Reid International Airport,LAS,2024-02-10 23:10,345,Airbus A330,Hawaiian,HA 18,FALSE,0
+208,1,Narita International Airport (NRT),NRT,2024-02-10 21:30,Daniel K. Inouye International Airport,HNL,2024-02-10 9:20,410,Airbus A380,ANA,NH 182,TRUE,365
+208,2,Daniel K. Inouye International Airport,HNL,2024-02-10 15:25,Harry Reid International Airport,LAS,2024-02-10 23:10,345,Airbus A330,Hawaiian,HA 18,FALSE,0
+209,1,Narita International Airport (NRT),NRT,2024-02-10 10:35,Hong Kong International Airport,HKG,2024-02-10 15:00,325,Airbus A350,Cathay Pacific,CX 501,FALSE,100
+209,2,Hong Kong International Airport,HKG,2024-02-10 16:40,Los Angeles International Airport,LAX,2024-02-10 13:20,760,Boeing 777,Cathay Pacific,CX 882,TRUE,205
+209,3,Los Angeles International Airport,LAX,2024-02-10 16:45,Harry Reid International Airport,LAS,2024-02-10 17:58,73,Boeing 737,United,UA 1062,FALSE,0
+210,1,Narita International Airport (NRT),NRT,2024-02-10 14:20,Hong Kong International Airport,HKG,2024-02-10 18:55,335,Boeing 777,Cathay Pacific,CX 527,FALSE,65
+210,2,Hong Kong International Airport,HKG,2024-02-10 20:00,San Francisco International Airport,SFO,2024-02-10 16:20,740,Airbus A350,Cathay Pacific,CX 892,TRUE,185
+210,3,San Francisco International Airport,SFO,2024-02-10 19:25,Harry Reid International Airport,LAS,2024-02-10 21:00,95,Boeing 737MAX 9 Passenger,Alaska,AS 740,FALSE,0
+211,1,Narita International Airport (NRT),NRT,2024-02-10 21:30,Daniel K. Inouye International Airport,HNL,2024-02-10 9:15,405,Boeing 767,JAL,JL 784,TRUE,855
+211,2,Daniel K. Inouye International Airport,HNL,2024-02-10 23:30,Harry Reid International Airport,LAS,2024-02-11 7:10,340,Airbus A330,Hawaiian,HA 8,TRUE,0
+212,1,Narita International Airport (NRT),NRT,2024-02-10 14:00,Incheon International Airport,ICN,2024-02-10 16:50,170,Boeing 777,Korean Air,KE 704,FALSE,250
+212,2,Incheon International Airport,ICN,2024-02-10 21:00,Harry Reid International Airport,LAS,2024-02-10 15:15,675,Boeing 777,Korean Air,KE 8005,TRUE,0
+213,1,Haneda Airport,HND,2024-02-10 21:20,Daniel K. Inouye International Airport,HNL,2024-02-10 9:10,410,Airbus A330,Hawaiian,HA 458,TRUE,860
+213,2,Daniel K. Inouye International Airport,HNL,2024-02-10 23:30,Harry Reid International Airport,LAS,2024-02-11 7:10,340,Airbus A330,Hawaiian,HA 8,TRUE,0
+214,1,Haneda Airport,HND,2024-02-10 18:25,San Francisco International Airport,SFO,2024-02-10 11:00,575,Boeing 777,United,UA 876,TRUE,149
+214,2,San Francisco International Airport,SFO,2024-02-10 13:29,Los Angeles International Airport,LAX,2024-02-10 15:01,92,Boeing 737,United,UA 1312,FALSE,104
+214,3,Los Angeles International Airport,LAX,2024-02-10 16:45,Harry Reid International Airport,LAS,2024-02-10 17:58,73,Boeing 737,United,UA 1062,FALSE,0
+215,1,Haneda Airport,HND,2024-02-10 21:20,Daniel K. Inouye International Airport,HNL,2024-02-10 9:10,410,Airbus A330,Hawaiian,HA 458,TRUE,320
+215,2,Daniel K. Inouye International Airport,HNL,2024-02-10 14:30,Kahului Airport,OGG,2024-02-10 15:15,45,Boeing 717,Hawaiian,HA 326,FALSE,65
+215,3,Kahului Airport,OGG,2024-02-10 16:20,Harry Reid International Airport,LAS,2024-02-10 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+216,1,Haneda Airport,HND,2024-02-10 20:05,Daniel K. Inouye International Airport,HNL,2024-02-10 8:10,425,Airbus A330,Hawaiian,HA 864,TRUE,920
+216,2,Daniel K. Inouye International Airport,HNL,2024-02-10 23:30,Harry Reid International Airport,LAS,2024-02-11 7:10,340,Airbus A330,Hawaiian,HA 8,TRUE,0
+217,1,Haneda Airport,HND,2024-02-10 18:25,San Francisco International Airport,SFO,2024-02-10 11:00,575,Boeing 777,United,UA 876,TRUE,310
+217,2,San Francisco International Airport,SFO,2024-02-10 16:10,Los Angeles International Airport,LAX,2024-02-10 17:42,92,Boeing 757,United,UA 1413,FALSE,153
+217,3,Los Angeles International Airport,LAX,2024-02-10 20:15,Harry Reid International Airport,LAS,2024-02-10 21:28,73,Boeing 737,United,UA 1960,FALSE,0
+218,1,Haneda Airport,HND,2024-02-10 18:25,San Francisco International Airport,SFO,2024-02-10 11:00,575,Boeing 777,United,UA 876,TRUE,149
+218,2,San Francisco International Airport,SFO,2024-02-10 13:29,Los Angeles International Airport,LAX,2024-02-10 15:01,92,Boeing 737,United,UA 1312,FALSE,314
+218,3,Los Angeles International Airport,LAX,2024-02-10 20:15,Harry Reid International Airport,LAS,2024-02-10 21:28,73,Boeing 737,United,UA 1960,FALSE,0
+219,1,Haneda Airport,HND,2024-02-10 20:05,Daniel K. Inouye International Airport,HNL,2024-02-10 8:10,425,Airbus A330,Hawaiian,HA 864,TRUE,348
+219,2,Daniel K. Inouye International Airport,HNL,2024-02-10 13:58,Kahului Airport,OGG,2024-02-10 14:42,44,Boeing 717,Hawaiian,HA 306,FALSE,98
+219,3,Kahului Airport,OGG,2024-02-10 16:20,Harry Reid International Airport,LAS,2024-02-10 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+220,1,Haneda Airport,HND,2024-02-10 20:05,Daniel K. Inouye International Airport,HNL,2024-02-10 8:10,425,Airbus A330,Hawaiian,HA 864,TRUE,216
+220,2,Daniel K. Inouye International Airport,HNL,2024-02-10 11:46,Kahului Airport,OGG,2024-02-10 12:30,44,Boeing 717,Hawaiian,HA 266,FALSE,230
+220,3,Kahului Airport,OGG,2024-02-10 16:20,Harry Reid International Airport,LAS,2024-02-10 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+221,1,Haneda Airport,HND,2024-02-10 20:05,Daniel K. Inouye International Airport,HNL,2024-02-10 8:10,425,Airbus A330,Hawaiian,HA 864,TRUE,240
+221,2,Daniel K. Inouye International Airport,HNL,2024-02-10 12:10,Kahului Airport,OGG,2024-02-10 12:54,44,Boeing 717,Hawaiian,HA 286,FALSE,206
+221,3,Kahului Airport,OGG,2024-02-10 16:20,Harry Reid International Airport,LAS,2024-02-10 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+222,1,Haneda Airport,HND,2024-02-10 20:05,Daniel K. Inouye International Airport,HNL,2024-02-10 8:10,425,Airbus A330,Hawaiian,HA 864,TRUE,380
+222,2,Daniel K. Inouye International Airport,HNL,2024-02-10 14:30,Kahului Airport,OGG,2024-02-10 15:15,45,Boeing 717,Hawaiian,HA 326,FALSE,65
+222,3,Kahului Airport,OGG,2024-02-10 16:20,Harry Reid International Airport,LAS,2024-02-10 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+223,1,Haneda Airport,HND,2024-02-10 21:20,Daniel K. Inouye International Airport,HNL,2024-02-10 9:10,410,Airbus A330,Hawaiian,HA 458,TRUE,156
+223,2,Daniel K. Inouye International Airport,HNL,2024-02-10 11:46,Kahului Airport,OGG,2024-02-10 12:30,44,Boeing 717,Hawaiian,HA 266,FALSE,230
+223,3,Kahului Airport,OGG,2024-02-10 16:20,Harry Reid International Airport,LAS,2024-02-10 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+224,1,Haneda Airport,HND,2024-02-10 21:20,Daniel K. Inouye International Airport,HNL,2024-02-10 9:10,410,Airbus A330,Hawaiian,HA 458,TRUE,288
+224,2,Daniel K. Inouye International Airport,HNL,2024-02-10 13:58,Kahului Airport,OGG,2024-02-10 14:42,44,Boeing 717,Hawaiian,HA 306,FALSE,98
+224,3,Kahului Airport,OGG,2024-02-10 16:20,Harry Reid International Airport,LAS,2024-02-10 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+225,1,Haneda Airport,HND,2024-02-10 21:20,Daniel K. Inouye International Airport,HNL,2024-02-10 9:10,410,Airbus A330,Hawaiian,HA 458,TRUE,180
+225,2,Daniel K. Inouye International Airport,HNL,2024-02-10 12:10,Kahului Airport,OGG,2024-02-10 12:54,44,Boeing 717,Hawaiian,HA 286,FALSE,206
+225,3,Kahului Airport,OGG,2024-02-10 16:20,Harry Reid International Airport,LAS,2024-02-10 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+226,1,Haneda Airport,HND,2024-02-10 20:05,Daniel K. Inouye International Airport,HNL,2024-02-10 8:10,425,Airbus A330,Hawaiian,HA 864,TRUE,435
+226,2,Daniel K. Inouye International Airport,HNL,2024-02-10 15:25,Harry Reid International Airport,LAS,2024-02-10 23:10,345,Airbus A330,Hawaiian,HA 18,FALSE,0
+227,1,Haneda Airport,HND,2024-02-10 21:20,Daniel K. Inouye International Airport,HNL,2024-02-10 9:10,410,Airbus A330,Hawaiian,HA 458,TRUE,375
+227,2,Daniel K. Inouye International Airport,HNL,2024-02-10 15:25,Harry Reid International Airport,LAS,2024-02-10 23:10,345,Airbus A330,Hawaiian,HA 18,FALSE,0
+228,1,Haneda Airport,HND,2024-02-10 20:05,Daniel K. Inouye International Airport,HNL,2024-02-10 8:10,425,Airbus A330,Hawaiian,HA 864,TRUE,170
+228,2,Daniel K. Inouye International Airport,HNL,2024-02-10 11:00,Kahului Airport,OGG,2024-02-10 11:44,44,Boeing 717,Hawaiian,HA 236,FALSE,276
+228,3,Kahului Airport,OGG,2024-02-10 16:20,Harry Reid International Airport,LAS,2024-02-10 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+229,1,Haneda Airport,HND,2024-02-10 20:05,Daniel K. Inouye International Airport,HNL,2024-02-10 8:10,425,Airbus A330,Hawaiian,HA 864,TRUE,193
+229,2,Daniel K. Inouye International Airport,HNL,2024-02-10 11:23,Kahului Airport,OGG,2024-02-10 12:07,44,Boeing 717,Hawaiian,HA 246,FALSE,253
+229,3,Kahului Airport,OGG,2024-02-10 16:20,Harry Reid International Airport,LAS,2024-02-10 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+230,1,Haneda Airport,HND,2024-02-10 21:20,Daniel K. Inouye International Airport,HNL,2024-02-10 9:10,410,Airbus A330,Hawaiian,HA 458,TRUE,133
+230,2,Daniel K. Inouye International Airport,HNL,2024-02-10 11:23,Kahului Airport,OGG,2024-02-10 12:07,44,Boeing 717,Hawaiian,HA 246,FALSE,253
+230,3,Kahului Airport,OGG,2024-02-10 16:20,Harry Reid International Airport,LAS,2024-02-10 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+231,1,Haneda Airport,HND,2024-02-10 21:20,Daniel K. Inouye International Airport,HNL,2024-02-10 9:10,410,Airbus A330,Hawaiian,HA 458,TRUE,110
+231,2,Daniel K. Inouye International Airport,HNL,2024-02-10 11:00,Kahului Airport,OGG,2024-02-10 11:44,44,Boeing 717,Hawaiian,HA 236,FALSE,276
+231,3,Kahului Airport,OGG,2024-02-10 16:20,Harry Reid International Airport,LAS,2024-02-10 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+232,1,Haneda Airport,HND,2024-02-10 20:05,Daniel K. Inouye International Airport,HNL,2024-02-10 8:10,425,Airbus A330,Hawaiian,HA 864,TRUE,125
+232,2,Daniel K. Inouye International Airport,HNL,2024-02-10 10:15,Kahului Airport,OGG,2024-02-10 10:57,42,Boeing 717,Hawaiian,HA 226,FALSE,323
+232,3,Kahului Airport,OGG,2024-02-10 16:20,Harry Reid International Airport,LAS,2024-02-10 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+233,1,Haneda Airport,HND,2024-02-10 20:05,Daniel K. Inouye International Airport,HNL,2024-02-10 8:10,425,Airbus A330,Hawaiian,HA 864,TRUE,290
+233,2,Daniel K. Inouye International Airport,HNL,2024-02-10 13:00,Kahului Airport,OGG,2024-02-10 13:44,44,Boeing 717,Hawaiian,HA 296,FALSE,156
+233,3,Kahului Airport,OGG,2024-02-10 16:20,Harry Reid International Airport,LAS,2024-02-10 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+234,1,Haneda Airport,HND,2024-02-10 21:20,Daniel K. Inouye International Airport,HNL,2024-02-10 9:10,410,Airbus A330,Hawaiian,HA 458,TRUE,230
+234,2,Daniel K. Inouye International Airport,HNL,2024-02-10 13:00,Kahului Airport,OGG,2024-02-10 13:44,44,Boeing 717,Hawaiian,HA 296,FALSE,156
+234,3,Kahului Airport,OGG,2024-02-10 16:20,Harry Reid International Airport,LAS,2024-02-10 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+235,1,Haneda Airport,HND,2024-02-10 21:20,Daniel K. Inouye International Airport,HNL,2024-02-10 9:10,410,Airbus A330,Hawaiian,HA 458,TRUE,165
+235,2,Daniel K. Inouye International Airport,HNL,2024-02-10 11:55,Portland International Airport,PDX,2024-02-10 19:30,335,Airbus A330,Hawaiian,HA 26,FALSE,104
+235,3,Portland International Airport,PDX,2024-02-10 21:14,Harry Reid International Airport,LAS,2024-02-10 23:23,129,Embraer 175,Alaska,AS 3319,FALSE,0
+236,1,Haneda Airport,HND,2024-02-10 12:05,Gimpo International Airport (GMP),GMP,2024-02-10 14:25,140,Airbus A330,Asiana,OZ 1075,FALSE,230
+236,2,Incheon International Airport,ICN,2024-02-10 18:15,Seattle-Tacoma International Airport,SEA,2024-02-10 11:00,585,Airbus A350,Asiana,OZ 272,TRUE,101
+236,3,Seattle-Tacoma International Airport,SEA,2024-02-10 12:41,Harry Reid International Airport,LAS,2024-02-10 15:15,154,Boeing 737,Alaska,AS 678,FALSE,0
+237,1,Haneda Airport,HND,2024-02-10 18:50,Toronto Pearson International Airport,YYZ,2024-02-10 17:15,745,Boeing 777,Air Canada,AC 2,TRUE,170
+237,2,Toronto Pearson International Airport,YYZ,2024-02-10 20:05,Harry Reid International Airport,LAS,2024-02-10 22:00,295,Boeing 787,Air Canada,AC 1283,FALSE,0
+238,1,Haneda Airport,HND,2024-02-10 16:25,Detroit Metropolitan Wayne County Airport,DTW,2024-02-10 14:30,725,Airbus A350,Delta,DL 276,TRUE,85
+238,2,Detroit Metropolitan Wayne County Airport,DTW,2024-02-10 15:55,Harry Reid International Airport,LAS,2024-02-10 17:31,276,Airbus A321,Delta,DL 361,FALSE,0
+239,1,Haneda Airport,HND,2024-02-10 16:25,Detroit Metropolitan Wayne County Airport,DTW,2024-02-10 14:30,725,Airbus A350,Delta,DL 276,TRUE,380
+239,2,Detroit Metropolitan Wayne County Airport,DTW,2024-02-10 20:50,Harry Reid International Airport,LAS,2024-02-10 22:33,283,Airbus A321,Delta,DL 367,FALSE,0
+240,1,Haneda Airport,HND,2024-02-10 16:50,Seattle-Tacoma International Airport,SEA,2024-02-10 9:00,550,Airbus A330-900neo,Delta,DL 166,TRUE,145
+240,2,Seattle-Tacoma International Airport,SEA,2024-02-10 11:25,Harry Reid International Airport,LAS,2024-02-10 13:56,151,Airbus A220-300 Passenger,Delta,DL 478,FALSE,0
+241,1,Haneda Airport,HND,2024-02-10 16:50,Seattle-Tacoma International Airport,SEA,2024-02-10 9:00,550,Airbus A330-900neo,Delta,DL 166,TRUE,180
+241,2,Seattle-Tacoma International Airport,SEA,2024-02-10 12:00,Los Angeles International Airport,LAX,2024-02-10 14:47,167,Airbus A321neo,Delta,DL 1023,FALSE,53
+241,3,Los Angeles International Airport,LAX,2024-02-10 15:40,Harry Reid International Airport,LAS,2024-02-10 16:55,75,Airbus A319,Delta,DL 2444,FALSE,0
+242,1,Haneda Airport,HND,2024-02-10 16:50,Seattle-Tacoma International Airport,SEA,2024-02-10 9:00,550,Airbus A330-900neo,Delta,DL 166,TRUE,95
+242,2,Seattle-Tacoma International Airport,SEA,2024-02-10 10:35,Los Angeles International Airport,LAX,2024-02-10 13:10,155,Boeing 737,Delta,DL 304,FALSE,150
+242,3,Los Angeles International Airport,LAX,2024-02-10 15:40,Harry Reid International Airport,LAS,2024-02-10 16:55,75,Airbus A319,Delta,DL 2444,FALSE,0
+243,1,Haneda Airport,HND,2024-02-10 16:50,Seattle-Tacoma International Airport,SEA,2024-02-10 9:00,550,Airbus A330-900neo,Delta,DL 166,TRUE,180
+243,2,Seattle-Tacoma International Airport,SEA,2024-02-10 12:00,Los Angeles International Airport,LAX,2024-02-10 14:47,167,Airbus A321neo,Delta,DL 1023,FALSE,192
+243,3,Los Angeles International Airport,LAX,2024-02-10 17:59,Harry Reid International Airport,LAS,2024-02-10 19:07,68,Airbus A319,Delta,DL 1434,FALSE,0
+244,1,Haneda Airport,HND,2024-02-10 16:50,Seattle-Tacoma International Airport,SEA,2024-02-10 9:00,550,Airbus A330-900neo,Delta,DL 166,TRUE,525
+244,2,Seattle-Tacoma International Airport,SEA,2024-02-10 17:45,Harry Reid International Airport,LAS,2024-02-10 20:08,143,Boeing 737,Delta,DL 2291,FALSE,0
+245,1,Haneda Airport,HND,2024-02-10 16:50,Seattle-Tacoma International Airport,SEA,2024-02-10 9:00,550,Airbus A330-900neo,Delta,DL 166,TRUE,490
+245,2,Seattle-Tacoma International Airport,SEA,2024-02-10 17:10,Salt Lake City International Airport (SLC),SLC,2024-02-10 20:12,122,Boeing 737,Delta,DL 2412,FALSE,105
+245,3,Salt Lake City International Airport (SLC),SLC,2024-02-10 21:57,Harry Reid International Airport,LAS,2024-02-10 22:29,92,Airbus A321,Delta,DL 1586,FALSE,0
+246,1,Haneda Airport,HND,2024-02-10 16:50,Seattle-Tacoma International Airport,SEA,2024-02-10 9:00,550,Airbus A330-900neo,Delta,DL 166,TRUE,1265
+246,2,Seattle-Tacoma International Airport,SEA,2024-02-11 6:05,Harry Reid International Airport,LAS,2024-02-11 8:31,146,Airbus A321neo,Delta,DL 2288,FALSE,0
+247,1,Haneda Airport,HND,2024-02-10 17:20,Los Angeles International Airport,LAX,2024-02-10 10:40,620,Airbus A330-900neo,Delta,DL 8,TRUE,110
+247,2,Los Angeles International Airport,LAX,2024-02-10 12:30,Harry Reid International Airport,LAS,2024-02-10 13:48,78,Airbus A319,Delta,DL 822,FALSE,0
+248,1,Haneda Airport,HND,2024-02-10 17:20,Los Angeles International Airport,LAX,2024-02-10 10:40,620,Airbus A330-900neo,Delta,DL 8,TRUE,300
+248,2,Los Angeles International Airport,LAX,2024-02-10 15:40,Harry Reid International Airport,LAS,2024-02-10 16:55,75,Airbus A319,Delta,DL 2444,FALSE,0
+249,1,Haneda Airport,HND,2024-02-10 17:20,Los Angeles International Airport,LAX,2024-02-10 10:40,620,Airbus A330-900neo,Delta,DL 8,TRUE,439
+249,2,Los Angeles International Airport,LAX,2024-02-10 17:59,Harry Reid International Airport,LAS,2024-02-10 19:07,68,Airbus A319,Delta,DL 1434,FALSE,0
+250,1,Haneda Airport,HND,2024-02-10 17:20,Los Angeles International Airport,LAX,2024-02-10 10:40,620,Airbus A330-900neo,Delta,DL 8,TRUE,210
+250,2,Los Angeles International Airport,LAX,2024-02-10 14:10,Seattle-Tacoma International Airport,SEA,2024-02-10 16:59,169,Boeing 737,Delta,DL 1004,FALSE,46
+250,3,Seattle-Tacoma International Airport,SEA,2024-02-10 17:45,Harry Reid International Airport,LAS,2024-02-10 20:08,143,Boeing 737,Delta,DL 2291,FALSE,0
+251,1,Haneda Airport,HND,2024-02-10 17:20,Los Angeles International Airport,LAX,2024-02-10 10:40,620,Airbus A330-900neo,Delta,DL 8,TRUE,425
+251,2,Los Angeles International Airport,LAX,2024-02-10 17:45,Salt Lake City International Airport (SLC),SLC,2024-02-10 20:40,115,Boeing 737,Delta,DL 1603,FALSE,77
+251,3,Salt Lake City International Airport (SLC),SLC,2024-02-10 21:57,Harry Reid International Airport,LAS,2024-02-10 22:29,92,Airbus A321,Delta,DL 1586,FALSE,0
+252,1,Haneda Airport,HND,2024-02-10 17:20,Los Angeles International Airport,LAX,2024-02-10 10:40,620,Airbus A330-900neo,Delta,DL 8,TRUE,1280
+252,2,Los Angeles International Airport,LAX,2024-02-11 8:00,Harry Reid International Airport,LAS,2024-02-11 9:11,71,Airbus A319,Delta,DL 1438,FALSE,0
+253,1,Haneda Airport,HND,2024-02-10 17:35,Minneapolis–Saint Paul International Airport,MSP,2024-02-10 14:00,685,Airbus A330-900neo,Delta,DL 120,TRUE,140
+253,2,Minneapolis–Saint Paul International Airport,MSP,2024-02-10 16:20,Harry Reid International Airport,LAS,2024-02-10 17:57,217,Airbus A321,Delta,DL 1202,FALSE,0
+254,1,Haneda Airport,HND,2024-02-10 17:35,Minneapolis–Saint Paul International Airport,MSP,2024-02-10 14:00,685,Airbus A330-900neo,Delta,DL 120,TRUE,280
+254,2,Minneapolis–Saint Paul International Airport,MSP,2024-02-10 18:40,Salt Lake City International Airport (SLC),SLC,2024-02-10 20:50,190,Boeing 737,Delta,DL 1584,FALSE,67
+254,3,Salt Lake City International Airport (SLC),SLC,2024-02-10 21:57,Harry Reid International Airport,LAS,2024-02-10 22:29,92,Airbus A321,Delta,DL 1586,FALSE,0
+255,1,Haneda Airport,HND,2024-02-10 17:35,Minneapolis–Saint Paul International Airport,MSP,2024-02-10 14:00,685,Airbus A330-900neo,Delta,DL 120,TRUE,475
+255,2,Minneapolis–Saint Paul International Airport,MSP,2024-02-10 21:55,Harry Reid International Airport,LAS,2024-02-10 23:40,225,Airbus A321,Delta,DL 1569,FALSE,0
+256,1,Haneda Airport,HND,2024-02-10 18:25,San Francisco International Airport,SFO,2024-02-10 11:00,575,Boeing 777,United,UA 876,TRUE,124
+256,2,San Francisco International Airport,SFO,2024-02-10 13:04,Harry Reid International Airport,LAS,2024-02-10 14:49,105,Boeing 737,United,UA 305,FALSE,0
+257,1,Haneda Airport,HND,2024-02-10 18:25,San Francisco International Airport,SFO,2024-02-10 11:00,575,Boeing 777,United,UA 876,TRUE,115
+257,2,San Francisco International Airport,SFO,2024-02-10 12:55,Denver International Airport,DEN,2024-02-10 16:37,162,Boeing 757,United,UA 1374,FALSE,73
+257,3,Denver International Airport,DEN,2024-02-10 17:50,Harry Reid International Airport,LAS,2024-02-10 18:55,125,Boeing 737MAX 8 Passenger,United,UA 679,FALSE,0
+258,1,Haneda Airport,HND,2024-02-10 18:25,San Francisco International Airport,SFO,2024-02-10 11:00,575,Boeing 777,United,UA 876,TRUE,390
+258,2,San Francisco International Airport,SFO,2024-02-10 17:30,Harry Reid International Airport,LAS,2024-02-10 19:15,105,Boeing 737MAX 9 Passenger,United,UA 1896,FALSE,0
+259,1,Haneda Airport,HND,2024-02-10 18:25,San Francisco International Airport,SFO,2024-02-10 11:00,575,Boeing 777,United,UA 876,TRUE,115
+259,2,San Francisco International Airport,SFO,2024-02-10 12:55,Denver International Airport,DEN,2024-02-10 16:37,162,Boeing 757,United,UA 1374,FALSE,173
+259,3,Denver International Airport,DEN,2024-02-10 19:30,Harry Reid International Airport,LAS,2024-02-10 20:35,125,Boeing 737MAX 8 Passenger,United,UA 655,FALSE,0
+260,1,Haneda Airport,HND,2024-02-10 18:25,San Francisco International Airport,SFO,2024-02-10 11:00,575,Boeing 777,United,UA 876,TRUE,210
+260,2,San Francisco International Airport,SFO,2024-02-10 14:30,Denver International Airport,DEN,2024-02-10 18:09,159,Boeing 787,United,UA 1821,FALSE,81
+260,3,Denver International Airport,DEN,2024-02-10 19:30,Harry Reid International Airport,LAS,2024-02-10 20:35,125,Boeing 737MAX 8 Passenger,United,UA 655,FALSE,0
+261,1,Haneda Airport,HND,2024-02-10 18:25,San Francisco International Airport,SFO,2024-02-10 11:00,575,Boeing 777,United,UA 876,TRUE,490
+261,2,San Francisco International Airport,SFO,2024-02-10 19:10,Harry Reid International Airport,LAS,2024-02-10 20:55,105,Boeing 737,United,UA 1847,FALSE,0
+262,1,Haneda Airport,HND,2024-02-10 18:25,San Francisco International Airport,SFO,2024-02-10 11:00,575,Boeing 777,United,UA 876,TRUE,700
+262,2,San Francisco International Airport,SFO,2024-02-10 22:40,Harry Reid International Airport,LAS,2024-02-11 0:25,105,Boeing 737,United,UA 2366,FALSE,0
+263,1,Haneda Airport,HND,2024-02-10 18:25,San Francisco International Airport,SFO,2024-02-10 11:00,575,Boeing 777,United,UA 876,TRUE,1285
+263,2,San Francisco International Airport,SFO,2024-02-11 8:25,Harry Reid International Airport,LAS,2024-02-11 10:10,105,Boeing 737,United,UA 1178,FALSE,0
+264,1,Haneda Airport,HND,2024-02-10 16:50,Seattle-Tacoma International Airport,SEA,2024-02-10 9:00,550,Airbus A330-900neo,Delta,DL 166,TRUE,95
+264,2,Seattle-Tacoma International Airport,SEA,2024-02-10 10:35,Los Angeles International Airport,LAX,2024-02-10 13:10,155,Boeing 737,Delta,DL 304,FALSE,289
+264,3,Los Angeles International Airport,LAX,2024-02-10 17:59,Harry Reid International Airport,LAS,2024-02-10 19:07,68,Airbus A319,Delta,DL 1434,FALSE,0
+265,1,Haneda Airport,HND,2024-02-10 16:50,Seattle-Tacoma International Airport,SEA,2024-02-10 9:00,550,Airbus A330-900neo,Delta,DL 166,TRUE,275
+265,2,Seattle-Tacoma International Airport,SEA,2024-02-10 13:35,Salt Lake City International Airport (SLC),SLC,2024-02-10 16:37,122,Boeing 737,Delta,DL 2399,FALSE,320
+265,3,Salt Lake City International Airport (SLC),SLC,2024-02-10 21:57,Harry Reid International Airport,LAS,2024-02-10 22:29,92,Airbus A321,Delta,DL 1586,FALSE,0
+266,1,Haneda Airport,HND,2024-02-10 17:20,Los Angeles International Airport,LAX,2024-02-10 10:40,620,Airbus A330-900neo,Delta,DL 8,TRUE,155
+266,2,Los Angeles International Airport,LAX,2024-02-10 13:15,Salt Lake City International Airport (SLC),SLC,2024-02-10 16:09,114,Airbus A321neo,Delta,DL 1625,FALSE,348
+266,3,Salt Lake City International Airport (SLC),SLC,2024-02-10 21:57,Harry Reid International Airport,LAS,2024-02-10 22:29,92,Airbus A321,Delta,DL 1586,FALSE,0
+267,1,Haneda Airport,HND,2024-02-10 9:45,Gimpo International Airport (GMP),GMP,2024-02-10 12:20,155,Airbus A321neo,Korean Air,KE 2106,FALSE,520
+267,2,Incheon International Airport,ICN,2024-02-10 21:00,Harry Reid International Airport,LAS,2024-02-10 15:15,675,Boeing 777,Korean Air,KE 8005,TRUE,0
+268,1,Haneda Airport,HND,2024-02-10 12:25,Gimpo International Airport (GMP),GMP,2024-02-10 15:00,155,Airbus A330,Korean Air,KE 2102,FALSE,360
+268,2,Incheon International Airport,ICN,2024-02-10 21:00,Harry Reid International Airport,LAS,2024-02-10 15:15,675,Boeing 777,Korean Air,KE 8005,TRUE,0
+269,1,Haneda Airport,HND,2024-02-10 10:10,Hong Kong International Airport,HKG,2024-02-10 14:20,310,Airbus A350,Cathay Pacific,CX 543,FALSE,340
+269,2,Hong Kong International Airport,HKG,2024-02-10 20:00,San Francisco International Airport,SFO,2024-02-10 16:20,740,Airbus A350,Cathay Pacific,CX 892,TRUE,185
+269,3,San Francisco International Airport,SFO,2024-02-10 19:25,Harry Reid International Airport,LAS,2024-02-10 21:00,95,Boeing 737MAX 9 Passenger,Alaska,AS 740,FALSE,0
+270,1,Haneda Airport,HND,2024-02-10 13:05,Los Angeles International Airport,LAX,2024-02-10 6:00,595,Boeing 787,American,AA 170,TRUE,840
+270,2,Los Angeles International Airport,LAX,2024-02-10 20:00,Harry Reid International Airport,LAS,2024-02-10 21:14,74,Airbus A321,American,AA 2785,FALSE,0
+271,1,Haneda Airport,HND,2024-02-10 13:05,Los Angeles International Airport,LAX,2024-02-10 6:00,595,Boeing 787,American,AA 170,TRUE,636
+271,2,Los Angeles International Airport,LAX,2024-02-10 16:36,Phoenix Sky Harbor International Airport,PHX,2024-02-10 19:02,86,Boeing 737,American,AA 2032,FALSE,158
+271,3,Phoenix Sky Harbor International Airport,PHX,2024-02-10 21:40,Harry Reid International Airport,LAS,2024-02-10 21:57,77,Airbus A321neo,American,AA 2106,FALSE,0
+272,1,Haneda Airport,HND,2024-02-10 13:05,Los Angeles International Airport,LAX,2024-02-10 6:00,595,Boeing 787,American,AA 170,TRUE,243
+272,2,Los Angeles International Airport,LAX,2024-02-10 10:03,Harry Reid International Airport,LAS,2024-02-10 11:17,74,Boeing 737,American,AA 2002,FALSE,0
+273,1,Haneda Airport,HND,2024-02-10 13:05,Los Angeles International Airport,LAX,2024-02-10 6:00,595,Boeing 787,American,AA 170,TRUE,241
+273,2,Los Angeles International Airport,LAX,2024-02-10 10:01,Phoenix Sky Harbor International Airport,PHX,2024-02-10 12:30,89,Airbus A321,American,AA 721,FALSE,163
+273,3,Phoenix Sky Harbor International Airport,PHX,2024-02-10 15:13,Harry Reid International Airport,LAS,2024-02-10 15:23,70,Airbus A321,American,AA 1541,FALSE,0
+274,1,Haneda Airport,HND,2024-02-10 1:30,Incheon International Airport,ICN,2024-02-10 4:10,160,Airbus A321neo,Asiana,OZ 177,TRUE,830
+274,2,Incheon International Airport,ICN,2024-02-10 18:00,San Francisco International Airport,SFO,2024-02-10 11:35,635,Boeing 787,United,UA 892,TRUE,89
+274,3,San Francisco International Airport,SFO,2024-02-10 13:04,Harry Reid International Airport,LAS,2024-02-10 14:49,105,Boeing 737,United,UA 305,FALSE,0
+275,1,Haneda Airport,HND,2024-02-10 12:05,Gimpo International Airport (GMP),GMP,2024-02-10 14:25,140,Airbus A330,Asiana,OZ 1075,FALSE,215
+275,2,Incheon International Airport,ICN,2024-02-10 18:00,San Francisco International Airport,SFO,2024-02-10 11:35,635,Boeing 787,United,UA 892,TRUE,89
+275,3,San Francisco International Airport,SFO,2024-02-10 13:04,Harry Reid International Airport,LAS,2024-02-10 14:49,105,Boeing 737,United,UA 305,FALSE,0
+276,1,Haneda Airport,HND,2024-02-10 13:05,Los Angeles International Airport,LAX,2024-02-10 6:00,595,Boeing 787,American,AA 170,TRUE,367
+276,2,Los Angeles International Airport,LAX,2024-02-10 12:07,Harry Reid International Airport,LAS,2024-02-10 13:17,70,Boeing 737,American,AA 2388,FALSE,0
+277,1,Haneda Airport,HND,2024-02-10 13:05,Los Angeles International Airport,LAX,2024-02-10 6:00,595,Boeing 787,American,AA 170,TRUE,427
+277,2,Los Angeles International Airport,LAX,2024-02-10 13:07,Phoenix Sky Harbor International Airport,PHX,2024-02-10 15:33,86,Airbus A321neo,American,AA 1994,FALSE,166
+277,3,Phoenix Sky Harbor International Airport,PHX,2024-02-10 18:19,Harry Reid International Airport,LAS,2024-02-10 18:30,71,Boeing 737MAX 8 Passenger,American,AA 1977,FALSE,0
+278,1,Haneda Airport,HND,2024-02-10 13:05,Los Angeles International Airport,LAX,2024-02-10 6:00,595,Boeing 787,American,AA 170,TRUE,259
+278,2,Ontario International Airport,ONT,2024-02-10 10:19,Phoenix Sky Harbor International Airport,PHX,2024-02-10 12:38,79,Airbus A319,American,AA 296,FALSE,155
+278,3,Phoenix Sky Harbor International Airport,PHX,2024-02-10 15:13,Harry Reid International Airport,LAS,2024-02-10 15:23,70,Airbus A321,American,AA 1541,FALSE,0
+279,1,Haneda Airport,HND,2024-02-10 13:05,Los Angeles International Airport,LAX,2024-02-10 6:00,595,Boeing 787,American,AA 170,TRUE,415
+279,2,Ontario International Airport,ONT,2024-02-10 12:55,Phoenix Sky Harbor International Airport,PHX,2024-02-10 15:13,78,Boeing 737,American,AA 1792,FALSE,186
+279,3,Phoenix Sky Harbor International Airport,PHX,2024-02-10 18:19,Harry Reid International Airport,LAS,2024-02-10 18:30,71,Boeing 737MAX 8 Passenger,American,AA 1977,FALSE,0
+280,1,Haneda Airport,HND,2024-02-10 20:30,Kansai International Airport,KIX,2024-02-10 21:50,80,Boeing 787,ANA,NH 97,FALSE,60
+280,2,Kansai International Airport,KIX,2024-02-10 22:50,Munich International Airport,MUC,2024-02-11 5:20,870,Airbus A350,Lufthansa,LH 743,TRUE,365
+280,3,Munich International Airport,MUC,2024-02-11 11:25,O'Hare International Airport,ORD,2024-02-11 14:10,585,Boeing 787,United,UA 952,FALSE,125
+280,4,O'Hare International Airport,ORD,2024-02-11 16:15,Harry Reid International Airport,LAS,2024-02-11 18:28,253,Boeing 737,United,UA 1527,FALSE,0
+281,1,Haneda Airport,HND,2024-02-10 20:30,Kansai International Airport,KIX,2024-02-10 21:50,80,Boeing 787,ANA,NH 97,FALSE,60
+281,2,Kansai International Airport,KIX,2024-02-10 22:50,Munich International Airport,MUC,2024-02-11 5:20,870,Airbus A350,Lufthansa,LH 743,TRUE,395
+281,3,Munich International Airport,MUC,2024-02-11 11:55,San Francisco International Airport,SFO,2024-02-11 14:55,720,Boeing 777,United,UA 195,FALSE,155
+281,4,San Francisco International Airport,SFO,2024-02-11 17:30,Harry Reid International Airport,LAS,2024-02-11 19:15,105,Boeing 737MAX 9 Passenger,United,UA 1896,FALSE,0
+282,1,Haneda Airport,HND,2024-02-10 13:05,Los Angeles International Airport,LAX,2024-02-10 6:00,595,Boeing 787,American,AA 170,TRUE,259
+282,2,Ontario International Airport,ONT,2024-02-10 10:19,Phoenix Sky Harbor International Airport,PHX,2024-02-10 12:38,79,Airbus A319,American,AA 296,FALSE,341
+282,3,Phoenix Sky Harbor International Airport,PHX,2024-02-10 18:19,Harry Reid International Airport,LAS,2024-02-10 18:30,71,Boeing 737MAX 8 Passenger,American,AA 1977,FALSE,0
+283,1,Haneda Airport,HND,2024-02-10 18:00,Dallas Fort Worth International Airport,DFW,2024-02-10 14:30,690,Boeing 787,American,AA 176,TRUE,150
+283,2,Dallas Fort Worth International Airport,DFW,2024-02-10 17:00,Los Angeles International Airport,LAX,2024-02-10 18:38,218,Airbus A321,American,AA 1672,FALSE,82
+283,3,Los Angeles International Airport,LAX,2024-02-10 20:00,Harry Reid International Airport,LAS,2024-02-10 21:14,74,Airbus A321,American,AA 2785,FALSE,0
+284,1,Haneda Airport,HND,2024-02-10 19:40,Los Angeles International Airport,LAX,2024-02-10 12:35,595,Boeing 787-10,United,UA 38,TRUE,250
+284,2,Los Angeles International Airport,LAX,2024-02-10 16:45,Harry Reid International Airport,LAS,2024-02-10 17:58,73,Boeing 737,United,UA 1062,FALSE,0
+285,1,Haneda Airport,HND,2024-02-10 19:40,Los Angeles International Airport,LAX,2024-02-10 12:35,595,Boeing 787-10,United,UA 38,TRUE,460
+285,2,Los Angeles International Airport,LAX,2024-02-10 20:15,Harry Reid International Airport,LAS,2024-02-10 21:28,73,Boeing 737,United,UA 1960,FALSE,0
+286,1,Haneda Airport,HND,2024-02-10 19:40,Los Angeles International Airport,LAX,2024-02-10 12:35,595,Boeing 787-10,United,UA 38,TRUE,380
+286,2,Los Angeles International Airport,LAX,2024-02-10 18:55,San Francisco International Airport,SFO,2024-02-10 20:28,93,Airbus A320,United,UA 1727,FALSE,132
+286,3,San Francisco International Airport,SFO,2024-02-10 22:40,Harry Reid International Airport,LAS,2024-02-11 0:25,105,Boeing 737,United,UA 2366,FALSE,0
+287,1,Haneda Airport,HND,2024-02-10 19:40,Los Angeles International Airport,LAX,2024-02-10 12:35,595,Boeing 787-10,United,UA 38,TRUE,1198
+287,2,Los Angeles International Airport,LAX,2024-02-11 8:33,Harry Reid International Airport,LAS,2024-02-11 9:46,73,Boeing 737MAX 8 Passenger,United,UA 1006,FALSE,0
+288,1,Haneda Airport,HND,2024-02-10 19:40,Los Angeles International Airport,LAX,2024-02-10 12:35,595,Boeing 787-10,United,UA 38,TRUE,1461
+288,2,Los Angeles International Airport,LAX,2024-02-11 12:56,Harry Reid International Airport,LAS,2024-02-11 14:09,73,Boeing 737,United,UA 2449,FALSE,0
+289,1,Haneda Airport,HND,2024-02-10 19:40,Los Angeles International Airport,LAX,2024-02-10 12:35,595,Boeing 787-10,United,UA 38,TRUE,220
+289,2,Los Angeles International Airport,LAX,2024-02-10 16:15,San Francisco International Airport,SFO,2024-02-10 17:48,93,Boeing 757,United,UA 1705,FALSE,292
+289,3,San Francisco International Airport,SFO,2024-02-10 22:40,Harry Reid International Airport,LAS,2024-02-11 0:25,105,Boeing 737,United,UA 2366,FALSE,0
+290,1,Haneda Airport,HND,2024-02-10 21:20,Daniel K. Inouye International Airport,HNL,2024-02-10 9:10,410,Airbus A330,Hawaiian,HA 458,TRUE,225
+290,2,Daniel K. Inouye International Airport,HNL,2024-02-10 12:55,San Francisco International Airport,SFO,2024-02-10 20:10,315,Airbus A330,Hawaiian,HA 12,FALSE,150
+290,3,San Francisco International Airport,SFO,2024-02-10 22:40,Harry Reid International Airport,LAS,2024-02-11 0:25,105,Boeing 737,United,UA 2366,FALSE,0
+291,1,Haneda Airport,HND,2024-02-10 20:05,Daniel K. Inouye International Airport,HNL,2024-02-10 8:10,425,Airbus A330,Hawaiian,HA 864,TRUE,375
+291,2,Daniel K. Inouye International Airport,HNL,2024-02-10 14:25,San Francisco International Airport,SFO,2024-02-10 21:29,304,Boeing 777,United,UA 1141,FALSE,71
+291,3,San Francisco International Airport,SFO,2024-02-10 22:40,Harry Reid International Airport,LAS,2024-02-11 0:25,105,Boeing 737,United,UA 2366,FALSE,0
+292,1,Haneda Airport,HND,2024-02-10 21:20,Daniel K. Inouye International Airport,HNL,2024-02-10 9:10,410,Airbus A330,Hawaiian,HA 458,TRUE,315
+292,2,Daniel K. Inouye International Airport,HNL,2024-02-10 14:25,San Francisco International Airport,SFO,2024-02-10 21:29,304,Boeing 777,United,UA 1141,FALSE,71
+292,3,San Francisco International Airport,SFO,2024-02-10 22:40,Harry Reid International Airport,LAS,2024-02-11 0:25,105,Boeing 737,United,UA 2366,FALSE,0
+293,1,Haneda Airport,HND,2024-02-10 13:05,Los Angeles International Airport,LAX,2024-02-10 6:00,595,Boeing 787,American,AA 170,TRUE,154
+293,2,Los Angeles International Airport,LAX,2024-02-10 8:34,Harry Reid International Airport,LAS,2024-02-10 9:47,73,Boeing 737MAX 8 Passenger,United,UA 1006,FALSE,0
+294,1,Haneda Airport,HND,2024-02-10 10:05,Fukuoka Airport (FUK),FUK,2024-02-10 12:10,125,Airbus A350,JAL,JL 313,FALSE,210
+294,2,Fukuoka Airport (FUK),FUK,2024-02-10 15:40,Incheon International Airport,ICN,2024-02-10 17:15,95,Airbus A321neo,Korean Air,KE 790,FALSE,225
+294,3,Incheon International Airport,ICN,2024-02-10 21:00,Harry Reid International Airport,LAS,2024-02-10 15:15,675,Boeing 777,Korean Air,KE 8005,TRUE,0
+295,1,Haneda Airport,HND,2024-02-10 10:05,Fukuoka Airport (FUK),FUK,2024-02-10 12:10,125,Airbus A350,JAL,JL 313,FALSE,90
+295,2,Fukuoka Airport (FUK),FUK,2024-02-10 13:40,Incheon International Airport,ICN,2024-02-10 15:10,90,Boeing 777,Korean Air,KE 792,FALSE,350
+295,3,Incheon International Airport,ICN,2024-02-10 21:00,Harry Reid International Airport,LAS,2024-02-10 15:15,675,Boeing 777,Korean Air,KE 8005,TRUE,0
+296,1,Haneda Airport,HND,2024-02-10 17:10,Shanghai Pudong International Airport,PVG,2024-02-10 20:00,230,Boeing 737,Shanghai Airlines,FM 896,FALSE,1100
+296,2,Shanghai Pudong International Airport,PVG,2024-02-11 14:20,San Francisco International Airport,SFO,2024-02-11 9:30,670,Boeing 777,China Eastern,MU 589,TRUE,214
+296,3,San Francisco International Airport,SFO,2024-02-11 13:04,Harry Reid International Airport,LAS,2024-02-11 14:49,105,Boeing 737,United,UA 305,FALSE,0
+297,1,Haneda Airport,HND,2024-02-10 22:15,Daniel K. Inouye International Airport,HNL,2024-02-10 10:05,410,Boeing 787,ANA,NH 186,TRUE,260
+297,2,Daniel K. Inouye International Airport,HNL,2024-02-10 14:25,San Francisco International Airport,SFO,2024-02-10 21:29,304,Boeing 777,United,UA 1141,FALSE,71
+297,3,San Francisco International Airport,SFO,2024-02-10 22:40,Harry Reid International Airport,LAS,2024-02-11 0:25,105,Boeing 737,United,UA 2366,FALSE,0
+298,1,Haneda Airport,HND,2024-02-10 18:00,Dallas Fort Worth International Airport,DFW,2024-02-10 14:30,690,Boeing 787,American,AA 176,TRUE,993
+298,2,Dallas Fort Worth International Airport,DFW,2024-02-11 7:03,Harry Reid International Airport,LAS,2024-02-11 8:10,187,Airbus A321,American,AA 1969,FALSE,0
+299,1,Haneda Airport,HND,2024-02-10 20:25,Los Angeles International Airport,LAX,2024-02-10 13:20,595,Boeing 787,American,AA 26,TRUE,1060
+299,2,Los Angeles International Airport,LAX,2024-02-11 7:00,Harry Reid International Airport,LAS,2024-02-11 8:18,78,Boeing 737,Alaska,AS 702,FALSE,0
+300,1,Haneda Airport,HND,2024-02-10 20:25,Los Angeles International Airport,LAX,2024-02-10 13:20,595,Boeing 787,American,AA 26,TRUE,1243
+300,2,Los Angeles International Airport,LAX,2024-02-11 10:03,Harry Reid International Airport,LAS,2024-02-11 11:17,74,Boeing 737,American,AA 2002,FALSE,0
+301,1,Haneda Airport,HND,2024-02-10 20:25,Los Angeles International Airport,LAX,2024-02-10 13:20,595,Boeing 787,American,AA 26,TRUE,1367
+301,2,Los Angeles International Airport,LAX,2024-02-11 12:07,Harry Reid International Airport,LAS,2024-02-11 13:17,70,Boeing 737,American,AA 2388,FALSE,0
+302,1,Haneda Airport,HND,2024-02-10 21:55,Vancouver International Airport (YVR),YVR,2024-02-10 13:45,530,Boeing 787,ANA,NH 116,TRUE,330
+302,2,Vancouver International Airport (YVR),YVR,2024-02-10 19:15,San Francisco International Airport,SFO,2024-02-10 21:40,145,Boeing 737,United,UA 2423,FALSE,60
+302,3,San Francisco International Airport,SFO,2024-02-10 22:40,Harry Reid International Airport,LAS,2024-02-11 0:25,105,Boeing 737,United,UA 2366,FALSE,0
+303,1,Haneda Airport,HND,2024-02-10 13:35,Kansai International Airport,KIX,2024-02-10 15:00,85,Boeing 767,ANA,NH 991,FALSE,210
+303,2,Kansai International Airport,KIX,2024-02-10 18:30,San Francisco International Airport,SFO,2024-02-10 11:15,585,Boeing 787,United,UA 34,TRUE,109
+303,3,San Francisco International Airport,SFO,2024-02-10 13:04,Harry Reid International Airport,LAS,2024-02-10 14:49,105,Boeing 737,United,UA 305,FALSE,0
+304,1,Haneda Airport,HND,2024-02-10 15:30,Kansai International Airport,KIX,2024-02-10 16:55,85,Airbus A320,ANA,NH 3825,FALSE,95
+304,2,Kansai International Airport,KIX,2024-02-10 18:30,San Francisco International Airport,SFO,2024-02-10 11:15,585,Boeing 787,United,UA 34,TRUE,109
+304,3,San Francisco International Airport,SFO,2024-02-10 13:04,Harry Reid International Airport,LAS,2024-02-10 14:49,105,Boeing 737,United,UA 305,FALSE,0
+305,1,Haneda Airport,HND,2024-02-10 20:25,Los Angeles International Airport,LAX,2024-02-10 13:20,595,Boeing 787,American,AA 26,TRUE,400
+305,2,Los Angeles International Airport,LAX,2024-02-10 20:00,Harry Reid International Airport,LAS,2024-02-10 21:14,74,Airbus A321,American,AA 2785,FALSE,0
+306,1,Haneda Airport,HND,2024-02-10 10:50,O'Hare International Airport,ORD,2024-02-10 7:35,705,Boeing 777,JAL,JL 10,TRUE,156
+306,2,O'Hare International Airport,ORD,2024-02-10 10:11,Harry Reid International Airport,LAS,2024-02-10 12:27,256,Boeing 737,American,AA 2254,FALSE,0
+307,1,Haneda Airport,HND,2024-02-10 10:55,Dallas Fort Worth International Airport,DFW,2024-02-10 7:35,700,Boeing 777,JAL,JL 12,TRUE,101
+307,2,Dallas Fort Worth International Airport,DFW,2024-02-10 9:16,Harry Reid International Airport,LAS,2024-02-10 10:20,184,Airbus A321,American,AA 777,FALSE,0
+308,1,Haneda Airport,HND,2024-02-10 10:55,Dallas Fort Worth International Airport,DFW,2024-02-10 7:35,700,Boeing 777,JAL,JL 12,TRUE,246
+308,2,Dallas Fort Worth International Airport,DFW,2024-02-10 11:41,Harry Reid International Airport,LAS,2024-02-10 12:45,184,Airbus A321,American,AA 1947,FALSE,0
+309,1,Haneda Airport,HND,2024-02-10 10:55,Dallas Fort Worth International Airport,DFW,2024-02-10 7:35,700,Boeing 777,JAL,JL 12,TRUE,337
+309,2,Dallas Fort Worth International Airport,DFW,2024-02-10 13:12,Harry Reid International Airport,LAS,2024-02-10 14:15,183,Airbus A321,American,AA 1599,FALSE,0
+310,1,Haneda Airport,HND,2024-02-10 10:55,Dallas Fort Worth International Airport,DFW,2024-02-10 7:35,700,Boeing 777,JAL,JL 12,TRUE,437
+310,2,Dallas Fort Worth International Airport,DFW,2024-02-10 14:52,Harry Reid International Airport,LAS,2024-02-10 15:56,184,Airbus A321neo,American,AA 2376,FALSE,0
+311,1,Haneda Airport,HND,2024-02-10 0:50,Los Angeles International Airport,LAX,2024-02-16 17:50,600,Boeing 787,ANA,NH 106,TRUE,145
+311,2,Los Angeles International Airport,LAX,2024-02-16 20:15,Harry Reid International Airport,LAS,2024-02-16 21:28,73,Boeing 737MAX 9 Passenger,United,UA 1960,FALSE,0
+312,1,Haneda Airport,HND,2024-02-10 0:50,Los Angeles International Airport,LAX,2024-02-16 17:50,600,Boeing 787,ANA,NH 106,TRUE,884
+312,2,Los Angeles International Airport,LAX,2024-02-10 8:34,Harry Reid International Airport,LAS,2024-02-10 9:47,73,Boeing 737MAX 8 Passenger,United,UA 1006,FALSE,0
+313,1,Haneda Airport,HND,2024-02-10 21:05,Los Angeles International Airport,LAX,2024-02-10 14:05,600,Boeing 787,ANA,NH 126,TRUE,1108
+313,2,Los Angeles International Airport,LAX,2024-02-11 8:33,Harry Reid International Airport,LAS,2024-02-11 9:46,73,Boeing 737MAX 8 Passenger,United,UA 1006,FALSE,0
+314,1,Haneda Airport,HND,2024-02-10 22:55,San Francisco International Airport,SFO,2024-02-10 15:20,565,Boeing 777,ANA,NH 108,TRUE,440
+314,2,San Francisco International Airport,SFO,2024-02-10 22:40,Harry Reid International Airport,LAS,2024-02-11 0:25,105,Boeing 737,United,UA 2366,FALSE,0
+315,1,Haneda Airport,HND,2024-02-10 22:55,San Francisco International Airport,SFO,2024-02-10 15:20,565,Boeing 777,ANA,NH 108,TRUE,1025
+315,2,San Francisco International Airport,SFO,2024-02-11 8:25,Harry Reid International Airport,LAS,2024-02-11 10:10,105,Boeing 737,United,UA 1178,FALSE,0
+316,1,Haneda Airport,HND,2024-02-10 21:05,Los Angeles International Airport,LAX,2024-02-10 14:05,600,Boeing 787,ANA,NH 126,TRUE,160
+316,2,Los Angeles International Airport,LAX,2024-02-10 16:45,Harry Reid International Airport,LAS,2024-02-10 17:58,73,Boeing 737,United,UA 1062,FALSE,0
+317,1,Haneda Airport,HND,2024-02-10 21:05,Seattle-Tacoma International Airport,SEA,2024-02-10 13:10,545,Boeing 787,ANA,NH 118,TRUE,1010
+317,2,Seattle-Tacoma International Airport,SEA,2024-02-11 6:00,Harry Reid International Airport,LAS,2024-02-11 8:34,154,Boeing 737MAX 9 Passenger,Alaska,AS 704,FALSE,0
+318,1,Haneda Airport,HND,2024-02-10 16:25,Los Angeles International Airport,LAX,2024-02-10 9:15,590,Boeing 787,JAL,JL 16,TRUE,172
+318,2,Los Angeles International Airport,LAX,2024-02-10 12:07,Harry Reid International Airport,LAS,2024-02-10 13:17,70,Boeing 737,American,AA 2388,FALSE,0
+319,1,Haneda Airport,HND,2024-02-10 16:25,Los Angeles International Airport,LAX,2024-02-10 9:15,590,Boeing 787,JAL,JL 16,TRUE,645
+319,2,Los Angeles International Airport,LAX,2024-02-10 20:00,Harry Reid International Airport,LAS,2024-02-10 21:14,74,Airbus A321,American,AA 2785,FALSE,0
+320,1,Haneda Airport,HND,2024-02-10 0:50,Los Angeles International Airport,LAX,2024-02-16 17:50,600,Boeing 787,ANA,NH 106,TRUE,1146
+320,2,Los Angeles International Airport,LAX,2024-02-10 12:56,Harry Reid International Airport,LAS,2024-02-10 14:09,73,Boeing 737,United,UA 2449,FALSE,0
+321,1,Haneda Airport,HND,2024-02-10 22:55,San Francisco International Airport,SFO,2024-02-10 15:20,565,Boeing 777,ANA,NH 108,TRUE,1180
+321,2,San Francisco International Airport,SFO,2024-02-11 11:00,Harry Reid International Airport,LAS,2024-02-11 12:45,105,Boeing 737,United,UA 470,FALSE,0
+322,1,Haneda Airport,HND,2024-02-10 10:25,George Bush Intercontinental Airport,IAH,2024-02-10 7:20,715,Boeing 787,ANA,NH 114,TRUE,135
+322,2,George Bush Intercontinental Airport,IAH,2024-02-10 9:35,Harry Reid International Airport,LAS,2024-02-10 11:03,208,Boeing 737,United,UA 2010,FALSE,0
+323,1,Haneda Airport,HND,2024-02-10 10:40,O'Hare International Airport,ORD,2024-02-10 7:20,700,Boeing 777,ANA,NH 112,TRUE,115
+323,2,O'Hare International Airport,ORD,2024-02-10 9:15,Harry Reid International Airport,LAS,2024-02-10 11:31,256,Airbus A321neo,United,UA 373,FALSE,0
+324,1,Haneda Airport,HND,2024-02-10 22:15,Daniel K. Inouye International Airport,HNL,2024-02-10 10:05,410,Boeing 787,ANA,NH 186,TRUE,805
+324,2,Daniel K. Inouye International Airport,HNL,2024-02-10 23:30,Harry Reid International Airport,LAS,2024-02-11 7:10,340,Airbus A330,Hawaiian,HA 8,TRUE,0
+325,1,Haneda Airport,HND,2024-02-10 2:00,Incheon International Airport,ICN,2024-02-10 4:50,170,Boeing 737,Korean Air,KE 720,TRUE,970
+325,2,Incheon International Airport,ICN,2024-02-10 21:00,Harry Reid International Airport,LAS,2024-02-10 15:15,675,Boeing 777,Korean Air,KE 8005,TRUE,0
+326,1,Haneda Airport,HND,2024-02-10 0:50,Los Angeles International Airport,LAX,2024-02-16 17:50,600,Boeing 787,ANA,NH 106,TRUE,790
+326,2,Los Angeles International Airport,LAX,2024-02-10 7:00,Harry Reid International Airport,LAS,2024-02-10 8:18,78,Boeing 737,Alaska,AS 702,FALSE,0
+327,1,Haneda Airport,HND,2024-02-10 21:00,Daniel K. Inouye International Airport,HNL,2024-02-10 8:45,405,Boeing 787,JAL,JL 74,TRUE,885
+327,2,Daniel K. Inouye International Airport,HNL,2024-02-10 23:30,Harry Reid International Airport,LAS,2024-02-11 7:10,340,Airbus A330,Hawaiian,HA 8,TRUE,0
+328,1,Haneda Airport,HND,2024-02-10 21:55,Daniel K. Inouye International Airport,HNL,2024-02-10 9:40,405,Boeing 787,JAL,JL 72,TRUE,830
+328,2,Daniel K. Inouye International Airport,HNL,2024-02-10 23:30,Harry Reid International Airport,LAS,2024-02-11 7:10,340,Airbus A330,Hawaiian,HA 8,TRUE,0
+329,1,Haneda Airport,HND,2024-02-10 22:55,San Francisco International Airport,SFO,2024-02-10 15:20,565,Boeing 777,ANA,NH 108,TRUE,1155
+329,2,San Francisco International Airport,SFO,2024-02-11 10:35,Harry Reid International Airport,LAS,2024-02-11 12:13,98,Embraer 175,Alaska,AS 2077,FALSE,0
+330,1,Haneda Airport,HND,2024-02-10 21:55,Vancouver International Airport (YVR),YVR,2024-02-10 13:45,530,Boeing 787,ANA,NH 116,TRUE,445
+330,2,Vancouver International Airport (YVR),YVR,2024-02-10 21:10,Harry Reid International Airport,LAS,2024-02-10 23:58,168,Boeing 737MAX 8 Passenger,Air Canada,AC 1060,FALSE,0
+331,1,Haneda Airport,HND,2024-02-10 21:55,Vancouver International Airport (YVR),YVR,2024-02-10 13:45,530,Boeing 787,ANA,NH 116,TRUE,80
+331,2,Vancouver International Airport (YVR),YVR,2024-02-10 15:05,Harry Reid International Airport,LAS,2024-02-10 17:53,168,Boeing 737MAX 8 Passenger,Air Canada,AC 1058,FALSE,0
+332,1,Haneda Airport,HND,2024-02-11 21:20,Daniel K. Inouye International Airport,HNL,2024-02-11 9:10,410,Airbus A330,Hawaiian,HA 458,TRUE,375
+332,2,Daniel K. Inouye International Airport,HNL,2024-02-11 15:25,Harry Reid International Airport,LAS,2024-02-11 23:10,345,Airbus A330,Hawaiian,HA 18,FALSE,0
+333,1,Haneda Airport,HND,2024-02-11 19:40,Los Angeles International Airport,LAX,2024-02-11 12:35,595,Boeing 787-10,United,UA 38,TRUE,250
+333,2,Los Angeles International Airport,LAX,2024-02-11 16:45,Harry Reid International Airport,LAS,2024-02-11 17:58,73,Boeing 737,United,UA 1062,FALSE,0
+334,1,Haneda Airport,HND,2024-02-11 21:20,Daniel K. Inouye International Airport,HNL,2024-02-11 9:10,410,Airbus A330,Hawaiian,HA 458,TRUE,165
+334,2,Daniel K. Inouye International Airport,HNL,2024-02-11 11:55,Portland International Airport,PDX,2024-02-11 19:30,335,Airbus A330,Hawaiian,HA 26,FALSE,104
+334,3,Portland International Airport,PDX,2024-02-11 21:14,Harry Reid International Airport,LAS,2024-02-11 23:26,132,Boeing 737,Alaska,AS 712,FALSE,0
+335,1,Haneda Airport,HND,2024-02-11 17:20,Los Angeles International Airport,LAX,2024-02-11 10:40,620,Airbus A330-900neo,Delta,DL 8,TRUE,110
+335,2,Los Angeles International Airport,LAX,2024-02-11 12:30,Harry Reid International Airport,LAS,2024-02-11 13:48,78,Airbus A319,Delta,DL 822,FALSE,0
+336,1,Haneda Airport,HND,2024-02-11 21:20,Daniel K. Inouye International Airport,HNL,2024-02-11 9:10,410,Airbus A330,Hawaiian,HA 458,TRUE,860
+336,2,Daniel K. Inouye International Airport,HNL,2024-02-11 23:30,Harry Reid International Airport,LAS,2024-02-12 7:10,340,Airbus A330,Hawaiian,HA 8,TRUE,0
+337,1,Haneda Airport,HND,2024-02-11 19:40,Los Angeles International Airport,LAX,2024-02-11 12:35,595,Boeing 787-10,United,UA 38,TRUE,217
+337,2,Los Angeles International Airport,LAX,2024-02-11 16:12,San Francisco International Airport,SFO,2024-02-11 17:45,93,Boeing 737,United,UA 1705,FALSE,85
+337,3,San Francisco International Airport,SFO,2024-02-11 19:10,Harry Reid International Airport,LAS,2024-02-11 20:55,105,Boeing 737,United,UA 1847,FALSE,0
+338,1,Haneda Airport,HND,2024-02-11 19:40,Los Angeles International Airport,LAX,2024-02-11 12:35,595,Boeing 787-10,United,UA 38,TRUE,460
+338,2,Los Angeles International Airport,LAX,2024-02-11 20:15,Harry Reid International Airport,LAS,2024-02-11 21:28,73,Boeing 737MAX 9 Passenger,United,UA 1960,FALSE,0
+339,1,Haneda Airport,HND,2024-02-11 19:40,Los Angeles International Airport,LAX,2024-02-11 12:35,595,Boeing 787-10,United,UA 38,TRUE,1198
+339,2,Los Angeles International Airport,LAX,2024-02-12 8:33,Harry Reid International Airport,LAS,2024-02-12 9:46,73,Boeing 737MAX 8 Passenger,United,UA 1006,FALSE,0
+340,1,Haneda Airport,HND,2024-02-11 19:40,Los Angeles International Airport,LAX,2024-02-11 12:35,595,Boeing 787-10,United,UA 38,TRUE,1461
+340,2,Los Angeles International Airport,LAX,2024-02-12 12:56,Harry Reid International Airport,LAS,2024-02-12 14:09,73,Boeing 737,United,UA 2449,FALSE,0
+341,1,Haneda Airport,HND,2024-02-11 19:40,Los Angeles International Airport,LAX,2024-02-11 12:35,595,Boeing 787-10,United,UA 38,TRUE,380
+341,2,Los Angeles International Airport,LAX,2024-02-11 18:55,San Francisco International Airport,SFO,2024-02-11 20:28,93,Airbus A320,United,UA 1727,FALSE,132
+341,3,San Francisco International Airport,SFO,2024-02-11 22:40,Harry Reid International Airport,LAS,2024-02-12 0:25,105,Boeing 737,United,UA 2366,FALSE,0
+342,1,Haneda Airport,HND,2024-02-11 19:40,Los Angeles International Airport,LAX,2024-02-11 12:35,595,Boeing 787-10,United,UA 38,TRUE,217
+342,2,Los Angeles International Airport,LAX,2024-02-11 16:12,San Francisco International Airport,SFO,2024-02-11 17:45,93,Boeing 737,United,UA 1705,FALSE,295
+342,3,San Francisco International Airport,SFO,2024-02-11 22:40,Harry Reid International Airport,LAS,2024-02-12 0:25,105,Boeing 737,United,UA 2366,FALSE,0
+343,1,Haneda Airport,HND,2024-02-11 18:25,San Francisco International Airport,SFO,2024-02-11 11:00,575,Boeing 777,United,UA 876,TRUE,149
+343,2,San Francisco International Airport,SFO,2024-02-11 13:29,Los Angeles International Airport,LAX,2024-02-11 15:01,92,Boeing 737,United,UA 1312,FALSE,104
+343,3,Los Angeles International Airport,LAX,2024-02-11 16:45,Harry Reid International Airport,LAS,2024-02-11 17:58,73,Boeing 737,United,UA 1062,FALSE,0
+344,1,Haneda Airport,HND,2024-02-11 18:25,San Francisco International Airport,SFO,2024-02-11 11:00,575,Boeing 777,United,UA 876,TRUE,330
+344,2,San Francisco International Airport,SFO,2024-02-11 16:30,Los Angeles International Airport,LAX,2024-02-11 18:02,92,Boeing 737,United,UA 1413,FALSE,133
+344,3,Los Angeles International Airport,LAX,2024-02-11 20:15,Harry Reid International Airport,LAS,2024-02-11 21:28,73,Boeing 737MAX 9 Passenger,United,UA 1960,FALSE,0
+345,1,Haneda Airport,HND,2024-02-11 23:55,Kona International Airport,KOA,2024-02-11 11:50,415,Airbus A330,Hawaiian,HA 852,TRUE,430
+345,2,Kona International Airport,KOA,2024-02-11 19:00,Daniel K. Inouye International Airport,HNL,2024-02-11 19:47,47,Boeing 717,Hawaiian,HA 507,FALSE,223
+345,3,Daniel K. Inouye International Airport,HNL,2024-02-11 23:30,Harry Reid International Airport,LAS,2024-02-12 7:10,340,Airbus A330,Hawaiian,HA 8,TRUE,0
+346,1,Haneda Airport,HND,2024-02-11 23:55,Kona International Airport,KOA,2024-02-11 11:50,415,Airbus A330,Hawaiian,HA 852,TRUE,465
+346,2,Kona International Airport,KOA,2024-02-11 19:35,Daniel K. Inouye International Airport,HNL,2024-02-11 20:22,47,Boeing 717,Hawaiian,HA 527,FALSE,188
+346,3,Daniel K. Inouye International Airport,HNL,2024-02-11 23:30,Harry Reid International Airport,LAS,2024-02-12 7:10,340,Airbus A330,Hawaiian,HA 8,TRUE,0
+347,1,Haneda Airport,HND,2024-02-11 23:55,Kona International Airport,KOA,2024-02-11 11:50,415,Airbus A330,Hawaiian,HA 852,TRUE,515
+347,2,Kona International Airport,KOA,2024-02-11 20:25,Daniel K. Inouye International Airport,HNL,2024-02-11 21:11,46,Boeing 717,Hawaiian,HA 567,FALSE,139
+347,3,Daniel K. Inouye International Airport,HNL,2024-02-11 23:30,Harry Reid International Airport,LAS,2024-02-12 7:10,340,Airbus A330,Hawaiian,HA 8,TRUE,0
+348,1,Haneda Airport,HND,2024-02-11 18:25,San Francisco International Airport,SFO,2024-02-11 11:00,575,Boeing 777,United,UA 876,TRUE,149
+348,2,San Francisco International Airport,SFO,2024-02-11 13:29,Los Angeles International Airport,LAX,2024-02-11 15:01,92,Boeing 737,United,UA 1312,FALSE,314
+348,3,Los Angeles International Airport,LAX,2024-02-11 20:15,Harry Reid International Airport,LAS,2024-02-11 21:28,73,Boeing 737MAX 9 Passenger,United,UA 1960,FALSE,0
+349,1,Haneda Airport,HND,2024-02-11 21:20,Daniel K. Inouye International Airport,HNL,2024-02-11 9:10,410,Airbus A330,Hawaiian,HA 458,TRUE,320
+349,2,Daniel K. Inouye International Airport,HNL,2024-02-11 14:30,Kahului Airport,OGG,2024-02-11 15:15,45,Boeing 717,Hawaiian,HA 326,FALSE,65
+349,3,Kahului Airport,OGG,2024-02-11 16:20,Harry Reid International Airport,LAS,2024-02-11 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+350,1,Haneda Airport,HND,2024-02-11 21:20,Daniel K. Inouye International Airport,HNL,2024-02-11 9:10,410,Airbus A330,Hawaiian,HA 458,TRUE,156
+350,2,Daniel K. Inouye International Airport,HNL,2024-02-11 11:46,Kahului Airport,OGG,2024-02-11 12:30,44,Boeing 717,Hawaiian,HA 266,FALSE,230
+350,3,Kahului Airport,OGG,2024-02-11 16:20,Harry Reid International Airport,LAS,2024-02-11 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+351,1,Haneda Airport,HND,2024-02-11 21:20,Daniel K. Inouye International Airport,HNL,2024-02-11 9:10,410,Airbus A330,Hawaiian,HA 458,TRUE,288
+351,2,Daniel K. Inouye International Airport,HNL,2024-02-11 13:58,Kahului Airport,OGG,2024-02-11 14:42,44,Boeing 717,Hawaiian,HA 306,FALSE,98
+351,3,Kahului Airport,OGG,2024-02-11 16:20,Harry Reid International Airport,LAS,2024-02-11 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+352,1,Haneda Airport,HND,2024-02-11 21:20,Daniel K. Inouye International Airport,HNL,2024-02-11 9:10,410,Airbus A330,Hawaiian,HA 458,TRUE,180
+352,2,Daniel K. Inouye International Airport,HNL,2024-02-11 12:10,Kahului Airport,OGG,2024-02-11 12:54,44,Boeing 717,Hawaiian,HA 286,FALSE,206
+352,3,Kahului Airport,OGG,2024-02-11 16:20,Harry Reid International Airport,LAS,2024-02-11 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+353,1,Haneda Airport,HND,2024-02-11 23:55,Kona International Airport,KOA,2024-02-11 11:50,415,Airbus A330,Hawaiian,HA 852,TRUE,325
+353,2,Kona International Airport,KOA,2024-02-11 17:15,Daniel K. Inouye International Airport,HNL,2024-02-11 18:03,48,Boeing 717,Hawaiian,HA 357,FALSE,327
+353,3,Daniel K. Inouye International Airport,HNL,2024-02-11 23:30,Harry Reid International Airport,LAS,2024-02-12 7:10,340,Airbus A330,Hawaiian,HA 8,TRUE,0
+354,1,Haneda Airport,HND,2024-02-11 23:55,Kona International Airport,KOA,2024-02-11 11:50,415,Airbus A330,Hawaiian,HA 852,TRUE,123
+354,2,Kona International Airport,KOA,2024-02-11 13:53,Daniel K. Inouye International Airport,HNL,2024-02-11 14:45,52,Boeing 717,Hawaiian,HA 277,FALSE,525
+354,3,Daniel K. Inouye International Airport,HNL,2024-02-11 23:30,Harry Reid International Airport,LAS,2024-02-12 7:10,340,Airbus A330,Hawaiian,HA 8,TRUE,0
+355,1,Haneda Airport,HND,2024-02-11 23:55,Kona International Airport,KOA,2024-02-11 11:50,415,Airbus A330,Hawaiian,HA 852,TRUE,230
+355,2,Kona International Airport,KOA,2024-02-11 15:40,Daniel K. Inouye International Airport,HNL,2024-02-11 16:31,51,Boeing 717,Hawaiian,HA 317,FALSE,419
+355,3,Daniel K. Inouye International Airport,HNL,2024-02-11 23:30,Harry Reid International Airport,LAS,2024-02-12 7:10,340,Airbus A330,Hawaiian,HA 8,TRUE,0
+356,1,Haneda Airport,HND,2024-02-11 23:55,Kona International Airport,KOA,2024-02-11 11:50,415,Airbus A330,Hawaiian,HA 852,TRUE,285
+356,2,Kona International Airport,KOA,2024-02-11 16:35,Daniel K. Inouye International Airport,HNL,2024-02-11 17:24,49,Boeing 717,Hawaiian,HA 347,FALSE,366
+356,3,Daniel K. Inouye International Airport,HNL,2024-02-11 23:30,Harry Reid International Airport,LAS,2024-02-12 7:10,340,Airbus A330,Hawaiian,HA 8,TRUE,0
+357,1,Haneda Airport,HND,2024-02-11 23:55,Kona International Airport,KOA,2024-02-11 11:50,415,Airbus A330,Hawaiian,HA 852,TRUE,260
+357,2,Kona International Airport,KOA,2024-02-11 16:10,Daniel K. Inouye International Airport,HNL,2024-02-11 16:59,49,Boeing 717,Hawaiian,HA 337,FALSE,391
+357,3,Daniel K. Inouye International Airport,HNL,2024-02-11 23:30,Harry Reid International Airport,LAS,2024-02-12 7:10,340,Airbus A330,Hawaiian,HA 8,TRUE,0
+358,1,Haneda Airport,HND,2024-02-11 23:55,Kona International Airport,KOA,2024-02-11 11:50,415,Airbus A330,Hawaiian,HA 852,TRUE,405
+358,2,Kona International Airport,KOA,2024-02-11 18:35,Daniel K. Inouye International Airport,HNL,2024-02-11 19:22,47,Boeing 717,Hawaiian,HA 387,FALSE,248
+358,3,Daniel K. Inouye International Airport,HNL,2024-02-11 23:30,Harry Reid International Airport,LAS,2024-02-12 7:10,340,Airbus A330,Hawaiian,HA 8,TRUE,0
+359,1,Haneda Airport,HND,2024-02-11 21:20,Daniel K. Inouye International Airport,HNL,2024-02-11 9:10,410,Airbus A330,Hawaiian,HA 458,TRUE,1360
+359,2,Daniel K. Inouye International Airport,HNL,2024-02-12 7:50,Harry Reid International Airport,LAS,2024-02-12 15:35,345,Airbus A330,Hawaiian,HA 6,FALSE,0
+360,1,Haneda Airport,HND,2024-02-11 23:55,Kona International Airport,KOA,2024-02-11 11:50,415,Airbus A330,Hawaiian,HA 852,TRUE,148
+360,2,Kona International Airport,KOA,2024-02-11 14:18,Daniel K. Inouye International Airport,HNL,2024-02-11 15:10,52,Boeing 717,Hawaiian,HA 287,FALSE,500
+360,3,Daniel K. Inouye International Airport,HNL,2024-02-11 23:30,Harry Reid International Airport,LAS,2024-02-12 7:10,340,Airbus A330,Hawaiian,HA 8,TRUE,0
+361,1,Haneda Airport,HND,2024-02-11 23:55,Kona International Airport,KOA,2024-02-11 11:50,415,Airbus A330,Hawaiian,HA 852,TRUE,185
+361,2,Kona International Airport,KOA,2024-02-11 14:55,Daniel K. Inouye International Airport,HNL,2024-02-11 15:47,52,Boeing 717,Hawaiian,HA 307,FALSE,463
+361,3,Daniel K. Inouye International Airport,HNL,2024-02-11 23:30,Harry Reid International Airport,LAS,2024-02-12 7:10,340,Airbus A330,Hawaiian,HA 8,TRUE,0
+362,1,Haneda Airport,HND,2024-02-11 21:20,Daniel K. Inouye International Airport,HNL,2024-02-11 9:10,410,Airbus A330,Hawaiian,HA 458,TRUE,133
+362,2,Daniel K. Inouye International Airport,HNL,2024-02-11 11:23,Kahului Airport,OGG,2024-02-11 12:07,44,Boeing 717,Hawaiian,HA 246,FALSE,253
+362,3,Kahului Airport,OGG,2024-02-11 16:20,Harry Reid International Airport,LAS,2024-02-11 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+363,1,Haneda Airport,HND,2024-02-11 21:20,Daniel K. Inouye International Airport,HNL,2024-02-11 9:10,410,Airbus A330,Hawaiian,HA 458,TRUE,110
+363,2,Daniel K. Inouye International Airport,HNL,2024-02-11 11:00,Kahului Airport,OGG,2024-02-11 11:44,44,Boeing 717,Hawaiian,HA 236,FALSE,276
+363,3,Kahului Airport,OGG,2024-02-11 16:20,Harry Reid International Airport,LAS,2024-02-11 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+364,1,Haneda Airport,HND,2024-02-11 21:20,Daniel K. Inouye International Airport,HNL,2024-02-11 9:10,410,Airbus A330,Hawaiian,HA 458,TRUE,230
+364,2,Daniel K. Inouye International Airport,HNL,2024-02-11 13:00,Kahului Airport,OGG,2024-02-11 13:44,44,Boeing 717,Hawaiian,HA 296,FALSE,156
+364,3,Kahului Airport,OGG,2024-02-11 16:20,Harry Reid International Airport,LAS,2024-02-11 23:55,335,Airbus A321,Hawaiian,HA 32,FALSE,0
+365,1,Haneda Airport,HND,2024-02-11 19:40,Los Angeles International Airport,LAX,2024-02-11 12:35,595,Boeing 787-10,United,UA 38,TRUE,115
+365,2,Los Angeles International Airport,LAX,2024-02-11 14:30,Denver International Airport,DEN,2024-02-11 17:54,144,Boeing 737MAX 9 Passenger,United,UA 1554,FALSE,96
+365,3,Denver International Airport,DEN,2024-02-11 19:30,Harry Reid International Airport,LAS,2024-02-11 20:35,125,Boeing 737,United,UA 655,FALSE,0
+366,1,Haneda Airport,HND,2024-02-11 19:40,Los Angeles International Airport,LAX,2024-02-11 12:35,595,Boeing 787-10,United,UA 38,TRUE,115
+366,2,Los Angeles International Airport,LAX,2024-02-11 14:30,Denver International Airport,DEN,2024-02-11 17:54,144,Boeing 737MAX 9 Passenger,United,UA 1554,FALSE,191
+366,3,Denver International Airport,DEN,2024-02-11 21:05,Harry Reid International Airport,LAS,2024-02-11 22:09,124,Boeing 737MAX 8 Passenger,United,UA 1437,FALSE,0
+367,1,Haneda Airport,HND,2024-02-11 19:40,Los Angeles International Airport,LAX,2024-02-11 12:35,595,Boeing 787-10,United,UA 38,TRUE,220
+367,2,Los Angeles International Airport,LAX,2024-02-11 16:15,Denver International Airport,DEN,2024-02-11 19:39,144,Boeing 737,United,UA 2146,FALSE,86
+367,3,Denver International Airport,DEN,2024-02-11 21:05,Harry Reid International Airport,LAS,2024-02-11 22:09,124,Boeing 737MAX 8 Passenger,United,UA 1437,FALSE,0
+368,1,Haneda Airport,HND,2024-02-11 18:50,Toronto Pearson International Airport,YYZ,2024-02-11 17:15,745,Boeing 777,Air Canada,AC 2,TRUE,170
+368,2,Toronto Pearson International Airport,YYZ,2024-02-11 20:05,Harry Reid International Airport,LAS,2024-02-11 22:00,295,Boeing 787,Air Canada,AC 1283,FALSE,0
+369,1,Haneda Airport,HND,2024-02-11 16:25,Detroit Metropolitan Wayne County Airport,DTW,2024-02-11 14:30,725,Airbus A350,Delta,DL 276,TRUE,85
+369,2,Detroit Metropolitan Wayne County Airport,DTW,2024-02-11 15:55,Harry Reid International Airport,LAS,2024-02-11 17:31,276,Airbus A321,Delta,DL 361,FALSE,0
+370,1,Haneda Airport,HND,2024-02-11 16:25,Detroit Metropolitan Wayne County Airport,DTW,2024-02-11 14:30,725,Airbus A350,Delta,DL 276,TRUE,380
+370,2,Detroit Metropolitan Wayne County Airport,DTW,2024-02-11 20:50,Harry Reid International Airport,LAS,2024-02-11 22:33,283,Airbus A321,Delta,DL 367,FALSE,0
+371,1,Haneda Airport,HND,2024-02-11 16:50,Seattle-Tacoma International Airport,SEA,2024-02-11 9:00,550,Airbus A330-900neo,Delta,DL 166,TRUE,205
+371,2,Seattle-Tacoma International Airport,SEA,2024-02-11 12:25,Harry Reid International Airport,LAS,2024-02-11 14:53,148,Boeing 737,Delta,DL 2280,FALSE,0
+372,1,Haneda Airport,HND,2024-02-11 16:50,Seattle-Tacoma International Airport,SEA,2024-02-11 9:00,550,Airbus A330-900neo,Delta,DL 166,TRUE,180
+372,2,Seattle-Tacoma International Airport,SEA,2024-02-11 12:00,Los Angeles International Airport,LAX,2024-02-11 14:47,167,Airbus A321neo,Delta,DL 1023,FALSE,192
+372,3,Los Angeles International Airport,LAX,2024-02-11 17:59,Harry Reid International Airport,LAS,2024-02-11 19:07,68,Airbus A319,Delta,DL 1434,FALSE,0
+373,1,Haneda Airport,HND,2024-02-11 16:50,Seattle-Tacoma International Airport,SEA,2024-02-11 9:00,550,Airbus A330-900neo,Delta,DL 166,TRUE,525
+373,2,Seattle-Tacoma International Airport,SEA,2024-02-11 17:45,Harry Reid International Airport,LAS,2024-02-11 20:08,143,Boeing 737,Delta,DL 2291,FALSE,0
+374,1,Haneda Airport,HND,2024-02-11 16:50,Seattle-Tacoma International Airport,SEA,2024-02-11 9:00,550,Airbus A330-900neo,Delta,DL 166,TRUE,510
+374,2,Seattle-Tacoma International Airport,SEA,2024-02-11 17:30,Salt Lake City International Airport (SLC),SLC,2024-02-11 20:32,122,Boeing 737,Delta,DL 2399,FALSE,85
+374,3,Salt Lake City International Airport (SLC),SLC,2024-02-11 21:57,Harry Reid International Airport,LAS,2024-02-11 22:29,92,Airbus A321,Delta,DL 1586,FALSE,0
+375,1,Haneda Airport,HND,2024-02-11 16:50,Seattle-Tacoma International Airport,SEA,2024-02-11 9:00,550,Airbus A330-900neo,Delta,DL 166,TRUE,1265
+375,2,Seattle-Tacoma International Airport,SEA,2024-02-12 6:05,Harry Reid International Airport,LAS,2024-02-12 8:31,146,Airbus A321neo,Delta,DL 2288,FALSE,0
+376,1,Haneda Airport,HND,2024-02-11 17:20,Los Angeles International Airport,LAX,2024-02-11 10:40,620,Airbus A330-900neo,Delta,DL 8,TRUE,300
+376,2,Los Angeles International Airport,LAX,2024-02-11 15:40,Harry Reid International Airport,LAS,2024-02-11 16:55,75,Airbus A319,Delta,DL 2444,FALSE,0
+377,1,Haneda Airport,HND,2024-02-11 17:20,Los Angeles International Airport,LAX,2024-02-11 10:40,620,Airbus A330-900neo,Delta,DL 8,TRUE,439
+377,2,Los Angeles International Airport,LAX,2024-02-11 17:59,Harry Reid International Airport,LAS,2024-02-11 19:07,68,Airbus A319,Delta,DL 1434,FALSE,0
+378,1,Haneda Airport,HND,2024-02-11 17:20,Los Angeles International Airport,LAX,2024-02-11 10:40,620,Airbus A330-900neo,Delta,DL 8,TRUE,210
+378,2,Los Angeles International Airport,LAX,2024-02-11 14:10,Seattle-Tacoma International Airport,SEA,2024-02-11 16:59,169,Boeing 737,Delta,DL 1004,FALSE,46
+378,3,Seattle-Tacoma International Airport,SEA,2024-02-11 17:45,Harry Reid International Airport,LAS,2024-02-11 20:08,143,Boeing 737,Delta,DL 2291,FALSE,0
+379,1,Haneda Airport,HND,2024-02-11 17:20,Los Angeles International Airport,LAX,2024-02-11 10:40,620,Airbus A330-900neo,Delta,DL 8,TRUE,425
+379,2,Los Angeles International Airport,LAX,2024-02-11 17:45,Salt Lake City International Airport (SLC),SLC,2024-02-11 20:40,115,Boeing 737,Delta,DL 1603,FALSE,77
+379,3,Salt Lake City International Airport (SLC),SLC,2024-02-11 21:57,Harry Reid International Airport,LAS,2024-02-11 22:29,92,Airbus A321,Delta,DL 1586,FALSE,0
+380,1,Haneda Airport,HND,2024-02-11 17:20,Los Angeles International Airport,LAX,2024-02-11 10:40,620,Airbus A330-900neo,Delta,DL 8,TRUE,1280
+380,2,Los Angeles International Airport,LAX,2024-02-12 8:00,Harry Reid International Airport,LAS,2024-02-12 9:11,71,Airbus A319,Delta,DL 1438,FALSE,0
+381,1,Haneda Airport,HND,2024-02-11 17:35,Minneapolis–Saint Paul International Airport,MSP,2024-02-11 14:00,685,Airbus A330-900neo,Delta,DL 120,TRUE,140
+381,2,Minneapolis–Saint Paul International Airport,MSP,2024-02-11 16:20,Harry Reid International Airport,LAS,2024-02-11 17:57,217,Airbus A321,Delta,DL 1202,FALSE,0
+382,1,Haneda Airport,HND,2024-02-11 17:35,Minneapolis–Saint Paul International Airport,MSP,2024-02-11 14:00,685,Airbus A330-900neo,Delta,DL 120,TRUE,285
+382,2,Minneapolis–Saint Paul International Airport,MSP,2024-02-11 18:45,Harry Reid International Airport,LAS,2024-02-11 20:26,221,Airbus A321,Delta,DL 1569,FALSE,0
+383,1,Haneda Airport,HND,2024-02-11 17:35,Minneapolis–Saint Paul International Airport,MSP,2024-02-11 14:00,685,Airbus A330-900neo,Delta,DL 120,TRUE,280
+383,2,Minneapolis–Saint Paul International Airport,MSP,2024-02-11 18:40,Salt Lake City International Airport (SLC),SLC,2024-02-11 20:50,190,Boeing 737,Delta,DL 1584,FALSE,67
+383,3,Salt Lake City International Airport (SLC),SLC,2024-02-11 21:57,Harry Reid International Airport,LAS,2024-02-11 22:29,92,Airbus A321,Delta,DL 1586,FALSE,0
+384,1,Haneda Airport,HND,2024-02-11 18:25,San Francisco International Airport,SFO,2024-02-11 11:00,575,Boeing 777,United,UA 876,TRUE,124
+384,2,San Francisco International Airport,SFO,2024-02-11 13:04,Harry Reid International Airport,LAS,2024-02-11 14:49,105,Boeing 737,United,UA 305,FALSE,0
+385,1,Haneda Airport,HND,2024-02-11 18:25,San Francisco International Airport,SFO,2024-02-11 11:00,575,Boeing 777,United,UA 876,TRUE,118
+385,2,San Francisco International Airport,SFO,2024-02-11 12:58,Denver International Airport,DEN,2024-02-11 16:40,162,Boeing 737MAX 9 Passenger,United,UA 1374,FALSE,70
+385,3,Denver International Airport,DEN,2024-02-11 17:50,Harry Reid International Airport,LAS,2024-02-11 18:55,125,Boeing 737MAX 8 Passenger,United,UA 679,FALSE,0
+386,1,Haneda Airport,HND,2024-02-11 18:25,San Francisco International Airport,SFO,2024-02-11 11:00,575,Boeing 777,United,UA 876,TRUE,390
+386,2,San Francisco International Airport,SFO,2024-02-11 17:30,Harry Reid International Airport,LAS,2024-02-11 19:15,105,Boeing 737MAX 9 Passenger,United,UA 1896,FALSE,0
+387,1,Haneda Airport,HND,2024-02-11 18:25,San Francisco International Airport,SFO,2024-02-11 11:00,575,Boeing 777,United,UA 876,TRUE,118
+387,2,San Francisco International Airport,SFO,2024-02-11 12:58,Denver International Airport,DEN,2024-02-11 16:40,162,Boeing 737MAX 9 Passenger,United,UA 1374,FALSE,170
+387,3,Denver International Airport,DEN,2024-02-11 19:30,Harry Reid International Airport,LAS,2024-02-11 20:35,125,Boeing 737,United,UA 655,FALSE,0
+388,1,Haneda Airport,HND,2024-02-11 18:25,San Francisco International Airport,SFO,2024-02-11 11:00,575,Boeing 777,United,UA 876,TRUE,210
+388,2,San Francisco International Airport,SFO,2024-02-11 14:30,Denver International Airport,DEN,2024-02-11 18:09,159,Boeing 787,United,UA 1821,FALSE,81
+388,3,Denver International Airport,DEN,2024-02-11 19:30,Harry Reid International Airport,LAS,2024-02-11 20:35,125,Boeing 737,United,UA 655,FALSE,0
+389,1,Haneda Airport,HND,2024-02-11 18:25,San Francisco International Airport,SFO,2024-02-11 11:00,575,Boeing 777,United,UA 876,TRUE,490
+389,2,San Francisco International Airport,SFO,2024-02-11 19:10,Harry Reid International Airport,LAS,2024-02-11 20:55,105,Boeing 737,United,UA 1847,FALSE,0
+390,1,Haneda Airport,HND,2024-02-11 18:25,San Francisco International Airport,SFO,2024-02-11 11:00,575,Boeing 777,United,UA 876,TRUE,320
+390,2,San Francisco International Airport,SFO,2024-02-11 16:20,Denver International Airport,DEN,2024-02-11 20:02,162,Boeing 737,United,UA 566,FALSE,63
+390,3,Denver International Airport,DEN,2024-02-11 21:05,Harry Reid International Airport,LAS,2024-02-11 22:09,124,Boeing 737MAX 8 Passenger,United,UA 1437,FALSE,0
+391,1,Haneda Airport,HND,2024-02-11 18:25,San Francisco International Airport,SFO,2024-02-11 11:00,575,Boeing 777,United,UA 876,TRUE,210
+391,2,San Francisco International Airport,SFO,2024-02-11 14:30,Denver International Airport,DEN,2024-02-11 18:09,159,Boeing 787,United,UA 1821,FALSE,176
+391,3,Denver International Airport,DEN,2024-02-11 21:05,Harry Reid International Airport,LAS,2024-02-11 22:09,124,Boeing 737MAX 8 Passenger,United,UA 1437,FALSE,0
+392,1,Haneda Airport,HND,2024-02-11 18:25,San Francisco International Airport,SFO,2024-02-11 11:00,575,Boeing 777,United,UA 876,TRUE,700
+392,2,San Francisco International Airport,SFO,2024-02-11 22:40,Harry Reid International Airport,LAS,2024-02-12 0:25,105,Boeing 737,United,UA 2366,FALSE,0
+393,1,Haneda Airport,HND,2024-02-11 18:25,San Francisco International Airport,SFO,2024-02-11 11:00,575,Boeing 777,United,UA 876,TRUE,1285
+393,2,San Francisco International Airport,SFO,2024-02-12 8:25,Harry Reid International Airport,LAS,2024-02-12 10:10,105,Boeing 737,United,UA 1178,FALSE,0
+394,1,Haneda Airport,HND,2024-02-11 16:50,Seattle-Tacoma International Airport,SEA,2024-02-11 9:00,550,Airbus A330-900neo,Delta,DL 166,TRUE,95
+394,2,Seattle-Tacoma International Airport,SEA,2024-02-11 10:35,Los Angeles International Airport,LAX,2024-02-11 13:10,155,Boeing 737,Delta,DL 304,FALSE,289
+394,3,Los Angeles International Airport,LAX,2024-02-11 17:59,Harry Reid International Airport,LAS,2024-02-11 19:07,68,Airbus A319,Delta,DL 1434,FALSE,0
+395,1,Haneda Airport,HND,2024-02-11 16:50,Seattle-Tacoma International Airport,SEA,2024-02-11 9:00,550,Airbus A330-900neo,Delta,DL 166,TRUE,270
+395,2,Seattle-Tacoma International Airport,SEA,2024-02-11 13:30,Salt Lake City International Airport (SLC),SLC,2024-02-11 16:32,122,Boeing 737,Delta,DL 2412,FALSE,325
+395,3,Salt Lake City International Airport (SLC),SLC,2024-02-11 21:57,Harry Reid International Airport,LAS,2024-02-11 22:29,92,Airbus A321,Delta,DL 1586,FALSE,0
+396,1,Haneda Airport,HND,2024-02-11 17:20,Los Angeles International Airport,LAX,2024-02-11 10:40,620,Airbus A330-900neo,Delta,DL 8,TRUE,155
+396,2,Los Angeles International Airport,LAX,2024-02-11 13:15,Salt Lake City International Airport (SLC),SLC,2024-02-11 16:09,114,Airbus A321neo,Delta,DL 1625,FALSE,348
+396,3,Salt Lake City International Airport (SLC),SLC,2024-02-11 21:57,Harry Reid International Airport,LAS,2024-02-11 22:29,92,Airbus A321,Delta,DL 1586,FALSE,0
+397,1,Haneda Airport,HND,2024-02-11 18:25,San Francisco International Airport,SFO,2024-02-11 11:00,575,Boeing 777,United,UA 876,TRUE,118
+397,2,San Francisco International Airport,SFO,2024-02-11 12:58,Denver International Airport,DEN,2024-02-11 16:40,162,Boeing 737MAX 9 Passenger,United,UA 1374,FALSE,265
+397,3,Denver International Airport,DEN,2024-02-11 21:05,Harry Reid International Airport,LAS,2024-02-11 22:09,124,Boeing 737MAX 8 Passenger,United,UA 1437,FALSE,0
+398,1,Haneda Airport,HND,2024-02-11 16:05,Hong Kong International Airport,HKG,2024-02-11 20:15,310,Boeing 777,Cathay Pacific,CX 549,FALSE,240
+398,2,Hong Kong International Airport,HKG,2024-02-12 0:15,Los Angeles International Airport,LAX,2024-02-11 20:55,760,Boeing 777,Cathay Pacific,CX 880,TRUE,605
+398,3,Los Angeles International Airport,LAX,2024-02-12 7:00,Harry Reid International Airport,LAS,2024-02-12 8:18,78,Boeing 737,Alaska,AS 702,FALSE,0
+399,1,Haneda Airport,HND,2024-02-11 16:05,Hong Kong International Airport,HKG,2024-02-11 20:15,310,Boeing 777,Cathay Pacific,CX 549,FALSE,280
+399,2,Hong Kong International Airport,HKG,2024-02-12 0:55,San Francisco International Airport,SFO,2024-02-11 21:15,740,Airbus A350,Cathay Pacific,CX 872,TRUE,605
+399,3,San Francisco International Airport,SFO,2024-02-12 7:20,Harry Reid International Airport,LAS,2024-02-12 8:58,98,Embraer 175,Alaska,AS 3349,FALSE,0
+400,1,Haneda Airport,HND,2024-02-11 13:05,Los Angeles International Airport,LAX,2024-02-11 6:00,595,Boeing 787,American,AA 170,TRUE,728
+400,2,Los Angeles International Airport,LAX,2024-02-11 18:08,Harry Reid International Airport,LAS,2024-02-11 19:22,74,Boeing 737,Alaska,AS 708,FALSE,0
+401,1,Haneda Airport,HND,2024-02-11 13:05,Los Angeles International Airport,LAX,2024-02-11 6:00,595,Boeing 787,American,AA 170,TRUE,427
+401,2,Los Angeles International Airport,LAX,2024-02-11 13:07,Phoenix Sky Harbor International Airport,PHX,2024-02-11 15:33,86,Airbus A321neo,American,AA 1994,FALSE,166
+401,3,Phoenix Sky Harbor International Airport,PHX,2024-02-11 18:19,Harry Reid International Airport,LAS,2024-02-11 18:30,71,Boeing 737MAX 8 Passenger,American,AA 1977,FALSE,0
+402,1,Haneda Airport,HND,2024-02-11 13:05,Los Angeles International Airport,LAX,2024-02-11 6:00,595,Boeing 787,American,AA 170,TRUE,840
+402,2,Los Angeles International Airport,LAX,2024-02-11 20:00,Harry Reid International Airport,LAS,2024-02-11 21:14,74,Airbus A321,American,AA 2785,FALSE,0
+403,1,Haneda Airport,HND,2024-02-11 12:05,Gimpo International Airport (GMP),GMP,2024-02-11 14:25,140,Airbus A330,Asiana,OZ 1075,FALSE,230
+403,2,Incheon International Airport,ICN,2024-02-11 18:15,Seattle-Tacoma International Airport,SEA,2024-02-11 11:00,585,Airbus A350,Asiana,OZ 272,TRUE,116
+403,3,Seattle-Tacoma International Airport,SEA,2024-02-11 12:56,Harry Reid International Airport,LAS,2024-02-11 15:30,154,Boeing 737MAX 9 Passenger,Alaska,AS 678,FALSE,0
+404,1,Haneda Airport,HND,2024-02-11 12:05,Gimpo International Airport (GMP),GMP,2024-02-11 14:25,140,Airbus A330,Asiana,OZ 1075,FALSE,215
+404,2,Incheon International Airport,ICN,2024-02-11 18:00,San Francisco International Airport,SFO,2024-02-11 11:35,635,Boeing 787,United,UA 892,TRUE,89
+404,3,San Francisco International Airport,SFO,2024-02-11 13:04,Harry Reid International Airport,LAS,2024-02-11 14:49,105,Boeing 737,United,UA 305,FALSE,0
+405,1,Haneda Airport,HND,2024-02-11 13:05,Los Angeles International Airport,LAX,2024-02-11 6:00,595,Boeing 787,American,AA 170,TRUE,243
+405,2,Los Angeles International Airport,LAX,2024-02-11 10:03,Harry Reid International Airport,LAS,2024-02-11 11:17,74,Boeing 737,American,AA 2002,FALSE,0
+406,1,Haneda Airport,HND,2024-02-11 13:05,Los Angeles International Airport,LAX,2024-02-11 6:00,595,Boeing 787,American,AA 170,TRUE,367
+406,2,Los Angeles International Airport,LAX,2024-02-11 12:07,Harry Reid International Airport,LAS,2024-02-11 13:17,70,Boeing 737,American,AA 2388,FALSE,0
+407,1,Haneda Airport,HND,2024-02-11 13:05,Los Angeles International Airport,LAX,2024-02-11 6:00,595,Boeing 787,American,AA 170,TRUE,259
+407,2,Ontario International Airport,ONT,2024-02-11 10:19,Phoenix Sky Harbor International Airport,PHX,2024-02-11 12:38,79,Airbus A319,American,AA 296,FALSE,155
+407,3,Phoenix Sky Harbor International Airport,PHX,2024-02-11 15:13,Harry Reid International Airport,LAS,2024-02-11 15:23,70,Airbus A321,American,AA 1541,FALSE,0
+408,1,Haneda Airport,HND,2024-02-11 13:05,Los Angeles International Airport,LAX,2024-02-11 6:00,595,Boeing 787,American,AA 170,TRUE,620
+408,2,Los Angeles International Airport,LAX,2024-02-11 16:20,Phoenix Sky Harbor International Airport,PHX,2024-02-11 18:46,86,Boeing 737,American,AA 2032,FALSE,174
+408,3,Phoenix Sky Harbor International Airport,PHX,2024-02-11 21:40,Harry Reid International Airport,LAS,2024-02-11 21:57,77,Airbus A321neo,American,AA 2106,FALSE,0
+409,1,Haneda Airport,HND,2024-02-11 13:05,Los Angeles International Airport,LAX,2024-02-11 6:00,595,Boeing 787,American,AA 170,TRUE,241
+409,2,Los Angeles International Airport,LAX,2024-02-11 10:01,Phoenix Sky Harbor International Airport,PHX,2024-02-11 12:30,89,Airbus A321,American,AA 721,FALSE,349
+409,3,Phoenix Sky Harbor International Airport,PHX,2024-02-11 18:19,Harry Reid International Airport,LAS,2024-02-11 18:30,71,Boeing 737MAX 8 Passenger,American,AA 1977,FALSE,0
+410,1,Haneda Airport,HND,2024-02-11 1:30,Incheon International Airport,ICN,2024-02-11 4:10,160,Airbus A321,Asiana,OZ 177,TRUE,830
+410,2,Incheon International Airport,ICN,2024-02-11 18:00,San Francisco International Airport,SFO,2024-02-11 11:35,635,Boeing 787,United,UA 892,TRUE,89
+410,3,San Francisco International Airport,SFO,2024-02-11 13:04,Harry Reid International Airport,LAS,2024-02-11 14:49,105,Boeing 737,United,UA 305,FALSE,0
+411,1,Haneda Airport,HND,2024-02-11 13:05,Los Angeles International Airport,LAX,2024-02-11 6:00,595,Boeing 787,American,AA 170,TRUE,241
+411,2,Los Angeles International Airport,LAX,2024-02-11 10:01,Phoenix Sky Harbor International Airport,PHX,2024-02-11 12:30,89,Airbus A321,American,AA 721,FALSE,163
+411,3,Phoenix Sky Harbor International Airport,PHX,2024-02-11 15:13,Harry Reid International Airport,LAS,2024-02-11 15:23,70,Airbus A321,American,AA 1541,FALSE,0
+412,1,Haneda Airport,HND,2024-02-11 23:55,Kona International Airport,KOA,2024-02-11 11:50,415,Airbus A330,Hawaiian,HA 852,TRUE,165
+412,2,Kona International Airport,KOA,2024-02-11 14:35,San Francisco International Airport,SFO,2024-02-11 21:43,308,Boeing 757,United,UA 1711,FALSE,57
+412,3,San Francisco International Airport,SFO,2024-02-11 22:40,Harry Reid International Airport,LAS,2024-02-12 0:25,105,Boeing 737,United,UA 2366,FALSE,0
+413,1,Haneda Airport,HND,2024-02-11 21:20,Daniel K. Inouye International Airport,HNL,2024-02-11 9:10,410,Airbus A330,Hawaiian,HA 458,TRUE,315
+413,2,Daniel K. Inouye International Airport,HNL,2024-02-11 14:25,San Francisco International Airport,SFO,2024-02-11 21:29,304,Boeing 777,United,UA 1141,FALSE,71
+413,3,San Francisco International Airport,SFO,2024-02-11 22:40,Harry Reid International Airport,LAS,2024-02-12 0:25,105,Boeing 737,United,UA 2366,FALSE,0
+414,1,Haneda Airport,HND,2024-02-11 21:20,Daniel K. Inouye International Airport,HNL,2024-02-11 9:10,410,Airbus A330,Hawaiian,HA 458,TRUE,225
+414,2,Daniel K. Inouye International Airport,HNL,2024-02-11 12:55,San Francisco International Airport,SFO,2024-02-11 20:10,315,Airbus A330,Hawaiian,HA 12,FALSE,150
+414,3,San Francisco International Airport,SFO,2024-02-11 22:40,Harry Reid International Airport,LAS,2024-02-12 0:25,105,Boeing 737,United,UA 2366,FALSE,0
+415,1,Haneda Airport,HND,2024-02-11 13:05,Los Angeles International Airport,LAX,2024-02-11 6:00,595,Boeing 787,American,AA 170,TRUE,185
+415,2,Los Angeles International Airport,LAX,2024-02-11 9:05,Dallas Fort Worth International Airport,DFW,2024-02-11 14:05,180,Boeing 777,American,AA 2811,FALSE,47
+415,3,Dallas Fort Worth International Airport,DFW,2024-02-11 14:52,Harry Reid International Airport,LAS,2024-02-11 15:56,184,Airbus A321,American,AA 2376,FALSE,0
+416,1,Haneda Airport,HND,2024-02-11 13:05,Los Angeles International Airport,LAX,2024-02-11 6:00,595,Boeing 787,American,AA 170,TRUE,120
+416,2,Los Angeles International Airport,LAX,2024-02-11 8:00,Dallas Fort Worth International Airport,DFW,2024-02-11 12:58,178,Airbus A321,American,AA 2766,FALSE,114
+416,3,Dallas Fort Worth International Airport,DFW,2024-02-11 14:52,Harry Reid International Airport,LAS,2024-02-11 15:56,184,Airbus A321,American,AA 2376,FALSE,0
+417,1,Haneda Airport,HND,2024-02-11 13:05,Los Angeles International Airport,LAX,2024-02-11 6:00,595,Boeing 787,American,AA 170,TRUE,153
+417,2,Los Angeles International Airport,LAX,2024-02-11 8:33,Harry Reid International Airport,LAS,2024-02-11 9:46,73,Boeing 737MAX 8 Passenger,United,UA 1006,FALSE,0
+418,1,Haneda Airport,HND,2024-02-11 13:05,Los Angeles International Airport,LAX,2024-02-11 6:00,595,Boeing 787,American,AA 170,TRUE,416
+418,2,Los Angeles International Airport,LAX,2024-02-11 12:56,Harry Reid International Airport,LAS,2024-02-11 14:09,73,Boeing 737,United,UA 2449,FALSE,0
+419,1,Haneda Airport,HND,2024-02-11 2:00,Incheon International Airport,ICN,2024-02-11 4:50,170,Boeing 737,Korean Air,KE 720,TRUE,970
+419,2,Incheon International Airport,ICN,2024-02-11 21:00,Harry Reid International Airport,LAS,2024-02-11 15:15,675,Boeing 777,Korean Air,KE 5,TRUE,0
+420,1,Haneda Airport,HND,2024-02-11 9:45,Gimpo International Airport (GMP),GMP,2024-02-11 12:20,155,Airbus A321neo,Korean Air,KE 2106,FALSE,520
+420,2,Incheon International Airport,ICN,2024-02-11 21:00,Harry Reid International Airport,LAS,2024-02-11 15:15,675,Boeing 777,Korean Air,KE 5,TRUE,0
+421,1,Haneda Airport,HND,2024-02-11 12:25,Gimpo International Airport (GMP),GMP,2024-02-11 15:00,155,Airbus A330,Korean Air,KE 2102,FALSE,360
+421,2,Incheon International Airport,ICN,2024-02-11 21:00,Harry Reid International Airport,LAS,2024-02-11 15:15,675,Boeing 777,Korean Air,KE 5,TRUE,0
+422,1,Haneda Airport,HND,2024-02-11 8:40,Shanghai Pudong International Airport,PVG,2024-02-11 10:45,185,Airbus A350,China Eastern,MU 576,FALSE,215
+422,2,Shanghai Pudong International Airport,PVG,2024-02-11 14:20,San Francisco International Airport,SFO,2024-02-11 9:30,670,Boeing 777,China Eastern,MU 589,TRUE,214
+422,3,San Francisco International Airport,SFO,2024-02-11 13:04,Harry Reid International Airport,LAS,2024-02-11 14:49,105,Boeing 737,United,UA 305,FALSE,0
+423,1,Haneda Airport,HND,2024-02-11 20:05,Gimpo International Airport (GMP),GMP,2024-02-11 22:35,150,Airbus A330,Asiana,OZ 1035,FALSE,850
+423,2,Incheon International Airport,ICN,2024-02-12 12:45,Frankfurt Airport,FRA,2024-02-12 18:30,825,Boeing 747,Lufthansa,LH 713,FALSE,995
+423,3,Frankfurt Airport,FRA,2024-02-20 11:05,Harry Reid International Airport,LAS,2024-02-20 13:50,705,Airbus A330,Discover Airlines,4Y 54,FALSE,0
+424,1,Haneda Airport,HND,2024-02-11 8:40,Shanghai Pudong International Airport,PVG,2024-02-11 10:45,185,Airbus A350,China Eastern,MU 576,FALSE,215
+424,2,Shanghai Pudong International Airport,PVG,2024-02-11 14:20,San Francisco International Airport,SFO,2024-02-11 9:30,670,Boeing 777,China Eastern,MU 589,TRUE,480
+424,3,San Francisco International Airport,SFO,2024-02-11 17:30,Harry Reid International Airport,LAS,2024-02-11 19:15,105,Boeing 737MAX 9 Passenger,United,UA 1896,FALSE,0
+425,1,Haneda Airport,HND,2024-02-11 22:15,Daniel K. Inouye International Airport,HNL,2024-02-11 10:05,410,Boeing 787,ANA,NH 186,TRUE,260
+425,2,Daniel K. Inouye International Airport,HNL,2024-02-11 14:25,San Francisco International Airport,SFO,2024-02-11 21:29,304,Boeing 777,United,UA 1141,FALSE,71
+425,3,San Francisco International Airport,SFO,2024-02-11 22:40,Harry Reid International Airport,LAS,2024-02-12 0:25,105,Boeing 737,United,UA 2366,FALSE,0
+426,1,Haneda Airport,HND,2024-02-11 18:00,Dallas Fort Worth International Airport,DFW,2024-02-11 14:30,690,Boeing 787,American,AA 176,TRUE,993
+426,2,Dallas Fort Worth International Airport,DFW,2024-02-12 7:03,Harry Reid International Airport,LAS,2024-02-12 8:10,187,Airbus A321,American,AA 1969,FALSE,0
+427,1,Haneda Airport,HND,2024-02-11 20:25,Los Angeles International Airport,LAX,2024-02-11 13:20,595,Boeing 787,American,AA 26,TRUE,1060
+427,2,Los Angeles International Airport,LAX,2024-02-12 7:00,Harry Reid International Airport,LAS,2024-02-12 8:18,78,Boeing 737,Alaska,AS 702,FALSE,0
+428,1,Haneda Airport,HND,2024-02-11 20:25,Los Angeles International Airport,LAX,2024-02-11 13:20,595,Boeing 787,American,AA 26,TRUE,1243
+428,2,Los Angeles International Airport,LAX,2024-02-12 10:03,Harry Reid International Airport,LAS,2024-02-12 11:17,74,Boeing 737,American,AA 2002,FALSE,0
+429,1,Haneda Airport,HND,2024-02-11 21:55,Vancouver International Airport (YVR),YVR,2024-02-11 13:45,530,Boeing 787,ANA,NH 116,TRUE,330
+429,2,Vancouver International Airport (YVR),YVR,2024-02-11 19:15,San Francisco International Airport,SFO,2024-02-11 21:40,145,Boeing 737,United,UA 2423,FALSE,60
+429,3,San Francisco International Airport,SFO,2024-02-11 22:40,Harry Reid International Airport,LAS,2024-02-12 0:25,105,Boeing 737,United,UA 2366,FALSE,0
+430,1,Haneda Airport,HND,2024-02-11 13:35,Kansai International Airport,KIX,2024-02-11 15:00,85,Boeing 767,ANA,NH 991,FALSE,210
+430,2,Kansai International Airport,KIX,2024-02-11 18:30,San Francisco International Airport,SFO,2024-02-11 11:15,585,Boeing 787,United,UA 34,TRUE,109
+430,3,San Francisco International Airport,SFO,2024-02-11 13:04,Harry Reid International Airport,LAS,2024-02-11 14:49,105,Boeing 737,United,UA 305,FALSE,0
+431,1,Haneda Airport,HND,2024-02-11 15:30,Kansai International Airport,KIX,2024-02-11 16:55,85,Airbus A320,ANA,NH 3825,FALSE,95
+431,2,Kansai International Airport,KIX,2024-02-11 18:30,San Francisco International Airport,SFO,2024-02-11 11:15,585,Boeing 787,United,UA 34,TRUE,109
+431,3,San Francisco International Airport,SFO,2024-02-11 13:04,Harry Reid International Airport,LAS,2024-02-11 14:49,105,Boeing 737,United,UA 305,FALSE,0
+432,1,Haneda Airport,HND,2024-02-11 20:25,Los Angeles International Airport,LAX,2024-02-11 13:20,595,Boeing 787,American,AA 26,TRUE,400
+432,2,Los Angeles International Airport,LAX,2024-02-11 20:00,Harry Reid International Airport,LAS,2024-02-11 21:14,74,Airbus A321,American,AA 2785,FALSE,0
+433,1,Haneda Airport,HND,2024-02-11 0:50,Los Angeles International Airport,LAX,2024-02-17 17:50,600,Boeing 787,ANA,NH 106,TRUE,145
+433,2,Los Angeles International Airport,LAX,2024-02-17 20:15,Harry Reid International Airport,LAS,2024-02-17 21:28,73,Boeing 737,United,UA 1960,FALSE,0
+434,1,Haneda Airport,HND,2024-02-11 0:50,Los Angeles International Airport,LAX,2024-02-17 17:50,600,Boeing 787,ANA,NH 106,TRUE,883
+434,2,Los Angeles International Airport,LAX,2024-02-11 8:33,Harry Reid International Airport,LAS,2024-02-11 9:46,73,Boeing 737MAX 8 Passenger,United,UA 1006,FALSE,0
+435,1,Haneda Airport,HND,2024-02-11 0:50,Los Angeles International Airport,LAX,2024-02-17 17:50,600,Boeing 787,ANA,NH 106,TRUE,1146
+435,2,Los Angeles International Airport,LAX,2024-02-11 12:56,Harry Reid International Airport,LAS,2024-02-11 14:09,73,Boeing 737,United,UA 2449,FALSE,0
+436,1,Haneda Airport,HND,2024-02-11 22:55,San Francisco International Airport,SFO,2024-02-11 15:20,565,Boeing 777,ANA,NH 108,TRUE,440
+436,2,San Francisco International Airport,SFO,2024-02-11 22:40,Harry Reid International Airport,LAS,2024-02-12 0:25,105,Boeing 737,United,UA 2366,FALSE,0
+437,1,Haneda Airport,HND,2024-02-11 22:55,San Francisco International Airport,SFO,2024-02-11 15:20,565,Boeing 777,ANA,NH 108,TRUE,1025
+437,2,San Francisco International Airport,SFO,2024-02-12 8:25,Harry Reid International Airport,LAS,2024-02-12 10:10,105,Boeing 737,United,UA 1178,FALSE,0
+438,1,Haneda Airport,HND,2024-02-11 21:05,Los Angeles International Airport,LAX,2024-02-11 14:05,600,Boeing 787,ANA,NH 126,TRUE,160
+438,2,Los Angeles International Airport,LAX,2024-02-11 16:45,Harry Reid International Airport,LAS,2024-02-11 17:58,73,Boeing 737,United,UA 1062,FALSE,0
+439,1,Haneda Airport,HND,2024-02-11 16:25,Los Angeles International Airport,LAX,2024-02-11 9:15,590,Boeing 787,JAL,JL 16,TRUE,172
+439,2,Los Angeles International Airport,LAX,2024-02-11 12:07,Harry Reid International Airport,LAS,2024-02-11 13:17,70,Boeing 737,American,AA 2388,FALSE,0
+440,1,Haneda Airport,HND,2024-02-11 16:25,Los Angeles International Airport,LAX,2024-02-11 9:15,590,Boeing 787,JAL,JL 16,TRUE,645
+440,2,Los Angeles International Airport,LAX,2024-02-11 20:00,Harry Reid International Airport,LAS,2024-02-11 21:14,74,Airbus A321,American,AA 2785,FALSE,0
+441,1,Haneda Airport,HND,2024-02-11 10:50,O'Hare International Airport,ORD,2024-02-11 7:35,705,Boeing 777,JAL,JL 10,TRUE,156
+441,2,O'Hare International Airport,ORD,2024-02-11 10:11,Harry Reid International Airport,LAS,2024-02-11 12:27,256,Boeing 737,American,AA 2254,FALSE,0
+442,1,Haneda Airport,HND,2024-02-11 10:50,O'Hare International Airport,ORD,2024-02-11 7:35,705,Boeing 777,JAL,JL 10,TRUE,445
+442,2,O'Hare International Airport,ORD,2024-02-11 15:00,Harry Reid International Airport,LAS,2024-02-11 17:10,250,Boeing 737,American,AA 2447,FALSE,0
+443,1,Haneda Airport,HND,2024-02-11 10:55,Dallas Fort Worth International Airport,DFW,2024-02-11 7:35,700,Boeing 777,JAL,JL 12,TRUE,101
+443,2,Dallas Fort Worth International Airport,DFW,2024-02-11 9:16,Harry Reid International Airport,LAS,2024-02-11 10:20,184,Airbus A321,American,AA 777,FALSE,0
+444,1,Haneda Airport,HND,2024-02-11 10:55,Dallas Fort Worth International Airport,DFW,2024-02-11 7:35,700,Boeing 777,JAL,JL 12,TRUE,246
+444,2,Dallas Fort Worth International Airport,DFW,2024-02-11 11:41,Harry Reid International Airport,LAS,2024-02-11 12:45,184,Airbus A321,American,AA 1947,FALSE,0
+445,1,Haneda Airport,HND,2024-02-11 10:55,Dallas Fort Worth International Airport,DFW,2024-02-11 7:35,700,Boeing 777,JAL,JL 12,TRUE,335
+445,2,Dallas Fort Worth International Airport,DFW,2024-02-11 13:10,Harry Reid International Airport,LAS,2024-02-11 14:14,184,Airbus A321,American,AA 1599,FALSE,0
+446,1,Haneda Airport,HND,2024-02-11 10:55,Dallas Fort Worth International Airport,DFW,2024-02-11 7:35,700,Boeing 777,JAL,JL 12,TRUE,437
+446,2,Dallas Fort Worth International Airport,DFW,2024-02-11 14:52,Harry Reid International Airport,LAS,2024-02-11 15:56,184,Airbus A321,American,AA 2376,FALSE,0
+447,1,Haneda Airport,HND,2024-02-11 10:25,George Bush Intercontinental Airport,IAH,2024-02-11 7:20,715,Boeing 787,ANA,NH 114,TRUE,135
+447,2,George Bush Intercontinental Airport,IAH,2024-02-11 9:35,Harry Reid International Airport,LAS,2024-02-11 11:03,208,Boeing 737,United,UA 2010,FALSE,0
+448,1,Haneda Airport,HND,2024-02-11 10:40,O'Hare International Airport,ORD,2024-02-11 7:20,700,Boeing 777,ANA,NH 112,TRUE,115
+448,2,O'Hare International Airport,ORD,2024-02-11 9:15,Harry Reid International Airport,LAS,2024-02-11 11:31,256,Airbus A321neo,United,UA 373,FALSE,0
+449,1,Haneda Airport,HND,2024-02-11 15:05,Guangzhou Baiyun International Airport,CAN,2024-02-11 19:30,325,Boeing 787,China Southern,CZ 386,FALSE,1560
+449,2,Guangzhou Baiyun International Airport,CAN,2024-02-12 21:30,Los Angeles International Airport,LAX,2024-02-12 18:10,760,Boeing 777,China Southern,CZ 327,TRUE,770
+449,3,Los Angeles International Airport,LAX,2024-02-20 7:00,Harry Reid International Airport,LAS,2024-02-20 8:18,78,Boeing 737,Alaska,AS 702,FALSE,0
+450,1,Haneda Airport,HND,2024-02-11 15:05,Guangzhou Baiyun International Airport,CAN,2024-02-11 19:30,325,Boeing 787,China Southern,CZ 386,FALSE,1560
+450,2,Guangzhou Baiyun International Airport,CAN,2024-02-12 21:30,Los Angeles International Airport,LAX,2024-02-12 18:10,760,Boeing 777,China Southern,CZ 327,TRUE,275
+450,3,Los Angeles International Airport,LAX,2024-02-12 22:45,Harry Reid International Airport,LAS,2024-02-12 23:56,71,Airbus A319,Delta,DL 1434,FALSE,0
+451,1,Haneda Airport,HND,2024-02-11 0:50,Los Angeles International Airport,LAX,2024-02-17 17:50,600,Boeing 787,ANA,NH 106,TRUE,790
+451,2,Los Angeles International Airport,LAX,2024-02-11 7:00,Harry Reid International Airport,LAS,2024-02-11 8:18,78,Boeing 737,Alaska,AS 702,FALSE,0
+452,1,Haneda Airport,HND,2024-02-11 22:55,San Francisco International Airport,SFO,2024-02-11 15:20,565,Boeing 777,ANA,NH 108,TRUE,1155
+452,2,San Francisco International Airport,SFO,2024-02-12 10:35,Harry Reid International Airport,LAS,2024-02-12 12:13,98,Embraer 175,Alaska,AS 2077,FALSE,0
+453,1,Haneda Airport,HND,2024-02-11 21:55,Vancouver International Airport (YVR),YVR,2024-02-11 13:45,530,Boeing 787,ANA,NH 116,TRUE,80
+453,2,Vancouver International Airport (YVR),YVR,2024-02-11 15:05,Harry Reid International Airport,LAS,2024-02-11 17:53,168,Boeing 737MAX 8 Passenger,Air Canada,AC 1058,FALSE,0
+454,1,Haneda Airport,HND,2024-02-11 21:55,Vancouver International Airport (YVR),YVR,2024-02-11 13:45,530,Boeing 787,ANA,NH 116,TRUE,445
+454,2,Vancouver International Airport (YVR),YVR,2024-02-11 21:10,Harry Reid International Airport,LAS,2024-02-11 23:58,168,Boeing 737MAX 8 Passenger,Air Canada,AC 1060,FALSE,
