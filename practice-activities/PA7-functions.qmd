@@ -2,7 +2,7 @@
 title: "PA 7: Functions"
 format: 
   html:
-    self-contained: true
+    embed-resources: true
     code-tools: true
     toc: true
 editor: source
