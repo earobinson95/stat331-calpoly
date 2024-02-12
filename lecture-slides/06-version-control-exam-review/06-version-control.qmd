@@ -20,12 +20,283 @@ Today we will...
 
 + Review
   + PA 5.2: Scrambled Message
+  + Lab 4 Essay: Center vs Family Care
   + Lab 5: Murder in SQL City
 + Group Contract
 + New Material
   + git/GitHub
   + Connect GitHub to RStudio
 + PA 6: Merge Conflicts -- Collaborating within a GitHub Repo
+
+## Childcare Essays: Data Cleaning
+
+```{r}
+#| code-fold: true
+library(tidyverse)
+childcare_costs <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-05-09/childcare_costs.csv')
+counties <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-05-09/counties.csv')
+```
+
+::: panel-tabset
+
+## Join + Regions
+
+```{r}
+#| code-fold: true
+#| echo: true
+
+ca_childcare <- counties |> 
+  filter(state_abbreviation == "CA") |> 
+  left_join(childcare_costs,
+            by = "county_fips_code"
+            ) |> 
+  mutate(region = fct_collapse(county_name,
+                               `Superior California`         = c("Butte County", "Colusa County", "El Dorado County", "Glenn County", "Lassen County", "Modoc County", "Nevada County", "Placer County", "Plumas County", "Sacramento County", "Shasta County", "Sierra County", "Siskiyou County", "Sutter County", "Tehama County", "Yolo County", "Yuba County"),
+                               `North Coast`                 = c("Del Norte County", "Humboldt County", "Lake County", "Mendocino County", "Napa County", "Sonoma County", "Trinity County"),
+                               `San Francisco Bay Area`      = c("Alameda County", "Contra Costa County", "Marin County", "San Francisco County", "San Mateo County", "Santa Clara County", "Solano County"),
+                               `Northern San Joaquin Valley` = c("Alpine County", "Amador County", "Calaveras County", "Madera County", "Mariposa County", "Merced County", "Mono County", "San Joaquin County", "Stanislaus County", "Tuolumne County"),
+                               `Central Coast`               = c("Monterey County", "San Benito County", "San Luis Obispo County", "Santa Barbara County", "Santa Cruz County", "Ventura County"),
+                               `Southern San Joaquin Valley` = c("Fresno County", "Inyo County", "Kern County", "Kings County", "Tulare County"),
+                               `Inland Empire`               = c("Riverside County", "San Bernardino County"),
+                               `Los Angeles County`          = c("Los Angeles County"),
+                               `Orange County`               = c("Orange County"),
+                               `San Diego - Imperial`        = c("Imperial County", "San Diego County")
+                                )
+         )|> 
+  select(county_name, region, study_year, mc_infant:mfcc_preschool)
+ca_childcare
+```
+
+## Pivot + `separate()`
+
+```{r}
+#| code-fold: true
+#| echo: true
+
+ca_childcare |> 
+  pivot_longer(cols = mc_infant:mfcc_preschool,
+               names_to = "group", 
+               values_to = "median_price"
+               ) |> 
+  separate_wider_delim(group,
+                       names = c("care", "development"),
+                       delim = "_"
+                       ) |> 
+  mutate(care = fct_recode(care,
+                           "Center" = "mc",
+                           "Family" = "mfcc"
+                           ),
+         development = fct_relevel(development,
+                                   "infant", "toddler", "preschool"
+                                   )
+         )
+```
+
+## Pivot + `names_sep = "_"`
+
+```{r}
+#| code-fold: true
+#| echo: true
+
+ca_childcare <- ca_childcare |> 
+  pivot_longer(cols = mc_infant:mfcc_preschool,
+               names_to = c("care", "development"),
+               names_sep = "_",
+               values_to = "median_price"
+               ) |> 
+  mutate(care = fct_recode(care,
+                           "Center" = "mc",
+                           "Family" = "mfcc"
+                           ),
+         development = fct_relevel(development,
+                                   "infant", "toddler", "preschool"
+                                   )
+         )
+ca_childcare
+```
+
+:::
+
+## Childcare Essays: Gestalt Principles (Table Design)
+
+
+::: panel-tabset
+
+## Original
+
+```{r}
+#| code-fold: true
+#| echo: true
+
+ca_childcare |> 
+  group_by(care, development) |> 
+  summarize(median = median(median_price)) |> 
+  knitr::kable(digits = 2)
+```
+
+## Better
+
+```{r}
+#| code-fold: true
+#| echo: true
+
+ca_childcare |> 
+  group_by(care, development) |> 
+  summarize(median = median(median_price),
+            IQR = IQR(median_price)
+            ) |> 
+  arrange(development) |> 
+  knitr::kable(digits = 2)
+```
+
+## Better(er)
+
+```{r}
+#| code-fold: true
+#| echo: true
+
+ca_childcare |> 
+  group_by(care, development) |> 
+  summarize(median = median(median_price)
+            ) |> 
+  pivot_wider(id_cols = development,
+              names_from = care,
+              values_from = median
+              ) |> 
+  knitr::kable(digits = 2)
+```
+:::
+
+## Childcare Essays: Gestalt Principles (Graph Design)
+
+::: panel-tabset
+
+## Original
+
+```{r}
+#| code-fold: true
+#| echo: true
+
+ca_childcare |> 
+  ggplot(aes(x = development,
+             y = median_price
+             )
+         ) +
+  geom_boxplot() +
+  facet_grid(~ care) +
+  labs(x = "Development Stage",
+       y = "",
+       subtitle = "Median Weely Price of Childcare ($)"
+       )
+```
+
+## Better
+
+```{r}
+#| code-fold: true
+#| echo: true
+
+ca_childcare |> 
+  ggplot(aes(x = care,
+             y = median_price
+             )
+         ) +
+  geom_boxplot() +
+  facet_grid(~ development) +
+  labs(x = "Care Setting",
+       y = "",
+       subtitle = "Median Weely Price of Childcare ($)"
+       )
+```
+
+:::
+
+## Childcare Essays: Alternative Plots
+
+::: panel-tabset
+
+## Include Time
+
+```{r}
+#| code-fold: true
+#| echo: true
+
+ca_childcare |> 
+  mutate(care = fct_reorder2(.f = care,
+                             .x = study_year,
+                             .y = median_price
+                             )
+         ) |> 
+  ggplot(aes(x = study_year,
+             y = median_price,
+             color = care,
+             shape = care
+             )
+         ) +
+  geom_point(alpha = 0.2) +
+  geom_smooth() +
+  facet_grid(~ development) +
+  scale_color_brewer(palette = "Dark2") +
+  scale_x_continuous(breaks = seq(2008, 2018, 3)) +
+  scale_y_continuous(limits = c(100, 500), breaks = seq(0, 500, 50)) +
+  theme_bw() +
+  labs(x = "Year",
+       y = "",
+       subtitle = "Median Weely Price of Childcare ($)",
+       color = "Care Setting",
+       shape = "Care Setting"
+       )
+```
+
+## Include Region
+
+```{r}
+#| code-fold: true
+#| echo: true
+#| fig-height: 3
+#| fig-width: 9
+
+ca_childcare_wide <- ca_childcare |> 
+  group_by(region, care, development) |> 
+  summarize(median = median(median_price)) |> 
+  pivot_wider(id_cols     = c(region, development),
+              names_from  = care,
+              values_from = median
+              )
+ca_childcare_wide[1:2,]
+
+ca_childcare |> 
+  group_by(region, care, development) |> 
+  summarize(median = median(median_price)) |> 
+  ggplot() +
+  geom_segment(data = ca_childcare_wide,
+               aes(x = Center,
+                   xend = Family,
+                   y = region,
+                   yend = region),
+               color = "darkgray") +
+  geom_point(aes(x = median,
+             y = region,
+             color = care,
+             shape = care
+             ),
+             size = 2
+             ) +
+  facet_grid(~ development) +
+  scale_color_brewer(palette = "Dark2") +
+  scale_x_continuous(limits = c(100, 500), breaks = seq(0, 500, 100)) +
+  theme_bw() +
+  labs(x = "Median Price ($)",
+       y = "",
+       subtitle = "Median Weely Price of Childcare ($)",
+       color = "Care Setting",
+       shape = "Care Setting"
+       )
+```
+:::
+
+
+## Childcare Essays: Examples
 
 # git/GitHub Basics
 
