@@ -571,11 +571,17 @@ git_sitrep()
 knitr::include_graphics("images/pat-verify.jpg")
 ```
 
+
 # PA 6: Merge Conflicts
 
 Collaborating within a GitHub Repo
 
 ## Get into your groups!
+
++ See Canvas for your group number and members (Dr. Robinson also has the list).
++ Introduce yourself by sharing something about your name.
++ Exchange contact information.
++ Grab a set of numbered cards + red/blue/yellow sticky notes
 
 ![](images/card-suits.jpg){width="20%"}
 
