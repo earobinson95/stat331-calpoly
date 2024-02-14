@@ -74,7 +74,7 @@ There will be at least one "sketch your game plan" question and at least one "cr
 
 You will turn in your `.html` and `.qmd` files, but only your `.html` file will be graded. You will be graded on the correct output, as well as your code format and workflow.
 
-## Open-Ended Analysis [50 points]
+## Open-Ended Analysis [42 points]
 
 You will create your own `.qmd` file for this part. Make sure you know how to do this! 
 
