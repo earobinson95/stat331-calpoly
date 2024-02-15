@@ -841,7 +841,7 @@ knitr::include_graphics("https://t3.ftcdn.net/jpg/00/60/10/14/240_F_60101445_pT7
 :::
   
 + **Final Project Group Contract**
-  + Due Thursday, 2/25 at 11:59pm
+  + Due Sunday, 2/25 at 11:59pm
 
 ## Thursday, February 15th -- Midterm Exam
 
@@ -856,6 +856,6 @@ knitr::include_graphics("https://t3.ftcdn.net/jpg/00/60/10/14/240_F_60101445_pT7
   + Check-in 7.1 due Tuesday 2/20 at 8am
 
 + **Final Project Group Contract**
-  + Due Thursday 2/25 at 11:59pm
+  + Due Sunday 2/25 at 11:59pm
   
   
