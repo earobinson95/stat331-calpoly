@@ -3,7 +3,7 @@ title: "Lab 7: Functions & Fish"
 author: "Your name"
 format: 
   html:
-    self-contained: true
+    embed-resources: true
     code-tools: true
     toc: true
 editor: source
@@ -23,10 +23,7 @@ The goal of this lab is learn more about exploring missing data and to teach you
 ```{r setup}
 library(tidyverse)
 
-fish <- read.csv(here::here("lab-assignments", 
-                            "lab7", 
-                            "BlackfootFish.csv")
-                 )
+fish_data <- read.csv()
 ```
 
 ## Data Set
@@ -61,7 +58,7 @@ The measurements of each fish captured were taken by a Biologist on a raft. This
 
 #### 1. Summarizing the Data
 
-Output ONE table to answer the following two questions:
+Output **ONE** table to answer the following two questions:
 
 + How many observations have missing values?
 + What variable(s) have missing values present?
@@ -77,6 +74,7 @@ Hint: use `across()`
 Unfortunately, these missing values are not for only one `year`, `trip`, or `section` of river.
 
 #### 2. Visualizing the Data
+
 Create a thoughtful visualization exploring the frequency of missing values across the different years, sections, and trips.
 
 ```{r}
@@ -85,7 +83,7 @@ Create a thoughtful visualization exploring the frequency of missing values acro
 
 ## Function Writing: Adjusting the Data
 
-If I wanted to rescale every quantitative variable in my dataset so that the variables have values between 0 and 1. I could use the following formula:
+If I wanted to rescale every quantitative variable in my data set so that the variables have values between 0 and 1. I could use the following formula:
 
 </br>
 
@@ -98,15 +96,15 @@ The following `R` code would carry out this rescaling procedure for the `length`
 
 \vspace{0.25cm}
 
-```{r, echo = TRUE, eval = FALSE}
+```{r}
+#| eval: false
 
-BlackfootFish <- BlackfootFish |> 
+fish_data <- fish_data |> 
   mutate(length = (length - min(length, na.rm = TRUE)) / 
            (max(length, na.rm = TRUE) - min(length)), 
          weight = (weight - min(weight, na.rm = TRUE)) / 
            (max(weight, na.rm = TRUE) - min(length, na.rm = TRUE))
          )
-
 ```
 
 This process of duplicating an action multiple times makes it difficult to understand the intent of the process. Additionally, it makes it very difficult to spot the mistakes. *Did you spot the mistake in the weight conversion?*
@@ -123,7 +121,7 @@ Let's transform the repeated process above into a `rescale_01()` function.
 ::: callout-tip
 Think about the "efficiency" of your function. Are you calling the **same** function multiple times?
 
-Look into the function `range()`
+Hint: Look into the function `range()`
 :::
 
 ```{r}
@@ -142,7 +140,7 @@ Now, let's incorporate some checks into your function! Modify your previous code
 -   the function should stop if the length of the vector is not greater than 1
 
 ::: callout-tip
-No need to write code here, simply add these stops to your code from Task 1!
+No need to write code here, simply add these stops to your funciton code above!
 :::
 
 #### 5. Performing a Simple Test
@@ -168,33 +166,33 @@ This will require you call your `rescaled_01()` function within a `mutate()` sta
 :::
 
 ::: callout-tip
-There are multiple methods and packages that allow you to put plots side by side. One of my favorite for ggplot is the {patchwork} R package. 
+There are multiple methods and packages that allow you to put plots side by side. One of my favorite for ggplot is the {patchwork} R package. You might also look into the code-chunk options `#| layout: `
 
-Set both plots y-axis limits from 0 to 4000 for direct comparison across plots.
 :::
 
 ```{r}
 original_plot <- fish |>  
   ggplot(aes(x = length)) + 
   geom_histogram(binwidth = 45) +
-  labs(x = "Original Values of Fish Length (mm)") +
-  scale_y_continuous(limits = c(0,4000))
+  labs(x = "Original Values of Fish Length (mm)")
 
 scaled_plot <- # Question 6 plot code
   
-# Code to output plots side by side
+# Either code to output plots side by side or include code chunk option at the top of this code chunk.
 ```
 
 #### 7. Incorportaing Variables
 
-Suppose you would like for your `rescale()` function to perform operations on a variable within a dataset. Ideally, your function would take a dataframe and a variable name as inputs and return a dataframe where the variable has been rescaled.
+Suppose you would like for your `rescale()` function to perform operations on a variable within a data set. Ideally, your function would take a data.frame/tibble object and a variable name as inputs and return a data.frame where the variable has been rescaled.
 
-Create a `rescale_column()` function that accepts two arguments, (1) a dataframe, and (2) the name(s) of the variable(s) to be rescaled. The body of the function should call the original `rescale_01()` function you wrote previously.
+Create a `rescale_column()` function that accepts two arguments, (1) a data.frame, and (2) the name(s) of the variable(s) to be rescaled. The body of the function should call the original `rescale_01()` function you wrote previously.
 
 ::: callout-tip
 If you are struggling with this task, I would recommend reading the [Data frame functions](https://r4ds.hadley.nz/functions.html#data-frame-functions) section from R4DS.
 
-Take a look at the slides from class on Wednesday.
+You might also find [difusing from rlang](https://rlang.r-lib.org/reference/topic-defuse.html) useful.
+
+Hint: Take a look at the slides from class this week.
 :::
 
 ```{r}
@@ -223,8 +221,8 @@ fish |>
  select(length:weight) |> 
  head()
 
-# rescaled values
-
-# Question 8 code
+# rescaled values (code under here)
 
 ```
+
+
