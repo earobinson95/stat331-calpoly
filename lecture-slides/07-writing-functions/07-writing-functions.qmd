@@ -1,171 +1,166 @@
 ---
-title: "WEEK 7: WRITING FUNCTIONS"
+title: "Writing Functions"
 format: 
   revealjs:
-    theme: [default, ../../slide_custom.scss]
+    theme: default
     auto-stretch: false
 editor: source
-self-contained: true
+embed-resources: true
 ---
 
 ```{r setup}
 #| include: false
 #| message: false
 library(tidyverse)
-library(flair)
 library(palmerpenguins)
 ```
 
-## Monday, February 20th -- NO CLASS!
-
-I **highly** recommend you...
-
-+ Work through PA 7
-+ Read through and begin thinking about Lab 7
-
-## Wednesday, February 22nd
+## Tuesday, February 20
 
 Today we will...
 
-+ Mini lecture on text material
++ New Material
   + Function Basics
-  + Environments & Scope
-  + Lab 7 Preview
+  + Variable Scope + Environment
 + Work time:
-  + PA 7: Functions
-  + Lab 7: Functions & Fish
-  + Challenge 7: Incorporating Multiple Inputs
+  + PA 7: Writing Functions
+  
   
 ## Why write functions?
 
-+ Functions allow you to automate common tasks
+Functions allow you to automate common tasks!
 
-+ We've been using functions since Day 1
-
-+ Did you ever find yourself copy-pasting an analysis and changing small parts?
++ We've been using functions since Day 1, but when we write our own, we can **customize** them!
++ Have you found yourself copy-pasting code and only changing small parts?
 
 . . .
 
-**Writing your OWN functions has 3 big advantages over copy-and-paste:**
+**Writing functions has 3 big advantages over copy-paste:**
 
-1. Your code is easier to read
-
-2. To change your analysis, simply change the function
-
-3. No more mistakes from copy-paste
+1. Your code is easier to read.
+2. To change your analysis, simply change one function.
+3. You avoid mistakes from copy-paste.
 
 
 # Function Basics
+
 
 ## Function Syntax
 
 <br>
 
-```{r}
-#| fig-align: center
-#| out-width: 100%
-knitr::include_graphics("https://earobinson95.github.io/stat331-calpoly-text/images/07-writing-functions/Annotating_function_syntax.png")
-```
+![](images/syntax.png){width=90%}
 
-## A (very) simple function
+
+## Function Syntax
+
+![](images/func_structure.png)
+
+
+## A (very) Simple Function
+
+Let's **define** the function.
+
++ You must run the code to define the function just **once**.
+
 
 ```{r my_fun}
 #| echo: true
-add_two <- function(x) {
-  
+add_two <- function(x){
   x + 2
-  
 }
 ```
 
 <br>
 
-Let's call the function!
+. . .
+
+Let's **call** the function!
 
 ```{r}
 #| echo: true
 add_two(5)
 ```
 
-## Naming functions -- `add_two <- `
+
+## Naming: `add_two <- `
 
 The **name** of the function is chosen by the author.
 
 ```{r}
 #| echo: true
 #| eval: false
-add_two <- function(x) {
-  
+add_two <- function(x){
   x + 2
-  
 }
 ```
 
 . . .
 
-**A word of caution:** Function names have no inherent meaning.
+**Caution:** Function names have no inherent meaning.
+
++ The name you give to a function does not affect what the function does.
 
 ```{r}
 #| echo: true
-add_three <- function(x) {
-  
+add_three <- function(x){
   x + 7
-  
 }
 ```
-
-What did you expect?
 
 ```{r}
 #| echo: true
 add_three(5)
 ```
 
-## Function Arguments 
+
+## Arguments 
 
 The **argument(s)** of the function are chosen by the author.
 
-::: panel-tabset
-### `(x)`
++ Arguments are how we pass external values into the function.
++ They are temporary variables that only exist inside the function body.
 
-:::: columns
-::: column
+:::: {.columns}
+::: {.column width="60%"}
+
++ We give them general names:
+  + `x`, `y`, `z` -- vectors
+  + `df` -- dataframe
+  + `i`, `j` -- indices
+  
+:::
+::: {.column width="40%"}
+
+<br>
+
 ```{r}
 #| echo: true
 #| eval: false
-add_two <- function(x) {
-  
+add_two <- function(x){
   x + 2
-  
 }
 ```
-:::
-::: column
 
-+ arguments are temporary variables with general names
-
-+ `x`, `y`, `z` -- vectors
-
-+ `df` -- dataframe
-
-+ `i`, `j` -- indices
 :::
 ::::
 
+## Arguments 
+
+::: panel-tabset
+
 ### Optional arguments
 
-We can supply a default argument value -- `something = `
+If we supply a **default** value when *defining* the function, the argument is **optional** when *calling* the function.
 
 ```{r}
 #| echo: true
-add_something <- function(x, something = 2) {
-  
+add_something <- function(x, something = 2){
   return(x + something)
-  
 }
 ```
 
-`something` defaults to 2
++ If a value is not supplied, `something` defaults to 2.
 
 ```{r}
 #| echo: true
@@ -179,15 +174,13 @@ add_something(x = 5, something = 6)
 
 ### Required arguments
 
-If you **do not** supply a default value, the argument is **required**: -- `something`
+If we **do not** supply a default value when *defining* the function, the argument is **required** when *calling* the function.
 
 ```{r}
 #| echo: true
 #| error: true
-add_something <- function(x, something) {
-  
+add_something <- function(x, something){
   x + something
-  
 }
 
 add_something(x = 2)
@@ -195,31 +188,32 @@ add_something(x = 2)
 
 :::
 
-## Function `{ body }`
+
+## Body: `{  }`
 
 The **body** of the function is where the action happens.
+
++ The body must be specified within a set of curly brackets.
++ The code in the body will be executed (in order) whenever the function is called.
 
 ```{r}
 #| echo: true
 #| eval: false
-#| code-line-numbers: 3
-add_two <- function(x) {
-  
+#| code-line-numbers: "2"
+add_two <- function(x){
   x + 2
-  
 }
 ```
 
-## `return()`
 
-Your function will "give back" whatever would normally "print out".
+## Output: `return()`
+
+Your function will *give back* what would normally *print out*...
 
 ```{r}
 #| echo: true
-add_two <- function(x) {
-  
+add_two <- function(x){
   x + 2
-  
 }
 ```
 
@@ -236,80 +230,88 @@ add_two <- function(x) {
 ```{r}
 #| echo: true
 add_two(7)
-
 ```
 :::
 ::::
 
+<br>
+
 . . .
 
-You can be explicit (and clearer) by using `return()`
+...but it's better to be explicit and use `return()`.
 
 ```{r}
 #| echo: true
 #| eval: false
-add_two <- function(x) {
-  
+add_two <- function(x){
   return(x + 2)
-  
 }
 ```
 
-## Input validation
+
+## Input Validation
+
+When a function requires an input of a specific data type, check that the supplied argument is valid.
 
 ::: panel-tabset
 
-### `stopifnot()`
+### <font size=6> `stopifnot()` </font>
 ```{r}
 #| echo: true
 #| error: true
-#| code-line-numbers: 3
-
-add_something <- function(x, something) {
-  
+#| code-line-numbers: "2"
+add_something <- function(x, something){
   stopifnot(is.numeric(x))
-  
-  x + something
-  
+  return(x + something)
 }
 
 add_something(x = "statistics", something = 5)
 ```
 
-### `if() + stop()`
+### <font size=5>  Multiple validations </font>
 ```{r}
 #| echo: true
 #| error: true
-#| code-line-numbers: 3-5
-add_something <- function(x, something) {
-  
+#| code-line-numbers: "2:4"
+add_something <- function(x, something){
+  stopifnot(is.numeric(x),
+            is.numeric(something)
+            )
+  return(x + something)
+}
+
+
+add_something(x = "dog", something = 2)
+add_something(x = 2, something = "something")
+```
+
+### <font size=6> `if() + stop()` </font>
+
+```{r}
+#| echo: true
+#| error: true
+#| code-line-numbers: "2-4"
+add_something <- function(x, something){
   if(!is.numeric(x)){
     stop("Please provide a numeric input for the x argument.")
   }
-  
-  x + something
-  
+  return(x + something)
 }
 
 add_something(x = "statistics", something = 5)
 ```
 
-### Multiple validations
-
-Recall DeMorgan's law!
+### <font size=5>  Multiple validations </font>
 
 ```{r}
 #| echo: true
 #| error: true
-#| code-line-numbers: 3-5
-add_something <- function(x, something) {
-  
+#| code-line-numbers: "2-4"
+add_something <- function(x, something){
   if(!is.numeric(x) | !is.numeric(something)){
-    stop("Please provide a numeric inputs for both arguments.")
+    stop("Please provide numeric inputs for both arguments.")
   }
-  
-  x + something
-  
+  return(x + something)
 }
 
 add_something(x = 2, something = "R")
@@ -317,76 +319,77 @@ add_something(x = 2, something = "R")
 
 :::
 
-# Environments
 
-## Environments
+# Variable Scope + Environment
 
-+ The top right pane of your RStudio shows you **environment**.
-+ This is the "current state" of the objects you've created.
+
+## Variable Scope
+
+The location (environment) in which we can find and access a variable is called its **scope**.
+
++ We need to think about the scope of variables when we write functions.
++ What variables can we access **inside** a function? What variables can we access **outside** a function?
+
+
+## Global Environment
+
++ The top right pane of Rstudio shows you the **global environment**.
+  + This is the *current state* of all objects you have created.
+  + These objects can be accessed **anywhere**.
 
 ```{r}
 #| fig-align: center
-#| out-width: 70%
+#| out-width: 80%
 knitr::include_graphics("images/environment.jpg")
 ```
 
-. . .
 
-+ The code inside the function executes in the **function environment**.
-+ It does not change your **global environment**.
+## Function Environment
 
-## Dynamic Lookup
++ The code inside a function executes in the **function environment**.
+  + Function arguments and any variables created inside the function only exist inside the function.
+    + They **disappear** when the function code is complete.
+  + What happens in the function environment **does not affect** things in the global environment.
 
-If an object doesn’t exist in the function’s environment, the global environment will be searched next; if there is no object in the global environment, the program will error out.
 
-:::: columns
-::: column
+## Function Environment
+
+We **cannot** access variables created inside a function outside of the function.
+
 ```{r}
-#| error: true
 #| echo: true
-add_two <- function() {
-  
-  x + 2
-  
+#| error: true
+add_two <- function(x) {
+  my_result <- x + 2
+  return(my_result)
 }
 
-add_two()
+add_two(9)
+my_result
 ```
-:::
-::: column
-```{r}
-#| echo: true
-x <- 10
 
-add_two()
-```
-:::
-::::
 
 ## Name Masking
 
-Objects you make in the function don't affect "real life".
+Name masking occurs when an object in the *function environment* has the **same name** as an object in the *global environment*.
 
 ```{r}
 #| echo: true
-#| code-line-numbers: 3
+#| code-line-numbers: "2"
 add_two <- function(x) {
-  
   my_result <- x + 2
-  
-  my_result
-  
+  return(my_result)
 }
 ```
-
-<br>
 
 ```{r}
 #| echo: true
 my_result <- 2000
 ```
 
-This is an example of name masking, where names defined **inside** of a function mask names defined outside of a function.
+. . .
+
+The `my_result` created **inside** the function is different from the `my_result` created **outside**.
 
 :::: columns
 ::: column
@@ -404,90 +407,187 @@ my_result
 :::
 ::::
 
-## Debugging
+
+## Dynamic Lookup
+
+Functions look for objects FIRST in the function environment and SECOND in the global environment.
+
++ If the object doesn't exist in either, the code will give an error.
+
+:::: columns
+::: column
+```{r}
+#| error: true
+#| echo: true
+add_two <- function() {
+  return(x + 2)
+}
+
+add_two()
+```
+:::
+::: column
+```{r}
+#| echo: true
+x <- 10
+
+add_two()
+```
+:::
+::::
+
+. . .
+
+**It is not good practice to rely on global environment objects inside a function!**
+
+
+# Debugging
 
 ```{r}
 #| fig-align: center
-#| out-width: 80%
+#| out-width: 75%
 #| fig-cap: "The faces of debugging (by Allison Horst)"
 knitr::include_graphics("https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/51084276-ab7f-4c57-a0e7-5cf14a277359_rw_1920.png?h=825c5593149a63edef46664796766751")
 ```
 
+
+## Debugging
+
+You **will** make mistakes (create bugs) when coding.
+
++ Unfortunately, it becomes more and more complicated to **debug** your code as your code gets more sophisticated.
+
+
 ## Debugging Strategies
 
-+ Interactive coding (highlight small lines within your funciton to run them independent of the rest)
-
-+ `print()` Debugging
-
-+ Rubber Ducking
++ Interactive coding
+  + Highlight lines within your function and run them one-by-one to see what happens.
 
 . . .
 
-In general...
++ `print()` debugging
+  + Add `print()` statements throughout your code to make sure the values are what you expect.
 
-1. Write a simple **example** once (without a function)
+. . .
 
-2. **Generalize** by assigning variables.
++ Rubber Ducking
+  + Verbally explain your code line by line to a rubber duck (or a human).
 
-3. **Write** into a function.
 
-4. **Call** the function on desired arguments
+## Debugging Strategies
 
-## Example -- `find_car_make()`
+When you have a concept that you want to turn into a function...
 
-Write a function called `find_car_make()` that takes as input the name of a car, and returns only the “make”, or the company that created the car.
+1. Write a simple **example** of the code without the function framework.
 
-::: callout-tip
-For example, find_car_make("Toyota Camry") should return "Toyota" and find_car_make("Ford Anglica") should return "Ford".
-:::
+2. **Generalize** the example by assigning variables.
+
+3. **Write** the code into a function.
+
+4. **Call** the function on the desired arguments
+
+**This structure allows you to address issues as you go.**
+
+
+## An Example
+
+Write a function called `find_car_make()` that takes in the name of a car and returns the “make” of the car (the company that created it).
+
++ `find_car_make("Toyota Camry")` should return "Toyota".
++ `find_car_make("Ford Anglica")` should return "Ford".
+
+
+## An Example
 
 ::: panel-tabset
 
-### Example
+### Simple Examples
+
 ```{r}
 #| echo: true
-make <- str_extract(string = "Toyota Camry", 
-            pattern = "[:alpha:]*"
-            )
+make <- str_extract(string = "Toyota Camry",
+                    pattern = "[:alpha:]*")
 make
 
-make <- str_extract(string = "Ford Anglica", 
-            pattern = "[:alpha:]*"
-            )
+make <- str_extract(string = "Ford Anglica",
+                    pattern = "[:alpha:]*")
 make
 ```
 
 ### Generalize
+
 ```{r}
 #| echo: true
 car_name <- "Toyota Camry"
 
 make <- str_extract(string = car_name, 
-                    pattern = "[:alpha:]*"
-                    )
+                    pattern = "[:alpha:]*")
 make
 ```
 
 ### Write + Call Funciton
+
 ```{r}
 #| echo: true
 find_car_make <- function(car_name){
-  
   make <- str_extract(string = car_name, 
-                      pattern = "[:alpha:]*"
-                      )
-  make
-  
+                      pattern = "[:alpha:]*")
+  return(make)
 }
+```
 
+```{r}
+#| echo: true
 find_car_make("Toyota Camry")
 find_car_make("Ford Anglica")
 ```
 :::
 
-## Calling functions in data sets
+## [Practice Activity 7: Writing Functions](https://earobinson95.github.io/stat331-calpoly/practice-activities/PA7-functions.html)
 
-Consider `mtcars`
+You will write several small functions, then use them to unscramble a message. Many of the functions have been started for you, but **none** of them are complete as is.
+
+
+## To do...
+
++ [**PA 7: Writing Functions**](https://earobinson95.github.io/stat331-calpoly/practice-activities/PA7-functions.html)
+  + Due Thursday, 2/22 at 8:00am.
+  
++ **Final Project Group Contract**
+  + Due Sunday, 2/25 at 11:59pm.
+
+
+## Thursday, February 22
+
+Today we will...
+
++ New Material
+  + Calling Functions on Data sets
+  + Thinking About Missing Data
++ Lab 7: Functions and Fish
+
+# Calling Functions on Datasets
+
+## Last Time...
+
+We wrote a function called `find_car_make()` that takes in the name of a car and returns the “make” of the car (the company that created it).
+
++ `find_car_make("Toyota Camry")` returns "Toyota".
++ `find_car_make("Ford Anglica")` returns "Ford".
+
+```{r}
+#| echo: true
+find_car_make <- function(car_name){
+  make <- str_extract(string = car_name, 
+                      pattern = "[:alpha:]*")
+  return(make)
+}
+```
+
+
+## Pair Our Function with `dplyr`
+
+Consider the `mtcars` data.
 
 ```{r}
 #| echo: true
@@ -495,96 +595,122 @@ data(mtcars)
 head(mtcars, n = 3)
 ```
 
-Let's use our function to create a new column in the data called `make` that gives the make of each car.
+. . .
+
+Let's use our new function:
 
 ```{r}
 #| echo: true
 mtcars |> 
   rownames_to_column("make_model") |> 
   mutate(make = find_car_make(make_model),
-         .after = make_model
-         ) |> 
+         .after = make_model) |> 
   head(n = 3)
 ```
 
-
-## Lab 7 & Challenge 7
-
-[Lab 7: Functions & Fish](https://earobinson95.github.io/stat331-calpoly/lab-assignments/lab7/lab7-functions-and-fish.html)
-
-[Challenge 7: Incorporating Multiple Inputs](https://earobinson95.github.io/stat331-calpoly/lab-assignments/lab7/challenge7-functions-and-fish.html)
+## Recall the `penguins` data
 
 ```{r}
-#| fig-align: center
-#| out-width: 60%
-knitr::include_graphics("https://github.com/earobinson95/stat331-calpoly/blob/master/lab-assignments/lab7/images/blackfoot_river.jpg?raw=true")
+#| echo: true
+library(palmerpenguins)
+data(penguins)
+penguins |> 
+  head()
 ```
 
-## Standardizing Between 0 and 1
+## Function to Standardize Data
+
+We want to take in a vector of numbers and **standardize** it -- make all values be between 0 and 1.
+
+. . .
 
 ```{r}
 #| echo: true
 std_to_01 <- function(var) {
   stopifnot(is.numeric(var))
   
-  num <- var - min(var, na.rm = TRUE)
+  num   <- var - min(var, na.rm = TRUE)
   denom <- max(var, na.rm = TRUE) - min(var, na.rm = TRUE)
   
-  num / denom
+  return(num / denom)
 }
 ```
 
-Could our function be more efficient?
 
-## Ugh. Still copy + pasting!
+## Pair Our Function with `dplyr`
+
+Let's standardize penguin measurements.
 
 ```{r}
-#| eval: false
+#| eval: true
 #| echo: true
 penguins |> 
   mutate(bill_length_mm    = std_to_01(bill_length_mm), 
          bill_depth_mm     = std_to_01(bill_depth_mm), 
          flipper_length_mm = std_to_01(flipper_length_mm), 
          body_mass_g       = std_to_01(body_mass_g)
-  )
+         ) |> 
+  head()
 ```
 
-. . .
+Ugh. Still copy-pasting!
+
+## Pair Our Function with `dplyr`
 
 Recall `across()`!
 
 ```{r}
-#| eval: false
+#| eval: true
 #| echo: true
 penguins |> 
-  mutate(across(.cols = bill_length_mm:body_mass_g,
-                ~ std_to_01(.x)
+  mutate(across(.cols = bill_length_mm:body_mass_g, 
+                .fns = ~ std_to_01(var = .x)
                 )
-  )
+         ) |> 
+  head()
 ```
 
-## New option: Variables as Arguments!
+
+## Scaling Variables
+
+Is it a good idea to scale (standardize) variables in a data analysis?
+
+:::: columns
+::: column
+**Why scale?**
+
++ Easier to compare across variables.
++ Easier to model -- standardizes the amount of variability.
+:::
+::: column
+**Why not scale?**
+
++ More difficult to interpret the values.
+:::
+::::
+
+. . .
+
+E.g., a penguin with a bill length of 35 mm (std to 0.11) and a mass of 5500 g (std to 0.78).
+
+
+## Use variables as function arguments?
 
 ```{r stdcol}
 #| echo: true
-#| eval: false
+
 std_column_01 <- function(data, variable) {
-  
-  stopifnot(is.data.frame(data), 
-            is.numeric(variable)
-            )
+  stopifnot(is.data.frame(data))
   
   data <- data |> 
-    mutate(variable = std_to_01(variable))
+    mutate(variable = std_to_01(var = variable))
   
-  data
-  
+  return(data)
 }
 ```
 
 ::: callout-note
-Notice how I relied on the existing function `std_to_01()` inside the new
-function, for clarity!
+I used the existing function `std_to_01(var)` inside the new function for clarity!
 :::
 
 . . . 
@@ -594,12 +720,13 @@ But it didn't work...
 ```{r}
 #| error: true
 #| echo: true
-std_column_01(penguins, body_mass_g)
+std_column_01(data = penguins, var = body_mass_g)
 ```
 
-## Tidy evaluation
 
-Functions that use **unquoted** variable names as arguments are called
+## Tidy Evaluation
+
+Functions using **unquoted** variable names as arguments are said to use
 ***nonstandard evaluation*** or ***tidy evaluation***.
 
 :::: columns
@@ -613,7 +740,7 @@ penguins |>
   pull(body_mass_g)
 ```
 
-<br>
+&emsp; OR
 
 ```{r}
 #| echo: true
@@ -630,7 +757,7 @@ penguins$body_mass_g
 penguins[, "body_mass_g"]
 ```
 
-<br>
+&emsp; OR
 
 ```{r}
 #| echo: true
@@ -640,33 +767,74 @@ penguins[["body_mass_g"]]
 :::
 ::::
 
-## Solution 1 `r emo::ji("shrug")`
+<br>
 
-+ Just don't use tidy evaluations in your functions
-+ Harder to read / use, but safe
+. . .
+
+Tidy evaluation isn't naturally supported when writing your own functions.
+
+
+## Defused R Code
+
+When a piece of code is **defused**, R doesn't return its value like normal. 
+
++ Instead it returns an expression that describes how to evaluate it.
+
+. . .
+
+:::: columns
+::: column
+Evaluated code:
+
+```{r}
+#| echo: true
+1 + 1
+```
+:::
+::: column
+Defused code:
+
+```{r}
+#| echo: true
+expr(1 + 1)
+```
+:::
+::::
+
+. . .
+
+We produce defused code when we use tidy evaluation and our own functions don't know how to handle it.
+
+
+## Solution 1
+
+Don't use tidy evaluation in your own functions.
 
 ```{r}
 #| echo: true
 #| eval: false
+#| code-line-numbers: "4,8"
+
 std_column_01 <- function(data, variable) {
+  stopifnot(is.data.frame(data))
   
-  stopifnot(is.data.frame(data), 
-            is.character(variable))
-  
-  data[[variable]] <- std_to_01(data[[variable]])
-  
-  data
+  data[[variable]] <- std_to_01(var = data[[variable]])
+  return(data)
 }
 
 std_column_01(penguins, "bill_length_mm")
 ```
 
-## Solution 2 -- Embrace Injection `library(rlang)`
+This is more complicated to read and use, but it's  safe.
+
+
+## Solution 2
+
+Use **embrace injection**.
 
 :::: {.columns}
 ::: {.column width="70%"}
-In February 2020 `rlang` introduced the "injection" `{{ }}` operator to
-simplify writing functions around tidyverse pipelines. 
++ The `rlang` package provides the embrace operator (`{{ }}`) to simplify writing functions around `tidyverse` pipelines.
 :::
 ::: {.column width="30%"}
 ```{r}
@@ -677,13 +845,14 @@ knitr::include_graphics("https://github.com/rstudio/hex-stickers/blob/main/thumb
 :::
 ::::
 
-With the `{{ }}` operator you can inject the name of data-variables (i.e. 
-columns from the data frames) into function arguments! 
++ With the `{{ }}` operator, you can transport a variable from one function to another and can get around defused code! 
++ Alternatively, you can use `enquo(arg)` to *difuse* and `!!arg` to *inject*. 
++ Read more [here](https://rlang.r-lib.org/reference/topic-defuse.html).
 
-::: callout-warning
-This only works for `select()` type functions, that use a literal (tidy) name
-of the variable to subset the data.
-:::
+<!-- ::: callout-warning -->
+<!-- This only works for `select()` type functions, that use a literal (tidy) name of the variable to subset the data. -->
+<!-- ::: -->
+
 
 ## Recall Our Broken Function
 
@@ -691,136 +860,142 @@ of the variable to subset the data.
 #| error: true
 #| echo: true
 std_column_01 <- function(data, variable) {
-  
+  stopifnot(is.data.frame(data))
   data <- data |> 
-    mutate(
-      variable = std_to_01(variable)
-    )
-  
-  data
-  
+    mutate(variable = std_to_01(variable))
+  return(data)
 }
-
-std_column_01(penguins, body_mass_g)
+std_column_01(data = penguins, variable = body_mass_g)
 ```
 
-+ The problem here is that `mutate()` defuses the R code it was supplied. 
-+ Instead we want it to see `body_mass_g = standardize(body_mass_g)`. 
++ The code is defused, so `mutate()` doesn't know what `body_mass_g` is.
++ We can *difuse* with `enquo(variable)` and *inject* `!!variable`
++ Or we can *embrace inject* in the `body_mass_g` variable using `{{ }}`!
 
-This is why we need injection!
+## The Walrus Operator: `:=`
 
-## {{ variable }}
+When we use the *embrace operator*, we also have to use the *walrus operator* -- `:=` instead of `==`.  
 
-```{r tunnel}
-#| error: true
+
+::: panel-tabset
+
+### difuse + inject
+
+```{r}
+#| code-line-numbers: "4,7"
 #| echo: true
-
+#| eval: false
+#| code-fold: true
 std_column_01 <- function(data, variable) {
-  
   stopifnot(is.data.frame(data))
   
-  data <- data 
-    mutate({{ variable }} = std_to_01( {{ variable }})
+  variable <- enquo(variable)
+
+  data <- data |>
+    mutate(variable := std_to_01(!!variable)
            )
-  data
+  
+  return(data)
 }
+
+std_column_01(data = penguins, variable = body_mass_g)
 ```
 
-::: callout-caution
-Oh no! What happened?
+```{r}
+#| echo: false
+#| code-fold: true
+std_column_01 <- function(data, variable) {
+  stopifnot(is.data.frame(data))
+  
+  variable <- enquo(variable)
 
-The left hand side of `=` is also diffused!
-:::
+  data <- data |>
+    mutate(!!variable := std_to_01(!!variable)
+           )
+  
+  return(data)
+}
 
-## The "Walrus Operator" `:=`
+std_column_01(data = penguins, variable = body_mass_g) |>
+  head()
+```
 
-The "walrus operator" `:=` is an alias of `=`.  
-
-You can use it to supply names, e.g. a := b is equivalent to a = b. 
+### embrace injection
 
 ```{r}
 #| echo: true
+#| eval: false
+#| code-line-numbers: "5"
+#| code-fold: true
+
 std_column_01 <- function(data, variable) {
-  
   stopifnot(is.data.frame(data))
-  
+
   data <- data |>
-    mutate({{ variable }} := std_to_01( {{ variable }})
+    mutate({{ variable }} := std_to_01({{ variable }})
            )
-  data
-  
+  return(data)
 }
+
+std_column_01(data = penguins, variable = body_mass_g)
 ```
 
-## Don't forget about `across()`
+```{r}
+#| echo: false
+std_column_01 <- function(data, variable) {
+  stopifnot(is.data.frame(data))
+
+  data <- data |>
+    mutate({{variable}} := std_to_01({{variable}}))
+  return(data)
+}
+
+
+std_column_01(data = penguins, variable = body_mass_g) |> 
+  head()
+```
+:::
+
+## Inject Multiple Variables
 
 What if I want to modify multiple columns?
 
++ Use `across()`!
+
 ```{r}
 #| echo: true
+#| eval: false
+#| code-line-numbers: "5-8"
+#| code-fold: true
 std_column_01 <- function(data, variables) {
-  
   stopifnot(is.data.frame(data))
   
   data <- data |> 
     mutate(across(.cols = {{ variables }}, 
-                  ~ std_to_01(.x)
+                  .fns = ~ std_to_01(var = .x)
                   )
            )
   
-  data
-  
+  return(data)
 }
-```
 
-<br>
+std_column_01(data = penguins, variables = bill_length_mm:body_mass_g)
+```
 
 ```{r}
-#| eval: false
-#| echo: true
-std_column_01(penguins, bill_length_mm:body_mass_g)
+#| echo: false
+std_column_01 <- function(data, variables) {
+  stopifnot(is.data.frame(data))
+  
+  data <- data |> 
+    mutate(across({{variables}}, std_to_01))
+  return(data)
+}
+
+
+std_column_01(data = penguins, variables = bill_length_mm:body_mass_g) |> 
+  head(n = 5)
 ```
-
-# Missing Data are important!
-
-## Assumptions when removing missing data
-
-**Without inspection:** 
-
-> Observations are "missing **completely** at random" 
-
-<!-- When observations of a variable are missing completely at random, the missing observations are a random subset of all observations; the missing and observed values will have similar distributions. -->
-
-**With information about the "missingness":** 
-
-> Observations are "missing at random"
-
-<!-- Missing at random means there might be systematic differences between the missing and observed values, but these can be entirely explained by other observed variables. -->
-
-Look for patterns!
-
-## Missing data -- Example
-
-**If** fish length measurements are *missing at random*, conditional on month, year, and river section,
-
-**then** the distributions of lengths will be similar for fish of the same month, year, and river section.
-
-## Scaling Variables
-
-:::: columns
-::: column
-**Why Scale?**
-
-+ Easier to compare across variables
-
-+ Easier to model (standardizes variance)
-:::
-::: column
-**Why not Scale?**
-
-+ Difficult to interpret
-:::
-::::
 
 ## Interesting reads
 
@@ -828,21 +1003,69 @@ Look for patterns!
 
 [**rlang** Article on Data Masking ](https://rlang.r-lib.org/reference/topic-data-mask.html)
 
+
+# Missing Data
+
+
+## Types of Missing Data
+
+1. **Missing Completely at Random** (MCAR)
+    + *No difference* between missing and observed values.
+    + Missing observations are a random subset of all observations.
+2. **Missing at Random** (MAR)
+    + *Systematic difference* between missing and observed values, but can be entirely explained by other observed variables.
+3. **Missing Not at Random** (MNAR)
+    + Missingness is *directly* related to the unobserved value.
+
+
+## Types of Missing Data
+
+Consider a study of depression.
+
+1. **Missing Completely at Random** (MCAR)
+    + Some subjects have missing lab values because a batch of samples was processed improperly.
+2. **Missing at Random** (MAR)
+    + Subjects who *identify as male* are less likely to complete a survey on depression severity.
+3. **Missing Not at Random** (MNAR)
+    + Subjects *with more severe depression* are less likely to complete a survey on depression severity.
+
+
+## When we remove missing data...
+
+We implicitly assume observations are missing **completely** at random!
+
++ We might be mostly removing data from subjects who identify as male.
++ We might be mostly removing data from subjects with severe depression.
++ We are inadvertently making our data **less representative**.
+
+. . .
+
+**We need to take more care when dealing with missing values!**
+
+
+## Dealing with Missing Data
+
++ Look for patterns!
+    + Do observations with missing values have similar traits?
+
+. . .
+
++ Consider outside explanations!
+    + Why might missing data exist?
+    + Should we have a "missing" category in our analysis?
+
+. . .
+
++ Can we impute values?
+    + If serotonin levels are MAR *within* sex at birth and country, then the distribution of serotonin levels will be similar for individuals of the same sex at birth and country.
+
+
 ## To do...
-
-+ **Final Project Group Contract**
-  + Due Wednesday 2/22 at 11:59pm
   
-+ **PA 7: Functions**
-  + Due Wednesday 2/22 at 11:59pm
-  
-+ **Lab 7: Functions and Fish**
-  + Due Friday 2/24 at 11:59pm
-
-+ **Challenge 7: Incorporating Multiple Inputs**
-  + Due Saturday 2/25 at 11:59pm
++ [**Lab 7: Functions + Fish**](https://earobinson95.github.io/stat331-calpoly/lab-assignments/lab7/lab7-functions-and-fish.html)
+  + Due Monday, 2/26 at 11:59pm
   
 + Read **Chapter 8: Functional Programming**
-  + Check-in 8.1 due Monday 2/27 at 8am
+  + Check-in 8.1 due Tuesday 2/27 at 8:00am
   
   
