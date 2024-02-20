@@ -159,14 +159,14 @@ max(rescaled, na.rm = TRUE)
 
 Next, let's test the function on the `length` column of the `BlackfootFish` data set.
 
-The code below makes a histogram of the original values of `length`. Add a plot of the rescaled values of `length`. Output your plots side-by-side (like challenge 1), so the reader can confirm the only aspect that has changed is the scale.
+The code below makes a histogram of the original values of `length`. Add a plot of the rescaled values of `length`. Output your plots side-by-side horizontally, so the reader can confirm the only aspect that has changed is the scale.
 
 ::: callout-warning
 This will require you call your `rescaled_01()` function within a `mutate()` statement in order to create a new `length_scaled` variable.
 :::
 
 ::: callout-tip
-There are multiple methods and packages that allow you to put plots side by side. One of my favorite for ggplot is the {patchwork} R package. You might also look into the code-chunk options `#| layout: `
+There are multiple methods and packages that allow you to put plots side by side. One of my favorite for ggplot is the {patchwork} R package. You might also look into the code-chunk options `#| layout-ncol:`
 
 :::
 
@@ -208,7 +208,7 @@ rescale_column <- function(data, variables){
 Alright, now let's put your `rescale_column()` function to work! Use your `rescale_column()` function to rescale **both** the `length` and `weight` columns.
 
 ::: callout-warning
-I expect that you carry out this process by calling the `rescale()` function *one* time!
+I expect that you carry out this process by calling the `rescale_column()` function *one* time!
 :::
 
 ::: callout-tip
