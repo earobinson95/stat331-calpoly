@@ -1068,4 +1068,6 @@ We implicitly assume observations are missing **completely** at random!
 + Read **Chapter 8: Functional Programming**
   + Check-in 8.1 due Tuesday 2/27 at 8:00am
   
++ **Final Project Group Contract**
+  + Due Sunday, 2/25 at 11:59pm.
   
