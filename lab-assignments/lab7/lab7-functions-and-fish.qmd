@@ -99,7 +99,7 @@ The following `R` code would carry out this rescaling procedure for the `length`
 ```{r}
 #| eval: false
 
-fish_data <- fish_data |> 
+fish_data |> 
   mutate(length = (length - min(length, na.rm = TRUE)) / 
            (max(length, na.rm = TRUE) - min(length)), 
          weight = (weight - min(weight, na.rm = TRUE)) / 
@@ -173,7 +173,7 @@ There are multiple methods and packages that allow you to put plots side by side
 ```{r}
 original_plot <- fish |>  
   ggplot(aes(x = length)) + 
-  geom_histogram(binwidth = 45) +
+  geom_histogram() +
   labs(x = "Original Values of Fish Length (mm)")
 
 scaled_plot <- # Question 6 plot code

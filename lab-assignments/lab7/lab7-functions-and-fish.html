@@ -3240,7 +3240,7 @@ Tip
 <p><br></p>
 <p>The following <code>R</code> code would carry out this rescaling procedure for the <code>length</code> and <code>weight</code> columns of the data:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fish_data <span class="ot">&lt;-</span> fish_data <span class="sc">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fish_data <span class="sc">|&gt;</span> </span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">length =</span> (length <span class="sc">-</span> <span class="fu">min</span>(length, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">/</span> </span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>           (<span class="fu">max</span>(length, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">-</span> <span class="fu">min</span>(length)), </span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">weight =</span> (weight <span class="sc">-</span> <span class="fu">min</span>(weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">/</span> </span>
@@ -3349,7 +3349,7 @@ Tip
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>original_plot <span class="ot">&lt;-</span> fish <span class="sc">|&gt;</span>  </span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> length)) <span class="sc">+</span> </span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">45</span>) <span class="sc">+</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Original Values of Fish Length (mm)&quot;</span>)</span>
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>scaled_plot <span class="ot">&lt;-</span> <span class="co"># Question 6 plot code</span></span>
@@ -3821,7 +3821,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb17-105"><a href="#cb17-105" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb17-106"><a href="#cb17-106" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
 <span id="cb17-107"><a href="#cb17-107" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-108"><a href="#cb17-108" aria-hidden="true" tabindex="-1"></a>fish_data <span class="ot">&lt;-</span> fish_data <span class="sc">|&gt;</span> </span>
+<span id="cb17-108"><a href="#cb17-108" aria-hidden="true" tabindex="-1"></a>fish_data <span class="sc">|&gt;</span> </span>
 <span id="cb17-109"><a href="#cb17-109" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">length =</span> (length <span class="sc">-</span> <span class="fu">min</span>(length, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">/</span> </span>
 <span id="cb17-110"><a href="#cb17-110" aria-hidden="true" tabindex="-1"></a>           (<span class="fu">max</span>(length, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">-</span> <span class="fu">min</span>(length)), </span>
 <span id="cb17-111"><a href="#cb17-111" aria-hidden="true" tabindex="-1"></a>         <span class="at">weight =</span> (weight <span class="sc">-</span> <span class="fu">min</span>(weight, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">/</span> </span>
@@ -3895,7 +3895,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb17-185"><a href="#cb17-185" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb17-186"><a href="#cb17-186" aria-hidden="true" tabindex="-1"></a>original_plot <span class="ot">&lt;-</span> fish <span class="sc">|&gt;</span>  </span>
 <span id="cb17-187"><a href="#cb17-187" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> length)) <span class="sc">+</span> </span>
-<span id="cb17-188"><a href="#cb17-188" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">45</span>) <span class="sc">+</span></span>
+<span id="cb17-188"><a href="#cb17-188" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
 <span id="cb17-189"><a href="#cb17-189" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Original Values of Fish Length (mm)&quot;</span>)</span>
 <span id="cb17-190"><a href="#cb17-190" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-191"><a href="#cb17-191" aria-hidden="true" tabindex="-1"></a>scaled_plot <span class="ot">&lt;-</span> <span class="co"># Question 6 plot code</span></span>
