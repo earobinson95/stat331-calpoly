@@ -874,7 +874,7 @@ std_column_01(data = penguins, variable = body_mass_g)
 
 ## The Walrus Operator: `:=`
 
-When we use the *embrace operator*, we also have to use the *walrus operator* -- `:=` instead of `==`.  
+When we use the *embrace operator*, we also have to use the *walrus operator* -- `:=` instead of `=`.  
 
 
 ::: panel-tabset
@@ -892,7 +892,7 @@ std_column_01 <- function(data, variable) {
   variable <- enquo(variable)
 
   data <- data |>
-    mutate(variable := std_to_01(!!variable)
+    mutate(!!variable := std_to_01(!!variable)
            )
   
   return(data)
