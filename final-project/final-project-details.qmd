@@ -28,26 +28,25 @@ income <- read_csv("data/income_per_person_gdppercapita_ppp_inflation_adjusted.c
 
 | Project Component | Due Date         |
 | ----------------- | ---------------- |
-| Group Contract    | Wednesday, 2/22  |
-| [Project Proposal - Data](#proposal)    | Sunday, 3/5   |
-| [Linear Regression](#linear-reg) | Sunday, 3/12  |
-| [Final Written Report](#sim)| Sunday, 3/19 |
+| Group Contract    | Sunday, 2/25  |
+| [Project Proposal - Data](#proposal)    | Tuesday, 3/5   |
+| [Linear Regression](#linear-reg) | Tuesday, 3/12  |
+| [Final Written Report](#sim)| Friday, 3/15 |
 
-Please turn in **both** your `.qmd` and `.html` document at each check-point. *You can continue to build on one file for each subsequentive check-point.*
+Please turn in your `.html` document at each check-point. *You can continue to build on one file for each subsequentive check-point.*
 
 ::: callout-note
 ### Check-point Grading
 
 The first three check-points before the Final Report submission are in place to keep your group on track. I will be doing a quick skim of each check-point for completion and any glaring issues, but I will not be providing detailed feedback at each step. Please see me in office hours or reach out on Discord if you have specific questions.
 
-Each check-point will be worth 5 points:
+Each check-point will be worth 3 Flex Points:
 
-+ **5 points** All parts completed with thought.
-+ **3 points** Completed all parts, but with little thought OR missing some parts, but parts completed with thought.
-+ **2 points** Missing significant parts, but thought given.
-+ **1 point** Missing significant parts and little thought given.
++ **3 points** (Master) All parts completed with thought.
++ **2 points** (Practitioner) Completed all parts, but with little thought OR missing some parts, but parts completed with thought.
++ **1 point** (Novice) Missing significant parts OR significant changes need to be made.
++ **0 points** (No Marks) No submission.
 
-The standard course late penalty will apply to these check-points.
 :::
 
 ## Structure & Deliverables {-}
@@ -73,9 +72,9 @@ you are required to do for the project and what must be included in your
 written report. It is, however, up to you how you would like to structure your report (both content and style). Your group must determine on the section headers (and any sub-headers) to be included in the final written report.
 
 Your analysis should read like a formal article, such as those that appear in
-popular science journals like [this one](https://www.scientificamerican.com/). That
+popular science journals like [this one](https://www.scientificamerican.com/). See an example simple article [here](https://www.mdpi.com/2504-446X/3/2/41). That
 is, it should be *formatted* and *polished* - we shouldn't be able to see any
-code unless it is absolutely necessary, plots and tables should have clear
+code unless it is absolutely necessary (may want to `code-fold: true`), plots and tables should have clear
 labels, and the article should have a clear narrative flow.
 
 ## Project Proposal - Data {#proposal}
@@ -84,7 +83,7 @@ labels, and the article should have a clear narrative flow.
 ### Objectives
 
 + Find two **quantitative** variables from Gapmider that you are interested in exploring their relationship
-+ Download the data files for each variable
++ Download the data files for each variable and clean them
 + Join two datasets into one larger dataset
 :::
 
@@ -164,7 +163,7 @@ value of `"1.1k"` into a number *before* pivoting.
 To have both of the variables in the **same** dataset, you will need to perform
 a join. The type of join is up to you, but keep in mind that the default in 
 `ggplot()` and in `lm()` is to drop all of the `NA` values before plotting or 
-fitting a regression model. 
+fitting a regression model.
 
 ```{r}
 #| include: false
@@ -199,19 +198,18 @@ ed_income <- education_long %>%
 
 Create **two** visualizations exploring the following:
 
-1. The relationship between the two quantitative variables you are investigating
+1. The relationship between the two quantitative variables changing over time. Get creative!
+
+2. The relationship between the two quantitative variables you are investigating.
+  + In investigating this relationship, you may want to first average over the years for each country (i.e., one observational row per country since our independence condition would be violated).
 
 ::: callout-warning 
 Keep in mind your response should be on the $y$-axis and your explanatory variable should be on the $x$-axis.
 :::
 
-2. How this relationship (from #1) has changed over time
-
 ### Linear Regression
 
-Fit a simple linear regression model for the relationship between the variables
-you selected. Similar to your visualization, you will need to define which
-variable is the response ($y$) and which variable is the explanatory ($x$).
+Fit a simple linear regression model for the relationship between the variables you selected (keep in mind you should have averaged over the years for each country). Similar to your visualization, you will need to define which variable is the response ($y$) and which variable is the explanatory ($x$).
 
 > Your final report should present the estimated regression model _and_ provide
 an interpretation for each of the coefficients output.
@@ -223,10 +221,10 @@ To assess how "good" of a regression model you have we are going to look at how
 much of the variability in the response values were accounted for by your
 regression. 
 
-The goal of regression is to account for as much variability in the response
-values as we can. Here, the variance in the fitted values represents the 
+The goal of regression is to account for as much variability in the *response*
+values as we can. Here, the variance in the *fitted values* represents the 
 amount of variability in the response that was accounted for by the explanatory
-variable. The variance in the residuals represents the amount of variability 
+variable. The variance in the *residuals* represents the amount of variability 
 in the responses that **has not** been accounted for. 
 
 > Make a nicely formatted table that presents the following:
@@ -246,60 +244,64 @@ about [here](https://moderndive.com/6-multiple-regression.html#rsquared).
 
 ## Simulation {#sim}
 
-::: callout
-### Objectives
-- generate predictions from your chosen linear regression model  
-- use the predictions to simulate observations  
-- compare the simulated data to the observed data  
-- generate multiple predictive checks for your model  
-:::
+COMING SOON!
 
-::: callout
-### Written Components
-- Present visualization of simulated data (side by side observed data) and disucss similarities and/or differences.
-- Present $R^2$ distribution plot and discuss implications.
-:::
+<!-- ::: callout -->
+<!-- ### Objectives -->
+<!-- - generate predictions from your chosen linear regression model   -->
+<!-- - use the predictions to simulate observations   -->
+<!-- - compare the simulated data to the observed data   -->
+<!-- - generate multiple predictive checks for your model   -->
+<!-- ::: -->
 
-### Visualizing Simulations from the Model
+<!-- ::: callout -->
+<!-- ### Written Components -->
+<!-- - Present visualization of simulated data (side by side observed data) and disucss similarities and/or differences. -->
+<!-- - Present $R^2$ distribution plot and discuss implications. -->
+<!-- ::: -->
 
-With your simple linear regression, generate predictions using the `predict()`
-function. Then, add random errors to the predictions, using the residual
-standard error estimated from the linear regression model
-(acquired with `sigma()`). 
+<!-- ### Visualizing Simulations from the Model -->
 
-Now, compare these simulated observations to the observed data. Generate the 
-**same** plot of the relationships modeled by the linear regression, for the
-simulated data (that you made at during [2.1 Data Visualizations](#dataviz)). 
+<!-- With your simple linear regression, generate predictions using the `predict()` -->
+<!-- function. Then, add random errors to the predictions, using the residual -->
+<!-- standard error estimated from the linear regression model -->
+<!-- (acquired with `sigma()`).  -->
 
-> Plot the visualization of the observed data and the simulated data side-by-side.
->
-> Discuss how the simulated data are similar and / or different to the observed
-data. 
+<!-- Now, compare these simulated observations to the observed data. Generate the  -->
+<!-- **same** plot of the relationships modeled by the linear regression, for the -->
+<!-- simulated data (that you made at during [2.1 Data Visualizations](#dataviz)).  -->
 
-### Generating Multiple Predictive Checks 
+<!-- > Plot the visualization of the observed data and the simulated data side-by-side. -->
+<!-- > -->
+<!-- > Discuss how the simulated data are similar and / or different to the observed -->
+<!-- data.  -->
 
-Generate *at least* 1000 simulated datasets that you expect would have been 
-observed if your regression model adequately described the relationship between 
-your response and explanatory variables. 
+<!-- ### Generating Multiple Predictive Checks  -->
 
-Regress the observed dataset against each simulated dataset 
-(e.g. `lm(observed ~ simulated)`), and keep the $R^2$ from each regression. Keep 
-in mind that `lm()` discards any observations with missing values (`NA`) for 
-**any** of the variables included in your model. So, you will need to remove 
-these observations *before* joining with the observed data. 
+<!-- Generate *at least* 1000 simulated datasets that you expect would have been  -->
+<!-- observed if your regression model adequately described the relationship between  -->
+<!-- your response and explanatory variables.  -->
 
-> Plot the distribution of the $R^2$ values from the regressions. 
->
-> Discuss the implications of the values shown in the plot (i.e., How well does your model generate data similar to what was observed?)
+<!-- Regress the observed dataset against each simulated dataset  -->
+<!-- (e.g. `lm(observed ~ simulated)`), and keep the $R^2$ from each regression. Keep  -->
+<!-- in mind that `lm()` discards any observations with missing values (`NA`) for  -->
+<!-- **any** of the variables included in your model. So, you will need to remove  -->
+<!-- these observations *before* joining with the observed data.  -->
 
-## Project Options {-}
+<!-- > Plot the distribution of the $R^2$ values from the regressions.  -->
+<!-- > -->
+<!-- > Discuss the implications of the values shown in the plot (i.e., How well does your model generate data similar to what was observed?) -->
+
+## Project Options [max +27 FP] {-}
 
 Your group has the opportunity to complete additional components to the 
-written report, to earn additional Challenge points. These "extra" components 
+written report, to earn Flex Points. These "extra" components 
 may take a bit of time, so your **entire group** should make the decision 
 as to whether you can complete the task. 
 
-### Option A: Using $\LaTeX$ [+1 Challenge Point / Person] {-}
+### Option A: Use GitHub to Collaborate [max +12 FP / Person]
+
+### Option B: Using $\LaTeX$ [+3 FP / Person] {-}
 
 $\LaTeX$, which is pronounced Lah-tech or Lay-tech, is a document preparation
 system for high-quality typesetting. It is most often used for medium-to-large
@@ -328,7 +330,7 @@ You can include $\LaTeX$ math typeset within a Quarto document with `$`'s.
 > If your group chooses to embark on this adventure. I would like for you to include a nicely formatted $\LaTeX$ equation for your regression model in your written report! 
 
 
-### Option B: Creating Slick Tables [Up to +4 Challenge Points / Person] {-}
+### Option C: Creating Slick Tables [max +6 FP / Person] {-}
 
 Similar to $\LaTeX$, creating nicely formatted tables is an important aspect 
 to creating a professional report. 
@@ -351,19 +353,18 @@ of a report!
 
 > If your group chooses to embark on this adventure. I would like for you to include your nicely formatted table in your written report! 
 
-**+2 Challenge Points / Person**:
+**+3 FP / Person**:
 
 - Table formatted with `kable()`
 
-**+4 Challenge Points / Person**:
+**+6 FP / Person**:
 
 - Table formatted with `kableExtra`
 - Table created with `DT`
 
-### Option C: Animating a Plot [Up to +6 Challenge Points / Person] {-}
+### Option D: Animating a Plot [max +6 FP / Person] {-}
 
-A great extra for *any* plot is animation! There are two different packages that
-can help you add animations to a plot:
+A great extra for a plot is animation (might want to use this for your plot over time)! There are two different packages that can help you add animations to a plot:
 
 1. The **gganimate** package makes it easy to animate **ggplot2** graphics. 
 2. The **plotly** package has it's own interface for creating interactive plots.
@@ -380,8 +381,4 @@ of ["Basic Charts"](https://plotly.com/r/basic-charts/) that should
 help you learn the syntax of creating an interactive visualization. 
 :::
 
-> If your group chooses to embark on this adventure. I would like for you to include your animated visualization in your written report! 
-
-**+3 Challenge Points** for first interactive plot
-
-**+1 Challenge Points** for each subsequent interactive plot
+> If your group chooses to embark on this adventure. I would like for you to include your animated visualization in your written report!
