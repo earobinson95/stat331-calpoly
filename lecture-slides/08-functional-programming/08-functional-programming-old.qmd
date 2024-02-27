@@ -1,0 +1,663 @@
+---
+title: "WEEK 8: FUNCTIONAL PROGRAMMING"
+format: 
+  revealjs:
+    theme: [default, ../../slide_custom.scss]
+    auto-stretch: false
+editor: source
+self-contained: true
+execute:
+  echo: true
+---
+
+```{r setup}
+#| include: false
+#| message: false
+library(tidyverse)
+library(flair)
+library(palmerpenguins)
+```
+
+## Monday, February 27th
+
+Today we will...
+
++ Questions about Lab 7
++ Project Proposal -- Data
++ Mini lecture on text material^[Material and images for today's lecture were modified from Dr. Theobold's text and [Hansjörg Neth's ds4psy text](https://bookdown.org/hneth/ds4psy/12.3-iter:functional-programming.html#iter:functional-programming)]
+  + Review vectorization
+  + The `map()` family
++ PA 8: The 12 Days of Christmas Starter Functions
+
+## Iteration
+
+Repeating the *same* operation multiple times
+
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: 70%
+#| fig-cap: "Image source: https://bookdown.org/hneth/ds4psyl"
+knitr::include_graphics("images/bart_board_iter.png")
+```
+
+## Vectorized Functions
+
++ Operations in R are typically **vectorized**
+
++ By default, the functions operate on *vectors* of values rather than a *single* value.
+
+::: panel-tabset
+### Vectorized
+
+```{r}
+x <- seq(from = -4, to = 12, by = 0.5)
+x
+abs(x)
+```
+
+### `for()` Loop
+
+```{r}
+x <- seq(from = -4, to = 12, by = 0.5)
+for(i in 1:length(x)){
+  x[i] <- abs(x[i])
+}
+
+x
+```
+:::
+
+## Is every function vectorized? Short answer, no.
+
+For example, if the function you’ve written makes use of `if()` statements, your function cannot operate on vectors. 
+
+::: panel-tabset
+### Error
+
+```{r}
+#| error: true
+pos_neg_zero <- function(x){
+  stopifnot(is.numeric(x))
+  
+  if(x > 0){
+    return("Greater than 0!")
+  } else if (x < 0){
+    return("Less than 0!")
+  } else {
+    return("Equal to 0!")
+      }
+}
+
+x <- seq(from = -4, to = 4, by = 1)
+
+pos_neg_zero(x)
+```
+This error means that the `if(x > 0)` condition can only be checked for something of length 1. 
+
+### Apply to individual elements
+
+```{r}
+result <- rep(NA, length(x))
+
+for(i in 1:length(x)){
+  result[i] <- pos_neg_zero(x[i])
+}
+
+result
+```
+
+### Vectorize -- `case_when()`
+
+```{r}
+pos_neg_zero <- function(x){
+  stopifnot(is.numeric(x))
+  
+  state <- case_when(x > 0 ~ "Greater than 0!", 
+                     x < 0 ~ "Less than 0!", 
+                     TRUE ~ "Equal to 0!")
+  return(state)
+}
+
+x <- seq(from = -4, to = 4, by = 1)
+pos_neg_zero(x)
+```
+
+:::
+
+## When can’t you vectorize your function?
+
+Applying `typeof()` to a **single** variable tells us the datatype of that column.
+
+```{r}
+typeof(penguins$species)
+```
+
+Applying `typeof()` to **every** variable in the data frame returns an object structure of the penguins data frame, not the datatype of its columns.
+
+```{r}
+typeof(penguins)
+```
+
+## What can we do instead?
+
+Your good CSC 101 friend, the `for()` loop
+
+```{r}
+data_type <- rep(NA, length = ncol(penguins))
+
+for(i in 1:ncol(penguins)){
+  data_type[i] <- typeof(penguins[[i]])
+}
+
+# format table nicely
+tibble(column = names(penguins), 
+       type = data_type) %>% 
+  pivot_wider(names_from = column, 
+              values_from = type) %>% 
+  knitr::kable()
+```
+
+. . .
+
+... but we don't really need this in R because it is a functional programming language
+
+## Remember `across()`
+
+We have continually called on the `across()` function to reduce repetition in our code, when performing the **same** operation(s) on multiple columns.
+
+```{r}
+penguins %>% 
+  summarise(
+    across(
+      .cols = everything(), 
+      .fns = ~ sum(is.na(.x))
+      )
+    )
+```
+
+. . .
+
+Ugh. but `across()` uses a `for()` loop "behind the scenes"
+
+```
+for (j in seq_fns) {
+  fn <- fns[[j]]
+  out[[k]] <- fn(col, ...)
+  k <- k + 1L
+```
+
+## 
+
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: 70%
+#| fig-cap: "Image source: https://bookdown.org/hneth/ds4psyl"
+knitr::include_graphics("images/bart_board_for.png")
+```
+
+# Functional Programming
+
+> To understand computations in R, two slogans are helpful:
+> 
+> - Everything that exists is an object.
+> 
+> - Everything that happens is a function call.
+> 
+> John Chambers
+
+## Functional Programming
+
+**The big picture:** Using functions as arguments to functions
+
+::: callout-note
+There are a slew of `apply()` functions you will likely come across, but we will instead focus on the `purrr` package and `map()` family of functions.
+:::
+
+## The best option: `library(purrr)`
+
+The main goal of using `purrr` functions (instead of for loops) is to break common list manipulation challenges into smaller and independent pieces. This strategy involves two steps, each of which scales down the problem:
+
+1. Solving the problem for a single element of a list.
+Once we have solved that problem, `purrr` takes care of generalizing the solution to every element in the list.
+
+2. Breaking a complex problem down into smaller sub-problems that allow us to advance towards a solution.
+With `purrr`, we get many small pieces that we can compose together with the pipe (`|>`).
+
+This scaling-down strategy makes it easier to solve new problems and to understand our solutions to old problems when we re-read older code.
+
+::: callout-note
+[See the `purrr` cheatsheet](https://github.com/rstudio/cheatsheets/blob/main/purrr.pdf)
+:::
+
+## Introduction to `map()`
+
+`map` iterates through each item in the list and applies a function.
+
+```{r}
+#| fig-align: center
+#| out-width: 50%
+#| echo: false
+knitr::include_graphics("images/map.png")
+```
+
+## `map()` family
+`map_xxx` variants allow you to specify the type of output you want back
+
+:::: columns
+::: column
++ `map()` creates a *list*
++ `map_chr()` creates a *character vector*
++ `map_lgl()` creates an *logical vector*
++ `map_int()` creates a *integer vector*
++ `map_dbl()` creates a *numeric vector*
+:::
+::: column
++ `map2_chr()`
++ `map2_lgl()`
++ `map2_int()`
++ `map2_dbl()`
++ `pmap()`
+:::
+::::
+
+## Example -- `map()` + penguins
+
+::: panel-tabset
+
+### `across()`
+
+```{r}
+penguins |> 
+  select(bill_length_mm:body_mass_g) |> 
+  summarize(
+    across(
+      .cols = bill_length_mm:body_mass_g,
+      .fns = ~ mean(.x, na.rm = TRUE)
+      )
+  )
+```
+
+### `map_dbl()`
+```{r}
+penguins |> 
+  select(bill_length_mm:body_mass_g) |> 
+  map_dbl(.f = ~ mean(.x, na.rm = TRUE))
+```
+
+### `map_int()`
+```{r}
+penguins |> 
+  map_int(.f = ~ sum(is.na(.x)))
+```
+
++ Note the `~` and the `.x`, just like in `across()`!
+
+
+### `map_lgl()`
+
+R will return an error if the output is the wrong type
+
+```{r}
+#| error: true
+penguins |> 
+  map_lgl(.f = ~ sum(is.na(.x)))
+```
+:::
+
+## Example -- `map()` + penguins
+
+::: panel-tabset
+
+What type of output does this produce?
+
+### `across()`
+
+```{r}
+penguins |> 
+  mutate(
+    across(
+      .cols = where(is.numeric), 
+      .fns = scale
+    )
+  )
+```
+
+### `map_if()`
+
+```{r}
+penguins |> 
+  map_if(is.numeric, scale)
+```
+
+:::
+
+## 
+
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: 70%
+#| fig-cap: "Image source: https://bookdown.org/hneth/ds4psy"
+knitr::include_graphics("images/bart_board_map.png")
+```
+
+## [PA 8: The 12 Days of Christmas](https://earobinson95.github.io/stat331-calpoly/practice-activities/PA8-twelve-days-of-christmas.html)
+
+```{r}
+#| echo: false
+#| fig-align: center
+#| out-width: 80%
+#| fig-cap: "Image source: https://studioplayhouse.org/the-12-days-of-christmas/"
+knitr::include_graphics("https://studioplayhouse.org/wp-content/uploads/2020/06/12-Days-of-christmas.jpg")
+```
+
+## A (boring) Example
+
+[Timothee Chalamet's Statistics](https://www.youtube.com/watch?v=BvWefB4NGGI&ab_channel=Timoth%C3%A9eChalametFan)
+
+::: panel-tabset
+### Function
+```{r}
+chalamet_statistics <- function(n){
+  lyrics <- map_chr(1:n, ~ "Statistics, yup")
+  
+  return(
+    glue::glue("{lyrics}")
+    )
+}
+```
+
+### Break it down
+```{r}
+n = 10
+map_chr(1:n, ~ "Statistics, yup")
+```
+
+### Remember `glue()`
+
+:::: columns
+::: column
+`glue` -- "interprets string literals that are small, fast, and dependency-free"
+
+glue does this by embedding R expressions in curly braces which are then evaluated and inserted into the argument string.
+:::
+::: column
+
+```{r}
+#| echo: false
+#| fig-align: center
+knitr::include_graphics("images/glue.jpg")
+```
+
+```{r}
+library(glue)
+name <- "Emily"
+glue('My name is {name}.')
+```
+
+:::
+::::
+
+### Repeat
+
+```{r}
+chalamet_statistics <- function(n){
+  lyrics <- map_chr(1:n, ~ "Statistics, yup")
+  
+  return(
+    glue::glue("{lyrics}")
+    )
+}
+
+chalamet_statistics(n = 3)
+```
+Long strings are broken by line and concatenated together.
+:::
+
+## A (better) Example -- 99 Bottles of Beer
+
+*99 bottles of beer on the wall, 99 bottles of beer. Take one down, pass it around, 98 bottles of beer on the wall...*
+
+::: panel-tabset
+
+### Making Lyrics
+
+```{r}
+bottles_lyrics <- function(n){
+  lyrics <- glue::glue("{n} bottles of beer on the wall, {n} bottles of beer \nTake one down, pass it around, {n -1} bottles of beer on the wall")
+  return(lyrics)
+}
+
+bottles_lyrics(3)
+```
+
+### Making a Song
+```{r}
+bottles_song <- function(n){
+  song <- map_chr(n:0, bottles_lyrics)
+  return(
+    glue::glue("{song}")
+  )
+}
+
+bottles_song(3)
+```
+
+### Alternate Ending
+
+*No more bottles of beer on the wall, no more bottles of beer.*
+
+*Go to the store and buy some more, 99 bottles of beer on the wall...*
+
+```{r}
+bottles_lyrics <- function(n){
+  if(n == 0){
+    lyrics <- glue::glue("No more bottles of beer on the wall, no more bottles of beer. \nGo to the store and buy some more, 99 bottles of beer on the wall")
+  } else{
+  lyrics <- glue::glue("{n} bottles of beer on the wall, {n} bottles of beer \nTake one down, pass it around, {n -1} bottles of beer on the wall")
+  }
+  return(lyrics)
+}
+```
+
+### Final Song
+
+```{r}
+bottles_song(4)
+```
+:::
+
+## To do...
+  
++ **PA 8: The 12 Days of Christmas Starter Functions**
+  + Due Wednesday 3/1 at 8am
+  
++ **Project Proposal -- Data**
+  + Due Sunday 3/5 at 11:59pm
+
+## Wednesday, March 1st
+
+Today we will...
+
++ Bonus Challenge Opportunity
++ Lab 7 Comments
++ Clarify `case_when()`
++ Recap `pmap()`
++ Preview for Lab 8: Writing the Full Song
++ Work-time
+  + Lab and Challenge 8
+  + Project Proposal
+
+## Comments from Lab 7: Functions and Fish
+
+Get creative with your plots...
+
+:::: columns
+::: column
+```{r}
+#| echo: false
+fish <- read.csv(here::here("lab-assignments", 
+                            "lab7", 
+                            "BlackfootFish.csv")
+                 )
+
+fish |> 
+  filter(is.na(weight)) %>% 
+  group_by(year, section, trip) %>% 
+  count() %>% 
+  mutate(trip = as.factor(trip), 
+         year = as.factor(year)) %>% 
+  ggplot(aes(y = year, x = n, fill = fct_relevel(trip, levels = c("1", "2")))) + 
+  geom_col() + 
+  facet_wrap(vars(section)) + 
+  labs(y = "", 
+       x = "") +
+  scale_fill_manual(values = c("#1F87B4", "#A6CEE3")) +
+  labs(title = str_c("Missing Fish Weights for ",
+      "<span style = 'color:#A6CEE3'>**Trip 1**</span>",
+      " and <span style = 'color:#1F87B4'>**Trip 2**</span>"),
+      subtitle = "by Section of Blackfoot River"
+    ) + 
+  theme(plot.title = ggtext::element_markdown(size = 24),
+        plot.subtitle = ggtext::element_markdown(size = 18),
+        legend.position = "none", 
+        axis.text.y = element_text(size = 12), 
+        axis.title = element_text(size = 16)
+        )
+
+```
+:::
+::: column
+
+::: panel-tabset
+### Options
++ Rotate your axes
++ Make sure people don't tilt their head
++ use non-default colors
++ change font and/or font size
++ add legend to your title!
+
+### Legend Colors in Plot title
+```{r}
+#| eval: false
+labs(title = str_c("Missing Fish Weights for ",
+      "<span style = 'color:#A6CEE3'>**Trip 1**</span>",
+      " and <span style = 'color:#1F87B4'>**Trip 2**</span>"),
+      subtitle = "by Section of Blackfoot River"
+    )
+```
+
+How did I figure out the colors?
+
+```{r}
+library(RColorBrewer)
+brewer.pal(n = 2, name = "Paired")
+```
+:::
+:::
+::::
+
+## `dplyr` 1.1.0 -- `case_when(.default = )`
+
+::: panel-tabset
+### `case_when()` logic
+
+```
+new_var <- case_when(condition1 ~ change1,
+                     condition2 ~ change2,
+                     .default = variable
+                     )
+```
+
++ The `condition` should result in a TRUE/FALSE Boolean value
++ The `change` is some sort of modification to a variable
+
+::: callout-tip
+Tip: Test it out on a simple case, then generalize!
+:::
+
+### `case_when(TRUE ~ )`
+
+Works with older versions of `dplyr` -- will always work!
+
+```{r}
+pos_neg_zero <- function(x){
+  stopifnot(is.numeric(x))
+  
+  state <- case_when(x > 0 ~ "Greater than 0!", 
+                     x < 0 ~ "Less than 0!", 
+                     TRUE ~ "Equal to 0!")
+  return(state)
+}
+
+x <- seq(from = -4, to = 4, by = 1)
+pos_neg_zero(x)
+```
+### `case_when(.default = )`
+
+Works with `dplyr` versions 1.1.0 over newer.
+
+```{r}
+pos_neg_zero <- function(x){
+  stopifnot(is.numeric(x))
+  
+  state <- case_when(x > 0 ~ "Greater than 0!", 
+                     x < 0 ~ "Less than 0!", 
+                     .default = "Equal to 0!")
+  return(state)
+}
+
+x <- seq(from = -4, to = 4, by = 1)
+pos_neg_zero(x)
+```
+
+:::
+
+## What is `pmap()` doing?
+
+```{r}
+#| fig-align: center
+#| out-width: 90%
+#| echo: false
+knitr::include_graphics("images/pmap.png")
+```
+
+## Lab and Challenge: 12 Days of Christmas
+
+1. Write a `sing_day()` function
+
+  + what does "one day" lyrics look like (how might you extract these?)
+  + what order do "one day" of lyrics go in
+  
+::: callout-tip
+Start with a small example and test it out on a single day outside of the function environment.
+
+```
+xmas2 |> 
+   pull(Full.Phrase)
+```
+The function `glue_collapse()` might be useful -- look at the arguments in the R documentation.
+:::
+
+2. Iterate your `sing_day()` function over a set of days
+
+3. Style your output!
+
+
+## To do...
+  
++ **Lab 8: The 12 Days of Christmas Sing the Full Song**
+  + Due Friday 3/3 at 11:59pm
+
++ **Challenge 8: Styling Your Song**
+  + Due Saturday 3/4 at 11:59pm
+  
++ **Project Proposal -- Data**
+  + Due Sunday 3/5 at 11:59pm
+  
++ Read **Chapter 9: Regression & Simulation**
+  + Check-in 9.1 & 9.2 due Monday 3/6 at 8am
+  
+  
