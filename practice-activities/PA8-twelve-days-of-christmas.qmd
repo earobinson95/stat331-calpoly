@@ -202,9 +202,9 @@ xmas_phrase <- xmas |>
 ::: callout-note
 ### Canvas Submission {-}
 
-> Your `Full.Phrase` column is the answer to this week's Practice Activity.
+> Your `full_phrase` column is the answer to this week's Practice Activity.
 >
-> Copy and paste your `Full.Phrase` column to show me the phrases you made!
+> Copy and paste your `full_phrase` column to show me the phrases you made!
 
 ```{r}
 xmas_phrase |> 

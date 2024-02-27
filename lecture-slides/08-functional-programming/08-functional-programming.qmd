@@ -570,8 +570,7 @@ knitr::include_graphics("images/bart_board_map.png")
 ```
 
 
-## [PA 8: The 12 Days of Christmas](https://zoerehnberg.github.io/STAT331-S23/practice_activities/PA8.html)
-
+## PA 8: The 12 Days of Christmas
 ```{r}
 #| echo: false
 #| fig-align: center
