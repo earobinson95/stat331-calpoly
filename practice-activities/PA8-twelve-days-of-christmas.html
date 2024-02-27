@@ -3232,7 +3232,7 @@ Tip
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>make_phrase <span class="ot">&lt;-</span> <span class="cf">function</span>(day_word, adjective, item, verb, location) {</span>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>make_phrase <span class="ot">&lt;-</span> <span class="cf">function</span>(day_num, adjective, item, verb, location) {</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Step 1: Replace NAs with blank strings</span></span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  adjective <span class="ot">&lt;-</span> <span class="fu">str_replace_na</span>(adjective, <span class="st">&quot;&quot;</span>)</span>
@@ -3757,7 +3757,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb23-160"><a href="#cb23-160" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb23-161"><a href="#cb23-161" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-162"><a href="#cb23-162" aria-hidden="true" tabindex="-1"></a><span class="in">```{r phrase-function}</span></span>
-<span id="cb23-163"><a href="#cb23-163" aria-hidden="true" tabindex="-1"></a>make_phrase <span class="ot">&lt;-</span> <span class="cf">function</span>(day_word, adjective, item, verb, location) {</span>
+<span id="cb23-163"><a href="#cb23-163" aria-hidden="true" tabindex="-1"></a>make_phrase <span class="ot">&lt;-</span> <span class="cf">function</span>(day_num, adjective, item, verb, location) {</span>
 <span id="cb23-164"><a href="#cb23-164" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb23-165"><a href="#cb23-165" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Step 1: Replace NAs with blank strings</span></span>
 <span id="cb23-166"><a href="#cb23-166" aria-hidden="true" tabindex="-1"></a>  adjective <span class="ot">&lt;-</span> <span class="fu">str_replace_na</span>(adjective, <span class="st">&quot;&quot;</span>)</span>

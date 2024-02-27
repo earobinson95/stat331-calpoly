@@ -156,7 +156,7 @@ The `day_in_words` variable isn't quite what you want! For example, you want `12
 :::
 
 ```{r phrase-function}
-make_phrase <- function(day_word, adjective, item, verb, location) {
+make_phrase <- function(day_num, adjective, item, verb, location) {
   
   ## Step 1: Replace NAs with blank strings
   adjective <- str_replace_na(adjective, "")
