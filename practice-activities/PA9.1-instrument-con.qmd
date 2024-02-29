@@ -20,7 +20,7 @@ library(purrr)
 set.seed(1957)
 ```
 
-[Download starter .qmd file](PA9.2-instrument-con.qmd)
+[Download starter .qmd file](PA9.1-instrument-con.qmd)
 
 A man named Professor Harold Hill wanders into your small town. He claims to be selling top-quality instruments for a marching band. He begins selling his instruments to all the children in town.
 
