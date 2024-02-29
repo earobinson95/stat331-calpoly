@@ -1,5 +1,5 @@
 ---
-title: "PA 9.1: Mystery Animal"
+title: "PA 9.2: Mystery Animal"
 subtitle: "Linear Regression"
 format: 
   html:
