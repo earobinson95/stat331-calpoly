@@ -1,9 +1,9 @@
 ---
-title: "PA 9.2: Instrument Con"
+title: "PA 9.1: Instrument Con"
 subtitle: "Simulation"
 format: 
   html:
-    self-contained: true
+    embed-resources: true
     code-tools: true
     toc: true
 editor: source
