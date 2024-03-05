@@ -121,7 +121,7 @@ The `augment()` function from the **broom** package may be helpful!
 
 Perhaps you have seen the [Random Babies applet](https://www.rossmanchance.com/applets/2021/randombabies/RandomBabies.html)? Suppose one night at a hospital four mothers each give birth to a baby. The hospital is not very organized and looses track of which mother gave birth to each baby, and essentially returns the babies to the mothers at random. Here, we are interested in the number of babies that are correctly returned to their respective mothers. 
 
-**1. Simulate the distribution of the number of babies that are correctly returned. Use 1000 simulations.**
+**1. Simulate the distribution of the number of babies that are correctly returned. Use 10000 simulations.**
 
 ::: callout-tip
 Write a function to accomplish one simulation, then use `map_df` to save results out.
@@ -131,6 +131,8 @@ Write a function to accomplish one simulation, then use `map_df` to save results
 randomBabies <- function(nBabies){
   # fill out the function body
 }
+
+# map_df code
 
 ```
 

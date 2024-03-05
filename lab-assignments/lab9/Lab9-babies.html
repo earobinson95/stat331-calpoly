@@ -3176,7 +3176,7 @@ Tip
 <section id="random-babies-simulation" class="level2">
 <h2 class="anchored" data-anchor-id="random-babies-simulation">Random Babies Simulation</h2>
 <p>Perhaps you have seen the <a href="https://www.rossmanchance.com/applets/2021/randombabies/RandomBabies.html">Random Babies applet</a>? Suppose one night at a hospital four mothers each give birth to a baby. The hospital is not very organized and looses track of which mother gave birth to each baby, and essentially returns the babies to the mothers at random. Here, we are interested in the number of babies that are correctly returned to their respective mothers.</p>
-<p><strong>1. Simulate the distribution of the number of babies that are correctly returned. Use 1000 simulations.</strong></p>
+<p><strong>1. Simulate the distribution of the number of babies that are correctly returned. Use 10000 simulations.</strong></p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -3193,7 +3193,9 @@ Tip
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>randomBabies <span class="ot">&lt;-</span> <span class="cf">function</span>(nBabies){</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># fill out the function body</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># map_df code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>2. Create a barplot showing the simulated distribution (proportion).</strong></p>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -3625,7 +3627,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb10-137"><a href="#cb10-137" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-138"><a href="#cb10-138" aria-hidden="true" tabindex="-1"></a>Perhaps you have seen the <span class="co">[</span><span class="ot">Random Babies applet</span><span class="co">](https://www.rossmanchance.com/applets/2021/randombabies/RandomBabies.html)</span>? Suppose one night at a hospital four mothers each give birth to a baby. The hospital is not very organized and looses track of which mother gave birth to each baby, and essentially returns the babies to the mothers at random. Here, we are interested in the number of babies that are correctly returned to their respective mothers. </span>
 <span id="cb10-139"><a href="#cb10-139" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-140"><a href="#cb10-140" aria-hidden="true" tabindex="-1"></a>**1. Simulate the distribution of the number of babies that are correctly returned. Use 1000 simulations.**</span>
+<span id="cb10-140"><a href="#cb10-140" aria-hidden="true" tabindex="-1"></a>**1. Simulate the distribution of the number of babies that are correctly returned. Use 10000 simulations.**</span>
 <span id="cb10-141"><a href="#cb10-141" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-142"><a href="#cb10-142" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
 <span id="cb10-143"><a href="#cb10-143" aria-hidden="true" tabindex="-1"></a>Write a function to accomplish one simulation, then use <span class="in">`map_df`</span> to save results out.</span>
@@ -3636,17 +3638,19 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb10-150"><a href="#cb10-150" aria-hidden="true" tabindex="-1"></a>  <span class="co"># fill out the function body</span></span>
 <span id="cb10-151"><a href="#cb10-151" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb10-152"><a href="#cb10-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-153"><a href="#cb10-153" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-153"><a href="#cb10-153" aria-hidden="true" tabindex="-1"></a><span class="co"># map_df code</span></span>
 <span id="cb10-154"><a href="#cb10-154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-155"><a href="#cb10-155" aria-hidden="true" tabindex="-1"></a>**2. Create a barplot showing the simulated distribution (proportion).**</span>
+<span id="cb10-155"><a href="#cb10-155" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb10-156"><a href="#cb10-156" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-157"><a href="#cb10-157" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
-<span id="cb10-158"><a href="#cb10-158" aria-hidden="true" tabindex="-1"></a>Useful code: <span class="in">`geom_bar(aes(y = after_stat(count) / sum(after_stat(count))))`</span></span>
-<span id="cb10-159"><a href="#cb10-159" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb10-160"><a href="#cb10-160" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-163"><a href="#cb10-163" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb10-164"><a href="#cb10-164" aria-hidden="true" tabindex="-1"></a><span class="co"># code for 2</span></span>
-<span id="cb10-165"><a href="#cb10-165" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-157"><a href="#cb10-157" aria-hidden="true" tabindex="-1"></a>**2. Create a barplot showing the simulated distribution (proportion).**</span>
+<span id="cb10-158"><a href="#cb10-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-159"><a href="#cb10-159" aria-hidden="true" tabindex="-1"></a>::: callout-tip</span>
+<span id="cb10-160"><a href="#cb10-160" aria-hidden="true" tabindex="-1"></a>Useful code: <span class="in">`geom_bar(aes(y = after_stat(count) / sum(after_stat(count))))`</span></span>
+<span id="cb10-161"><a href="#cb10-161" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb10-162"><a href="#cb10-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-165"><a href="#cb10-165" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb10-166"><a href="#cb10-166" aria-hidden="true" tabindex="-1"></a><span class="co"># code for 2</span></span>
+<span id="cb10-167"><a href="#cb10-167" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
