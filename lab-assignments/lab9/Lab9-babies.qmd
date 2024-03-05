@@ -123,7 +123,7 @@ Perhaps you have seen the [Random Babies applet](https://www.rossmanchance.com/a
 
 **1. Simulate the distribution of the number of babies that are correctly returned. Use 1000 simulations.**
 
-::: callout-hint
+::: callout-tip
 Write a function to accomplish one simulation, then use `map_df` to save results out.
 :::
 
@@ -136,7 +136,7 @@ randomBabies <- function(nBabies){
 
 **2. Create a barplot showing the simulated distribution (proportion).**
 
-::: callout-hint
+::: callout-tip
 Useful code: `geom_bar(aes(y = after_stat(count) / sum(after_stat(count))))`
 :::
 
