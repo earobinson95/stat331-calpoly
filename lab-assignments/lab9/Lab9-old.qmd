@@ -1,0 +1,161 @@
+---
+title: "Lab 9: Baby Names"
+subtitle: "Regression"
+author: "Your name"
+format: 
+  html:
+    self-contained: true
+    code-tools: true
+    toc: true
+editor: source
+execute: 
+  error: true
+  echo: true
+  message: false
+  warning: false
+---
+
+```{r setup}
+#| include: false
+library(tidyverse)
+```
+
+[Download .qmd starter file](Lab9-babynames.qmd)
+
+[Download `StateNames_E.csv`](baby-names-data/StateNames_E.csv)
+
+Our data set in this lab contains baby names that begin with "E" and their popularity over time. For each year, and for each name with at least 50 recorded babies born, we are given the counts of how many babies had that name.
+
+::: callout-note
+If you wish to download the data set for your name, you can find the names for ALL 50 states, in separate data sets organized by first letter of the name [here](https://github.com/earobinson95/stat331-calpoly/tree/master/lab-assignments/lab9/baby-names-data).
+:::
+
+Let's take a look at how the name "Emily" has changed over time. As my name begins with "E", you should load in the `StateNames_E.csv` data set.
+
+```{r}
+#| include: false
+babies_e <- read.csv(
+  here::here("lab-assignments",
+             "Lab9",
+             "baby-names-data",
+             "StateNames_E.csv")
+  )
+```
+
+## Explore the Number of Emilys
+
+**1. _Create a Game Plan & Code!_ -- Make a summary table of the number of babies named "Emily" for each state and the sex of the baby.**
+
+  + **Specifically, each state should be its own row and each sex should have its own column.**
+  + **Additionally, if there were no babies born with the name "Emily" for that combination of state & sex the table should have a value of 0 (not an `NA`).** 
+  
+::: callout-warning 
+To be clear, there should be **one** row per state, which means you need to `summarize()` all the years for each state.
+:::
+
+::: callout-caution
+The dataset has a column titled `Gender`, which contains two values `"F"` and `"M"`, representing "Female" and "Male". The sex someone was assigned at birth is different from their gender identity [(definitions)](https://www.plannedparenthood.org/learn/gender-identity/sex-gender-identity). Thus, this variable should be renamed to `Sex` or `Sex at Birth`.
+
+You should be using only **one** {dplyr} pipeline!
+:::
+
+<!-- Insert your game plan sketch with markdown code here -->
+
+```{r}
+# Code Q1
+```
+
+**2. You should have seen in the table above that "Emily" is a name given overwhelmingly to babies assigned "female" at birth. Create a new data set to include only babies named "Emily" assigned `F`emale at birth. Summarize the data so there is one observation (the total number of Emilys born) for each year.**
+
+::: callout-note
++ Remember you wanted to rename the variable "Gender"
++ Save this data set so you can use it in the rest of the lab questions.
++ No output needed for this question, only code
+:::
+
+```{r}
+# Code Q2
+```
+
+**3. Using the new summarized data set from above, make a visualization showing how the popularity of the name "Emily" for babies assigned female at birth has changed over the years.**
+
+```{r}
+# Code Q3
+```
+
+## Modeling the Number of Emilys
+
+**4. Using the new summarized data set from above, create a linear model with the year as the explanatory variable, and the number of Emilys as the response.**
+
+```{r}
+# Code Q4
+```
+
+**5. Visualize the linear regression.**
+
+```{r}
+# Code Q5
+```
+
+**6. Write out the estimated regression equation.**
+
+```{r}
+# Code Q6
+```
+
+<!-- Equation for Q6 -->
+
+**7. Plot the _residuals_ of the model versus the Year. Comment on the residuals - do you see any patterns?**
+
+::: callout-tip
+The `augment()` function from the **broom** package may be helpful!
+:::
+
+```{r}
+# Code Q7
+```
+
+**8. What do you conclude from this model? Is my name not cool anymore?**
+
+<!-- Q8 answer -->
+
+## Spelling by State
+
+In middle school I was **so** upset with my parents for not naming me "Emmaleigh". Past my pre-teen rebellion, I'm happy with my name and am glad when baristas spell it "Emily".
+
+**9. Narrow the original E name data set down to only female-assigned babies with alternative spellings -- "Emilee", "Emilie", "Emmaleigh", or "Emmalee".**
+
+```{r}
+# Code Q9
+```
+
+**10. Make a plot comparing the popularity (total count) of these alternate spellings over time.**
+
+```{r}
+# Code Q10
+```
+
+**11. The spelling of Emmaleigh is the least common of the four alternatives. However, the spelling picked up popularity in the Southeast (North Carolina, Georgia, and Florida). Create a table to display the number of babies born with each alternative spelling in each of these these three Southeast states, as well as in California, during 2012.**
+
+::: callout-warning
+Specifically, each of the four alternative spellings should be in their own column and each of the four states should have their own row.
+:::
+
+::: callout-caution
+You should be using only **one** {dplyr} pipeline!
+:::
+
+```{r}
+# Code Q11
+```
+
+
+**12. Create a table that converts your total counts to overall percents. That is, what was the percent breakdown between the four alternative spellings in each of the four states, during 2012?**
+
+::: callout-caution
+You should be using only **one** {dplyr} pipeline!
+:::
+
+```{r}
+# Code Q12
+```

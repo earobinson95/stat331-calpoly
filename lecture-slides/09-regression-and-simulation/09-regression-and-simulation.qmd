@@ -1,11 +1,13 @@
 ---
-title: "WEEK 9: LINEAR REGRESSION & SIMULATING DISTRIBUTIONS"
+title: "WEEK 9: SIMULATION AND LINEAR REGRESSION"
 format: 
   revealjs:
-    theme: [default, ../../slide_custom.scss]
+    html-math-method: mathjax
+    theme: default
     auto-stretch: false
 editor: source
 self-contained: true
+self-contained-math: true
 execute:
   echo: true
 ---
@@ -16,62 +18,639 @@ execute:
 library(tidyverse)
 ```
 
-## Monday, March 6th
+## Tuesday, March 5
 
 Today we will...
 
-+ Questions from Lab/Challenge 8
-+ Final Project Part 2 -- Linear Regression
-+ Mini lecture on text material
++ New Material
+  + Simulating Distributions
++ Work Time
+  + PA 9.1: Instrument Con
+  + Project Proposal -- Checkpoint 1
+
+## Statistical Distributions
+
+Recall from your statistics classes...
+
+::: panel-tabset
+
+### Random Variable
+
+A **random variable** is a value we don't know until we take a **sample**.
+
++ Coin flip:  could be heads (0) or tails (1)
++ Person's height:  could be anything from 0 feet to 10 feet.
++ Annual income of a US worker:  could be anything from $0 to $1.6 billion
+
+### Distribution
+
+The **distribution** of a random variable tells us its **possible values** and **how likely they are**.
+
+:::: {.columns}
+::: {.column width=73%}
++ Coin flip: 50% chance of heads and tails.
++ Heights follow a bell curve centered at 5 foot 7.
++ Most American workers make under $100,000.
+:::
+::: {.column width=27%}
+![](images/dist.png)
+:::
+::::
+:::
+
+
+## Named Distributions
+
+::: panel-tabset
+
+### `unif`
+
+**Uniform Distribution**
+
+:::: columns
+::: column
++ When you know the **range** of values, but not much else.
++ All values in the range are **equally likely** to occur.
+:::
+::: column
+```{r}
+#| out-width: 100%
+#| echo: false
+my_samples <- data.frame(x = runif(1000))
+
+ggplot(my_samples, aes(x)) + 
+  geom_histogram(bins = 40, aes(y = ..density..), fill = "grey", col = "white") + 
+  stat_function(fun=dunif, col = "cornflowerblue", lwd = 2) +
+  theme_classic()
+```
+:::
+::::
+### `norm`
+
+**Normal Distribution**
+
+:::: columns
+::: column
++ When you expect values to fall **near the center**.
++ Frequency of values follows a **bell shaped curve**.
+:::
+::: column
+```{r}
+#| out-width: 100%
+#| echo: false
+my_samples <- data.frame(x = rnorm(1000))
+
+ggplot(my_samples, aes(x)) + 
+  geom_histogram(bins = 40, aes(y = ..density..), fill = "grey", col = "white") + 
+  stat_function(fun=dnorm, col = "cornflowerblue", lwd = 2) +
+  theme_classic()
+```
+:::
+::::
+### `t`
+
+**t-Distribution**
+
+:::: columns
+::: column
++ A slightly **wider** bell curve.
++ Basically used in the same context as the **normal distribution**, but more common with  real data (when the *standard deviation* is unknown).
+:::
+::: column
+```{r}
+#| out-width: 100%
+#| echo: false
+
+ggplot(my_samples, aes(x)) + 
+  geom_histogram(bins = 40, aes(y = ..density..), fill = "grey", col = "white") + 
+  stat_function(fun= function(x) dt(x, df = 5), col = "cornflowerblue", lwd = 2) +
+  stat_function(fun = dnorm, col = "indianred", lwd = 1) +
+  theme_classic()
+```
+:::
+::::
+### `chisq`
+
+**Chi-Square Distribution**
+
+:::: columns
+::: column
++ Somewhat **skewed**, and only allows values **above zero**.
++ Used in testing **count data**.
+:::
+::: column
+```{r}
+#| out-width: 100%
+#| echo: false
+my_samples <- data.frame(x = rchisq(1000, df = 5))
+
+ggplot(my_samples, aes(x)) + 
+  geom_histogram(bins = 40, aes(y = ..density..), fill = "grey", col = "white") + 
+  stat_function(fun= function(x) dchisq(x, df = 5), col = "cornflowerblue", lwd = 2) +
+  theme_classic()
+```
+:::
+::::
+
+### `binom`
+
+**Binomial Distribution**
+
+:::: columns
+::: column
++ Appears when you have **two possible outcomes**, and you are **counting** how many times each outcome occurred.
+:::
+::: column
+```{r}
+#| out-width: 100%
+#| echo: false
+my_samples <- data.frame(x = rbinom(1000, 10, .8))
+
+ggplot(my_samples, aes(x)) + 
+  geom_bar(fill = "grey", col = "white") + 
+  theme_classic()
+```
+:::
+::::
+:::
+
+
+## How do we use distributions?
+
++ Find the **probability** of an **event**.
+  + If I flip 10 coins, what are the chances I get all heads?
+
++ Estimate a **proportion** of a **population**.
+  + About what proportion of people are above 6 feet tall?
+  
++ Quantify the **evidence** in your **data**.
+  + In my survey of 100 people, 67 said they were voting for Measure A.  How confident am I that Measure A will pass?
+
+
+## Using Distributions in R
+
+::: panel-tabset
+### `r`
+
+`r` is for **random sampling**.
+
++ Generate random values from a distribution.
++ We use this to **simulate** data (create pretend observations).
+
+:::: columns
+::: column
+```{r}
+runif(n = 3, min = 10, max = 20)
+rnorm(n = 3)
+rnorm(n = 3, mean = -100, sd = 50)
+```
+:::
+::: column
+
+```{r}
+rt(n = 3, df = 11)
+rbinom(n = 3, size = 10, prob = 0.7)
+rchisq(n = 3, df = 11)
+```
+:::
+::::
+
+### `p`
+
+`p` is for **probability**.
+
++ Compute the chances of observing a value less than `x`.
++ We use this for calculating **p-values**.
+
+:::: {.columns}
+::: {.column width=45%}
+```{r}
+pnorm(q = 1.645)
+pnorm(q = 70, mean = 67, sd = 3)
+```
+:::
+::: {.column width=55%}
+```{r}
+1 - pnorm(q = 70, mean = 67, sd = 3)
+pnorm(q = 70, mean = 67, sd = 3, lower.tail = FALSE)
+```
+:::
+::::
+
+### `q`
+
+`q` is for **quantile**.
+
++ Given a probability $p$, compute $x$ such that $P(X < x) = p$.
++ The `q` functions are "backwards" of the `p` functions.
+
+```{r}
+qnorm(p = 0.975)
+qnorm(p = 0.95, mean = 67, sd = 3)
+```
+
+### `d`
+
+`d` is for **density**.
+
++ Compute the *height* of a distribution curve at a given $x$.
++ For **discrete** dist: probability of getting **exactly** $x$.
++ For **continuous** dist: usually meaningless.
+
+Probability of *exactly* 12 baskets made in 20 free throw attempts, with a 70% shooting percentage?
+
+```{r}
+dbinom(x = 12, size = 20, prob = 0.7)
+```
+
+:::
+
+
+## Simulating Data
+
+::: panel-tabset
+
+### The Idea
+
+We can generate fake data based on the assumption that a variable follows a certain distribution.
+
++ We randomly sample observations from the distribution.
+
+```{r}
+age <- runif(1000, min = 15, max = 75)
+```
+
+
+### `set.seed()`
+
+Since there is randomness involved, we will get a different result each time we run the code.
+
+:::: {.columns}
+::: {.column width=50%}
+```{r}
+runif(3, min = 15, max = 75)
+```
+:::
+::: {.column width=50%}
+```{r}
+runif(3, min = 15, max = 75)
+```
+:::
+::::
+
+To make a **reproducible** random sample, we first **set the seed**:
+
+:::: {.columns}
+::: {.column width=50%}
+```{r}
+set.seed(94301)
+runif(3, min = 15, max = 75)
+```
+:::
+::: {.column width=50%}
+```{r}
+set.seed(94301)
+runif(3, min = 15, max = 75)
+```
+:::
+::::
+
+### `tibble`
+```{r}
+#| code-line-numbers: "3-5" 
+set.seed(435)
+fake_data <- tibble(names   = charlatan::ch_name(1000),
+        height  = rnorm(1000, mean = 67, sd = 3),
+        age     = runif(1000, min = 15, max = 75),
+        measure = rbinom(1000, size = 1, prob = 0.6)
+        ) |> 
+  mutate(supports_measure_A = ifelse(measure == 1, "yes", "no"))
+head(fake_data)
+```
+
+### visualize
+
+Check to see the ages look uniformly distributed.
+
+```{r}
+#| code-fold: true
+#| fig-align: center
+#| out-width: 60%
+fake_data |> 
+  ggplot(aes(x = age)
+         ) +
+  geom_histogram(color = "white",
+                 fill = "gray",
+                 binwidth = 5
+                 ) +
+  facet_wrap(~ supports_measure_A,
+             ncol = 1
+             ) +
+  theme_bw() +
+  labs(x = "Age (years)",
+       y = "",
+       subtitle = "Support for Measure A"
+       )
+```
+
+:::
+
+
+## Plotting Distributions
+
+::: panel-tabset
+
+### <font size = 6> `geom_histogram` </font>
+
+:::: {.columns}
+::: {.column width=76%}
+```{r hist}
+#| code-line-numbers: "3"
+#| fig-align: center
+#| out-width: 80%
+fake_data |> 
+  ggplot(aes(x = height)) +
+  geom_histogram(bins = 10, color = "white")
+```
+:::
+::: {.column width=24%}
+1. Plot your data.
+:::
+::::
+
+### <font size = 6> `dnorm` </font>
+:::: {.columns}
+::: {.column width=76%}
+```{r}
+#| code-line-numbers: "4"
+#| fig-align: center
+#| out-width: 80%
+fake_data |> 
+  ggplot(aes(x = height)) +
+  geom_histogram(bins = 10, color = "white") +
+  stat_function(fun = ~ dnorm(.x, mean = 67, sd = 3),
+                color = "steelblue", 
+                lwd = 2
+                )
+```
+:::
+::: {.column width=24%}
+2. Add a density curve.
+:::
+::::
+
+### <font size = 6> `..density..` </font>
+
+:::: {.columns}
+::: {.column width=76%}
+```{r}
+#| code-line-numbers: "3"
+#| fig-align: center
+#| out-width: 80%
+fake_data |> 
+  ggplot(aes(x = height)) +
+  geom_histogram(aes(y = after_stat(density)),
+                 bins = 10, 
+                 color = "white"
+                 ) +
+  stat_function(fun = ~ dnorm(.x, mean = 67, sd = 3),
+                color = "steelblue", 
+                lwd = 2
+                )
+```
+:::
+::: {.column width=24%}
+3. Change the y-axis of the histogram to match the y-axis of the density.
+:::
+::::
+
+:::
+
+
+## Empirical vs Theoretical Distributions
+
+::: panel-tabset
+### Empirical Distribution
+
+Empirical: the observed data.
+
+```{r}
+#| fig-align: center
+#| out-width: 60%
+#| code-fold: true
+fake_data %>%
+  ggplot(aes(x = height)) +
+  geom_histogram(aes(y = ..density..), bins = 10, color = "white") 
+```
+
+### Theoretical Distributions
+
+Theoretical: the distribution curve.
+
+```{r}
+#| fig-align: center
+#| out-width: 60%
+#| code-fold: true
+fake_data %>%
+  ggplot(aes(x = height)) +
+  stat_function(fun = ~ dnorm(.x, mean = 67, sd = 3),
+                col = "steelblue", lwd = 2) +
+  stat_function(fun = ~ dnorm(.x, mean = 67, sd = 2),
+                col = "orange2", lwd = 2)
+```
+:::
+
+## simulate + `map()`
+
+::: panel-tabset
+
+### Function
+
+Write a function to simulate data for one population parameter set.
+
+```{r}
+#| code-fold: true
+ht_func <- function(nPeop = 200, avgHt, sdHt){
+  
+  tibble(person = 1:nPeop,
+         ht = rnorm(n = nPeop,
+                    mean = avgHt,
+                    sd = sdHt
+                    )
+         )
+  
+}
+
+ht_func(nPeop = 5, avgHt = 66, sdHt = 3)
+```
+
+### Simulate
+
+```{r}
+#| code-fold: true
+fake_ht_data <- expand_grid(mean_ht = seq(from = 60, to = 78, by = 6),
+                          std_ht  = c(3, 6)
+                          ) |> 
+  mutate(ht_data = pmap(.l = list(avgHt = mean_ht,
+                                  sdHt  = std_ht
+                                  ),
+                        .f = ht_func
+                        )
+         ) |> 
+  unnest(cols = c(ht_data))
+
+fake_ht_data |> 
+  head()
+```
+
+### Plot
+
+```{r}
+#| code-fold: true
+#| fig-width: 8
+#| fig-height: 4
+#| fig-align: center
+fake_ht_data |> 
+  ggplot(aes(x = ht)) +
+  geom_histogram(color = "white") +
+  facet_grid(std_ht ~ mean_ht)
+```
+:::
+
+## `sample()`
+
+Suppose you want to take a random sample of values:
+
+```{r}
+my_vec <- c("dog", "cat", "bunny", "horse", "goat", "chicken")
+sample(x = my_vec, size = 3)
+set.seed(1)
+sample(x = my_vec, size = 5, replace = T)
+```
+
+## `sample_n()`
+
+Suppose you want to take a random sample of observations from your data:
+
+```{r}
+fake_sample <- fake_data |> 
+  sample_n(size = 3)
+fake_sample
+```
+
+## Simulation Example (Bdays)
+
+Suppose there is a group of 50 people. Simulate the approximate probability at least two people have the same birthday (i.e. the same day of the year not considering year of birth; also ignore the leap year). 
+
+```{r}
+bDays <- function(nPeople = 50){
+  bday_data <- tibble(person = 1:nPeople,
+                      bday   = sample(1:365, size = nPeople, replace = T)
+                      )
+  
+  double_bdays <- bday_data |> 
+    count(bday) |> 
+    filter(n >= 2) |> 
+    count() |> 
+    pull(n)
+  
+  return(double_bdays > 0)
+}
+```
+
+## Simulation Example (Bdays)
+
+Suppose there is a group of 50 people. Simulate the approximate probability at least two people have the same birthday (i.e. the same day of the year not considering year of birth; also ignore the leap year). 
+
+```{r}
+sim_results <- map_lgl(.x = 1:1000,
+                       .f = ~ bDays(nPeople = 50)
+                       )
+
+sum(sim_results)/1000
+```
+
+
+## In-line Code
+
+We can automatically include code output in the written portion of a Quarto document using `` `r ` ``.
+
++ This ensures reproducibility when you have results from a random generation process.
+
+```{r}
+my_rand <- rnorm(1, mean = 0, sd = 1)
+my_rand
+```
+
+Type this: `` My random number is `r knitr::inline_expr("my_rand")`. ``
+
+To get this: My random number is `r my_rand`.
+
+## To do...
+
++ **PA 9.1: Instrument Con** -- due Thursday, 3/7 at 8:00am.
++ **Project Proposal (Checkpoint 1)** -- due Tuesday, 3/5 at 11:59pm.
+
+## Thursday, March 7
+
+Today we will...
+
++ New Material
   + Review of Simple Linear Regression
-  + Conditions of Linear Regression
-+ PA 9.1: Mystery Animal
-+ Lab 9: Baby Names
+  + Assessing Model Fit
++ Work time
+  + PA 9.2: Mystery Animal
+  + Lab 9: Baby Names
+
+# Some Data
+
+## NC Births Data
+
+This data set contains a random sample of 1,000 births from North Carolina in 2004 (sampled from a larger data set).
+
++ Each case describes the birth of a single child, including characteristics of the:
+  + child (birth weight, length of gestation, etc.).
+  + birth parents (age, weight gained during pregnancy, smoking habits, etc.). 
 
 
 ## NC Births Data
 
-The `ncbirths` data set is a random sample of 1,000 cases taken from a larger 
-data set collected in North Carolina in 2004. 
-
-Each case describes the birth of a single child born in North Carolina, along
-with various characteristics of the child (e.g. birth weight, length of
-gestation, etc.), the child’s mother (e.g. age, weight gained during pregnancy,
-smoking habits, etc.) and the child’s father (e.g. age). 
-
 ```{r}
 library(openintro)
 data(ncbirths)
-head(ncbirths) |> 
+slice_sample(ncbirths, n = 10) |> 
   knitr::kable() |> 
-  kableExtra::scroll_box(height = "200px")
+  kableExtra::scroll_box(height = "400px") |> 
+  kableExtra::kable_styling(font_size = 30)
 ```
+
+
+# Relationships Between Variables
 
 ## Relationships Between Variables
 
-In a statistical model, we generally have one variable that is the output and
-one or more variables that are the inputs.
+In statistical models, we generally have one variable that is the response and one or more variables that are explanatory.
 
 :::: columns
 ::: column
-+ Response variable
-  + a.k.a. $y$, dependent
-  + The quantity you want to understand
++ **Response variable**
+  + Also: $y$, dependent variable
+  + This is the quantity we want to understand.
 :::
 ::: column
-+ Explanatory variable
-  + a.k.a. $x$, independent, explanatory, predictor
-  + Something you think might be related to the response
++ **Explanatory variable**
+  + Also: $x$, independent variable, predictor
+  + This is something we think might be related to the response.
 :::
 ::::
 
-## Visualizing the Relationship
 
-The scatterplot has been called the most "generally useful invention in the
-history of statistical graphics."
+## Visualizing a Relationship
 
-:::: columns
-::: column
+The scatterplot has been called the most "generally useful invention in the history of statistical graphics."
+
+:::: {.columns}
+::: {.column width="42%"}
 ```{r}
 #| echo: false
 #| fig-width: 5
@@ -81,154 +660,197 @@ ggplot(data = bdims, aes(y = wgt, x = hgt)) +
   geom_point() +
   scale_x_continuous("Explanatory Variable", labels = NULL) + 
   scale_y_continuous("Response Variable", labels = NULL) +
-  theme(axis.title = element_text(size = 20)
-        )
+  theme(axis.title = element_text(size = 20))
 ```
 :::
-::: column
+::: {.column width="58%"}
 
-**Characterizing relationships**
+**Characterizing Relationships**
 
-+ Form -- linear, quadratic, non-linear?
++ Form: linear, quadratic, non-linear?
++ Direction: positive, negative?
++ Strength: how much scatter/noise?
++ Unusual observations: do points not fit the overall pattern?
 
-+ Direction -- positive, negative?
-
-+ Strength -- how much scatter/noise?
-
-+ Unusual observations -- do points not fit the overall pattern?
 :::
 ::::
 
+
 ## Your turn!
 
-How would your characterize this relationship? 
+How would you characterize this relationship? 
 
 :::: {.columns}
-::: {.column width="25%"}
-- shape
-- direction
-- strength 
-- outliers
+::: {.column width="30%"}
+- Shape?
+- Direction?
+- Strength?
+- Outliers?
 :::
-::: {.column width="75%"}
+::: {.column width="70%"}
 ```{r}
 #| echo: false
-#| fig-height: 6
+#| fig-height: 5
+#| fig-width: 10
 ncbirths |> 
 ggplot(aes(x = weeks, y = weight)) +
   geom_jitter() + 
   labs(x = "Length of pregnancy (in weeks)",
        y = "Birth weight of baby (in lbs)") +
   theme(axis.title = element_text(size = 20),
-        axis.text = element_text(size = 18)
-        )
+        axis.text = element_text(size = 18))
 ```
 :::
 ::::
 
+. . .
+
+Note: Much of what we are doing at this stage involves making judgment calls!
+
 ::: {.notes}
-As we work through these, please keep in mind that much of what we are doing at
-this stage involves making judgment calls. This is part of the nature of
-statistics, and while it can be frustrating - especially as a beginner - it is
-inescapable. For better or for worse, statistics is not a field where there is
-one right answer. There are of course an infinite number of indefensible claims,
-but many judgments are open to interpretation.
+As we work through these, please keep in mind that much of what we are doing at this stage involves making judgment calls. This is part of the nature of statistics, and while it can be frustrating - especially as a beginner - it is inescapable. For better or for worse, statistics is not a field where there is one right answer. There are of course an infinite number of indefensible claims, but many judgments are open to interpretation.
 
 There isn’t a universal, hard-and-fast definition of what constitutes an outlier, but they are often easy to spot in a scatterplot.
 
 + What observations would you consider to be outliers?
-
 + How would you go about removing these outliers from the data?
 :::
 
+
+## Fitting a Model
+
+We often assume the value of our response variable is **some function** of our explanatory variable, plus some random noise.
+
+$$response = f(explanatory) + noise$$
+
++ There is a mathematical function $f$ that can translate values of one variable into values of another.
++ But there is some randomness in the process. 
+
+
 ## Simple Linear Regression (SLR)
 
-Assume the relationship between $x$ and $y$ takes the form of a linear function.
+If we assume the relationship between $x$ and $y$ takes the form of a **linear function**...
 
 $$
-  response = intercept + slope \cdot explanatory + noise
+  response = intercept + slope \times explanatory + noise
 $$
+
+. . .
+
+We use the following notation for this model:
 
 :::: columns
 ::: column
-**Population Regression Model**
+**Population** Regression Model
 
-$Y = \beta_0 + \beta_1 \cdot X + \epsilon_i$  
+$Y = \beta_0 + \beta_1 X + \varepsilon$  
 
-$\epsilon \sim N(0, \sigma)$
+where $\varepsilon \sim N(0, \sigma)$ is the random noise.
 :::
 ::: column
 
-**Fitted Regression Model (_Sample_)** 
+**Fitted** Regression Model 
 
-$\hat{y} = \hat{\beta}_0 + \hat{\beta}_1 \cdot x$
+$\hat{y}= \hat{\beta}_0 + \hat{\beta}_1 x$
+
+where &nbsp; $\hat{}$ &nbsp; indicates the value was estimated.
 :::
 ::::
-
-::: {.notes}
-Models are ubiquitous in statistics. In many cases, we assume that the value of
-our response variable is some function of our explanatory variable, plus some
-random noise.
-
-What we are saying here is that there is some mathematical function $f$, which can translate values of one variable into values of another, except that there is some randomness in the process. What often distinguishes statisticians from other quantitative researchers is the way that we try to model that random noise.
-:::
-
 
 ## Fitting an SLR Model 
 
 ::: panel-tabset
 
-### `geom_smooth(method = "lm")`
+### Question
+
+Regress baby birthweight (response variable) on the pregnant parent's weight gain (explanatory variable).
+
++ We are assuming there is a linear relationship between how much weight the parent gains and how much the baby weighs at birth.
+
+### <font size = 6> `geom_smooth` </font>
+
+When visualizing data, fit a regression line ($y$ on $x$) to your scatterplot.
 
 ```{r}
-#| code-line-numbers: 6
-#| fig-width: 8
-#| fig-height: 4
+#| code-line-numbers: "4"
+#| fig-width: 5
+#| fig-height: 2.8
 #| fig-align: center
 ncbirths |> 
-ggplot(aes(x = gained, 
-           y = weight)
-       ) +
+  ggplot(aes(x = gained, y = weight)) +
   geom_jitter() + 
   geom_smooth(method = "lm") 
 ```
 
-### `lm`
+### <font size = 6> `lm` </font>
+
+The `lm()` function fits a **l**inear regression **m**odel.
+
++ We use *formula* notation to specify the response variable (LHS) and the explanatory variable (RHS).
++ This code creates an `lm` object.
 
 ```{r}
 ncbirth_lm <- lm(weight ~ gained, 
-                 data = ncbirths
-                 )
+                 data = ncbirths)
 ```
 
 ### Coefficients
 
 ```{r}
-library(broom)
-tidy(ncbirth_lm)
+broom::tidy(ncbirth_lm)
 ```
 
-+ Intercept: Expected __mean__ value for $y$, when $x$ is 0  
+:::: {.columns}
+::: {.column width="50%"}
 
-+ Slope: Expected change in the __mean__ of $y$, when $x$ is increased by 1 unit
++ **Intercept**: expected *mean* of $y$, when $x$ is 0.
+  + Someone gaining 0 lb, will have a baby weighing 6.63 lbs, on average.
+
+:::
+::: {.column width="50%"}
+
++ **Slope**: expected change in the *mean* of $y$, when $x$ increases by 1 unit.
+  + For each pound gained, the baby will weigh 0.016 lbs more, on average.
+
+:::
+::::
 
 ### Residuals
 
-Difference between the observed (point) and the expected (line).
+The difference between *observed* (point) and *expected* (line).
 
+:::: {.columns}
+::: {.column width="50%"}
 ```{r}
 ncbirth_lm$residuals |> 
   head(3)
-
+```
+:::
+::: {.column width="50%"}
+```{r}
 resid(ncbirth_lm) |> 
-  head(3)
-
-library(broom)
-augment(ncbirth_lm) |> 
   head(3)
 ```
 
 :::
+::::
+
+```{r}
+broom::augment(ncbirth_lm) |> 
+  head(3)
+```
+
+:::
+
+
+## Model Diagnostics
+
+There are four conditions that must be met for  a linear regression model to be appropriate:
+
+1. A linear relationship.
+2. Independent observations.
+3. Normally distributed residuals.
+4. Residuals have constant variance.
 
 ## Model Diagnostics
 
@@ -236,17 +858,15 @@ augment(ncbirth_lm) |>
 
 ### Linearity
 
-**Linear Relationship**
+**Is the relationship linear?**
 
 :::: {.columns}
-::: {.column width="30%"}
-+ Almost nothing you explore will look perfectly linear 
-
-+ Be careful with relationships that have curvature 
-
-+ Variable transformations can often help 
+::: {.column width="38%"}
++ Almost nothing will look perfectly linear.
++ Be careful with relationships that have curvature.
++ Try transforming your variables!
 :::
-::: {.column width="70%"}
+::: {.column width="62%"}
 ```{r}
 #| echo: false
 #| fig-width: 10
@@ -272,53 +892,45 @@ p1 + p2
 
 ### Independence
 
-:::: columns
-::: column
-**Independence of observations**
+**Are the observations independent?**  &emsp;  Difficult to tell!
 
-Nearly every statistical model you will encounter, require for the observations in the data to be independent.
-
-This is often the most crucial but also the most difficult to diagnose. 
-
-<!-- It is also extremely difficult to gather a dataset which is a true random sample -->
-<!-- from the population of interest.  -->
-
+:::: {.columns}
+::: {.column width=45%}
 **What does independence mean?**
 
-Independence means that I should not be able to know the $y$ value for one
-observation based on knowing the $y$ value of another observation. 
+Should not be able to know the $y$ value for one observation based on the $y$ value for another observation. 
 :::
-::: column
-**Situations with independence violations**
+::: {.column width=55%}
+**Independence violations:**
 
-If there is an inherent grouping of observations, then independence may be 
-violated. 
-
-+ Stock market prices over time  
-+ Geographical similarities
-+ Biological conditions of family members
-+ Repeated observations 
++ Stock market prices over time.
++ Geographical similarities.
++ Biological conditions of family members.
++ Repeated observations.
 :::
 ::::
 
 ### Normality
 
-**Normally distributed residuals**
+**Are the residuals normally distributed?**
 
-:::: columns
-::: column
-Observations vary symmetrically around the least squares line, spreading out
-in a bell-shaped fashion.
+Observations should be symmetric around the regression line.
 
-Less important than linearity or independence for a few reasons: 
+:::: {.columns}
+::: {.column width=60%}
 
-+ Least squares is an unbiased estimate of the true population model.
-+ Larger sample sizes make the model more reliable. 
+Less important than linearity or independence: 
+
++ Always get an unbiased estimate of the population model.
++ Large sample sizes make the model more reliable.
+
 :::
-::: column
-```{r, fig.height = 6, fig.width = 6, echo = FALSE}
+::: {.column width=40%}
+```{r}
+#| echo: false
+#| fig-height: 8
 ncbirth_lm |> 
-  augment() |> 
+  broom::augment() |> 
   ggplot(aes(x = .resid)) +
   geom_histogram(aes(y = ..density..)) +
   geom_density(color = "steelblue", 
@@ -330,15 +942,13 @@ ncbirth_lm |>
 
 ### Equal Variance
 
-**Equal (constant) variance**
+**Do the residuals have equal (constant) variance?**
 
 :::: columns
 ::: column
-- The variability of points around the least squares line remains roughly
+- The variability of points around the regression line is roughly
 constant.
-
-- Data that exhibit non-equal variance across the range of x-values will have
-the potential to seriously mis-estimate the variability of the slope. 
+- Data with non-equal variance across the range of $x$ can seriously mis-estimate the variability of the slope. 
 
 :::
 ::: column
@@ -348,10 +958,11 @@ the potential to seriously mis-estimate the variability of the slope.
 ncbirth_lm |> 
   augment() |> 
 ggplot(aes(x = .fitted, y = .resid)) +
-  geom_point() +
+  geom_point()
 ```
 
-```{r, echo = FALSE, fig.height = 6, fig.width = 10}
+```{r}
+#| echo: false
 p1 <- ncbirths |> 
   filter(weeks > 26) %>% 
   ggplot(aes(x = weeks, y = weight)) +
@@ -359,8 +970,7 @@ p1 <- ncbirths |>
   geom_smooth(method = "lm") +
   labs(x = "Length of pregnancy (in weeks)", y = "Birth weight of baby (in lbs)") +
   theme(axis.title = element_text(size = 24),
-        axis.text = element_text(size = 20)
-        )
+        axis.text = element_text(size = 20))
 
 p2 <- ggplot(data = ncbirth_lm, aes(x = .fitted, y = .resid)) +
   geom_point() +
@@ -368,46 +978,71 @@ p2 <- ggplot(data = ncbirth_lm, aes(x = .fitted, y = .resid)) +
   xlab("Fitted values") +
   ylab("Residuals") +
   theme(axis.title = element_text(size = 24),
-        axis.text = element_text(size = 20)
-        )
+        axis.text = element_text(size = 20))
 
 p1 + p2
 ```
 :::
 ::::
-
 :::
+
 
 ## Assessing Model Fit
 
-:::: columns
-::: column
+**Sum of Square Errors (SSE)**
+
+  + This is calculated as the sum of the squared residuals.
+  + A small SSE means small differences between observed and fitted values.
+  + Also: *Sum Sq of Residuals* or *deviance*.
+
 ```{r}
 anova(ncbirth_lm)
+```
+
+
+## Assessing Model Fit
+
+**Root Mean Square Error (RMSE)**
+
+:::: {.columns}
+::: {.column width=44%}
+  + The standard deviation of the residuals.
+  + A small RMSE means small differences between observed and fitted values.
+  + Also: *Residual standard error* or *sigma*.
+  
+:::
+::: {.column width=55%}
+
+```{r}
 summary(ncbirth_lm)
 ```
-:::
-::: column
-+ **Sum of Square Errors (SSE)**
-  + sum of squared residuals 
 
-+ **Root Mean Square Error (RMSE)**
-  + standard deviation of residuals 
-
-+ **R-squared**
-  + proportion of variability in response accounted for by the linear model
 :::
 ::::
 
+## Assessing Model Fit
+
+**R-squared**
+
+  + The proportion of variability in response accounted for by the linear model.
+  + A large R-squared means the explanatory variable is good at explaining the response.
+  + R-squared is between 0 and 1.
+
+```{r}
+broom::glance(ncbirth_lm)
+```
+
+
 ## Model Comparison
+
+Regress baby birthweight on...
 
 :::: columns
 ::: column
-**Weight as explanatory variable**
+... gestation weeks.
 ```{r}
 weight_weeks <- lm(weight ~ weeks, 
-                   data = ncbirths
-                   )
+                   data = ncbirths)
 ```
 
 - SSE = 1246.55 
@@ -415,11 +1050,10 @@ weight_weeks <- lm(weight ~ weeks,
 - $R^2$ = 0.449
 :::
 ::: column
-**Visit as explanatory variable**
+... number of doctor visits.
 ```{r}
 weight_visits <- lm(weight ~ visits, 
-                    data = ncbirths
-                    )
+                    data = ncbirths)
 ```
 
 - SSE = 2152.74
@@ -428,490 +1062,37 @@ weight_visits <- lm(weight ~ visits,
 :::
 ::::
 
-## Extending to Multiple Linear Regression
+. . .
 
-If you have multiple explanatory variables you want to include in the model:
+Why does it make sense that the left model is better?
+
+## Multiple Linear Regression
+
+When fitting a linear regression, you can include...
+
+...multiple explanatory variables.
 
 `lm(y ~ x1 + x2 + x3 + ... + xn)`
 
-If you want to include interactions:
+...interaction terms.
 
 `lm(y ~ x1 + x2 + x1:x2)`
 
-or use the shortcut:
-
 `lm(y ~ x1*x2)`
 
-You can include quadratic relationships (recall $ax^2 + bx + c$)
+...quadratic relationships.
 
 `lm(y ~ I(x1^2) + x1)`
 
-## A quick note about piping `|>` and `_`
-
-+ [The new R pipe](https://www.r-bloggers.com/2021/05/the-new-r-pipe/)
-+ [Pipe updates: Placeholder](https://www.r-bloggers.com/2022/04/new-features-in-r-4-2-0/)
-
-Instead of a `.x` you use `_`
-
-```{r}
-#| code-line-numbers: 4
-weight_fullterm <- ncbirths |> 
-  filter(premie == "full term") |> 
-  lm(weight ~ weeks, 
-     data = _
-     )
-```
-
-## Worktime
-
-+ [PA 9.1: Mystery Animal](https://earobinson95.github.io/stat331-calpoly/practice-activities/PA9.1-mystery-animal.html)
-
-+ [Lab 9: Baby Names](https://earobinson95.github.io/stat331-calpoly/lab-assignments/lab9/Lab9-babynames.html)
-
-+ [Challenge 9: Formatting Nice Tables](https://earobinson95.github.io/stat331-calpoly/lab-assignments/lab9/Challenge9-babynames.html)
 
 ## To do...
   
-+ **PA 9.1: Mystery Animal**
-  + Due **Wednesday, 3/8 at 8:00am**
++ **PA 9.2: Mystery Animal**
+  + Due **Monday, 3/11 at 8:00am**
 
 + **Lab 9: Baby Names**
-  + Due **Friday, 3/10 at 11:59pm**
-  
-+ **Challenge 9: Formatting Nice Tables**
-  + Due **Saturday, 3/11 at 11:59pm**
-  
-+ **Project Check-point 2: Linear Regression**
-  + Due **Sunday, 3/12 at 11:59pm**
+  + Due **Monday, 3/11 at 11:59pm**
 
-## Wednesday, March 8th
++ **Project Linear Regression (Check-point 2)**
+  + Due **Tuesday, 3/12 at 11:59pm**
 
-Today we will...
-
-+ Mini lecture on text material
-  + Simulating Distributions
-+ Worktime
-  + PA 9.2: Instrument Con
-  + Lab & Challenge 9
-  + Project: Linear Regression
-
-## Statistical Distributions
-
-Recall from your previous statistics classes...
-
-::: panel-tabset
-
-### Random Variable
-
-A **random variable** is a value we don't know until we take a **sample**.
-
-+ Coin flip:  Could be heads (0) or tails (1)
-+ Person's height:  Could be anything from 0 feet to 20 feet.
-+ Annual income of a US worker:  $0 to $1.6 billion
-
-### Distribution
-
-The **distribution** of the random variable tells us the **possible values** and **how likely they are**
-
-:::: columns
-::: column
-+ Coin flip has 50% chance of heads, 50% chance of tails
-+ Likelihood of heights follow a bell curve shape around 5 foot 7.
-+ Most American workers make under $100,000
-:::
-::: column
-```{r}
-#| fig-align: center
-#| echo: false
-#| out-width: 70%
-knitr::include_graphics("https://github.com/allisonhorst/stats-illustrations/blob/main/make-your-own-stats-cartoons/ex_3.png?raw=true")
-```
-:::
-::::
-    
-:::
-
-## Some distributions have names
-
-For this class, you need to know a few of them.
-
-::: panel-tabset
-
-### `unif`
-
-**Uniform Distribution**
-
-:::: columns
-::: column
-When you know the **range**, but not much else.
-
-All values in the range are **equally likely** to occur.
-:::
-::: column
-```{r}
-#| out-width: 100%
-#| echo: false
-my_samples <- data.frame(x = runif(1000))
-
-ggplot(my_samples, aes(x)) + 
-  geom_histogram(bins = 40, aes(y = ..density..), fill = "grey", col = "white") + 
-  stat_function(fun=dunif, col = "cornflowerblue", lwd = 2) +
-  theme_classic()
-```
-:::
-::::
-### `norm`
-
-**Normal Distribution**
-
-:::: columns
-::: column
-When you expect values to fall **near the center**.
-
-Frequency of values follows a **bell curve** shape.
-:::
-::: column
-```{r}
-#| out-width: 100%
-#| echo: false
-my_samples <- data.frame(x = rnorm(1000))
-
-ggplot(my_samples, aes(x)) + 
-  geom_histogram(bins = 40, aes(y = ..density..), fill = "grey", col = "white") + 
-  stat_function(fun=dnorm, col = "cornflowerblue", lwd = 2) +
-  theme_classic()
-```
-:::
-::::
-### `t`
-
-**t-Distribution**
-
-:::: columns
-::: column
-Slightly **wider bell curve** shape.
-
-Basically, the same context as the **Normal distribution**, but used more often in 
-real data.  (When the *standard deviation* is unknown.)
-:::
-::: column
-```{r}
-#| out-width: 100%
-#| echo: false
-
-ggplot(my_samples, aes(x)) + 
-  geom_histogram(bins = 40, aes(y = ..density..), fill = "grey", col = "white") + 
-  stat_function(fun= function(x) dt(x, df = 5), col = "cornflowerblue", lwd = 2) +
-  stat_function(fun = dnorm, col = "indianred", lwd = 1) +
-  theme_classic()
-```
-:::
-::::
-### `chisq`
-
-**Chi-Square Distribution**
-
-:::: columns
-::: column
-Somewhat **skewed**, and only allows values **above zero**.
-
-Used in testing **count data**.
-:::
-::: column
-```{r}
-#| out-width: 100%
-#| echo: false
-my_samples <- data.frame(x = rchisq(1000, df = 5))
-
-ggplot(my_samples, aes(x)) + 
-  geom_histogram(bins = 40, aes(y = ..density..), fill = "grey", col = "white") + 
-  stat_function(fun= function(x) dchisq(x, df = 5), col = "cornflowerblue", lwd = 2) +
-  theme_classic()
-```
-:::
-::::
-
-### `binom`
-
-**Binomial Distribution**
-
-:::: columns
-::: column
-Appears when you have **two possible outcomes**, and you are **counting**
-how many times each outcome occurred.
-
-(Common example: voting data)
-:::
-::: column
-```{r}
-#| out-width: 100%
-#| echo: false
-my_samples <- data.frame(x = rbinom(1000, 10, .8))
-
-ggplot(my_samples, aes(x)) + 
-  geom_bar(fill = "grey", col = "white") + 
-  theme_classic()
-```
-:::
-::::
-:::
-
-## Statistical Distributions
-
-Things you might want to use a Statistical distribution for:
-
-+ Find the **probability** of an **event**
-  + If I flip 10 coins, what are the chances I get all heads?
-
-+ Estimate a **percentage** of a **population**:
-
-  + About what percent of people are above 6 feet tall?
-  
-+ Quantify the **evidence** in your **data**:
-  + In my survey of 100 people, 67 said they were voting for Measure A.  How confident am I that Measure A will pass?
-
-## Statistical Distributions in R -- `r`, `p`, `d`, `q`
-
-::: panel-tabset
-### `r` random sampling
-
-+ `r` stands for for **random sampling**: generate a random value from the
-distribution
-
-+ We typically use this to **simulate** date; that is, to generate pretend observations
-to see what happens.
-
-:::: columns
-::: column
-```{r}
-runif(n = 3)
-runif(n = 3, min = 10, max = 20)
-
-rnorm(n = 3)
-rnorm(n = 3, mean = -100, sd = 50)
-```
-:::
-::: column
-
-```{r}
-
-rt(n = 3, df = 11)
-
-rbinom(n = 3, size = 10, prob = 0.7)
-
-rchisq(n = 3, df = 11)
-```
-:::
-::::
-
-### `p` probability
-
-+ `p` for **probability**: i.e. compute the chances of an observation less than `x`
-
-+ We usually use this for calculating **p-values**
-
-```{r}
-pnorm(q = 1.5)
-pnorm(q = 70, mean = 67, sd = 3)
-
-1 - pnorm(q = 70, mean = 67, sd = 3)
-pnorm(q = 70, mean = 67, sd = 3, lower.tail = FALSE)
-```
-
-### `q` quantile
-
-+ `q` stands for **quantile**: given a probability p, compute the x-value
-such that $$P(X < x) = p.$$
-
-+ the `q` functions are the "backwards" version of the `p` functions
-
-```{r}
-qnorm(p = 0.95)
-qnorm(p = 0.95, mean = 67, sd = 3)
-```
-
-### `d` density
-
-`d` stands for **density**: compute the height of distribution curve
-
-+ **Discrete** distributions: probability of getting that **exact value**
-
-+ **Continuous** distributions: usually meaningless
-
-What is the probability of getting exactly 12 heads in 20 coin tosses, for a
-coin with a 70% chance of tails?
-
-```{r}
-dbinom(x = 12, size = 20, prob = 0.3)
-```
-
-:::
-
-## Simulating Fake Data
-
-::: panel-tabset
-### `set.seed()`
-
-Since there is randomness involved, if we want to create a reproducible random sample, we "set the seed" on so we get the same random sample each time the code is run.
-
-```{r}
-set.seed(94301)
-```
-
-### `tibble`
-```{r}
-#| code-line-numbers: 3-5 
-fake_data <- tibble(
-  names   = charlatan::ch_name(1000),
-  height  = rnorm(1000, mean = 67, sd = 3),
-  age     = runif(1000, min = 15, max = 75),
-  measure = rbinom(1000, size = 1, prob = 0.6)
-) |> 
-  mutate(
-    supports_measure_A = ifelse(measure == 1, "yes", "no")
-  )
-
-head(fake_data)
-```
-
-### visualize
-
-```{r}
-#| code-fold: true
-#| fig-align: center
-#| out-width: 70%
-fake_data |> 
-  ggplot(aes(y = supports_measure_A, 
-             x = age,
-             fill = supports_measure_A)
-         ) +
-  ggridges::geom_density_ridges(show.legend = F) +
-  scale_fill_brewer(palette = "Paired") +
-  theme_bw() +
-  labs(x = "Age (years)",
-       y = "",
-       subtitle = "Support for Measure A",
-       )
-```
-
-:::
-
-## Plotting distributions
-
-::: panel-tabset
-
-### `geom_histogram`
-
-```{r hist}
-#| code-line-numbers: 3
-#| fig-align: center
-#| out-width: 70%
-fake_data |> 
-  ggplot(aes(x = height)) +
-  geom_histogram(bins = 10, fill = "grey", color = "white") +
-  theme_bw()
-```
-
-### `dnorm`
-
-```{r}
-#| code-line-numbers: 4
-#| fig-align: center
-#| out-width: 70%
-fake_data |> 
-  ggplot(aes(x = height)) +
-  geom_histogram(bins = 10, fill = "grey", color = "white") +
-  stat_function(fun = dnorm, 
-                col = "steelblue", 
-                lwd = 2
-                )
-```
-### `dnorm(mean, sd)`
-
-```{r}
-#| code-line-numbers: 4
-#| fig-align: center
-#| out-width: 70%
-fake_data |> 
-  ggplot(aes(x = height)) +
-  geom_histogram(bins = 10, fill = "grey", color = "white") +
-  stat_function(fun = ~ dnorm(.x, mean = 67, sd = 3), 
-                color = "steelblue", 
-                lwd = 2
-                )
-```
-### `..density..`
-
-```{r}
-#| code-line-numbers: 3
-#| fig-align: center
-#| out-width: 70%
-fake_data |> 
-  ggplot(aes(x = height)) +
-  geom_histogram(aes(y = ..density..),
-                 bins = 10, fill = "grey", color = "white") +
-  stat_function(fun = ~ dnorm(.x, mean = 67, sd = 3), 
-                color = "steelblue", 
-                lwd = 2
-                )
-```
-:::
-
-## Empirical vs Theoretical Distributions
-
-::: panel-tabset
-### Empirical Distribution
-
-```{r}
-#| fig-align: center
-#| out-width: 70%
-#| code-fold: true
-fake_data %>%
-  ggplot(aes(x = height)) +
-  geom_histogram(aes(y = ..density..), bins = 10) 
-```
-
-### Theoretical Distributions
-
-```{r}
-#| fig-align: center
-#| out-width: 70%
-#| code-fold: true
-fake_data %>%
-  ggplot(aes(x = height)) +
-  stat_function(fun = ~dnorm(.x, mean = 67, sd = 3), 
-                col = "steelblue", lwd = 2) +
-  stat_function(fun = ~dnorm(.x, mean = 67, sd = 2), 
-                col = "orange2", lwd = 2)
-```
-:::
-
-## In-line code `` `r ` ``
-
-When writing up a report which includes results from a random generation process, in order to ensure reproducibility in your document, use `r ` to include your output within your written description.
-
-```{r}
-my_rand <- rnorm(1, mean = 0, sd = 1)
-my_rand
-```
-
-My random number is `r my_rand`.
-
-## To do...
-
-+ **PA 9.2: Instrument Con**
-  + Due **Friday, 3/10 at 8:00am**
-  
-+ **Lab 9: Baby Names**
-  + Due **Friday, 3/10 at 11:59pm**
-  
-+ **Challenge 9: Formatting Nice Tables**
-  + Due **Saturday, 3/11 at 11:59pm**
-  
-+ **Project Check-point 2: Linear Regression**
-  + Due **Sunday, 3/12 at 11:59pm**
-  
-+ Read **Chapter 10: Predictive Checks** and complete **Check-in 10.1**
-  + Due **Monday, 3/13 at 8:00am**
-  
-  
