@@ -31,7 +31,7 @@ income <- read_csv("data/income_per_person_gdppercapita_ppp_inflation_adjusted.c
 | Group Contract    | Sunday, 2/25  |
 | [Project Proposal - Data](#proposal)    | Tuesday, 3/5   |
 | [Linear Regression](#linear-reg) | Tuesday, 3/12  |
-| [Final Written Report](#sim)| Friday, 3/15 |
+| [Final Written Report](#sim) (Simulation portion + modifications from checkpoint feedback) | Friday, 3/15 |
 
 Please turn in your `.html` document at each check-point. *You can continue to build on one file for each subsequentive check-point.*
 
@@ -244,53 +244,53 @@ about [here](https://moderndive.com/6-multiple-regression.html#rsquared).
 
 ## Simulation {#sim}
 
-COMING SOON!
+Note you should continue working with the data that is averaged over years for this section (i.e., one row/observation per country).
 
-<!-- ::: callout -->
-<!-- ### Objectives -->
-<!-- - generate predictions from your chosen linear regression model   -->
-<!-- - use the predictions to simulate observations   -->
-<!-- - compare the simulated data to the observed data   -->
-<!-- - generate multiple predictive checks for your model   -->
-<!-- ::: -->
+::: callout
+### Objectives
+- generate predictions from your chosen linear regression model
+- use the predictions to simulate observations
+- compare the simulated data to the observed data
+- generate multiple predictive checks for your model
+:::
 
-<!-- ::: callout -->
-<!-- ### Written Components -->
-<!-- - Present visualization of simulated data (side by side observed data) and disucss similarities and/or differences. -->
-<!-- - Present $R^2$ distribution plot and discuss implications. -->
-<!-- ::: -->
+::: callout
+### Written Components
+- Present visualization of simulated data (side by side observed data) and disucss similarities and/or differences.
+- Present $R^2$ distribution plot and discuss implications.
+:::
 
-<!-- ### Visualizing Simulations from the Model -->
+### Visualizing Simulations from the Model
 
-<!-- With your simple linear regression, generate predictions using the `predict()` -->
-<!-- function. Then, add random errors to the predictions, using the residual -->
-<!-- standard error estimated from the linear regression model -->
-<!-- (acquired with `sigma()`).  -->
+With your simple linear regression, generate predictions using the `predict()`
+function. Then, add random errors to the predictions, using the residual
+standard error estimated from the linear regression model
+(acquired with `sigma()`).
 
-<!-- Now, compare these simulated observations to the observed data. Generate the  -->
-<!-- **same** plot of the relationships modeled by the linear regression, for the -->
-<!-- simulated data (that you made at during [2.1 Data Visualizations](#dataviz)).  -->
+Now, compare these simulated observations to the observed data. Generate the
+**same** plot of the relationships modeled by the linear regression, for the
+simulated data (that you made at during [2.1 Data Visualizations](#dataviz)).
 
-<!-- > Plot the visualization of the observed data and the simulated data side-by-side. -->
-<!-- > -->
-<!-- > Discuss how the simulated data are similar and / or different to the observed -->
-<!-- data.  -->
+> Plot the visualization of the observed data and the simulated data side-by-side.
+>
+> Discuss how the simulated data are similar and / or different to the observed
+data.
 
-<!-- ### Generating Multiple Predictive Checks  -->
+### Generating Multiple Predictive Checks
 
-<!-- Generate *at least* 1000 simulated datasets that you expect would have been  -->
-<!-- observed if your regression model adequately described the relationship between  -->
-<!-- your response and explanatory variables.  -->
+Generate *at least* 1000 simulated datasets that you expect would have been
+observed if your regression model adequately described the relationship between
+your response and explanatory variables.
 
-<!-- Regress the observed dataset against each simulated dataset  -->
-<!-- (e.g. `lm(observed ~ simulated)`), and keep the $R^2$ from each regression. Keep  -->
-<!-- in mind that `lm()` discards any observations with missing values (`NA`) for  -->
-<!-- **any** of the variables included in your model. So, you will need to remove  -->
-<!-- these observations *before* joining with the observed data.  -->
+Regress the observed dataset against each simulated dataset
+(e.g. `lm(observed ~ simulated)`), and keep the $R^2$ from each regression. Keep
+in mind that `lm()` discards any observations with missing values (`NA`) for
+**any** of the variables included in your model. So, you will need to remove
+these observations *before* joining with the observed data.
 
-<!-- > Plot the distribution of the $R^2$ values from the regressions.  -->
-<!-- > -->
-<!-- > Discuss the implications of the values shown in the plot (i.e., How well does your model generate data similar to what was observed?) -->
+> Plot the distribution of the $R^2$ values from the regressions.
+>
+> Discuss the implications of the values shown in the plot (i.e., How well does your model generate data similar to what was observed?)
 
 ## Project Options [max +27 FP] {-}
 
