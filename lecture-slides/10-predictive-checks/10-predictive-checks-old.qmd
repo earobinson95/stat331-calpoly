@@ -1,0 +1,175 @@
+---
+title: "WEEK 10: PREDICTIVE CHECKS & FINAL PROJECT"
+format: 
+  revealjs:
+    theme: [default, ../../slide_custom.scss]
+    auto-stretch: false
+editor: source
+self-contained: true
+execute:
+  echo: true
+---
+
+```{r setup}
+#| include: false
+#| message: false
+library(tidyverse)
+```
+
+## Tuesday, March 12th
+
+Today we will...
+
++ Reminders
+  + Game Plan Survey
+  + Course Evaluations
++ New Material:
+  + Predictive Checks
++ Work Time:
+  + Final Project
+
+## Predictive Checks
+
+Assess if the model would produce data similar to what was observed.
+
+::: callout-caution
+Predictive checks **do not** make predictions for new observations.
+:::
+
+## A little bit on Bayesian Statistics
+
+:::: columns
+::: column
+
+Bayes!
+
+```{r}
+#| echo: false
+#| out-width: 80%
+#| fig-align: center
+knitr::include_graphics("images/bayes.gif")
+```
+:::
+::: column
+
+**Why do we care?** An assessment of "subjective" choices!
+
+```{r}
+#| echo: false
+#| out-width: 80%
+#| fig-align: center
+knitr::include_graphics("images/posterior.jpg")
+```
+:::
+::::
+
+## Final Project -- "subjective" choice
+
+Requirements of a "good" regression model (LINE)
+
++ Linear Relationships
++ Indepdent Observations
++ Normality of Residuals
++ Constant / Equal Variance
+
+## Predictive Checks
+
+1. Fit a regression model to observed data.
+
+2. Obtain Predictions from the model and add random errors to the predictions.
+
+3. Compare simulated data to observed data.
+
+4. Iterate!
+
+## Fit Linear Regression `lm`
+
+```{r}
+#| echo: false
+#| out-width: 75%
+#| fig-align: center
+knitr::include_graphics("images/predchecks-1.jpg")
+```
+
+## Simulated data: Obtain Predictions + Simulate Errors `predict` + `rnorm`
+
+```{r}
+#| echo: false
+#| out-width: 70%
+#| fig-align: center
+knitr::include_graphics("images/predchecks-2.jpg")
+```
+
+## Regress Observed vs Simulated `lm`
+
+```{r}
+#| echo: false
+#| out-width: 100%
+#| fig-align: center
+knitr::include_graphics("images/predchecks-3.jpg")
+```
+
+Measure "similarity" -- $R^2$ proportion of variability explained
+
+::: callout-note
+### Similarity Measures
+Could also use correlation ($r$), size of the sum of squared errors ($SSE$), or the estimate of $\hat \sigma$ ($RMSE$)
+:::
+
+## Iterate! `map`
+
+```{r}
+#| echo: false
+#| out-width: 100%
+#| fig-align: center
+knitr::include_graphics("images/predchecks-4.jpg")
+```
+
+## Distribution of Simulated $R^2$ `geom_hist`
+
+```{r}
+#| echo: false
+#| out-width: 80%
+#| fig-align: center
+knitr::include_graphics("images/predchecks-5.jpg")
+```
+
+## To do...
+
++ **Game Plan Survey**
+  
++ **Course Evaluation**
+  + Closes **Friday, 3/15 at 11:59pm**
+  
++ **Final Project Report**
+  + Due **Sunday, 3/17 at 11:59pm**
+  
++ **Final Exam -- Thursday 3/21**
+  + Section 70 (9-11am): **10:10am - 1:00pm**
+  + Section 71 (12-2pm): **1:10am - 4:00pm**
+
+## Thursday, March 14th
+
+Today we will...
+
++ Final Exam: What to Expect
++ Game Plan Survey
++ Course Evaluation
++ R Hex Cookies!
++ Final Project work-time
+
+
+## To do...
+
++ **Game Plan Survey**
+  
++ **Course Evaluation**
+  + Closes **Friday, 3/15 at 11:59pm**
+  
++ **Final Project Report**
+  + Due **Sunday, 3/17 at 11:59pm**
+  
++ **Final Exam -- Thursday 3/21**
+  + Section 70 (9-11am): **10:10am - 1:00pm**
+  + Section 71 (12-2pm): **1:10am - 4:00pm**
+  
