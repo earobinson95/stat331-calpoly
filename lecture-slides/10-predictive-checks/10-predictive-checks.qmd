@@ -41,7 +41,7 @@ Today we will...
 
 **Code:**
 
-+ All code should be hidden -- use `echo: false`.
++ All code should be hidden or folded -- use `echo: false` or `code-fold: true`.
 + Don't name the `R` functions you have used ("We used `str_detect` to...".).
   + Instead, describe what you did in plain English.
 + Don't use dataset or variable names in the text.
@@ -57,6 +57,7 @@ Today we will...
   + data sources.
   + description of your variables that is not general knowledge.
 + You should have **both** in-line citations and a *References* section at the end of your report.
++ You may find the `visual editor > insert > @citations` useful
 
 
 ## Data Intro + Cleaning: Feedback
