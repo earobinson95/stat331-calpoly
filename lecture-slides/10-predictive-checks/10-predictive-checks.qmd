@@ -375,6 +375,11 @@ The exam is **cumulative** and will definitely contain questions on:
 + Functional programming with `map`,
 + Statistical modeling with `lm`.
 
+## Finals Week: Office Hours
+
+::: callout-warning
+Wednesday (3/20) -- 12:10pm - 2pm; 4:10pm - 5pm
+:::
 
 # Q & A
 
@@ -390,9 +395,10 @@ The exam is **cumulative** and will definitely contain questions on:
   + Closes **Friday, 3/15 at 11:59pm**
   
 + **Final Project Report**
-  + Due **Friday, 3/15 at 11:59pm**
+  + Due **Sunday, 3/17 at 11:59pm**
   
 + **Final Exam -- Thursday 3/21**
+  + Office Hours: Wed. -- 12:10pm - 2pm; 4:10pm - 5pm
   + Section 70 (9-11am): **10:10am - 1:00pm**
   + Section 71 (12-2pm): **1:10am - 4:00pm**
   
