@@ -333,6 +333,7 @@ Today we will...
 
 + If you do any transformations, make sure you mention them.
   + Also make sure they are clear on any plots!
+  + Be *very* cautious when interpretting your estimated coefficients and writing your model.
 
 
 ## Linear Regression: Feedback
@@ -340,30 +341,24 @@ Today we will...
 + When you present a plot or a table, **discuss in words** what you want the reader to take away from it.
   + Discuss the table of variances as part of your discussion of model fit.
 
-
-+ If you are modeling the average across years (or one particular year) make sure you include a plot of the average (or that year) in addition to the full data.
++ You should be modeling the average across years (each observation is a country). Make sure you include a plot of the average.
 
 
 ## Linear Regression: Feedback
 
-+ Some of you used a ratio of the response to the explanatory to show the relationship over time.
-  + This is often not easy to understand or interpret.
-  + I encourage you to find a clearer way to display this relationship over time.
-  + If you choose to go this route, you will need lots of clear explanation about what ratio you are calculating and what it means.
-  
++ Address model conditions when discussing why/why not Linear Regression is appropriate (Linearity, Independence, Normality, Equal Variance).
++ When describing a histogram, address form, direction, strength, unusual observations.
++ When interpreting your estimated coefficients, make sure you clearly note this is for the estimated/predicted/mean average response.
 
 ## Final Exam: What to Expect
 
-+ COMING SOON
-
-<!-- + The exam is worth a total of 100 points and has 3 parts: General Questions, Short Answer, and Statistical Modeling. -->
-<!-- + You will have 2 hours and 50 minutes for the entire exam. -->
-<!-- + You will complete Part 1: General Questions first.  -->
-<!--   + This part is closed note and closed computer. -->
-<!-- + You can complete the questions in Part 2: Short Answer and Part 3: Statistical Modeling in any order. -->
-<!--   + A .qmd starter file will be opened at the start of each final. -->
-<!--   + I will pass out paper copies of the questions. -->
-
++ The exam is worth a total of 100 points and has 3 parts: General Questions, Short Answer, and Statistical Modeling.
++ You will have 2 hours and 50 minutes for the entire exam.
++ You will complete Part 1: General Questions first.
+  + This part is closed note and closed computer.
++ You can complete the questions in Part 2: Short Answer and Part 3: Statistical Modeling in any order.
+  + A `.qmd` starter file will be opened at the start of each final.
+  + I will pass out paper copies of the questions.
 
 ## Final Exam: What to Expect
 
