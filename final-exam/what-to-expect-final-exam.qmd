@@ -6,7 +6,6 @@ format:
     self-contained: true
     code-tools: true
     toc: true
-    number-sections: true
 editor: source
 execute: 
   error: true
@@ -18,43 +17,50 @@ execute:
 ```{r setup}
 #| include: false
 library(tidyverse)
-library(lubridate)
 ```
+
+::: callout-warning
+## Finals Week: Office Hours
+
+Wednesday, 3/20, at 12:10-2pm and 4:10 - 5pm
+:::
+
+*The point allocation is tentative; the rubric may be updated before next Thursday.*
 
 ## Exam Details {-}
 
-**Wednesday, 3/22 at 10:10am - 1:00pm: Section 70 (if you come to class 10:10am - 12:00pm)**
+Thursday, 3/21
 
-**Monday, 3/20 at 10:10am - 1:00pm: Section 71 (if you come to class 12:10pm - 2:00pm)**
++ Section 70 -- 10:10am - 1:00pm (if you come to class 9:10am - 12:00pm)
++ Section 71 -- 1:10pm - 4:00pm (if you come to class 12:10pm - 2:00pm)
 
-+ The exam is worth a total of 100 points and consists of 3 sections: General Questions, Short Answer, and Statistical Modeling.
-+ I will bring paper copies of the exam questions 
-+ You will have two hours and 50 minutes to complete the exam on your own computer.
-+ A `.qmd` starter file for sections two and three will be unlocked at the start of each sections final.
+**Part 1: General Questions** (25 points)
 
-::: callout-caution
-While this is an open resource exam, you will likely get caught running out of time if you have to look everything up. Know what functions you might need to approach the problem and where to find documentation for implementing these functions.
-:::
++ This part will be completed on paper and without any resources.
++ This part must be completed first – you will submit the answer sheet before moving on to Parts 2 and 3.
 
-## Policies {-}
+**Part 2: Short Answer (50 points) + Part 3: Statistical Modeling (25 points)**
 
-+ You may use: any online resources, including anything posted on Canvas, in the text, or in your past assignments.
-+ You may **NOT** contact anyone, inside or outside this class, during the course of the exam.  This includes email, chat/messenger services, and posting on online forums and message boards.
-+ Violations of academic honesty include accessing and using any illegal materials, and giving or receiving help on this exam including looking at other student's exams, allowing other students to look at your own exam, and/or revealing any information about this exam or future exams to someone who has not yet taken it.
-+ Students who exhibit academic misconduct will be reported to the Office of Student Rights
-and Responsibilities; academic dishonesty may be punishable by a grade of F in this course.
-+ If you witness others exhibiting academic misconduct, you have a duty to report them to your professor.
++ These parts will be completed on your computer.
++ You may use any non-human resources.
++ Download the `.qmd` template from the Canvas assignment for your class section.
++ You will submit both your `.html` and `.qmd` files to the Canvas assignment.
 
-## Basic Instructions {-}
+**Please note:**
 
-+ Please note that you will probably need to use the data documentation in order to successfully complete this exam.
-+ The problems on this exam do not necessarily need to be completed sequentially, e.g., if you cannot accomplish problem 1, you may still be able to accomplish problem 2.
-+ Some parts to problems may need to be completed sequentially.  If you cannot complete part (a), please outline code or your thought process for completing part (b).
-+ All questions should be answered **using R code**.  Make sure your code prints out only the information that directly answers the question.  **Penalties will be given if your .html file has extra output beyond that which answers the question.**
-+ If your code has errors that you cannot fix in time, you may also include in the comments explanations of your thought process, to potentially receive partial credit.
-+ For parts two and three, submit both your `.qmd` and `.html` file on Canvas by the end of the allotted time. However, only your `.html` file will be graded - make sure the knitted output contains all your answers.
-+ Late uploads will be automatically deducted by -5 points per minute!
-  
++ You have 2 hours and 50 minutes to complete the exam.
+  + Late uploads will automatically be deducted 5 points per minute!
++ The problems on this exam do not necessarily need to be completed in order – if you cannot accomplish problem 1, you may still be able to accomplish problem 2.
++ Don’t spend too long on one question.
++ Point allocations have been given to each problem to help you manage your time.
+  + If any questions arise during the exam, please do not hesitate to ask!
+
+**Resource Policies**
+
++ For Parts 2 and 3, you may use any online resources, including anything posted on Canvas, in the text, or in your past assignments.
++ You may NOT contact anyone, inside or outside this class, during the course of the exam. This includes email, chat/messenger services, and posting on online forums and message boards.
++ You may NOT discuss the exam with any other students.
+
 ## The Data {-}
 
 [Download `national_park_trails.csv`](national_park_trails.csv)
@@ -90,10 +96,6 @@ You may bring to the exam any pre-analysis you have done of this data.
 
 You will be asked a series of ten questions about performing operations with the `tidyverse`, simulating data, plotting, etc. These will be multiple choice, fill in the blank, matching, and select all that apply style.
 
-::: callout-note
-You will fill out your answers in a Canvas Quiz.
-:::
-
 ## Short Answer [50 points]
 
 You will be given a `.qmd` template and asked a series of short questions about the national park data set, such as "Which word was most and least familiar to participants under 20 years old?" 
@@ -110,16 +112,6 @@ The "one" pipeline rule holds for the body of the function and the entirety of t
 You will turn in your `.html` and `.qmd` files, but only your `.html` file will be graded. You will be graded on the correct output, as well as your code style, workflow, and design.
 :::
 
-<!-- You will enter your answers into a "quiz" on Canvas.   -->
-
-<!-- You will also turn in your `.html` and `.qmd` files.  These do not need to be formatted or styled nicely, and they will not be graded; they will only be used to confirm that you used code, not Google, to answer the questions. -->
-
-<!-- After submitting your Canvas quiz, you will be able to see your score.  You may choose to correct your wrong answers and resubmit again, and your scores will be averaged. -->
-
 ## Statistical Modeling [25 points]
 
 You will be given a `.qmd` template and asked to conduct a statistical analysis on the national park data set to answer a question. You will be asked to interpret the results of your model.
-
-::: callout-warning
-A second course in statistics is a prerequisite for this course and you may have to slightly extend some of the skills directly learned in this class with your knowledge from prior statistics courses.
-:::
